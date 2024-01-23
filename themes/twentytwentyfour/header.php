@@ -11,8 +11,8 @@
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-BKQBLFP3ZT"></script>
         <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-BKQBLFP3ZT")</script>
         <title>Telesens</title>
-        <script defer="defer" src="<?php echo get_template_directory_uri() . '/assets/js/main.js?t='.time()?>"></script>
-        <link href="<?php echo get_template_directory_uri() . '/assets/css/style.css?t='.time()?>" rel="stylesheet">
+        <script defer="defer" src="<?php echo path('js', 'main.js')?>"></script>
+        <link href="<?php echo path('css', 'style.css')?>" rel="stylesheet">
     </head>
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>

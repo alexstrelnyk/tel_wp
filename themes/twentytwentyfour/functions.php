@@ -204,3 +204,23 @@ if ( ! function_exists( 'twentytwentyfour_pattern_categories' ) ) :
 endif;
 
 add_action( 'init', 'twentytwentyfour_pattern_categories' );
+
+function path($param, $file_name) {
+	$postfix = '';
+	switch ($param) {
+		case 'css':
+			$path = '/assets/css/';
+			$postfix = '?t=' . time();
+			break;
+		case 'js':
+			$path = '/assets/js/';
+			$postfix = '?t=' . time();
+			break;
+		case 'images':
+			$path = '/assets/images/';
+			break;
+
+	}
+	
+	return get_template_directory_uri() . $path . $file_name . $postfix;
+}
