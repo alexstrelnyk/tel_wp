@@ -128,6 +128,27 @@
                 </div>
             </footer>
         </main>
+        <?php
+        /*
+        <script type="text/javascript">_linkedin_partner_id="5374538",window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[],window._linkedin_data_partner_ids.push(_linkedin_partner_id)</script>
+        <script type="text/javascript">!function(n){window.lintrk||(window.lintrk=function(n,t){window.lintrk.q.push([n,t])},window.lintrk.q=[]);var t=document.getElementsByTagName("script")[0],i=document.createElement("script");i.type="text/javascript",i.async=!0,i.src="https://snap.licdn.com/li.lms-analytics/insight.min.js",t.parentNode.insertBefore(i,t)}()</script>
+        <noscript><img height="1" width="1" style="display:none" alt="" src="https://px.ads.linkedin.com/collect/?pid=5374538&fmt=gif"/></noscript>
+        <deepl-input-controller></deepl-input-controller>
+        <script>(() => {
+        window.addoncropExtensions = window.addoncropExtensions || [];
+        window.addoncropExtensions.push({
+            mode: 'emulator',
+            emulator: 'Foxified',
+            extension: {
+                id: 44,
+                name: 'Загрузчик Видео и MP3 с YouTube',
+                version: '17.2.8',
+                date: 'February 14, 2023',
+            },
+            flixmateConnected: false,
+        });
+    })();</script>
+    */ ?>
 
     </body>
 
