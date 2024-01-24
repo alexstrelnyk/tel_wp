@@ -1,4 +1,4 @@
-            <footer id=":rd:" class="width-wrapper bg-grey-blue">
+            <footer id="footer" class="width-wrapper bg-grey-blue">
                 <div class="container flex-col">
                     <div class="top-footer">
                         <ul class="pages">
