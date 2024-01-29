@@ -18,12 +18,7 @@
     </script>
     <title>Telesens</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    
-    <?php if(is_front_page()) { ?>
-        <script defer="defer" src="<?php echo path('js', 'main.js') ?>"></script>
-    <?php } else { ?>
-        <script defer="defer" src="<?php echo path('js', 'index.js') ?>"></script>
-    <?php } ?>
+    <script defer="defer" src="<?php echo path('js', 'index.js') ?>"></script>
     <link href="<?php echo path('css', 'style.css') ?>" rel="stylesheet">
 </head>
 
