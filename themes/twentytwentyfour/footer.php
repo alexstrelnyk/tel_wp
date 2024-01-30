@@ -1,49 +1,13 @@
-            <footer id="footer" class="width-wrapper bg-grey-blue">
+            <footer id=":rd:" class="width-wrapper bg-grey-blue">
                 <div class="container flex-col">
                     <div class="top-footer">
                         <ul class="pages">
-                            <li class="label">
-                                <a class="Sub animated-link " href="/about-us">
-                                    <span class="title">
-                                        <span data-text="Про нас" class="color-after-dark-blend-a color-before-white">Про нас</span>
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="label">
-                                <a class="Sub animated-link " href="/products-services">
-                                    <span class="title">
-                                        <span data-text="Продукти і послуги" class="color-after-dark-blend-a color-before-white">Продукти і послуги</span>
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="label">
-                                <a class="Sub animated-link " href="/career">
-                                    <span class="title">
-                                        <span data-text="Вакансії" class="color-after-dark-blend-a color-before-white">Вакансії</span>
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="label">
-                                <a class="Sub animated-link " href="/contact-us">
-                                    <span class="title">
-                                        <span data-text="Контакти" class="color-after-dark-blend-a color-before-white">Контакти</span>
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="label">
-                                <a class="Sub animated-link " href="/blog">
-                                    <span class="title">
-                                        <span data-text="Блог" class="color-after-dark-blend-a color-before-white">Блог</span>
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="label">
-                                <a class="Sub animated-link " href="/charity">
-                                    <span class="title">
-                                        <span data-text="Благодійність" class="color-after-dark-blend-a color-before-white">Благодійність</span>
-                                    </span>
-                                </a>
-                            </li>
+                            <li class="label"><a class="Sub animated-link " href="/about-us"><span class="title"><span data-text="Про нас" class="color-after-dark-blend-a color-before-white">Про нас</span></span></a></li>
+                            <li class="label"><a class="Sub animated-link " href="/products-services"><span class="title"><span data-text="Продукти і послуги" class="color-after-dark-blend-a color-before-white">Продукти і послуги</span></span></a></li>
+                            <li class="label"><a class="Sub animated-link " href="/career"><span class="title"><span data-text="Вакансії" class="color-after-dark-blend-a color-before-white">Вакансії</span></span></a></li>
+                            <li class="label"><a class="Sub animated-link " href="/contact-us"><span class="title"><span data-text="Контакти" class="color-after-dark-blend-a color-before-white">Контакти</span></span></a></li>
+                            <li class="label"><a class="Sub animated-link " href="/blog"><span class="title"><span data-text="Блог" class="color-after-dark-blend-a color-before-white">Блог</span></span></a></li>
+                            <li class="label"><a class="Sub animated-link " href="/charity"><span class="title"><span data-text="Благодійність" class="color-after-dark-blend-a color-before-white">Благодійність</span></span></a></li>
                         </ul>
                         <ul class="contacts">
                             <li class="label contact-title">
@@ -75,30 +39,13 @@
                             <li class="label">
                                 <p class="Sub color-white ">Наші соцмережі</p>
                             </li>
-                            <li class="link-label">
-                                <a class="Body animated-link " href="https://www.linkedin.com/company/27443/admin/" target="_blank" rel="noopener noreferrer">
-                                    <span class="title"><span data-text="LinkedIn" class="color-after-dark-blend-a color-before-white">LinkedIn</span></span>
-                                </a>
-                            </li>
-                            <li class="link-label">
-                                <a class="Body animated-link " href="https://www.instagram.com/telesens_it/?hl=en" target="_blank" rel="noopener noreferrer">
-                                    <span class="title"><span data-text="Instagram" class="color-after-dark-blend-a color-before-white">Instagram</span></span>
-                                </a>
-                            </li>
-                            <li class="link-label">
-                                <a class="Body animated-link " href="https://twitter.com/Telesens_IT" target="_blank" rel="noopener noreferrer">
-                                    <span class="title"><span data-text="Twitter" class="color-after-dark-blend-a color-before-white">Twitter</span></span>
-                                </a>
-                            </li>
-                            <li class="link-label">
-                                <a class="Body animated-link " href="https://www.facebook.com/Telesens" target="_blank" rel="noopener noreferrer">
-                                    <span class="title"><span data-text="Facebook" class="color-after-dark-blend-a color-before-white">Facebook</span></span>
-                                </a>
-                            </li>
+                            <li class="link-label"><a class="Body animated-link " href="https://www.linkedin.com/company/27443/admin/" target="_blank" rel="noopener noreferrer"><span class="title"><span data-text="LinkedIn" class="color-after-dark-blend-a color-before-white">LinkedIn</span></span></a></li>
+                            <li class="link-label"><a class="Body animated-link " href="https://www.instagram.com/telesens_it/?hl=en" target="_blank" rel="noopener noreferrer"><span class="title"><span data-text="Instagram" class="color-after-dark-blend-a color-before-white">Instagram</span></span></a></li>
+                            <li class="link-label"><a class="Body animated-link " href="https://twitter.com/Telesens_IT" target="_blank" rel="noopener noreferrer"><span class="title"><span data-text="Twitter" class="color-after-dark-blend-a color-before-white">Twitter</span></span></a></li>
+                            <li class="link-label"><a class="Body animated-link " href="https://www.facebook.com/Telesens" target="_blank" rel="noopener noreferrer"><span class="title"><span data-text="Facebook" class="color-after-dark-blend-a color-before-white">Facebook</span></span></a></li>
                         </ul>
                     </div>
-                    <div class="bottom-footer">
-                        <svg id="logo" width="152" height="40" viewBox="0 0 152 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-white">
+                    <div class="bottom-footer"><svg id="logo" width="152" height="40" viewBox="0 0 152 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-white">
                             <path d="M10.5584 2.60049V24.8866H7.74737V2.60049H0V0.00272036H18.2372V2.60049H10.5584Z" fill="white"></path>
                             <path d="M27.8376 6.83623C29.7573 6.83623 31.4028 7.31477 32.774 8.20348C34.1452 9.16055 35.1736 10.3911 35.8592 12.0318C36.1335 12.7154 36.3392 13.5357 36.4077 14.4245C36.4763 15.3132 36.4077 16.0651 36.2021 16.612H21.3929C21.3929 18.4578 22.01 19.9618 23.2441 21.0556C24.4782 22.1494 26.1236 22.6963 28.1119 22.7647C30.3744 22.7647 32.4312 22.1494 34.2824 20.8505L35.6536 22.4229C33.3225 24.2003 30.8543 25.1573 28.1119 25.1573C25.3694 25.1573 23.1069 24.2686 21.3929 22.6279C19.6789 20.9189 18.7876 18.7313 18.7876 16.0652C18.7876 13.4674 19.6103 11.2798 21.3244 9.57072C22.9698 7.72494 25.1638 6.83623 27.8376 6.83623ZM27.8376 9.22891C26.0551 9.22891 24.6153 9.77581 23.4497 10.8696C22.2842 11.9634 21.6672 13.2623 21.5301 14.8346H33.871C33.9396 14.2194 33.8024 13.5357 33.4596 12.7838C32.9797 11.69 32.2941 10.8012 31.3342 10.186C30.3058 9.57072 29.2089 9.22891 27.8376 9.22891Z" fill="white"></path>
                             <path d="M44.5639 0H41.9592V24.8839H44.5639V0Z" fill="white"></path>
@@ -127,9 +74,9 @@
                     </div>
                 </div>
             </footer>
-        </main>
-        <?php
-        /*
+            </main>
+            <?php
+            /*
         <script type="text/javascript">_linkedin_partner_id="5374538",window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[],window._linkedin_data_partner_ids.push(_linkedin_partner_id)</script>
         <script type="text/javascript">!function(n){window.lintrk||(window.lintrk=function(n,t){window.lintrk.q.push([n,t])},window.lintrk.q=[]);var t=document.getElementsByTagName("script")[0],i=document.createElement("script");i.type="text/javascript",i.async=!0,i.src="https://snap.licdn.com/li.lms-analytics/insight.min.js",t.parentNode.insertBefore(i,t)}()</script>
         <noscript><img height="1" width="1" style="display:none" alt="" src="https://px.ads.linkedin.com/collect/?pid=5374538&fmt=gif"/></noscript>
@@ -150,6 +97,6 @@
     })();</script>
     */ ?>
 
-    </body>
+            </body>
 
-</html>
+            </html>
