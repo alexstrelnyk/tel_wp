@@ -75,6 +75,10 @@
                 </div>
             </footer>
             </main>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.0/paper-core.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+            <script defer="defer" src="<?php echo path('js', 'cursor.js') ?>"></script>
+            
             <?php
             /*
         <script type="text/javascript">_linkedin_partner_id="5374538",window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[],window._linkedin_data_partner_ids.push(_linkedin_partner_id)</script>
