@@ -1,24 +1,26 @@
 #cursor {
     position: fixed;
-    top: -7px;
-    left: -7px;
-    width: 14px;
-    height: 14px;
+    top: -9px;
+    left: -9px;
+    width: 18px;
+    height: 18px;
     background-color: white;
     border-radius: 50%;
+    border: 1px solid #777;
     pointer-events: none;
     z-index: 999;
 }
 
 #cursor-border {
-    --size: 36px;
+    --size: 40px;
     position: fixed;
     top: calc(var(--size) / -2);
     left: calc(var(--size) / -2);
     width: var(--size);
     height: var(--size);
     border-radius: 50%;
-    box-shadow: 0 0 0 1px white;
+    border: 1px solid #777;
+    /* box-shadow: 0 0 0 1px white; */
     pointer-events: none;
     transition: top 0.15s ease-out, left 0.15s ease-out, width 0.15s ease-out,
         height 0.15s ease-out, background-color 0.15s ease-out;
