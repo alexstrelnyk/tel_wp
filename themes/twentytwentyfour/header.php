@@ -27,6 +27,10 @@
 <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
 
+
+    <div id="cursor"></div>
+    <div id="cursor-border"></div>
+    
     <section id="splash-screen" class="splash">
         <div class="splash-container">
             <svg width="700" height="500" viewBox="0 0 500 700" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,12 +39,5 @@
             </svg>
         </div>
     </section>
-
-    <div class="page">
-      <div class="page__inner">
-        <div class="cursor cursor--small"></div>
-        <canvas class="cursor cursor--canvas" resize></canvas>
-      </div>
-    </div>
 
     <main id="root">
