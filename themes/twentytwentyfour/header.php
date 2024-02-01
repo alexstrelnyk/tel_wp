@@ -26,6 +26,9 @@
 
 <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    
+    <!-- Admin top panel -->
+    <?php wp_footer(); ?>
 
     <section id="splash-screen" class="splash">
         <div class="splash-container">
