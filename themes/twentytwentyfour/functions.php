@@ -224,3 +224,11 @@ function path($param, $file_name) {
 	
 	return get_template_directory_uri() . $path . $file_name . $postfix;
 }
+
+
+register_nav_menus(
+    array(
+    'primary-menu' => __( 'Primary Menu' ),
+    'secondary-menu' => __( 'Secondary Menu' )
+    )
+);

@@ -26,7 +26,7 @@
 
 <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    
+
     <!-- Admin top panel -->
     <?php wp_footer(); ?>
 
@@ -42,3 +42,8 @@
     <main id="root">
         <div id="cursor"></div>
         <div id="cursor-border"></div>
+
+        <div class="fade bg-navy-green"></div>
+        <?php get_template_part('menu');?>
+
+        
