@@ -5,15 +5,23 @@
             <?php
             $posts = get_posts(['post_type' => 'nav_menu_item', 'number_posts' => -1, 'orderby' => 'menu_order', 'order' => 'ASC']);
             foreach ($posts as $key => $value) {
-                $post_id =  get_post_meta($value->ID, '_menu_item_object_id', true);
-                $url = get_permalink($post_id);
-                $title = get_the_title($post_id);
-                $image = get_field('image', $value->ID);
+                if (get_post_meta($value->ID, '_menu_item_type', true) == 'custom'){
+                    $url = get_post_meta($value->ID, '_menu_item_url', true);
+                    $title = $value->post_title;
+                    $image = get_field('image', $value->ID);
+                } else {
+                    $post_id =  get_post_meta($value->ID, '_menu_item_object_id', true);
+                    $url = get_permalink($post_id);
+                    $title = $value->post_title ? $value->post_title : get_the_title($post_id);
+                    $image = get_field('image', $value->ID);
+                }
             ?>
                 <div class="link">
                     <a class="" href="<?php echo $url ?>">
                         <span class="label color-black"><?php echo $title ?></span>
-                        <img loading="lazy" src="<?php echo $image ?>" alt="<?php echo $title ?>" class="main-menu-picture">
+                        <?php if ($image) { ?>
+                            <img loading="lazy" src="<?php echo $image ?>" alt="<?php echo $title ?>" class="main-menu-picture">
+                        <?php } ?>
                     </a>
                 </div>
             <?php
