@@ -17,8 +17,8 @@
                 }
             ?>
                 <div class="link">
-                    <a class="" href="<?php echo $url ?>">
-                        <span class="label color-black"><?php echo $title ?></span>
+                    <a class="" href="<?php echo $url ? $url : 'empty' ?>">
+                        <span class="label color-black"><?php echo $title ? $title : 'empty' ?></span>
                         <?php if ($image) { ?>
                             <img loading="lazy" src="<?php echo $image ?>" alt="<?php echo $title ?>" class="main-menu-picture">
                         <?php } ?>
