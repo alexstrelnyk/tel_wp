@@ -5,22 +5,6 @@ Template Name: about-us
 get_header();
 
 ?>
-<div class="fade bg-navy-green"></div>
-<section id=":r1:" class="main-menu">
-    <div class="up">
-        <div class="main-links">
-            <div class="link"><a class=""><span class="label color-soft-blue">Рішення для телекому</span><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/9b572597-70c9-447b-8164-6c628ba02ad2Rectangle 1143.png" alt="Рішення для телекому" class="main-menu-picture"></a></div>
-            <div class="link"><a class=""><span class="label color-soft-blue">Послуги</span><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/8acf1cee-8201-4c7b-b473-cbdf5d2c071eRectangle 1139.png" alt="Послуги" class="main-menu-picture"></a></div>
-            <div class="link"><a class=""><span class="label color-soft-blue">QA послуги</span><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/c4c5e732-699e-4e42-80fb-256b4a87d4dbRectangle 349.png" alt="QA послуги" class="main-menu-picture"></a></div>
-            <div class="link"><a class=""><span class="label color-soft-blue">Відділ PM&amp;BA</span><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/fbdb5a09-1327-4b61-8141-262351a97c77Rectangle 1140.png" alt="Відділ PM&amp;BA" class="main-menu-picture"></a></div>
-        </div>
-        <div class="footer-links">
-            <div class="follow-links"><a class="None animated-link underlined-link" href="https://www.facebook.com/Telesens" target="_blank" rel="noopener noreferrer"><span class="title"><span data-text="Facebook" class="color-after-bright-green color-before-soft-blue">Facebook</span></span></a><a class="None animated-link underlined-link" href="https://www.instagram.com/telesens_it/?hl=en" target="_blank" rel="noopener noreferrer"><span class="title"><span data-text="Instagram" class="color-after-bright-green color-before-soft-blue">Instagram</span></span></a><a class="None animated-link underlined-link" href="https://www.linkedin.com/company/27443/admin/" target="_blank" rel="noopener noreferrer"><span class="title"><span data-text="LinkedIn" class="color-after-bright-green color-before-soft-blue">LinkedIn</span></span></a><a class="None animated-link underlined-link" href="https://twitter.com/Telesens_IT" target="_blank" rel="noopener noreferrer"><span class="title"><span data-text="Twitter" class="color-after-bright-green color-before-soft-blue">Twitter</span></span></a></div>
-            <div class="page-links"><a class="Sub2 animated-link " href="/about-us"><span class="title"><span data-text="Про нас" class="color-after-bright-green color-before-soft-blue">Про нас</span></span></a><a class="Sub2 animated-link " href="/blog"><span class="title"><span data-text="Блог" class="color-after-bright-green color-before-soft-blue">Блог</span></span></a><a class="Sub2 animated-link " href="/contact-us"><span class="title"><span data-text="Контакти" class="color-after-bright-green color-before-soft-blue">Контакти</span></span></a><a class="Sub2 animated-link " href="/career"><span class="title"><span data-text="Вакансії" class="color-after-bright-green color-before-soft-blue">Вакансії</span></span></a><a class="Sub2 animated-link " href="/charity"><span class="title"><span data-text="Благодійність" class="color-after-bright-green color-before-soft-blue">Благодійність</span></span></a></div>
-        </div>
-    </div>
-    <div class="menu bg-navy-green" style="left: 789.021px; top: 30.6276px;"></div>
-</section>
 
 <header id=":r0:" class="bg-soft-blue">
     <div class="root"><svg id="logo" width="152" height="40" viewBox="0 0 152 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-navy-green">
