@@ -73,6 +73,10 @@
                         <p class="Body color-white ">@<?php echo date('Y') ?> TELESENS IT</p>
                     </div>
                 </div>
+
+                <!-- Admin top panel -->
+                <?php wp_footer(); ?>
+                
             </footer>
             </main>
             <script defer="defer" src="<?php echo path('js', 'cursor.js') ?>"></script>
