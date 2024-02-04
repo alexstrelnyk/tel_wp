@@ -5,9 +5,9 @@
             <?php
 
             if (in_array(get_post_field('post_name', get_queried_object_id()), [
-                'about-us'
+                'home'
             ])) {
-                $green_bg = true;
+                $green_bg = false;
             }
 
             $menu_bg_label = 'color-black';
