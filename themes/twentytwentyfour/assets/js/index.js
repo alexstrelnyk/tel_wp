@@ -17,7 +17,9 @@ $('.menu-bar').click(function(){
 
     if ($('.main-menu').hasClass('visible')) {
         $('.main-menu').removeClass('visible');
+        $('#header-menu .menu-check').removeClass('active');
     } else {
         $('.main-menu').addClass('visible');
+        $('#header-menu .menu-check').addClass('active');
     }
 });

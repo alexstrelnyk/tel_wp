@@ -19,6 +19,7 @@
             $header_bg2 = 'hover-border-color-white';
             $loc_color = 'white';
             $loc_text = 'navy-green';
+            $menu_border = 'bordered-white';
             if ($green_bg) {
                 $menu_bg_label = 'color-soft-blue';
                 $menu_bg_class = 'bg-navy-green';
@@ -28,6 +29,7 @@
                 $header_bg2 = 'hover-border-color-navy-green';
                 $loc_color = 'navy-green';
                 $loc_text = 'white';
+                $menu_border = 'bordered-navy-green';
             }
 
             $posts = get_posts(['post_type' => 'nav_menu_item', 'number_posts' => -1, 'orderby' => 'menu_order', 'order' => 'ASC']);
@@ -143,7 +145,7 @@
                 <div data-left="UA" data-right="EN" class="labels color-before-<?php echo $loc_color?> color-after-<?php echo $loc_color?>"></div>
             </div>
             <div id="header-menu">
-                <div class="menu-button <?php echo $menu_bg_class?>" style="transition: all 0.75s ease-out 0s;">
+                <div class="menu-button <?php echo $menu_bg_class . ' ' . $menu_border?>" style="transition: all 0.75s ease-out 0s;">
                     <div class="menu-bar" style="transition: all 0.75s ease-out 0s;">
                         <div class="menu-check "><span class="contrast-<?php echo $menu_bg_class?>"></span><span class="contrast-<?php echo $menu_bg_class?>"></span></div>
                     </div>
