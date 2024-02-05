@@ -3,6 +3,10 @@ $(document).ready(function () {
     setTimeout(function () {
         $('#splash-screen').hide();
         $('#root').show();
+
+        $('span.regular').text('0');
+        $(window).on('scroll', handleScroll);
+
     }, 3000);
 });
 
@@ -73,5 +77,3 @@ function handleScroll() {
       $(window).off('scroll', handleScroll);
     }
   }
-
-  $(window).on('scroll', handleScroll);
