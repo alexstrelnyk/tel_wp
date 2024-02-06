@@ -57,23 +57,47 @@ function runCounters() {
 
 function isInViewport(element) {
     if (!element || typeof element.getBoundingClientRect !== 'function') {
-      return false;
+        return false;
     }
-  
+
     var rect = element.getBoundingClientRect();
     return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
-  }
+}
 
 function handleScroll() {
     var targetSection = $('#sec_r3');
 
     if (isInViewport(targetSection[0])) {
-      runCounters();
-      $(window).off('scroll', handleScroll);
+        runCounters();
+        $(window).off('scroll', handleScroll);
     }
-  }
+}
+
+
+$('.interaction-box').click(function(){
+    $('.industries').addClass('large');
+    $('.industries-title').addClass('spread');
+    $('.industries-slider').addClass('still');
+    $('.industry-card').addClass('spread');
+});
+$('.interaction-box').hover(function(){
+    $('#industry-card.industry-card').each(function(key, obj){
+        var $element = $(obj);
+        var styleAttr = $element.attr('style');
+        if(styleAttr) { 
+            var transformValue = styleAttr.match(/transform:.*?;/); 
+            if(transformValue) {
+                var updatedTransform = transformValue[0].replace(/rotate\((-?\d+)deg\)/, function(match, degrees) {
+                    return 'rotate(' + (-parseInt(degrees)) + 'deg)';
+                });
+                var updatedStyleAttr = styleAttr.replace(/transform:.*?;/, updatedTransform);
+                $element.attr('style', updatedStyleAttr);
+            }
+        }
+    });
+});
