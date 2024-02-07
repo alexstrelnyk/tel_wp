@@ -34,7 +34,7 @@
 
             $posts = get_posts(['post_type' => 'nav_menu_item', 'number_posts' => -1, 'orderby' => 'menu_order', 'order' => 'ASC']);
             foreach ($posts as $key => $value) {
-                if (get_post_meta($value->ID, '_menu_item_type', true) == 'custom'){
+                if (get_post_meta($value->ID, '_menu_item_type', true) == 'custom') {
                     $url = get_post_meta($value->ID, '_menu_item_url', true);
                     $title = $value->post_title;
                     $image = get_field('image', $value->ID);
@@ -47,7 +47,7 @@
             ?>
                 <div class="link">
                     <a class="" href="<?php echo $url ? $url : 'empty' ?>">
-                        <span class="label <?php echo $menu_bg_label?>"><?php echo $title ? $title : 'empty' ?></span>
+                        <span class="label <?php echo $menu_bg_label ?>"><?php echo $title ? $title : 'empty' ?></span>
                         <?php if ($image) { ?>
                             <img loading="lazy" src="<?php echo $image ?>" alt="<?php echo $title ?>" class="main-menu-picture">
                         <?php } ?>
@@ -57,63 +57,65 @@
             }
             ?>
         </div>
-        <div class="page-links">
-            <a class="Body animated-link " href="/about-us">
-                <span class="title">
-                    <span data-text="Про нас" class="color-after-bright-green <?php echo $small_text_color?>">Про нас</span>
-                </span>
-            </a>
-            <a class="Body animated-link " href="/blog">
-                <span class="title">
-                    <span data-text="Блог" class="color-after-bright-green <?php echo $small_text_color?>">Блог</span>
-                </span>
-            </a>
-            <a class="Body animated-link " href="/contact-us">
-                <span class="title">
-                    <span data-text="Контакти" class="color-after-bright-green <?php echo $small_text_color?>">Контакти</span>
-                </span>
-            </a>
-            <a class="Body animated-link " href="/career">
-                <span class="title">
-                    <span data-text="Вакансії" class="color-after-bright-green <?php echo $small_text_color?>">Вакансії</span>
-                </span>
-            </a>
-            <a class="Body animated-link " href="/charity">
-                <span class="title">
-                    <span data-text="Благодійність" class="color-after-bright-green <?php echo $small_text_color?>">Благодійність</span>
-                </span>
-            </a>
-        </div>
-        <div class="follow-links">
-            <a class="None animated-link underlined-link" href="https://www.facebook.com/Telesens" target="_blank" rel="noopener noreferrer">
-                <span class="title">
-                    <span data-text="Facebook" class="color-after-bright-green <?php echo $small_text_color?>">Facebook</span>
-                </span>
-            </a>
-            <a class="None animated-link underlined-link" href="https://www.instagram.com/telesens_it/?hl=en" target="_blank" rel="noopener noreferrer">
-                <span class="title">
-                    <span data-text="Instagram" class="color-after-bright-green <?php echo $small_text_color?>">Instagram</span>
-                </span>
-            </a>
-            <a class="None animated-link underlined-link" href="https://www.linkedin.com/company/27443/admin/" target="_blank" rel="noopener noreferrer">
-                <span class="title">
-                    <span data-text="LinkedIn" class="color-after-bright-green <?php echo $small_text_color?>">LinkedIn</span>
-                </span>
-            </a>
-            <a class="None animated-link underlined-link" href="https://twitter.com/Telesens_IT" target="_blank" rel="noopener noreferrer">
-                <span class="title">
-                    <span data-text="Twitter" class="color-after-bright-green <?php echo $small_text_color?>">Twitter</span>
-                </span>
-            </a>
+        <div class="footer-links">
+            <div class="follow-links">
+                <a class="None animated-link underlined-link" href="https://www.facebook.com/Telesens" target="_blank" rel="noopener noreferrer">
+                    <span class="title">
+                        <span data-text="Facebook" class="color-after-bright-green <?php echo $small_text_color ?>">Facebook</span>
+                    </span>
+                </a>
+                <a class="None animated-link underlined-link" href="https://www.instagram.com/telesens_it/?hl=en" target="_blank" rel="noopener noreferrer">
+                    <span class="title">
+                        <span data-text="Instagram" class="color-after-bright-green <?php echo $small_text_color ?>">Instagram</span>
+                    </span>
+                </a>
+                <a class="None animated-link underlined-link" href="https://www.linkedin.com/company/27443/admin/" target="_blank" rel="noopener noreferrer">
+                    <span class="title">
+                        <span data-text="LinkedIn" class="color-after-bright-green <?php echo $small_text_color ?>">LinkedIn</span>
+                    </span>
+                </a>
+                <a class="None animated-link underlined-link" href="https://twitter.com/Telesens_IT" target="_blank" rel="noopener noreferrer">
+                    <span class="title">
+                        <span data-text="Twitter" class="color-after-bright-green <?php echo $small_text_color ?>">Twitter</span>
+                    </span>
+                </a>
+            </div>
+            <div class="page-links">
+                <a class="Body animated-link " href="/about-us">
+                    <span class="title">
+                        <span data-text="Про нас" class="color-after-bright-green <?php echo $small_text_color ?>">Про нас</span>
+                    </span>
+                </a>
+                <a class="Body animated-link " href="/blog">
+                    <span class="title">
+                        <span data-text="Блог" class="color-after-bright-green <?php echo $small_text_color ?>">Блог</span>
+                    </span>
+                </a>
+                <a class="Body animated-link " href="/contact-us">
+                    <span class="title">
+                        <span data-text="Контакти" class="color-after-bright-green <?php echo $small_text_color ?>">Контакти</span>
+                    </span>
+                </a>
+                <a class="Body animated-link " href="/career">
+                    <span class="title">
+                        <span data-text="Вакансії" class="color-after-bright-green <?php echo $small_text_color ?>">Вакансії</span>
+                    </span>
+                </a>
+                <a class="Body animated-link " href="/charity">
+                    <span class="title">
+                        <span data-text="Благодійність" class="color-after-bright-green <?php echo $small_text_color ?>">Благодійність</span>
+                    </span>
+                </a>
+            </div>
         </div>
     </div>
-    <div class="menu <?php echo $menu_bg_class?>" style="left: 0px; top: 0px;"></div>
+    <div class="menu <?php echo $menu_bg_class ?>" style="left: 0px; top: 0px;"></div>
 </section>
 
-<header id=":r0:" class="<?php echo $header_bg?>">
+<header id=":r0:" class="<?php echo $header_bg ?>">
     <div class="root">
         <a href="/">
-            <svg id="logo" width="152" height="40" viewBox="0 0 152 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-<?php echo $loc_color?>">
+            <svg id="logo" width="152" height="40" viewBox="0 0 152 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-<?php echo $loc_color ?>">
                 <path d="M10.5584 2.60049V24.8866H7.74737V2.60049H0V0.00272036H18.2372V2.60049H10.5584Z" fill="white"></path>
                 <path d="M27.8376 6.83623C29.7573 6.83623 31.4028 7.31477 32.774 8.20348C34.1452 9.16055 35.1736 10.3911 35.8592 12.0318C36.1335 12.7154 36.3392 13.5357 36.4077 14.4245C36.4763 15.3132 36.4077 16.0651 36.2021 16.612H21.3929C21.3929 18.4578 22.01 19.9618 23.2441 21.0556C24.4782 22.1494 26.1236 22.6963 28.1119 22.7647C30.3744 22.7647 32.4312 22.1494 34.2824 20.8505L35.6536 22.4229C33.3225 24.2003 30.8543 25.1573 28.1119 25.1573C25.3694 25.1573 23.1069 24.2686 21.3929 22.6279C19.6789 20.9189 18.7876 18.7313 18.7876 16.0652C18.7876 13.4674 19.6103 11.2798 21.3244 9.57072C22.9698 7.72494 25.1638 6.83623 27.8376 6.83623ZM27.8376 9.22891C26.0551 9.22891 24.6153 9.77581 23.4497 10.8696C22.2842 11.9634 21.6672 13.2623 21.5301 14.8346H33.871C33.9396 14.2194 33.8024 13.5357 33.4596 12.7838C32.9797 11.69 32.2941 10.8012 31.3342 10.186C30.3058 9.57072 29.2089 9.22891 27.8376 9.22891Z" fill="white"></path>
                 <path d="M44.5639 0H41.9592V24.8839H44.5639V0Z" fill="white"></path>
@@ -140,14 +142,14 @@
             </svg>
         </a>
         <div class="frc gap32">
-            <div class="locale-btn bg-transparent bw1 border-color-<?php echo $loc_color?>"><input class="hover-border-color-<?php echo $loc_color?>" type="checkbox">
-                <div data-left="UA" data-right="EN" class="knobs color-before-<?php echo $loc_text?> bg-before-<?php echo $loc_color?>"></div>
-                <div data-left="UA" data-right="EN" class="labels color-before-<?php echo $loc_color?> color-after-<?php echo $loc_color?>"></div>
+            <div class="locale-btn bg-transparent bw1 border-color-<?php echo $loc_color ?>"><input class="hover-border-color-<?php echo $loc_color ?>" type="checkbox">
+                <div data-left="UA" data-right="EN" class="knobs color-before-<?php echo $loc_text ?> bg-before-<?php echo $loc_color ?>"></div>
+                <div data-left="UA" data-right="EN" class="labels color-before-<?php echo $loc_color ?> color-after-<?php echo $loc_color ?>"></div>
             </div>
             <div id="header-menu">
-                <div class="menu-button <?php echo $menu_bg_class . ' ' . $menu_border?>" style="transition: all 0.75s ease-out 0s;">
+                <div class="menu-button <?php echo $menu_bg_class . ' ' . $menu_border ?>" style="transition: all 0.75s ease-out 0s;">
                     <div class="menu-bar" style="transition: all 0.75s ease-out 0s;">
-                        <div class="menu-check "><span class="contrast-<?php echo $menu_bg_class?>"></span><span class="contrast-<?php echo $menu_bg_class?>"></span></div>
+                        <div class="menu-check "><span class="contrast-<?php echo $menu_bg_class ?>"></span><span class="contrast-<?php echo $menu_bg_class ?>"></span></div>
                     </div>
                 </div>
             </div>
