@@ -78,7 +78,16 @@ function handleScroll() {
     }
 }
 
-
+var slider_styles = [
+    'z-index: 8; transform: translate(0px, 0px) rotate(5deg);',
+    'z-index: 7; transform: translate(-356px, 0px) rotate(10deg);',
+    'z-index: 6; transform: translate(-712px, 0px) rotate(15deg);',
+    'z-index: 5; transform: translate(-1068px, 0px) rotate(20deg);',
+    'z-index: 4; transform: translate(-1424px, 0px) rotate(25deg);',
+    'z-index: 3; transform: translate(-1780px, 0px) rotate(30deg);',
+    'z-index: 2; transform: translate(-2136px, 0px) rotate(35deg);',
+    'z-index: 1; transform: translate(-2492px, 0px) rotate(40deg);'
+];
 $('.interaction-box').click(function(){
     $('.industries').addClass('large');
     $('.industries-title').addClass('spread');
@@ -86,7 +95,12 @@ $('.interaction-box').click(function(){
     $('.industry-card').addClass('spread').attr('style', '');
 
     $('.industry-card.spread').click(function(){
-        console.log('asd');
+        $('.industries').removeClass('large');
+        $('.industries-title').removeClass('spread');
+        $('.industries-slider').removeClass('still').attr('style', 'width: 2848px; transform: translate(532.5px, 145px)');
+        $('#industry-card.industry-card').removeClass('spread').each(function(key, slide){
+            $(slide).attr('style', slider_styles[key]);
+        });
     });
 });
 
