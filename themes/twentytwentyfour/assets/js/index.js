@@ -97,7 +97,7 @@ $('.interaction-box').click(function(){
     $('.industry-card.spread').click(function(){
         $('.industries').removeClass('large');
         $('.industries-title').removeClass('spread');
-        $('.industries-slider').removeClass('still').attr('style', 'width: 2848px; transform: translate(532.5px, 145px)');
+        $('.industries-slider').removeClass('still').attr('style', 'width: 2848px; transform: translate(806px, 145px)');
         $('#industry-card.industry-card').removeClass('spread').each(function(key, slide){
             $(slide).attr('style', slider_styles[key]);
         });
