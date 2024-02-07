@@ -49,7 +49,7 @@ function animateCount(target, duration, element) {
     updateCount();
 }
 function runCounters() {
-    $('.regular').each(function () {
+    $('.single-counter. regular').each(function () {
         var target = parseInt($(this).data('count'));
         animateCount(target, 1500, this);
     });
