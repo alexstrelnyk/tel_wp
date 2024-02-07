@@ -82,9 +82,14 @@ function handleScroll() {
 $('.interaction-box').click(function(){
     $('.industries').addClass('large');
     $('.industries-title').addClass('spread');
-    $('.industries-slider').addClass('still');
-    $('.industry-card').addClass('spread');
+    $('.industries-slider').eq(0).addClass('still').attr('style', 'width: 2848px; transform: translate(0px, 280px)');
+    $('.industry-card').addClass('spread').attr('style', '');
+
+    $('.industry-card.spread').click(function(){
+        console.log('asd');
+    });
 });
+
 $('.interaction-box').hover(function(){
     $('#industry-card.industry-card').each(function(key, obj){
         var $element = $(obj);
