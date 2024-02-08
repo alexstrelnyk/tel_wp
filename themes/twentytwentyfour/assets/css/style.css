@@ -6160,6 +6160,7 @@ header .root {
 }
 
 .services-slider {
+    overflow: auto;
     display: flex;
     -webkit-transform: translateX(0);
     transform: translateX(0)
