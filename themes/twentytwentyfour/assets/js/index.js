@@ -120,3 +120,12 @@ $('.interaction-box').hover(function(){
         }
     });
 });
+
+$('.techno-card-title').click(function(){
+    if ($(this).parents('.techno-card').hasClass('selected')) {
+        $('.techno-card').removeClass('selected');
+    } else {
+        $('.techno-card').removeClass('selected');
+        $(this).parents('.techno-card').addClass('selected');
+    }
+});
