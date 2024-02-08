@@ -31,8 +31,8 @@ get_header();
                 'post_type'      => 'post',
                 'category_name'  => 'blog',
                 'orderby'        => 'date',
-                'order'          => 'ASC'
-                // 'posts_per_page' => 5,     
+                'order'          => 'ASC',
+                'posts_per_page' => 50,     
             );
 
             $posts = get_posts($args);
@@ -72,8 +72,8 @@ get_header();
             <?php
             $args = array(
                 'post_type'      => 'post',
-                'category_name'  => 'news'
-                // 'posts_per_page' => 5,     
+                'category_name'  => 'news',
+                'posts_per_page' => 50,     
             );
 
             $posts = get_posts($args);
