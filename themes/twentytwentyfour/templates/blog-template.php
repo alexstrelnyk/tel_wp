@@ -31,7 +31,7 @@ get_header();
                 'post_type'      => 'post',
                 'category_name'  => 'blog',
                 'orderby'        => 'date',
-                'order'          => 'ASC',
+                'order'          => 'DESC',
                 'posts_per_page' => 50,     
             );
 
@@ -73,6 +73,8 @@ get_header();
             $args = array(
                 'post_type'      => 'post',
                 'category_name'  => 'news',
+                'orderby'        => 'date',
+                'order'          => 'DESC',
                 'posts_per_page' => 50,     
             );
 
