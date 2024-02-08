@@ -29,7 +29,9 @@ get_header();
             <?php
             $args = array(
                 'post_type'      => 'post',
-                'category_name'  => 'blog'
+                'category_name'  => 'blog',
+                'orderby'        => 'date',
+                'order'          => 'ASC'
                 // 'posts_per_page' => 5,     
             );
 
