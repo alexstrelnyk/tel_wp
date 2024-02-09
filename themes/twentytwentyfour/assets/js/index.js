@@ -1,5 +1,15 @@
 $('#root').hide();
 $(document).ready(function () {
+
+    var eventTriggered = sessionStorage.getItem('eventTriggered');
+
+    var previewTimeout = 3;
+
+    if (!eventTriggered) {
+        previewTimeout = 3000;
+        sessionStorage.setItem('eventTriggered', 'true');
+    }
+
     setTimeout(function () {
         $('#splash-screen').hide();
         $('#root').show();
@@ -7,7 +17,7 @@ $(document).ready(function () {
         $('span.regular').text('0');
         $(window).on('scroll', handleScroll);
 
-    }, 3000);
+    }, previewTimeout);
 });
 
 $('.menu-bar').click(function () {
