@@ -6,7 +6,8 @@
 
             $green_bg = true;
             if (in_array(get_post_field('post_name', get_queried_object_id()), [
-                'home'
+                'home',
+                'products-services'
             ])) {
                 $green_bg = false;
             }
@@ -31,6 +32,14 @@
                 $loc_text = 'white';
                 $menu_border = 'bordered-navy-green';
             }
+
+            switch (get_post_field('post_name', get_queried_object_id())) {
+                case 'products-services':
+                    $header_bg = 'bg-midnight-blue';
+                    break;
+            }
+
+
 
             $posts = get_posts(['post_type' => 'nav_menu_item', 'number_posts' => -1, 'orderby' => 'menu_order', 'order' => 'ASC']);
             foreach ($posts as $key => $value) {

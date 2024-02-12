@@ -4927,6 +4927,10 @@ header .root {
         position: static
     }
 
+    .main-menu .up .main-links .link a span{
+        color: #004d35;
+    }
+
     .main-menu .up .main-links .link a img {
         display: block
     }
