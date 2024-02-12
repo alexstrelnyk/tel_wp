@@ -4709,7 +4709,8 @@ header .root {
     font-weight: 300;
     max-width: 40vw;
     overflow: hidden;
-    overflow-wrap: break-word
+    overflow-wrap: break-word;
+    color: #004d35;
 }
 
 .main-menu .up .footer-links {
@@ -4925,10 +4926,6 @@ header .root {
 
     .main-menu .up .main-links .link a {
         position: static
-    }
-
-    .main-menu .up .main-links .link a span{
-        color: #004d35;
     }
 
     .main-menu .up .main-links .link a img {
