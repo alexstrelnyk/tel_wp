@@ -143,6 +143,7 @@ $('.techno-card-title').click(function () {
 $('.services-card').click(function () {
     if ($(this).hasClass('selected')) {
         $('.services-card').removeClass('selected');
+        $('.sub-parent').remove();
     } else {
         $('.services-card').removeClass('selected');
         get_products(this, $(this).data('cat'), $(this).data('cat_title'));

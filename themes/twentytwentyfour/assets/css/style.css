@@ -1468,6 +1468,7 @@ main {
 }
 
 .animated-link .title span:before {
+    color: #004d35;
     top: 0;
     -webkit-transform: skewY(0);
     transform: skewY(0);
