@@ -232,3 +232,27 @@ register_nav_menus(
     'secondary-menu' => __( 'Secondary Menu' )
     )
 );
+
+add_action('wp_ajax_get_product_services', 'get_product_services');
+add_action('wp_ajax_nopriv_get_product_services', 'get_product_services');
+
+function get_product_services() {
+	$categories = get_categories(array(
+		'parent' => $_POST['cat_id'],
+	));
+
+    ob_start();
+
+	$params = array(
+        'cat_title' => $_POST['cat_title'],
+        'categories' => $categories,
+    );
+	
+    extract($params);
+
+    require_once(get_template_directory() . '/single-product.php');
+
+    $html = ob_get_clean();
+
+    wp_send_json($html);
+}

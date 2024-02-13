@@ -98,30 +98,30 @@ var slider_styles = [
     'z-index: 2; transform: translate(-2136px, 0px) rotate(35deg);',
     'z-index: 1; transform: translate(-2492px, 0px) rotate(40deg);'
 ];
-$('.interaction-box').click(function(){
+$('.interaction-box').click(function () {
     $('.industries').addClass('large');
     $('.industries-title').addClass('spread');
     $('.industries-slider').eq(0).addClass('still').attr('style', 'width: 2848px; transform: translate(0px, 280px)');
     $('.industry-card').addClass('spread').attr('style', '');
 
-    $('.industry-card.spread').click(function(){
+    $('.industry-card.spread').click(function () {
         $('.industries').removeClass('large');
         $('.industries-title').removeClass('spread');
         $('.industries-slider').removeClass('still').attr('style', 'width: 2848px; transform: translate(806px, 145px)');
-        $('#industry-card.industry-card').removeClass('spread').each(function(key, slide){
+        $('#industry-card.industry-card').removeClass('spread').each(function (key, slide) {
             $(slide).attr('style', slider_styles[key]);
         });
     });
 });
 
-$('.interaction-box').hover(function(){
-    $('#industry-card.industry-card').each(function(key, obj){
+$('.interaction-box').hover(function () {
+    $('#industry-card.industry-card').each(function (key, obj) {
         var $element = $(obj);
         var styleAttr = $element.attr('style');
-        if(styleAttr) { 
-            var transformValue = styleAttr.match(/transform:.*?;/); 
-            if(transformValue) {
-                var updatedTransform = transformValue[0].replace(/rotate\((-?\d+)deg\)/, function(match, degrees) {
+        if (styleAttr) {
+            var transformValue = styleAttr.match(/transform:.*?;/);
+            if (transformValue) {
+                var updatedTransform = transformValue[0].replace(/rotate\((-?\d+)deg\)/, function (match, degrees) {
                     return 'rotate(' + (-parseInt(degrees)) + 'deg)';
                 });
                 var updatedStyleAttr = styleAttr.replace(/transform:.*?;/, updatedTransform);
@@ -131,7 +131,7 @@ $('.interaction-box').hover(function(){
     });
 });
 
-$('.techno-card-title').click(function(){
+$('.techno-card-title').click(function () {
     if ($(this).parents('.techno-card').hasClass('selected')) {
         $('.techno-card').removeClass('selected');
     } else {
@@ -139,3 +139,32 @@ $('.techno-card-title').click(function(){
         $(this).parents('.techno-card').addClass('selected');
     }
 });
+
+$('.services-card').click(function () {
+    if ($(this).hasClass('selected')) {
+        $('.services-card').removeClass('selected');
+    } else {
+        $('.services-card').removeClass('selected');
+        get_products(this, $(this).data('cat'), $(this).data('cat_title'));
+        $(this).addClass('selected');
+    }
+});
+
+function get_products(obj, cat_id, cat_title) {
+    $.ajax({
+        type: 'POST',
+        url: '/wp-admin/admin-ajax.php',
+        data: {
+            action: 'get_product_services',
+            cat_id: cat_id,
+            cat_title: cat_title
+        },
+        success: function (response) {
+            $('.sub-parent').remove();
+            $(obj).parents('.services-tree').after(response);
+        },
+        error: function (xhr, status, error) {
+            console.error(xhr.responseText);
+        }
+    });
+}
