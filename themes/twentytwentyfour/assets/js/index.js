@@ -140,29 +140,40 @@ $('.techno-card-title').click(function () {
     }
 });
 
-$('.services-card').click(function () {
-    if ($(this).hasClass('selected')) {
-        $('.services-card').removeClass('selected');
-        $('.sub-parent').remove();
-    } else {
-        $('.services-card').removeClass('selected');
-        get_products(this, $(this).data('cat'), $(this).data('cat_title'));
-        $(this).addClass('selected');
-    }
-});
 
-function get_products(obj, cat_id, cat_title) {
+function getProducts(obj, level) {
+    var level = parseInt(level);
+    var cat_id = $(obj).data('cat_id');
+    var cat_title = $(obj).data('cat_title');
+
+    $('.services-card').removeClass('selected');
+    if (level) {
+        $('.sub_parent_' + (level + 1)).remove();
+    } else {
+        $('.sub_parent').remove();
+    }
+    //TODO
+    if ($(obj).hasClass('selected')) {
+    } else {
+        $(obj).addClass('selected');
+    }
+
     $.ajax({
         type: 'POST',
         url: '/wp-admin/admin-ajax.php',
         data: {
             action: 'get_product_services',
-            cat_id: cat_id,
-            cat_title: cat_title
+            level: level + 1,
+            cat_id,
+            cat_title
         },
         success: function (response) {
             $('.sub-parent').remove();
-            $(obj).parents('.services-tree').after(response);
+            if ($('.sub_parent').length) {
+                $(obj).parents('.sub_parent').after(response);
+            } else {
+                $(obj).parents('.services-tree').after(response);
+            }
         },
         error: function (xhr, status, error) {
             console.error(xhr.responseText);

@@ -244,6 +244,7 @@ function get_product_services() {
     ob_start();
 
 	$params = array(
+        'level' => $_POST['level'],
         'cat_title' => $_POST['cat_title'],
         'categories' => $categories,
     );
