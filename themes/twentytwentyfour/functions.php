@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Twenty Twenty-Four functions and definitions
  *
@@ -12,20 +13,21 @@
  * Register block styles.
  */
 
-if ( ! function_exists( 'twentytwentyfour_block_styles' ) ) :
+if (!function_exists('twentytwentyfour_block_styles')) :
 	/**
 	 * Register custom block styles
 	 *
 	 * @since Twenty Twenty-Four 1.0
 	 * @return void
 	 */
-	function twentytwentyfour_block_styles() {
+	function twentytwentyfour_block_styles()
+	{
 
 		register_block_style(
 			'core/details',
 			array(
 				'name'         => 'arrow-icon-details',
-				'label'        => __( 'Arrow icon', 'twentytwentyfour' ),
+				'label'        => __('Arrow icon', 'twentytwentyfour'),
 				/*
 				 * Styles for the custom Arrow icon style of the Details block
 				 */
@@ -48,7 +50,7 @@ if ( ! function_exists( 'twentytwentyfour_block_styles' ) ) :
 			'core/post-terms',
 			array(
 				'name'         => 'pill',
-				'label'        => __( 'Pill', 'twentytwentyfour' ),
+				'label'        => __('Pill', 'twentytwentyfour'),
 				/*
 				 * Styles variation for post terms
 				 * https://github.com/WordPress/gutenberg/issues/24956
@@ -71,7 +73,7 @@ if ( ! function_exists( 'twentytwentyfour_block_styles' ) ) :
 			'core/list',
 			array(
 				'name'         => 'checkmark-list',
-				'label'        => __( 'Checkmark', 'twentytwentyfour' ),
+				'label'        => __('Checkmark', 'twentytwentyfour'),
 				/*
 				 * Styles for the custom checkmark list block style
 				 * https://github.com/WordPress/gutenberg/issues/51480
@@ -90,7 +92,7 @@ if ( ! function_exists( 'twentytwentyfour_block_styles' ) ) :
 			'core/navigation-link',
 			array(
 				'name'         => 'arrow-link',
-				'label'        => __( 'With arrow', 'twentytwentyfour' ),
+				'label'        => __('With arrow', 'twentytwentyfour'),
 				/*
 				 * Styles for the custom arrow nav link block style
 				 */
@@ -108,7 +110,7 @@ if ( ! function_exists( 'twentytwentyfour_block_styles' ) ) :
 			'core/heading',
 			array(
 				'name'         => 'asterisk',
-				'label'        => __( 'With asterisk', 'twentytwentyfour' ),
+				'label'        => __('With asterisk', 'twentytwentyfour'),
 				'inline_style' => "
 				.is-style-asterisk:before {
 					content: '';
@@ -144,20 +146,21 @@ if ( ! function_exists( 'twentytwentyfour_block_styles' ) ) :
 	}
 endif;
 
-add_action( 'init', 'twentytwentyfour_block_styles' );
+add_action('init', 'twentytwentyfour_block_styles');
 
 /**
  * Enqueue block stylesheets.
  */
 
-if ( ! function_exists( 'twentytwentyfour_block_stylesheets' ) ) :
+if (!function_exists('twentytwentyfour_block_stylesheets')) :
 	/**
 	 * Enqueue custom block stylesheets
 	 *
 	 * @since Twenty Twenty-Four 1.0
 	 * @return void
 	 */
-	function twentytwentyfour_block_stylesheets() {
+	function twentytwentyfour_block_stylesheets()
+	{
 		/**
 		 * The wp_enqueue_block_style() function allows us to enqueue a stylesheet
 		 * for a specific block. These will only get loaded when the block is rendered
@@ -170,42 +173,44 @@ if ( ! function_exists( 'twentytwentyfour_block_stylesheets' ) ) :
 			'core/button',
 			array(
 				'handle' => 'twentytwentyfour-button-style-outline',
-				'src'    => get_parent_theme_file_uri( 'assets/css/button-outline.css' ),
-				'ver'    => wp_get_theme( get_template() )->get( 'Version' ),
-				'path'   => get_parent_theme_file_path( 'assets/css/button-outline.css' ),
+				'src'    => get_parent_theme_file_uri('assets/css/button-outline.css'),
+				'ver'    => wp_get_theme(get_template())->get('Version'),
+				'path'   => get_parent_theme_file_path('assets/css/button-outline.css'),
 			)
 		);
 	}
 endif;
 
-add_action( 'init', 'twentytwentyfour_block_stylesheets' );
+add_action('init', 'twentytwentyfour_block_stylesheets');
 
 /**
  * Register pattern categories.
  */
 
-if ( ! function_exists( 'twentytwentyfour_pattern_categories' ) ) :
+if (!function_exists('twentytwentyfour_pattern_categories')) :
 	/**
 	 * Register pattern categories
 	 *
 	 * @since Twenty Twenty-Four 1.0
 	 * @return void
 	 */
-	function twentytwentyfour_pattern_categories() {
+	function twentytwentyfour_pattern_categories()
+	{
 
 		register_block_pattern_category(
 			'page',
 			array(
-				'label'       => _x( 'Pages', 'Block pattern category' ),
-				'description' => __( 'A collection of full page layouts.' ),
+				'label'       => _x('Pages', 'Block pattern category'),
+				'description' => __('A collection of full page layouts.'),
 			)
 		);
 	}
 endif;
 
-add_action( 'init', 'twentytwentyfour_pattern_categories' );
+add_action('init', 'twentytwentyfour_pattern_categories');
 
-function path($param, $file_name) {
+function path($param, $file_name)
+{
 	$postfix = '';
 	switch ($param) {
 		case 'css':
@@ -219,41 +224,60 @@ function path($param, $file_name) {
 		case 'images':
 			$path = '/assets/images/';
 			break;
-
 	}
-	
+
 	return get_template_directory_uri() . $path . $file_name . $postfix;
 }
 
 
 register_nav_menus(
-    array(
-    'primary-menu' => __( 'Primary Menu' ),
-    'secondary-menu' => __( 'Secondary Menu' )
-    )
+	array(
+		'primary-menu' => __('Primary Menu'),
+		'secondary-menu' => __('Secondary Menu')
+	)
 );
 
 add_action('wp_ajax_get_product_services', 'get_product_services');
 add_action('wp_ajax_nopriv_get_product_services', 'get_product_services');
 
-function get_product_services() {
-	$categories = get_categories(array(
-		'parent' => $_POST['cat_id'],
-	));
+function get_product_services()
+{
+	$category_id = $_POST['cat_id'];
 
-    ob_start();
+	if ($categories = get_categories(['parent' => $category_id])) {
 
-	$params = array(
-        'level' => $_POST['level'],
-        'cat_title' => $_POST['cat_title'],
-        'categories' => $categories,
-    );
-	
-    extract($params);
+		$params = array(
+			'level' => $_POST['level'],
+			'cat_title' => $_POST['cat_title'],
+			'categories' => $categories,
+		);
+		$template = get_template_directory() . '/single-product.php';
+	} else {
 
-    require_once(get_template_directory() . '/single-product.php');
+		$query = new WP_Query([
+			'cat' => $category_id,
+			'posts_per_page' => -1,
+		]);
+		if ($query->have_posts()) {
+			while ($query->have_posts()) {
+				$query->the_post();
+				$params = array(
+					'content' => get_the_content(),
+					'level' => $_POST['level'],
+				);
+			}
+			wp_reset_postdata();
+		}
+		$template = get_template_directory() . '/single-product-post.php';
+	}
 
-    $html = ob_get_clean();
+	ob_start();
 
-    wp_send_json($html);
+	extract($params);
+
+	require_once($template);
+	$html = ob_get_clean();
+
+
+	wp_send_json($html);
 }
