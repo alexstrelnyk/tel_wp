@@ -174,6 +174,10 @@ function getProducts(obj, level) {
             } else {
                 $(obj).parents('.services-tree').after(response);
             }
+            var targetBlockPosition = $('.sub_parent_' + (level + 1)).offset().top;
+            setTimeout(function () {
+                $(window).scrollTop(targetBlockPosition);
+            }, 400);
         },
         error: function (xhr, status, error) {
             console.error(xhr.responseText);
