@@ -2753,6 +2753,12 @@ a {
     color: var(--navy-green)
 }
 
+.color-after-navy-black:after,
+.color-before-navy-black:before,
+.color-navy-black {
+    color: #000;
+}
+
 .bg-after-navy-green:after,
 .bg-before-navy-green:before,
 .bg-navy-green,
@@ -4747,7 +4753,7 @@ header .root {
 .main-menu .up .footer-links .page-links span:after,
 .main-menu .up .footer-links .page-links span:before {
     font-style: italic;
-    font-weight: 400
+    font-weight: 400;
 }
 
 .main-menu .up .footer-links .follow-links span {
