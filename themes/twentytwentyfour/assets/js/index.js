@@ -28,9 +28,11 @@ $('.menu-bar').click(function () {
     });
 
     if ($('.main-menu').hasClass('visible')) {
+        $('#root').css('overflow', 'visible');
         $('.main-menu').removeClass('visible');
         $('#header-menu .menu-check').removeClass('active');
     } else {
+        $('#root').css({'overflow': 'hidden', 'height': '100vh'});
         $('.main-menu').addClass('visible');
         $('#header-menu .menu-check').addClass('active');
     }

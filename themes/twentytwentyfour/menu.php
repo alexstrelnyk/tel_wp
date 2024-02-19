@@ -67,55 +67,8 @@
             ?>
         </div>
         <div class="footer-links">
-            <div class="follow-links">
-                <a class="None animated-link underlined-link" href="https://www.facebook.com/Telesens" target="_blank" rel="noopener noreferrer">
-                    <span class="title">
-                        <span data-text="Facebook" class="color-after-bright-green <?php echo $small_text_color ?>">Facebook</span>
-                    </span>
-                </a>
-                <a class="None animated-link underlined-link" href="https://www.instagram.com/telesens_it/?hl=en" target="_blank" rel="noopener noreferrer">
-                    <span class="title">
-                        <span data-text="Instagram" class="color-after-bright-green <?php echo $small_text_color ?>">Instagram</span>
-                    </span>
-                </a>
-                <a class="None animated-link underlined-link" href="https://www.linkedin.com/company/27443/admin/" target="_blank" rel="noopener noreferrer">
-                    <span class="title">
-                        <span data-text="LinkedIn" class="color-after-bright-green <?php echo $small_text_color ?>">LinkedIn</span>
-                    </span>
-                </a>
-                <a class="None animated-link underlined-link" href="https://twitter.com/Telesens_IT" target="_blank" rel="noopener noreferrer">
-                    <span class="title">
-                        <span data-text="Twitter" class="color-after-bright-green <?php echo $small_text_color ?>">Twitter</span>
-                    </span>
-                </a>
-            </div>
-            <div class="page-links">
-                <a class="Body animated-link " href="/about-us">
-                    <span class="title">
-                        <span data-text="Про нас" class="color-after-bright-green <?php echo $small_text_color ?>">Про нас</span>
-                    </span>
-                </a>
-                <a class="Body animated-link " href="/blog">
-                    <span class="title">
-                        <span data-text="Блог" class="color-after-bright-green <?php echo $small_text_color ?>">Блог</span>
-                    </span>
-                </a>
-                <a class="Body animated-link " href="/contact-us">
-                    <span class="title">
-                        <span data-text="Контакти" class="color-after-bright-green <?php echo $small_text_color ?>">Контакти</span>
-                    </span>
-                </a>
-                <a class="Body animated-link " href="/career">
-                    <span class="title">
-                        <span data-text="Вакансії" class="color-after-bright-green <?php echo $small_text_color ?>">Вакансії</span>
-                    </span>
-                </a>
-                <a class="Body animated-link " href="/charity">
-                    <span class="title">
-                        <span data-text="Благодійність" class="color-after-bright-green <?php echo $small_text_color ?>">Благодійність</span>
-                    </span>
-                </a>
-            </div>
+            <div class="follow-links"><a class="None animated-link underlined-link" href="https://www.facebook.com/Telesens" target="_blank" rel="noopener noreferrer"><span class="title"><span data-text="Facebook" class="color-after-bright-green color-before-navy-green">Facebook</span></span></a><a class="None animated-link underlined-link" href="https://www.instagram.com/telesens_it/?hl=en" target="_blank" rel="noopener noreferrer"><span class="title"><span data-text="Instagram" class="color-after-bright-green color-before-navy-green">Instagram</span></span></a><a class="None animated-link underlined-link" href="https://www.linkedin.com/company/27443/admin/" target="_blank" rel="noopener noreferrer"><span class="title"><span data-text="LinkedIn" class="color-after-bright-green color-before-navy-green">LinkedIn</span></span></a><a class="None animated-link underlined-link" href="https://twitter.com/Telesens_IT" target="_blank" rel="noopener noreferrer"><span class="title"><span data-text="Twitter" class="color-after-bright-green color-before-navy-green">Twitter</span></span></a></div>
+            <div class="page-links"><a class="Sub2 animated-link " href="/about-us"><span class="title"><span data-text="Про нас" class="color-after-bright-green color-before-navy-green">Про нас</span></span></a><a class="Sub2 animated-link " href="/blog"><span class="title"><span data-text="Блог" class="color-after-bright-green color-before-navy-green">Блог</span></span></a><a class="Sub2 animated-link " href="/contact-us"><span class="title"><span data-text="Контакти" class="color-after-bright-green color-before-navy-green">Контакти</span></span></a><a class="Sub2 animated-link " href="/career"><span class="title"><span data-text="Вакансії" class="color-after-bright-green color-before-navy-green">Вакансії</span></span></a><a class="Sub2 animated-link " href="/charity"><span class="title"><span data-text="Благодійність" class="color-after-bright-green color-before-navy-green">Благодійність</span></span></a></div>
         </div>
     </div>
     <div class="menu <?php echo $menu_bg_class ?>" style="left: 0px; top: 0px;"></div>
