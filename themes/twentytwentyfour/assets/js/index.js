@@ -32,7 +32,7 @@ $('.menu-bar').click(function () {
         $('.main-menu').removeClass('visible');
         $('#header-menu .menu-check').removeClass('active');
     } else {
-        $('#root').css({'overflow': 'hidden', 'height': '100vh'});
+        $('#root').css({ 'overflow': 'hidden', 'height': '100vh' });
         $('.main-menu').addClass('visible');
         $('#header-menu .menu-check').addClass('active');
     }
@@ -150,10 +150,22 @@ function getProducts(obj, level) {
 
     $('.services-card').removeClass('selected');
     if (level) {
-        $('.sub_parent_' + (level + 1)).remove();
+        var selector = '';
+        $('.sub_parent').each(function (index, obj) {
+            if (index > level) {
+                if (selector) {
+                    selector = selector + ', ';
+                }
+                selector = selector + ' .sub_parent_' + (index) + ', .sub_parent_' + (index + 1);
+            }
+        });
+        if (selector) {
+            $(selector).remove();
+        }
     } else {
         $('.sub_parent').remove();
     }
+
     //TODO
     if ($(obj).hasClass('selected')) {
     } else {
