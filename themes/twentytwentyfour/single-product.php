@@ -8,9 +8,10 @@
             <?php
             foreach ($categories as $key => $category) {
                 $image = get_field('category_image', 'category_' . $category->cat_ID);
+                $categories = get_categories(['parent' => $category->cat_ID]);
             ?>
 
-                <div class="services-card <?php echo $level % 2 === 0 ? 'light-blue' : 'yellow' ?>" onclick="getProducts(this, <?php echo $level ?>)" data-cat_id="<?php echo $category->cat_ID ?>" data-cat_title="<?php echo $category->cat_name ?>">
+                <div class="services-card <?php echo $level % 2 === 0 ? 'light-blue' : 'yellow' ?> <?php echo count($categories) ? '' : 'ending' ?>" onclick="getProducts(this, <?php echo $level ?>)" data-cat_id="<?php echo $category->cat_ID ?>" data-cat_title="<?php echo $category->cat_name ?>">
                     <?php if ($image) { ?>
                         <div class="image"><img loading="lazy" src="<?php echo $image['url'] ?>" alt="<?php echo $image['name'] ?>"></div>
                     <?php } ?>
