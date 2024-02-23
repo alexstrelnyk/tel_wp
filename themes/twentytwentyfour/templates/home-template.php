@@ -28,6 +28,7 @@ echo get_post_field('post_content', get_queried_object_id());
                     if (in_array($category->cat_name, [
                         'blog',
                         'news',
+                        'client_feedback',
                     ])) {
                         continue;
                     }
