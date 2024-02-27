@@ -7,6 +7,7 @@
             $green_bg = true;
             if (in_array(get_post_field('post_name', get_queried_object_id()), [
                 'home',
+                'home-english',
                 'products-services'
             ])) {
                 $green_bg = false;
