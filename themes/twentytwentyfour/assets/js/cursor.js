@@ -30,8 +30,20 @@ document.querySelectorAll("[data-cursor]").forEach((item) => {
       cursorBorder.style.mixBlendMode = "difference";
       cursorBorder.style.setProperty("--size", "80px");
     }
+    if (item.dataset.cursor === "slider") {
+      cursor.classList.add("slider");
+      cursorBorder.classList.add("slider");
+    }
+    if (item.dataset.cursor === "slider-white") {
+      cursor.classList.add("slider-white");
+      cursorBorder.classList.add("slider-white");
+    }
   });
   item.addEventListener("mouseout", (e) => {
+    cursor.classList.remove("slider-white");
+    cursorBorder.classList.remove("slider-white");
+    cursor.classList.remove("slider");
+    cursorBorder.classList.remove("slider");
     cursorBorder.style.backgroundColor = "unset";
     cursorBorder.style.mixBlendMode = "unset";
     cursorBorder.style.setProperty("--size", "50px");

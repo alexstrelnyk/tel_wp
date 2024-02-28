@@ -71,7 +71,7 @@ get_header();
 
 <section id=":r1a:" class="width-wrapper">
     <div class="quotes bg-soft-blue">
-        <div class="quotes-slider" style="transform: translateX(0px);">
+        <div class="quotes-slider" style="transform: translateX(0px);" data-cursor="slider">
             <?php
             $category = get_category_by_slug('client_feedback');
 

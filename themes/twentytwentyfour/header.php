@@ -9,6 +9,9 @@
     <meta name="description" content="Telesens global solutions" />
     <link rel="apple-touch-icon" href="/logo192.png" />
     <link rel="manifest" href="/manifest.json" />
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BKQBLFP3ZT"></script>
     <script>
         function gtag() {
@@ -37,10 +40,15 @@
     </section>
 
     <main id="root">
-        <div id="cursor"></div>
+        <div id="cursor">
+            <span class="material-symbols-outlined">
+                arrow_back
+            </span>
+            <span class="material-symbols-outlined">
+                arrow_forward
+            </span>
+        </div>
         <div id="cursor-border"></div>
 
         <div class="fade bg-navy-green"></div>
-        <?php get_template_part('menu');?>
-
-        
+        <?php get_template_part('menu'); ?>

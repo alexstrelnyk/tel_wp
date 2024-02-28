@@ -26,6 +26,49 @@
         height 0.15s ease-out, background-color 0.15s ease-out;
     z-index: 9999;
 }
+
+#cursor.slider {
+    background-color: #004d35;
+}
+
+#cursor.slider-white {
+    background-color: white;
+}
+
+#cursor.slider-white,
+#cursor.slider {
+    height: 60px;
+    width: 60px;
+    top: -30px;
+    left: -30px;
+    transition: overflow 0.5s ease;
+    padding-left: 5px;
+}
+
+#cursor.slider-white .material-symbols-outlined,
+#cursor.slider .material-symbols-outlined {
+    display: inline-block;
+    margin-top: 17px;
+    width: 20px;
+}
+
+#cursor.slider .material-symbols-outlined {
+    color: white;
+}
+
+#cursor.slider-white .material-symbols-outlined {
+    color: #004d35;
+}
+
+.material-symbols-outlined {
+    display: none;
+}
+
+#cursor-border.slider-white,
+#cursor-border.slider {
+    display: none;
+}
+
 /*
 input {
     font-family: "Century Gothic", sans-serif;
