@@ -47,6 +47,7 @@
             <span class="material-symbols-outlined">
                 arrow_forward
             </span>
+            <div class="input-bg"></div>
         </div>
         <div id="cursor-border"></div>
 

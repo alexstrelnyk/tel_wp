@@ -60,13 +60,31 @@
     color: #004d35;
 }
 
-.material-symbols-outlined {
-    display: none;
-}
-
+.material-symbols-outlined,
+#cursor .input-bg,
+#cursor-border.input-text,
 #cursor-border.slider-white,
 #cursor-border.slider {
     display: none;
+}
+
+#cursor.input-text {
+    width: 1px;
+    height: 30px;
+    left: 0;
+    top: -20px;
+    border-color: black;
+    border-left: 0;
+}
+
+#cursor.input-text .input-bg {
+    display: block;
+    height: 34px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    width: 7px;
+    margin-left: -3px;
+    margin-top: -3px;
 }
 
 /*

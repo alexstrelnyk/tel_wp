@@ -38,8 +38,14 @@ document.querySelectorAll("[data-cursor]").forEach((item) => {
       cursor.classList.add("slider-white");
       cursorBorder.classList.add("slider-white");
     }
+    if (item.dataset.cursor === "input-text") {
+      cursor.classList.add("input-text");
+      cursorBorder.classList.add("input-text");
+    }
   });
   item.addEventListener("mouseout", (e) => {
+    cursor.classList.remove("input-text");
+    cursorBorder.classList.remove("input-text");
     cursor.classList.remove("slider-white");
     cursorBorder.classList.remove("slider-white");
     cursor.classList.remove("slider");
