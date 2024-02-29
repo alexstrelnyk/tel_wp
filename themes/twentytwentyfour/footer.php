@@ -2,12 +2,12 @@
                 <div class="container flex-col">
                     <div class="top-footer">
                         <ul class="pages">
-                            <li class="label"><a class="Sub animated-link " href="/about-us"><span class="title"><span data-text="Про нас" class="color-after-dark-blend-a color-before-white">Про нас</span></span></a></li>
-                            <li class="label"><a class="Sub animated-link " href="/products-services"><span class="title"><span data-text="Продукти і послуги" class="color-after-dark-blend-a color-before-white">Продукти і послуги</span></span></a></li>
-                            <li class="label"><a class="Sub animated-link " href="/career"><span class="title"><span data-text="Вакансії" class="color-after-dark-blend-a color-before-white">Вакансії</span></span></a></li>
-                            <li class="label"><a class="Sub animated-link " href="/contact-us"><span class="title"><span data-text="Контакти" class="color-after-dark-blend-a color-before-white">Контакти</span></span></a></li>
-                            <li class="label"><a class="Sub animated-link " href="/blog"><span class="title"><span data-text="Блог" class="color-after-dark-blend-a color-before-white">Блог</span></span></a></li>
-                            <li class="label"><a class="Sub animated-link " href="/charity"><span class="title"><span data-text="Благодійність" class="color-after-dark-blend-a color-before-white">Благодійність</span></span></a></li>
+                            <li class="label"><a class="Sub animated-link " href="<?php echo get_permalink(get_page_by_path('about-us')->ID) ?>"><span class="title"><span data-text="Про нас" class="color-after-dark-blend-a color-before-white">Про нас</span></span></a></li>
+                            <li class="label"><a class="Sub animated-link " href="<?php echo get_permalink(get_page_by_path('products-services')->ID) ?>"><span class="title"><span data-text="Продукти і послуги" class="color-after-dark-blend-a color-before-white">Продукти і послуги</span></span></a></li>
+                            <li class="label"><a class="Sub animated-link " href="<?php echo get_permalink(get_page_by_path('career')->ID) ?>"><span class="title"><span data-text="Вакансії" class="color-after-dark-blend-a color-before-white">Вакансії</span></span></a></li>
+                            <li class="label"><a class="Sub animated-link " href="<?php echo get_permalink(get_page_by_path('contact-us')->ID) ?>"><span class="title"><span data-text="Контакти" class="color-after-dark-blend-a color-before-white">Контакти</span></span></a></li>
+                            <li class="label"><a class="Sub animated-link " href="<?php echo get_permalink(get_page_by_path('blog')->ID) ?>"><span class="title"><span data-text="Блог" class="color-after-dark-blend-a color-before-white">Блог</span></span></a></li>
+                            <li class="label"><a class="Sub animated-link " href="<?php echo get_permalink(get_page_by_path('charity')->ID) ?>"><span class="title"><span data-text="Благодійність" class="color-after-dark-blend-a color-before-white">Благодійність</span></span></a></li>
                         </ul>
                         <ul class="contacts">
                             <li class="label contact-title">
@@ -76,32 +76,10 @@
 
                 <!-- Admin top panel -->
                 <?php wp_footer(); ?>
-                
+
             </footer>
             </main>
             <script defer="defer" src="<?php echo path('js', 'cursor.js') ?>"></script>
-            
-            <?php
-            /*
-        <script type="text/javascript">_linkedin_partner_id="5374538",window._linkedin_data_partner_ids=window._linkedin_data_partner_ids||[],window._linkedin_data_partner_ids.push(_linkedin_partner_id)</script>
-        <script type="text/javascript">!function(n){window.lintrk||(window.lintrk=function(n,t){window.lintrk.q.push([n,t])},window.lintrk.q=[]);var t=document.getElementsByTagName("script")[0],i=document.createElement("script");i.type="text/javascript",i.async=!0,i.src="https://snap.licdn.com/li.lms-analytics/insight.min.js",t.parentNode.insertBefore(i,t)}()</script>
-        <noscript><img height="1" width="1" style="display:none" alt="" src="https://px.ads.linkedin.com/collect/?pid=5374538&fmt=gif"/></noscript>
-        <deepl-input-controller></deepl-input-controller>
-        <script>(() => {
-        window.addoncropExtensions = window.addoncropExtensions || [];
-        window.addoncropExtensions.push({
-            mode: 'emulator',
-            emulator: 'Foxified',
-            extension: {
-                id: 44,
-                name: 'Загрузчик Видео и MP3 с YouTube',
-                version: '17.2.8',
-                date: 'February 14, 2023',
-            },
-            flixmateConnected: false,
-        });
-    })();</script>
-    */ ?>
 
             </body>
 
