@@ -41,8 +41,8 @@
             }
 
 
-
-            $posts = get_posts(['post_type' => 'nav_menu_item', 'number_posts' => -1, 'orderby' => 'menu_order', 'order' => 'ASC']);
+            $menu_object = wp_get_nav_menu_object(pll_current_language() == 'uk' ? 'menu1' : 'menu2');
+            $posts = wp_get_nav_menu_items($menu_object->term_id);
             foreach ($posts as $key => $value) {
                 if (get_post_meta($value->ID, '_menu_item_type', true) == 'custom') {
                     $url = get_post_meta($value->ID, '_menu_item_url', true);
