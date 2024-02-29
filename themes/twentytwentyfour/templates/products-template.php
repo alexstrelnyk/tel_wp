@@ -8,7 +8,7 @@ get_header();
 
 <section id=":r17:" class="width-wrapper">
     <div class="services-tree">
-        <div class="flex-col">
+        <div class="flex-col sub_parent_0">
             <div id="cards-tree" class="shelf-content bg-midnight-blue">
                 <p class="H3 color-white  italic">Продукти та Послуги</p>
             </div>
