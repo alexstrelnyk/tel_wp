@@ -281,3 +281,8 @@ function get_product_services()
 
 	wp_send_json($html);
 }
+
+function get_label($uk, $en)
+{
+	return pll_current_language() == 'en' ? $en : $uk;
+}
