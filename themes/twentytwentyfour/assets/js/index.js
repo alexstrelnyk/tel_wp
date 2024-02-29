@@ -148,7 +148,6 @@ function getProducts(obj, level) {
     var cat_id = $(obj).data('cat_id');
     var cat_title = $(obj).data('cat_title');
 
-    $('.services-card').removeClass('selected');
     if (level) {
         var selector = '';
         $('.sub_parent').each(function (index, obj) {
