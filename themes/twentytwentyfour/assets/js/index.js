@@ -165,11 +165,9 @@ function getProducts(obj, level) {
         $('.sub_parent').remove();
     }
 
-    //TODO
-    if ($(obj).hasClass('selected')) {
-    } else {
-        $(obj).addClass('selected');
-    }
+    $('.sub_parent_' + level + ' .services-card').removeClass('selected');
+
+    $(obj).addClass('selected');
 
     $.ajax({
         type: 'POST',
