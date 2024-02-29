@@ -276,7 +276,7 @@ echo get_post_field('post_content', get_queried_object_id());
 
 <section id=":r9:" class="width-wrapper">
     <div class="quotes bg-soft-blue">
-        <div class="quotes-slider" style="transform: translateX(0px);">
+        <div class="quotes-slider" style="transform: translateX(0px);" data-cursor="slider">
             <div class="quote-container">
                 <div class="single-quote">
                     <p class="H4 color-grey-blue title non-selectable italic">Мобільний додаток працює як швейцарський годинник – без помилок і збоїв.</p>
