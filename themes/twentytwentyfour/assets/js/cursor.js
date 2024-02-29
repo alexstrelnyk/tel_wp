@@ -46,8 +46,15 @@ document.querySelectorAll("[data-cursor]").forEach((item) => {
       cursor.classList.add("active");
       cursorBorder.classList.add("active");
     }
+    if (item.dataset.cursor === "slider-img") {
+      cursor.classList.add("slider-img");
+      cursorBorder.classList.add("slider-img");
+    }
   });
   item.addEventListener("mouseout", (e) => {
+    cursor.classList.remove("slider-img");
+    cursorBorder.classList.remove("slider-img");
+
     cursor.classList.remove("active");
     cursorBorder.classList.remove("active");
 

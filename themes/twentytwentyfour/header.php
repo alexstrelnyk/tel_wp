@@ -41,11 +41,14 @@
 
     <main id="root">
         <div id="cursor">
-            <span class="material-symbols-outlined">
+            <span class="material-symbols-outlined arrow_left">
                 arrow_back
             </span>
-            <span class="material-symbols-outlined">
+            <span class="material-symbols-outlined arrow_right">
                 arrow_forward
+            </span>
+            <span class="material-symbols-outlined arrow_right_long">
+                arrow_right_alt
             </span>
             <div class="input-bg"></div>
         </div>
