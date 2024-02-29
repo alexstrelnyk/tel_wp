@@ -110,7 +110,7 @@
                 <div data-left="UA" data-right="EN" class="labels color-before-<?php echo $loc_color ?> color-after-<?php echo $loc_color ?>"></div>
             </div>
             <div id="header-menu">
-                <div class="menu-button <?php echo $menu_bg_class . ' ' . $menu_border ?>" style="transition: all 0.75s ease-out 0s;">
+                <div class="menu-button <?php echo $menu_bg_class . ' ' . $menu_border ?>" style="transition: all 0.75s ease-out 0s;" data-cursor="active">
                     <div class="menu-bar" style="transition: all 0.75s ease-out 0s;">
                         <div class="menu-check "><span class="contrast-<?php echo $menu_bg_class ?>"></span><span class="contrast-<?php echo $menu_bg_class ?>"></span></div>
                     </div>

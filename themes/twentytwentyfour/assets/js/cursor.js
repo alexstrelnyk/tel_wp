@@ -42,14 +42,24 @@ document.querySelectorAll("[data-cursor]").forEach((item) => {
       cursor.classList.add("input-text");
       cursorBorder.classList.add("input-text");
     }
+    if (item.dataset.cursor === "active") {
+      cursor.classList.add("active");
+      cursorBorder.classList.add("active");
+    }
   });
   item.addEventListener("mouseout", (e) => {
+    cursor.classList.remove("active");
+    cursorBorder.classList.remove("active");
+
     cursor.classList.remove("input-text");
     cursorBorder.classList.remove("input-text");
+
     cursor.classList.remove("slider-white");
     cursorBorder.classList.remove("slider-white");
+
     cursor.classList.remove("slider");
     cursorBorder.classList.remove("slider");
+
     cursorBorder.style.backgroundColor = "unset";
     cursorBorder.style.mixBlendMode = "unset";
     cursorBorder.style.setProperty("--size", "50px");
