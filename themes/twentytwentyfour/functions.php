@@ -286,3 +286,8 @@ function get_label($uk, $en)
 {
 	return pll_current_language() == 'en' ? $en : $uk;
 }
+
+function get_url($slug)
+{
+	return get_permalink(pll_get_post(get_page_by_path($slug)->ID, pll_current_language()));
+}
