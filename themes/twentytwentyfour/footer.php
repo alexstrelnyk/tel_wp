@@ -6,24 +6,24 @@
                             <li class="label"><a class="Sub animated-link " href="<?php echo get_permalink(pll_get_post(get_page_by_path('products-services')->ID, pll_current_language())) ?>"><span class="title"><span data-text="<?php echo get_label('Продукти і послуги', 'Products & Services') ?>" class="color-after-dark-blend-a color-before-white"><?php echo get_label('Продукти і послуги', 'Products & Services') ?></span></span></a></li>
                             <li class="label"><a class="Sub animated-link " href="<?php echo get_permalink(pll_get_post(get_page_by_path('career')->ID, pll_current_language())) ?>"><span class="title"><span data-text="<?php echo get_label('Вакансії', 'Career') ?>" class="color-after-dark-blend-a color-before-white"><?php echo get_label('Вакансії', 'Career') ?></span></span></a></li>
                             <li class="label"><a class="Sub animated-link " href="<?php echo get_permalink(pll_get_post(get_page_by_path('contact-us')->ID, pll_current_language())) ?>"><span class="title"><span data-text="<?php echo get_label('Контакти', 'Contact Us') ?>" class="color-after-dark-blend-a color-before-white"><?php echo get_label('Контакти', 'Contact Us') ?></span></span></a></li>
-                            <li class="label"><a class="Sub animated-link " href="<?php echo get_permalink(pll_get_post(get_page_by_path('blog')->ID, pll_current_language())) ?>"><span class="title"><span data-text="<?php echo get_label('Блог', 'Blog') ?>" class="color-after-dark-blend-a color-before-white"><?php echo get_label('Блог', '') ?></span></span></a></li>
-                            <li class="label"><a class="Sub animated-link " href="<?php echo get_permalink(pll_get_post(get_page_by_path('charity')->ID, pll_current_language())) ?>"><span class="title"><span data-text="<?php echo get_label('Благодійність', 'Charity') ?>" class="color-after-dark-blend-a color-before-white"><?php echo get_label('Благодійність', '') ?></span></span></a></li>
+                            <li class="label"><a class="Sub animated-link " href="<?php echo get_permalink(pll_get_post(get_page_by_path('blog')->ID, pll_current_language())) ?>"><span class="title"><span data-text="<?php echo get_label('Блог', 'Blog') ?>" class="color-after-dark-blend-a color-before-white"><?php echo get_label('Блог', 'Blog') ?></span></span></a></li>
+                            <li class="label"><a class="Sub animated-link " href="<?php echo get_permalink(pll_get_post(get_page_by_path('charity')->ID, pll_current_language())) ?>"><span class="title"><span data-text="<?php echo get_label('Благодійність', 'Charity') ?>" class="color-after-dark-blend-a color-before-white"><?php echo get_label('Благодійність', 'Charity') ?></span></span></a></li>
                         </ul>
                         <ul class="contacts">
                             <li class="label contact-title">
-                                <p class="Sub color-white ">Центр розробки</p>
+                                <p class="Sub color-white "><?php echo get_label('Центр розробки', 'Development center') ?></p>
                             </li>
                             <li class="link-label">
-                                <p class="Body color-white ">Харків, Україна</p>
+                                <p class="Body color-white "><?php echo get_label('Харків, Україна', 'Kharkiv, Ukraine') ?></p>
                             </li>
                             <li class="link-label">
                                 <p class="Body color-white ">info@telesens.ua</p>
                             </li>
                             <li class="label contact-title">
-                                <p class="Sub color-white ">Північноамериканський офіс</p>
+                                <p class="Sub color-white "><?php echo get_label('Північноамериканський офіс', 'North American Office') ?></p>
                             </li>
                             <li class="link-label">
-                                <p class="Body color-white ">Бруклін, Нью-Йорк, США</p>
+                                <p class="Body color-white "><?php echo get_label('Бруклін, Нью-Йорк, США', 'Brooklyn, NY, USA') ?></p>
                             </li>
                             <li class="link-label">
                                 <p class="Body color-white ">info@telesens.us</p>
@@ -37,7 +37,7 @@
                         </ul>
                         <ul class="follow">
                             <li class="label">
-                                <p class="Sub color-white ">Наші соцмережі</p>
+                                <p class="Sub color-white "><?php echo get_label('Наші соцмережі', 'Follow us') ?></p>
                             </li>
                             <li class="link-label"><a class="Body animated-link " href="https://www.linkedin.com/company/27443/admin/" target="_blank" rel="noopener noreferrer"><span class="title"><span data-text="LinkedIn" class="color-after-dark-blend-a color-before-white">LinkedIn</span></span></a></li>
                             <li class="link-label"><a class="Body animated-link " href="https://www.instagram.com/telesens_it/?hl=en" target="_blank" rel="noopener noreferrer"><span class="title"><span data-text="Instagram" class="color-after-dark-blend-a color-before-white">Instagram</span></span></a></li>
