@@ -198,3 +198,56 @@ function getProducts(obj, level) {
         }
     });
 }
+
+
+var $slider = $('.quotes-slider');
+var $slides = $('.quotes-slider .quote-container');
+
+var slideWidth = $slides.eq(0).outerWidth(true);
+var currentIndex = 0;
+var isAnimating = false;
+
+$slider.on('wheel', function (e) {
+    e.preventDefault();
+
+    if (!isAnimating) {
+        if (e.originalEvent.deltaY > 0) {
+            goToNextSlide();
+        } else {
+            goToPrevSlide();
+        }
+    }
+});
+function goToNextSlide() {
+    if (currentIndex < $slides.length - 1) {
+        currentIndex++;
+        scrollToCurrentSlide();
+    }
+}
+
+
+function goToPrevSlide() {
+    if (currentIndex > 0) {
+        currentIndex--;
+        scrollToCurrentSlide();
+    }
+}
+
+function scrollToCurrentSlide() {
+    var newPosition = 0;
+    for (var i = 0; i < currentIndex; i++) {
+        newPosition += $slides.eq(i).outerWidth(true);
+    }
+    isAnimating = true;
+    $('.quotes-slider').css('transform', 'translateX(-' + newPosition + 'px)');
+
+    $slider.stop().animate({
+        scrollLeft: newPosition
+    }, 500, function () {
+        console.log('asdsa');
+        setTimeout(function () {
+            isAnimating = false;
+        }, 1000);
+    });
+}
+

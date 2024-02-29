@@ -4336,7 +4336,8 @@ a {
 .quotes .quotes-slider {
     display: flex;
     -webkit-transform: translateX(0);
-    transform: translateX(0)
+    transition: transform 0.3s ease-out 0s;
+    transform: translateX(0);
 }
 
 .quotes .quotes-slider .quote-container {
