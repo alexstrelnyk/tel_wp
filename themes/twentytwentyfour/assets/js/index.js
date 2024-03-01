@@ -158,14 +158,14 @@ function getProducts(obj, level) {
 
     if (level) {
         var selector = '';
-        $('.sub_parent').each(function (index, obj) {
-            if (index > level) {
+        for (var i = 0; i <= $('.sub_parent').length; i++) {
+            if (i >= level) {
                 if (selector) {
                     selector = selector + ', ';
                 }
-                selector = selector + ' .sub_parent_' + (index) + ', .sub_parent_' + (index + 1);
+                selector += ' .sub_parent_' + (i + 1);
             }
-        });
+        }
         if (selector) {
             console.log(selector);
             $(selector).remove();
