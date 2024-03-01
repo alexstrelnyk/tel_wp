@@ -167,6 +167,7 @@ function getProducts(obj, level) {
             }
         });
         if (selector) {
+            console.log(selector);
             $(selector).remove();
         }
     } else {
@@ -187,7 +188,6 @@ function getProducts(obj, level) {
             cat_title
         },
         success: function (response) {
-            $('.sub-parent').remove();
             if ($('.sub_parent').length) {
                 $(obj).parents('.sub_parent').after(response);
             } else {
