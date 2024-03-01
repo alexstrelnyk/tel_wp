@@ -52,7 +52,7 @@ echo get_post_field('post_content', get_queried_object_id());
 <div id="feedback_container" style="display: none;">
     <div class="quotes-slider" style="transform: translateX(0px);" data-cursor="slider">
         <?php
-        $category = get_category_by_slug('client_feedback');
+        $category = get_category_by_slug(pll_current_language() == 'uk' ? 'client_feedback' : 'client_feedback-en');
 
         if ($category) {
             $args = array(
