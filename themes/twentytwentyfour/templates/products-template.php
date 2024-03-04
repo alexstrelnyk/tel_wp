@@ -73,7 +73,7 @@ get_header();
     <div class="quotes bg-soft-blue swiper mySwiper">
         <div class="quotes-slider swiper-wrapper" data-cursor="slider">
             <?php
-            $category = get_category_by_slug('client_feedback');
+            $category = get_category_by_slug(pll_current_language() == 'uk' ? 'client_feedback' : 'client_feedback-en');
 
             if ($category) {
                 $args = array(

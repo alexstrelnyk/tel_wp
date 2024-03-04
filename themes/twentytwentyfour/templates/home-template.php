@@ -50,29 +50,31 @@ echo get_post_field('post_content', get_queried_object_id());
     </div>
 </div>
 <div id="feedback_container" style="display: none;">
-    <div class="quotes-slider" style="transform: translateX(0px);" data-cursor="slider">
-        <?php
-        $category = get_category_by_slug(pll_current_language() == 'uk' ? 'client_feedback' : 'client_feedback-en');
+    <div class="quotes bg-soft-blue swiper mySwiper">
+        <div class="quotes-slider swiper-wrapper" data-cursor="slider">
+            <?php
+            $category = get_category_by_slug(pll_current_language() == 'uk' ? 'client_feedback' : 'client_feedback-en');
 
-        if ($category) {
-            $args = array(
-                'category__in' => array($category->term_id),
-                'posts_per_page' => -1,
-            );
-            $posts_query = new WP_Query($args);
+            if ($category) {
+                $args = array(
+                    'category__in' => array($category->term_id),
+                    'posts_per_page' => -1,
+                );
+                $posts_query = new WP_Query($args);
 
-            if ($posts_query->have_posts()) {
-                while ($posts_query->have_posts()) {
-                    $posts_query->the_post();
+                if ($posts_query->have_posts()) {
+                    while ($posts_query->have_posts()) {
+                        $posts_query->the_post();
 
-        ?>
-                    <div class="quote-container"><?php the_content() ?></div>
-        <?php
+            ?>
+                        <div class="quote-container swiper-slide"><?php the_content() ?></div>
+            <?php
+                    }
+                    wp_reset_postdata();
                 }
-                wp_reset_postdata();
             }
-        }
-        ?>
+            ?>
+        </div>
     </div>
 </div>
 <script>
