@@ -71,6 +71,8 @@
 }
 
 #cursor.slider-white .material-symbols-outlined.arrow_right_long,
+#cursor.slider .material-symbols-outlined.arrow_right_long,
+.material-symbols-outlined.arrow_right_long,
 .material-symbols-outlined,
 #cursor .input-bg,
 #cursor-border.active,
