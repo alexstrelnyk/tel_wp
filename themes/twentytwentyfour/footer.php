@@ -85,6 +85,24 @@
 
             <script>
                 var swiper = new Swiper(".mySwiper");
+                var scrollTimeout;
+
+                $('.quotes-slider').on('wheel', function(e) {
+                    clearTimeout(scrollTimeout);
+
+                    if (!scrollTimeout) {
+                        var direction = e.originalEvent.deltaX > 0 ? 'next' : 'prev';
+                        if (direction === 'next') {
+                            swiper.slideNext();
+                        } else {
+                            swiper.slidePrev();
+                        }
+                    }
+
+                    scrollTimeout = setTimeout(function() {
+                        scrollTimeout = null;
+                    }, 50);
+                });
             </script>
 
             </body>
