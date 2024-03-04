@@ -24,6 +24,7 @@
     <script defer="defer" src="<?php echo path('js', 'index.js') ?>"></script>
     <link href="<?php echo path('css', 'style.css') ?>" rel="stylesheet">
     <link href="<?php echo path('css', 'additional.css') ?>" rel="stylesheet">
+    <link href="<?php echo path('css', 'slider.css') ?>" rel="stylesheet">
 
 </head>
 

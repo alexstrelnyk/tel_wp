@@ -70,8 +70,8 @@ get_header();
 </section>
 
 <section id=":r1a:" class="width-wrapper">
-    <div class="quotes bg-soft-blue">
-        <div class="quotes-slider" style="transform: translateX(0px);" data-cursor="slider">
+    <div class="quotes bg-soft-blue swiper mySwiper">
+        <div class="quotes-slider swiper-wrapper" data-cursor="slider">
             <?php
             $category = get_category_by_slug('client_feedback');
 
@@ -87,7 +87,7 @@ get_header();
                         $posts_query->the_post();
 
             ?>
-                        <div class="quote-container"><?php the_content() ?></div>
+                        <div class="swiper-slide"><?php the_content() ?></div>
             <?php
                     }
                     wp_reset_postdata();
