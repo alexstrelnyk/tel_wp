@@ -87,7 +87,7 @@ get_header();
                         $posts_query->the_post();
 
             ?>
-                        <div class="swiper-slide"><?php the_content() ?></div>
+                        <div class="quote-container swiper-slide"><?php the_content() ?></div>
             <?php
                     }
                     wp_reset_postdata();
