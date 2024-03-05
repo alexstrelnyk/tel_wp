@@ -79,7 +79,7 @@ echo get_post_field('post_content', get_queried_object_id());
 </div>
 <script>
     $('#slider_container_set').after($('#slider_cont').html()).remove();
-    $('#feedback_container_set').after($('#feedback_container').html()).remove();
+    // $('#feedback_container_set').after($('#feedback_container').html()).remove();
 </script>
 <?php
 
