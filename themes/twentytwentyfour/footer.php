@@ -81,6 +81,7 @@
             </main>
             <script defer="defer" src="<?php echo path('js', 'cursor.js') ?>"></script>
             <script src="<?php echo path('js', 'swiper-bundle.min.js') ?>"></script>
+            <script src="<?php echo path('js', 'index.js') ?>"></script>
 
             <script>
                 var swiper = new Swiper(".mySwiper");
