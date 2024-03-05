@@ -36,7 +36,7 @@ echo get_post_field('post_content', get_queried_object_id());
         ?>
                 <div class="product-card">
                     <div class="product-desc">
-                        <div class="product-image" style="transform: rotate(0.584795deg);" data-cursor="slider-img" onclick="goto('<?php echo get_permalink($product_page->ID) ?>?cat_id=<?php echo $category->cat_ID ?>')"><img loading="lazy" src="<?php echo $image['url'] ?>" alt="<?php echo $category->name ?>"></div><a class="Body animated-link" data-cursor="active" href="<?php echo get_permalink($product_page->ID) ?>?cat_id=<?php echo $category->cat_ID ?>"><span class="title"><span data-text="Читати більше" class="color-after-bright-green color-before-white">Читати більше</span></span></a>
+                        <div class="product-image" style="transform: rotate(0.584795deg);" data-cursor="slider-img" onclick="goto('<?php echo get_permalink($product_page->ID) ?>?cat_slug=<?php echo $category->slug ?>')"><img loading="lazy" src="<?php echo $image['url'] ?>" alt="<?php echo $category->name ?>"></div><a class="Body animated-link" data-cursor="active" href="<?php echo get_permalink($product_page->ID) ?>?cat_id=<?php echo $category->cat_ID ?>"><span class="title"><span data-text="Читати більше" class="color-after-bright-green color-before-white">Читати більше</span></span></a>
                     </div>
                     <div class="pager" data-cursor="slider-white"></div>
                     <div class="product-title">
