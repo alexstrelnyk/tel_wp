@@ -226,7 +226,7 @@ function getProducts(obj, level) {
                 }, 400);
             }
             if (postId) {
-                history.pushState(null, null, '?' + productCatUrl + '&post_id=' + postId);
+                history.pushState(null, null, '?' + productCatUrl + '&post_slug=' + postId);
                 postId = false;
             } else {
                 history.pushState(null, null, '?' + productCatUrl);

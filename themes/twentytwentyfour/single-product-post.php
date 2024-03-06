@@ -1,5 +1,5 @@
 <script>
-    var postId = <?php echo $post->ID?>;
+    var postId = '<?php echo $post->post_name ?>';
 </script>
 <div class="sub_parent sub_parent_<?php echo $level ?>">
     <section data=":r7:" id="blog-section" class="blog-view frc bg-soft-blue">

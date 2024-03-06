@@ -158,20 +158,23 @@ function get_parent_cat($cat_id, $parent_cat_slugs)
     return $parent_cat_slugs;
 }
 
-if (isset($_GET['post_id']) && $_GET['post_id']) {
-    $post_id = $_GET['post_id'];
+if (isset($_GET['post_slug']) && $_GET['post_slug']) {
+    $post_slug = $_GET['post_slug'];
 
-    if ($categories = get_the_category($post_id)) {
-        $parent_cat_slugs[] = $categories[0]->slug;
-        $parent_cat_slugs = array_reverse(get_parent_cat($categories[0]->parent, $parent_cat_slugs));
+    if ($post = get_page_by_path($post_slug, OBJECT, 'post')) {
+
+        if ($categories = get_the_category($post->ID)) {
+            $parent_cat_slugs[] = $categories[0]->slug;
+            $parent_cat_slugs = array_reverse(get_parent_cat($categories[0]->parent, $parent_cat_slugs));
 ?>
-        <script>
-            var parentCatSlugs = JSON.parse('<?php echo json_encode($parent_cat_slugs) ?>');
-            $(document).ready(function() {
-                $('#cat_slug_<?php echo $parent_cat_slugs[0] ?>').click();
-            });
-        </script>
+            <script>
+                var parentCatSlugs = JSON.parse('<?php echo json_encode($parent_cat_slugs) ?>');
+                $(document).ready(function() {
+                    $('#cat_slug_<?php echo $parent_cat_slugs[0] ?>').click();
+                });
+            </script>
     <?php
+        }
     }
 }
 if (isset($_GET['cat_slug']) && $_GET['cat_slug']) {
