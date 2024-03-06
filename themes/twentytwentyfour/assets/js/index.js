@@ -167,7 +167,6 @@ function getProducts(obj, level) {
             }
         }
         if (selector) {
-            console.log(selector);
             $(selector).remove();
         }
     } else {
@@ -194,9 +193,20 @@ function getProducts(obj, level) {
                 $(obj).parents('.services-tree').after(response);
             }
             var targetBlockPosition = $('.sub_parent_' + (level + 1)).offset().top;
-            setTimeout(function () {
+            if (parentCatSlugs) {
                 $(window).scrollTop(targetBlockPosition);
-            }, 400);
+
+                if (typeof (parentCatSlugs[level + 1]) == 'undefined') {
+                    parentCatSlugs = false
+                } else {
+                    $('#cat_slug_' + parentCatSlugs[level + 1]).click();
+                }
+
+            } else {
+                setTimeout(function () {
+                    $(window).scrollTop(targetBlockPosition);
+                }, 400);
+            }
         },
         error: function (xhr, status, error) {
             console.error(xhr.responseText);

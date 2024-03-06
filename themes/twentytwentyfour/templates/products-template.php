@@ -31,7 +31,7 @@ get_header();
                             ])) {
                                 continue;
                             }
-                            
+
                             $image = get_field('category_image', 'category_' . $category->cat_ID);
                     ?>
                             <div id="cat_slug_<?php echo $category->slug ?>" class="services-card light-blue" onclick="getProducts(this, 0)" data-cat_id="<?php echo $category->cat_ID ?>" data-cat_title="<?php echo $category->cat_name ?>">
@@ -134,11 +134,47 @@ get_header();
         </div>
     </div>
 </section>
+<script>
+    var parentCatSlugs = false;
+</script>
+
 
 <?php
 
-if (isset($_GET['cat_slug']) && $_GET['cat_slug']) {
+$parent_cat_slugs = [];
+function get_parent_cat($cat_id, $parent_cat_slugs)
+{
+    $cat_slug = false;
+    if ($category = get_term($cat_id, 'category')) {
+        $cat_slug = $category->slug;
+    }
+    $parent_cat_slugs[] = $cat_slug;
+
+    if ($category && $category->parent != 0) {
+        $parent_cat_slugs = get_parent_cat($category->parent, $parent_cat_slugs);
+    }
+
+    return $parent_cat_slugs;
+}
+
+if (isset($_GET['post_id']) && $_GET['post_id']) {
+    $post_id = $_GET['post_id'];
+
+    if ($categories = get_the_category($post_id)) {
+        $parent_cat_slugs[] = $categories[0]->slug;
+        $parent_cat_slugs = array_reverse(get_parent_cat($categories[0]->parent, $parent_cat_slugs));
 ?>
+        <script>
+            var parentCatSlugs = JSON.parse('<?php echo json_encode($parent_cat_slugs) ?>');
+            $(document).ready(function() {
+                $('#cat_slug_<?php echo $parent_cat_slugs[0] ?>').click();
+            });
+        </script>
+    <?php
+    }
+}
+if (isset($_GET['cat_slug']) && $_GET['cat_slug']) {
+    ?>
     <script>
         $(document).ready(function() {
             $('#cat_slug_<?php echo $_GET['cat_slug'] ?>').click();
