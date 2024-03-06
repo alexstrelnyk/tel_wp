@@ -264,6 +264,7 @@ function get_product_services()
 				$params = array(
 					'content' => get_the_content(),
 					'level' => $_POST['level'],
+					'post' => $query->post,
 				);
 			}
 			wp_reset_postdata();

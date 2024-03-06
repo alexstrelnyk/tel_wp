@@ -1,3 +1,6 @@
+<script>
+    var postId = <?php echo $post->ID?>;
+</script>
 <div class="sub_parent sub_parent_<?php echo $level ?>">
     <section data=":r7:" id="blog-section" class="blog-view frc bg-soft-blue">
         <div class="container">

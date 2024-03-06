@@ -136,6 +136,7 @@ get_header();
 </section>
 <script>
     var parentCatSlugs = false;
+    var postId = false;
 </script>
 
 

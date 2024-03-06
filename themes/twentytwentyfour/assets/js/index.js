@@ -197,7 +197,7 @@ function getProducts(obj, level) {
                 $(window).scrollTop(targetBlockPosition);
 
                 if (typeof (parentCatSlugs[level + 1]) == 'undefined') {
-                    parentCatSlugs = false
+                    parentCatSlugs = false;
                 } else {
                     $('#cat_slug_' + parentCatSlugs[level + 1]).click();
                 }
@@ -206,6 +206,9 @@ function getProducts(obj, level) {
                 setTimeout(function () {
                     $(window).scrollTop(targetBlockPosition);
                 }, 400);
+            }
+            if (postId) {
+                history.pushState(null, null, '?post_id=' + postId);
             }
         },
         error: function (xhr, status, error) {
