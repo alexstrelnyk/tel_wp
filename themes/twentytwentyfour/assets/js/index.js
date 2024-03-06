@@ -1,4 +1,5 @@
 var cardSliderMargin = 806;
+var productCatUrlObj = {};
 
 $('#root').hide();
 $(document).ready(function () {
@@ -155,6 +156,23 @@ function getProducts(obj, level) {
     var level = parseInt(level);
     var cat_id = $(obj).data('cat_id');
     var cat_title = $(obj).data('cat_title');
+    var cat_slug = $(obj).data('cat_slug');
+
+    productCatUrlObj[level] = cat_slug;
+    for (let el in productCatUrlObj) {
+        if (el > level) {
+            delete productCatUrlObj[el];
+        }
+    }
+
+    var productCatUrl = '';
+    for (let el in productCatUrlObj) {
+        if (el > 0) {
+            productCatUrl += '&';
+        }
+        productCatUrl += productCatUrlObj[el];
+    }
+
 
     if (level) {
         var selector = '';
@@ -208,7 +226,10 @@ function getProducts(obj, level) {
                 }, 400);
             }
             if (postId) {
-                history.pushState(null, null, '?post_id=' + postId);
+                history.pushState(null, null, '?' + productCatUrl + '&post_id=' + postId);
+                postId = false;
+            } else {
+                history.pushState(null, null, '?' + productCatUrl);
             }
         },
         error: function (xhr, status, error) {

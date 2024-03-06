@@ -34,7 +34,7 @@ get_header();
 
                             $image = get_field('category_image', 'category_' . $category->cat_ID);
                     ?>
-                            <div id="cat_slug_<?php echo $category->slug ?>" class="services-card light-blue" onclick="getProducts(this, 0)" data-cat_id="<?php echo $category->cat_ID ?>" data-cat_title="<?php echo $category->cat_name ?>">
+                            <div id="cat_slug_<?php echo $category->slug ?>" class="services-card light-blue" onclick="getProducts(this, 0)" data-cat_id="<?php echo $category->cat_ID ?>" data-cat_title="<?php echo $category->cat_name ?>" data-cat_slug="<?php echo $category->slug ?>">
                                 <?php if ($image) { ?>
                                     <div class="image"><img loading="lazy" src="<?php echo $image['url'] ?>" alt="<?php echo $image['name'] ?>"></div>
                                 <?php } ?>
