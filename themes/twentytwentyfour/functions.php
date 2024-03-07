@@ -252,6 +252,7 @@ function get_product_services()
 			'categories' => $categories,
 		);
 		$template = get_template_directory() . '/single-product.php';
+
 	} else {
 
 		$query = new WP_Query([
@@ -278,7 +279,6 @@ function get_product_services()
 
 	require_once($template);
 	$html = ob_get_clean();
-
 
 	wp_send_json($html);
 }
