@@ -225,12 +225,12 @@ function getProducts(obj, level) {
                     $(window).scrollTop(targetBlockPosition);
                 }, 400);
             }
+
             if (postId) {
-                history.pushState(null, null, '?' + productCatUrl + '&post_slug=' + postId);
+                productCatUrl += '&post_slug=' + postId;
                 postId = false;
-            } else {
-                history.pushState(null, null, '?' + productCatUrl);
             }
+            history.pushState(null, null, '?' + productCatUrl);
         },
         error: function (xhr, status, error) {
             console.error(xhr.responseText);
