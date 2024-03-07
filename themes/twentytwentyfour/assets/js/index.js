@@ -1,14 +1,13 @@
 var cardSliderMargin = 806;
 var productCatUrlObj = {};
 
+var previewBlocked = sessionStorage.getItem('eventTriggered');
+var previewTimeout = 3;
+
 $('#root').hide();
 $(document).ready(function () {
 
-    var eventTriggered = sessionStorage.getItem('eventTriggered');
-
-    var previewTimeout = 3;
-
-    if (!eventTriggered) {
+    if (!previewBlocked) {
         previewTimeout = 3000;
         sessionStorage.setItem('eventTriggered', 'true');
     }
@@ -19,6 +18,11 @@ $(document).ready(function () {
 
         $('span.regular').text('0');
         $(window).on('scroll', handleScroll);
+
+        // Product post render
+        if (parentCatSlugs) {
+            $('#cat_slug_' + parentCatSlugs[0]).click();
+        }
 
     }, previewTimeout);
 

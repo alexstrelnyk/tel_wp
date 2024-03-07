@@ -169,9 +169,6 @@ if (isset($_GET['post_slug']) && $_GET['post_slug']) {
 ?>
             <script>
                 var parentCatSlugs = JSON.parse('<?php echo json_encode($parent_cat_slugs) ?>');
-                $(document).ready(function() {
-                    $('#cat_slug_<?php echo $parent_cat_slugs[0] ?>').click();
-                });
             </script>
     <?php
         }
