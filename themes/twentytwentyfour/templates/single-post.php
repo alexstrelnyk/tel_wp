@@ -12,7 +12,7 @@ get_header();
     <div class="container">
         <div class="blog-side-bar">
             <?php if (has_post_thumbnail()) { ?>
-                <img loading="lazy" src="<?php the_post_thumbnail_url()?>" alt="<?php echo basename(get_the_post_thumbnail_url()) ?>" class="mb12">
+                <img loading="lazy" src="<?php the_post_thumbnail_url() ?>" alt="<?php echo basename(get_the_post_thumbnail_url()) ?>" class="mb12">
             <?php } ?>
             <p class="Sub2 color-black  mb12">
                 <?php echo get_field('description'); ?>
@@ -20,11 +20,13 @@ get_header();
             <p class="Body2 color-light-grey  mb12">
                 <?php
                 $post_date = get_the_date('j M Y');
-                $post_date = str_replace(
-                    array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'),
-                    array('січ', 'лют', 'берез', 'квіт', 'трав', 'черв', 'лип', 'серп', 'вер', 'жовт', 'лист', 'груд'),
-                    $post_date
-                );
+                if (pll_current_language() == 'uk') {
+                    $post_date = str_replace(
+                        array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'),
+                        array('січ', 'лют', 'берез', 'квіт', 'трав', 'черв', 'лип', 'серп', 'вер', 'жовт', 'лист', 'груд'),
+                        $post_date
+                    );
+                }
 
                 echo $post_date;
                 ?>
