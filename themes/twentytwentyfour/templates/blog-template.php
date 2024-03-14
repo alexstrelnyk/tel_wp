@@ -10,29 +10,29 @@ get_header();
     <div class="container">
         <div class="blog-side-bar">
             <div class="">
-                <p class="Sub color-black  mv12">Закладки</p><a class="flex-row align-center gap8 mb12" href="#ТЕЛЕСЕНС ІНСАЙТИ">
-                    <p class="Body color-grey ">ТЕЛЕСЕНС ІНСАЙТИ</p>
+                <p class="Sub color-black  mv12"><?php echo get_label('Закладки', 'Bookmarks') ?></p><a class="flex-row align-center gap8 mb12" href="#ТЕЛЕСЕНС ІНСАЙТИ">
+                    <p class="Body color-grey "><?php echo get_label('ТЕЛЕСЕНС ІНСАЙТИ', 'TELESENS INSIGHTS') ?></p>
                 </a><a class="flex-row align-center gap8 mb12" href="#ТЕЛЕСЕНС НОВИНИ">
-                    <p class="Body color-grey ">ТЕЛЕСЕНС НОВИНИ</p>
+                    <p class="Body color-grey "><?php echo get_label('ТЕЛЕСЕНС НОВИНИ', 'TELESENS NEWS') ?></p>
                 </a>
             </div>
         </div>
         <div class="flex-col blog-content">
-            <p class="H3 color-black  italic mb32">Блог</p>
+            <p class="H3 color-black  italic mb32"><?php echo get_label('Блог', 'Blog') ?></p>
             <div class="module-container type-head bg-transparent">
                 <p class="Sub color-transparent anchor-name" id="ТЕЛЕСЕНС ІНСАЙТИ"></p>
             </div>
             <div class="module-container type-paragraph bg-transparent">
-                <p class="Body color-grey  text-left"><span class="inh  H4">ТЕЛЕСЕНС - ІНСАЙТИ</span></p>
+                <p class="Body color-grey  text-left"><span class="inh  H4"><?php echo get_label('ТЕЛЕСЕНС ІНСАЙТИ', 'TELESENS INSIGHTS') ?></span></p>
             </div>
 
             <?php
             $args = array(
                 'post_type'      => 'post',
-                'category_name'  => 'blog',
+                'category_name'  => get_label('blog', 'blog-en'),
                 'orderby'        => 'date',
                 'order'          => 'DESC',
-                'posts_per_page' => 50,     
+                'posts_per_page' => 50,
             );
 
             $posts = get_posts($args);
@@ -59,23 +59,23 @@ get_header();
                 <p class="Sub color- anchor-name" id="ТЕЛЕСЕНС НОВИНИ"></p>
             </div>
             <div class="module-container type-paragraph">
-                <p class="Body color-grey  text-left"><span class="inh  H4">ТЕЛЕСЕНС - НОВИНИ </span></p>
+                <p class="Body color-grey  text-left"><span class="inh  H4"><?php echo get_label('ТЕЛЕСЕНС НОВИНИ', 'TELESENS NEWS') ?></span></p>
             </div>
             <div class="module-container type-paragraph">
-                <p class="Body color-  text-left"><a href="https://telesens.ua/charity" target="_blank" class="inh Link">Благодійність</a>
+                <p class="Body color-  text-left"><a href="https://telesens.ua/charity" target="_blank" class="inh Link"><?php echo get_label('Благодійність', 'Charity') ?></a>
 
-                    ● <a href="https://helpingdoctors.telesens.co.uk/ua/?lang=ua" target="_blank" class="inh Link">Допомога лікарям</a>
-                    ● <a href="https://helpingschoolchildren.telesens.co.uk" target="_blank" class="inh Link">Допомога школярам</a>
-                    ● <a href="https://helpingangels.telesens.co.uk/?lang=ua" target="_blank" class="inh Link">Допомога янголам</a></p>
+                    ● <a href="https://helpingdoctors.telesens.co.uk/ua/?lang=ua" target="_blank" class="inh Link"><?php echo get_label('Допомога лікарям', 'Helping doctors') ?></a>
+                    ● <a href="https://helpingschoolchildren.telesens.co.uk" target="_blank" class="inh Link"><?php echo get_label('Допомога школярам', 'Helping schoolchildren') ?></a>
+                    ● <a href="https://helpingangels.telesens.co.uk/?lang=ua" target="_blank" class="inh Link"><?php echo get_label('Допомога янголам', 'Helping Angels') ?></a></p>
             </div>
 
             <?php
             $args = array(
                 'post_type'      => 'post',
-                'category_name'  => 'news',
+                'category_name'  => get_label('news', 'news-en'),
                 'orderby'        => 'date',
                 'order'          => 'DESC',
-                'posts_per_page' => 50,     
+                'posts_per_page' => 50,
             );
 
             $posts = get_posts($args);
@@ -101,6 +101,5 @@ get_header();
 </section>
 
 <?php
-// echo get_post_field('post_content', get_queried_object_id());
 
 get_footer();
