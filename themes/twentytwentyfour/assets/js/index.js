@@ -20,7 +20,7 @@ $(document).ready(function () {
         $(window).on('scroll', handleScroll);
 
         // Product post render
-        if (parentCatSlugs) {
+        if (typeof (parentCatSlugs) !== 'undefined' && parentCatSlugs) {
             $('#cat_slug_' + parentCatSlugs[0]).click();
         }
 
@@ -245,3 +245,13 @@ function getProducts(obj, level) {
 function goto(url) {
     document.location.href = url;
 }
+
+$('.vacancies-root .single-vacancy').click(function () {
+    if ($(this).hasClass('collapse')) {
+        $(this).removeClass('collapse');
+        $('.single-desc', $(this)).css({ 'overflow-y': 'hidden', 'height': '0px' });
+    } else {
+        $(this).addClass('collapse');
+        $('.single-desc', $(this)).css({ 'overflow-y': 'initial', 'height': $('.single-desc div:eq(0)', $(this)).height() + 'px' });
+    }
+});
