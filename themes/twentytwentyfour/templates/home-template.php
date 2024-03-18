@@ -112,6 +112,7 @@ echo get_post_field('post_content', get_queried_object_id());
                     'blog',
                     'news',
                     'client_feedback',
+                    'career',
                 ])) {
                     continue;
                 }
