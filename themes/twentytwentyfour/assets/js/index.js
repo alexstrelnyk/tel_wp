@@ -246,12 +246,13 @@ function goto(url) {
     document.location.href = url;
 }
 
-$('.vacancies-root .single-vacancy').click(function () {
-    if ($(this).hasClass('collapse')) {
-        $(this).removeClass('collapse');
-        $('.single-desc', $(this)).css({ 'overflow-y': 'hidden', 'height': '0px' });
+$('.vacancies-root .single-vacancy .accordion .toggle').click(function () {
+    var sv = $(this).parents('.single-vacancy');
+    if (sv.hasClass('collapse')) {
+        sv.removeClass('collapse');
+        $('.single-desc', sv).css({ 'overflow-y': 'hidden', 'height': '0px' });
     } else {
-        $(this).addClass('collapse');
-        $('.single-desc', $(this)).css({ 'overflow-y': 'initial', 'height': $('.single-desc div:eq(0)', $(this)).height() + 'px' });
+        sv.addClass('collapse');
+        $('.single-desc', sv).css({ 'overflow-y': 'initial', 'height': $('.single-desc div:eq(0)', sv).height() + 'px' });
     }
 });
