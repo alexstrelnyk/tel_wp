@@ -246,7 +246,7 @@ function goto(url) {
     document.location.href = url;
 }
 
-$('.vacancies-root .single-vacancy .accordion .toggle').click(function () {
+$('.vacancies-root .single-vacancy .accordion').click(function () {
     var sv = $(this).parents('.single-vacancy');
     if (sv.hasClass('collapse')) {
         sv.removeClass('collapse');
