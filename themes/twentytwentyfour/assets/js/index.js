@@ -4,6 +4,8 @@ var productCatUrlObj = {};
 var previewBlocked = sessionStorage.getItem('eventTriggered');
 var previewTimeout = 3;
 
+var vacancyHeight = 0;
+
 $('#root').hide();
 $(document).ready(function () {
 
@@ -249,10 +251,29 @@ function goto(url) {
 $('.vacancies-root .single-vacancy .accordion').click(function () {
     var sv = $(this).parents('.single-vacancy');
     if (sv.hasClass('collapse')) {
+        vacancyHeight = 0;
         sv.removeClass('collapse');
-        $('.single-desc', sv).css({ 'overflow-y': 'hidden', 'height': '0px' });
+        $('.single-desc', sv).css({ 'overflow-y': 'hidden', 'height': vacancyHeight + 'px' });
     } else {
+        vacancyHeight = $('.single-desc div:eq(0)', sv).height();
         sv.addClass('collapse');
-        $('.single-desc', sv).css({ 'overflow-y': 'initial', 'height': $('.single-desc div:eq(0)', sv).height() + 'px' });
+        $('.single-desc', sv).css({ 'overflow-y': 'initial', 'height': vacancyHeight + 'px' });
     }
+});
+
+$('.vacancies-root .single-vacancy .apply-btn').click(function () {
+    var va = $('.vacancy-application', $(this).parents('.single-desc'));
+
+    if ($(this).hasClass('apply')) {
+        vacancyHeight -= va.height();
+        $(this).removeClass('apply');
+        va.removeClass('apply');
+        $(this).parents('.single-desc').css({ 'overflow-y': 'initial', 'height': vacancyHeight + 'px' });
+    } else {
+        vacancyHeight += va.height();
+        $(this).addClass('apply');
+        va.addClass('apply');
+        $(this).parents('.single-desc').css({ 'overflow-y': 'initial', 'height': vacancyHeight + 'px' });
+    }
+
 });
