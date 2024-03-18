@@ -20,9 +20,11 @@ requestAnimationFrame(function loop() {
   cursorBorderPos.x += (cursorPos.x - cursorBorderPos.x) / easting;
   cursorBorderPos.y += (cursorPos.y - cursorBorderPos.y) / easting;
 
-  var cursorFlashPosX = cursorPos.x / flashSection.offsetHeight * 100;
-  var cursorFlashPosY = cursorPos.y / flashSection.offsetWidth * 100;
-  flashBlock.style = 'background-image: radial-gradient(circle at ' + cursorFlashPosX + '% ' + cursorFlashPosY + '%, rgba(3, 166, 90, 0.3) 0px, rgb(21, 45, 49) 600px)';
+  if (flashBlock) {
+    var cursorFlashPosX = cursorPos.x / flashSection.offsetHeight * 100;
+    var cursorFlashPosY = cursorPos.y / flashSection.offsetWidth * 100;
+    flashBlock.style = 'background-image: radial-gradient(circle at ' + cursorFlashPosX + '% ' + cursorFlashPosY + '%, rgba(3, 166, 90, 0.3) 0px, rgb(21, 45, 49) 600px)';
+  }
 
   cursorBorder.style.transform = `translate(${cursorBorderPos.x}px, ${cursorBorderPos.y}px)`;
   requestAnimationFrame(loop);

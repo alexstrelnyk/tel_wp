@@ -28,6 +28,7 @@ get_header();
                                 'blog',
                                 'news',
                                 'client_feedback',
+                                'career',
                             ])) {
                                 continue;
                             }
