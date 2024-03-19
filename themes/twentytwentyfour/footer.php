@@ -81,6 +81,13 @@
             </main>
             <script defer="defer" src="<?php echo path('js', 'cursor.js') ?>"></script>
             <script src="<?php echo path('js', 'swiper-bundle.min.js') ?>"></script>
+            <script>
+                <?php if (pll_current_language() == 'uk') { ?>
+                    var firstVisitCountryPageUrl = '<?php echo get_permalink(pll_get_post(get_the_ID(), 'en')) ?>';
+                <?php } else { ?>
+                    var firstVisitCountryPageUrl = false;
+                <?php } ?>
+            </script>
             <script src="<?php echo path('js', 'index.js') ?>"></script>
 
             <script>

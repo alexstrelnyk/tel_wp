@@ -11,6 +11,20 @@ $(document).ready(function () {
 
     if (!previewBlocked) {
         previewTimeout = 3000;
+
+        // Redirect user to his country lang page
+        getUserCountry()
+            .then(country => {
+                if (country !== 'UA' && firstVisitCountryPageUrl) {
+                    setTimeout(function () {
+                        goto(firstVisitCountryPageUrl);
+                    }, previewTimeout - 1000);
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching user country:', error);
+            });
+
         sessionStorage.setItem('eventTriggered', 'true');
     }
 
@@ -277,3 +291,18 @@ $('.vacancies-root .single-vacancy .apply-btn').click(function () {
     }
 
 });
+
+function getUserCountry() {
+    return new Promise((resolve, reject) => {
+        fetch('https://ipapi.co/json/')
+            .then(response => response.json())
+            .then(data => {
+                const countryCode = data.country_code;
+
+                resolve(countryCode);
+            })
+            .catch(error => {
+                reject(error);
+            });
+    });
+}
