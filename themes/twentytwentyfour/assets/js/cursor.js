@@ -5,8 +5,9 @@ const cursorBorderPos = { x: 0, y: 0 };
 
 // FlashLight cursor effect for homepage
 var windowWidth = window.innerWidth;
-const flashBlock = document.querySelector(".full-size.floor-2");
 const flashSection = document.querySelector("#top_section");
+const flashBlock = document.querySelector(".full-size.floor-2");
+const floor3 = document.querySelector(".full-size.floor-3");
 
 document.addEventListener("mousemove", (e) => {
   cursorPos.x = e.clientX;
@@ -14,6 +15,10 @@ document.addEventListener("mousemove", (e) => {
 
   cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
 });
+
+function calculateB(A) {
+  return 10 + (90 - 30) * (A / 100);
+}
 
 requestAnimationFrame(function loop() {
   const easting = 8;
@@ -24,6 +29,8 @@ requestAnimationFrame(function loop() {
     var cursorFlashPosX = cursorPos.x / flashSection.offsetWidth * 100;
     var cursorFlashPosY = cursorPos.y / (flashSection.offsetHeight + 80) * 100;
     flashBlock.style = 'background-image: radial-gradient(circle at ' + cursorFlashPosX + '% ' + cursorFlashPosY + '%, rgba(3, 166, 90, 0.3) 0px, rgb(21, 45, 49) 600px)';
+
+    floor3.style = 'background-position: ' + calculateB(cursorFlashPosX) + '% ' + calculateB(cursorFlashPosY) + '%;';
   }
 
   cursorBorder.style.transform = `translate(${cursorBorderPos.x}px, ${cursorBorderPos.y}px)`;
