@@ -21,8 +21,8 @@ requestAnimationFrame(function loop() {
   cursorBorderPos.y += (cursorPos.y - cursorBorderPos.y) / easting;
 
   if (flashBlock) {
-    var cursorFlashPosX = cursorPos.x / flashSection.offsetHeight * 100;
-    var cursorFlashPosY = cursorPos.y / flashSection.offsetWidth * 100;
+    var cursorFlashPosX = cursorPos.x / flashSection.offsetWidth * 100;
+    var cursorFlashPosY = cursorPos.y / (flashSection.offsetHeight + 80) * 100;
     flashBlock.style = 'background-image: radial-gradient(circle at ' + cursorFlashPosX + '% ' + cursorFlashPosY + '%, rgba(3, 166, 90, 0.3) 0px, rgb(21, 45, 49) 600px)';
   }
 
