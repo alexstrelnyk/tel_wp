@@ -71,7 +71,7 @@ get_header();
                                         <div class="vacancy-application">
                                             <div class="contact-form-root f1">
                                                 <div class="text-input" data-cursor="input-text">
-                                                    <p class="Sub2 color-just-grey "><?php echo get_label('Імё\'я', 'First name') ?>*</p><input type="text" class="input" name="firstName" enterkeyhint="next" value="">
+                                                    <p class="Sub2 color-just-grey "><?php echo get_label('Ім\'я', 'First name') ?>*</p><input type="text" class="input" name="firstName" enterkeyhint="next" value="">
                                                 </div>
                                                 <div class="text-input" data-cursor="input-text">
                                                     <p class="Sub2 color-just-grey "><?php echo get_label('Прізвище', 'Last name') ?></p><input type="text" class="input" name="lastName" enterkeyhint="next" value="">
