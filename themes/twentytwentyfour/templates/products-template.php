@@ -109,7 +109,7 @@ get_header();
 
 <section id=":r9:" class="width-wrapper">
     <div class="quotes bg-soft-blue">
-        <div class="quotes bg-soft-blue swiper mySwiper">
+        <div id="feedback_swiper" class="quotes bg-soft-blue swiper">
             <div class="quotes-slider swiper-wrapper" data-cursor="slider">
                 <?php
                 $category = get_category_by_slug(pll_current_language() == 'uk' ? 'client_feedback' : 'client_feedback-en');
