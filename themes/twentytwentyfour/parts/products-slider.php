@@ -18,8 +18,7 @@
                                 'news',
                                 'client_feedback',
                                 'career',
-                                'Без рубрики',
-                            ])) {
+                            ]) || $category->cat_ID == 1) {
                                 continue;
                             }
 
