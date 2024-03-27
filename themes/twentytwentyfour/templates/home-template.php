@@ -16,40 +16,46 @@ echo get_post_field('post_content', get_queried_object_id());
         <div class="slider-side-bar bg-midnight-blue">
             <p class="Sub color-white  bold">ПРОДУКТИ І ПОСЛУГИ</p>
         </div>
-        <div class="services-slider" style="transform: translateX(0px);">
-            <?php
+        <div class="services-slider">
+            <div class="swiper" id="products_swiper">
+                <div class="swiper-wrapper">
+                    <?php
 
-            $categories = get_categories(['parent' => 0]);
-            $product_page = get_page_by_path('products-services');
+                    $categories = get_categories(['parent' => 0]);
+                    $product_page = get_page_by_path('products-services');
 
-            if (!empty($categories)) {
-                foreach ($categories as $category) {
-                    if (in_array($category->cat_name, [
-                        'blog',
-                        'news',
-                        'client_feedback',
-                        'career',
-                    ])) {
-                        continue;
+                    if (!empty($categories)) {
+                        foreach ($categories as $category) {
+                            if (in_array($category->cat_name, [
+                                'blog',
+                                'news',
+                                'client_feedback',
+                                'career',
+                            ])) {
+                                continue;
+                            }
+
+                            $image = get_field('category_image', 'category_' . $category->cat_ID);
+                    ?>
+                            <div class="swiper-slide">
+
+                                <div class="product-card">
+                                    <div class="product-desc">
+                                        <div class="product-image" style="transform: rotate(0.584795deg);" data-cursor="slider-img" onclick="goto('<?php echo get_permalink($product_page->ID) ?>?cat_slug=<?php echo $category->slug ?>')"><img loading="lazy" src="<?php echo $image['url'] ?>" alt="<?php echo $category->name ?>"></div><a class="Body animated-link" data-cursor="active" href="<?php echo get_permalink($product_page->ID) ?>?cat_id=<?php echo $category->cat_ID ?>"><span class="title"><span data-text="Читати більше" class="color-after-bright-green color-before-white">Читати більше</span></span></a>
+                                    </div>
+                                    <div class="pager" data-cursor="slider-white"></div>
+                                    <div class="product-title">
+                                        <p class="H2 color-white "><?php echo $category->name ?></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                    <?php
+                        }
                     }
-
-                    $image = get_field('category_image', 'category_' . $category->cat_ID);
-
-
-            ?>
-                    <div class="product-card">
-                        <div class="product-desc">
-                            <div class="product-image" style="transform: rotate(0.584795deg);" data-cursor="slider-img" onclick="goto('<?php echo get_permalink($product_page->ID) ?>?cat_slug=<?php echo $category->slug ?>')"><img loading="lazy" src="<?php echo $image['url'] ?>" alt="<?php echo $category->name ?>"></div><a class="Body animated-link" data-cursor="active" href="<?php echo get_permalink($product_page->ID) ?>?cat_id=<?php echo $category->cat_ID ?>"><span class="title"><span data-text="Читати більше" class="color-after-bright-green color-before-white">Читати більше</span></span></a>
-                        </div>
-                        <div class="pager" data-cursor="slider-white"></div>
-                        <div class="product-title">
-                            <p class="H2 color-white "><?php echo $category->name ?></p>
-                        </div>
-                    </div>
-            <?php
-                }
-            }
-            ?>
+                    ?>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -279,7 +285,7 @@ echo get_post_field('post_content', get_queried_object_id());
 
 <section id=":r9:" class="width-wrapper">
     <div class="quotes bg-soft-blue">
-        <div class="quotes bg-soft-blue swiper mySwiper">
+        <div class="quotes bg-soft-blue swiper" id="feedback_swiper">
             <div class="quotes-slider swiper-wrapper" data-cursor="slider">
                 <?php
                 $category = get_category_by_slug(pll_current_language() == 'uk' ? 'client_feedback' : 'client_feedback-en');

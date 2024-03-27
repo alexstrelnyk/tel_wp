@@ -331,3 +331,4 @@ function initSlider(selectorId) {
 }
 
 initSlider('feedback_swiper');
+initSlider('products_swiper');
