@@ -6192,7 +6192,9 @@ header .root {
     overflow: hidden;
     -webkit-transform-origin: bottom left;
     transform-origin: bottom left;
-    width: 480px
+    width: 480px;
+    position: relative;
+    z-index: 12;
 }
 
 .services-slider .product-card .product-desc .product-image img {
@@ -6207,10 +6209,16 @@ header .root {
     z-index: 10
 }
 
+.services-slider .product-desc .animated-link {
+    position: relative;
+    z-index: 12;
+}
+
 .services-slider .product-card .pager {
     height: 100%;
-    width: 700px;
-    z-index: 999
+    width: 100%;
+    z-index: 11;
+    position: absolute;
 }
 
 .services-slider .services-card {
