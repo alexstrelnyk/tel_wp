@@ -13,11 +13,17 @@
 
                     if (!empty($categories)) {
                         foreach ($categories as $category) {
-                            if (in_array($category->cat_name, [
+                            if (in_array($category->slug, [
                                 'blog',
+                                'blog-en',
                                 'news',
+                                'news-en',
                                 'client_feedback',
+                                'client_feedback-en',
                                 'career',
+                                'career-en',
+                                'uncategorized-uk',
+                                'uncategorized-en',
                             ]) || $category->cat_ID == 1) {
                                 continue;
                             }
