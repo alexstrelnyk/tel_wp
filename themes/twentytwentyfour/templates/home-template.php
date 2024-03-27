@@ -53,7 +53,7 @@ echo get_post_field('post_content', get_queried_object_id());
                                         </a>
                                     </div>
                                     <div class="pager" data-cursor="slider-white"></div>
-                                    <div class="product-title">
+                                    <div class="product-title" data-cursor="slider-white">
                                         <p class="H2 color-white "><?php echo $category->name ?></p>
                                     </div>
                                 </div>
