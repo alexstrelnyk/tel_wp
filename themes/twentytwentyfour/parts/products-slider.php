@@ -24,7 +24,7 @@
                                 'career-en',
                                 'uncategorized-uk',
                                 'uncategorized-en',
-                            ]) || $category->cat_ID == 1) {
+                            ])) {
                                 continue;
                             }
 
