@@ -36,7 +36,7 @@
                                         <div class="product-image" style="transform: rotate(0.584795deg);" data-cursor="slider-img" onclick="goto('<?php echo get_url('products-services') ?>?cat_slug=<?php echo $category->slug ?>')">
                                             <img loading="lazy" src="<?php echo $image['url'] ?>" alt="<?php echo $category->name ?>">
                                         </div>
-                                        <a class="Body animated-link" data-cursor="active" href="<?php echo get_url('products-services') ?>?cat_id=<?php echo $category->cat_ID ?>">
+                                        <a class="Body animated-link" data-cursor="active" href="<?php echo get_url('products-services') ?>?cat_slug=<?php echo $category->slug ?>">
                                             <span class="title">
                                                 <span data-text="<?php echo get_label('Читати більше', 'Show more') ?>" class="color-after-bright-green color-before-white">
                                                     <?php echo get_label('Читати більше', 'Show more') ?>
