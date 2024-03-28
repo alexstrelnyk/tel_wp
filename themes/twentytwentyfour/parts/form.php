@@ -1,25 +1,29 @@
-<section id=":rp:" class="width-wrapper">
-    <div class="banner bg-white">
-        <div class="banner-container" style="animation-duration: 30s;">
-            <div class="ticker frc">
-                <p class="H1 color-black  italic">Ready to start your project?</p>
-                <div class="bg-dark-blend-a separator flex-col"><span>Professionalism.</span><span>People.</span><span>Persistance.</span><span>Perception.</span></div>
-            </div>
-            <div class="ticker frc reverse">
-                <p class="H1 color-black  italic">Ready to start your project?</p>
-                <div class="bg-dark-blend-a separator flex-col"><span>Professionalism.</span><span>People.</span><span>Persistance.</span><span>Perception.</span></div>
-            </div>
-            <div class="ticker frc">
-                <p class="H1 color-black  italic">Ready to start your project?</p>
-                <div class="bg-dark-blend-a separator flex-col"><span>Professionalism.</span><span>People.</span><span>Persistance.</span><span>Perception.</span></div>
-            </div>
-            <div class="ticker frc reverse">
-                <p class="H1 color-black  italic">Ready to start your project?</p>
-                <div class="bg-dark-blend-a separator flex-col"><span>Professionalism.</span><span>People.</span><span>Persistance.</span><span>Perception.</span></div>
+<?php if (get_post()->post_name !== 'contact-us') { ?>
+
+    <section id=":rp:" class="width-wrapper">
+        <div class="banner bg-white">
+            <div class="banner-container" style="animation-duration: 30s;">
+                <div class="ticker frc">
+                    <p class="H1 color-black  italic">Ready to start your project?</p>
+                    <div class="bg-dark-blend-a separator flex-col"><span>Professionalism.</span><span>People.</span><span>Persistance.</span><span>Perception.</span></div>
+                </div>
+                <div class="ticker frc reverse">
+                    <p class="H1 color-black  italic">Ready to start your project?</p>
+                    <div class="bg-dark-blend-a separator flex-col"><span>Professionalism.</span><span>People.</span><span>Persistance.</span><span>Perception.</span></div>
+                </div>
+                <div class="ticker frc">
+                    <p class="H1 color-black  italic">Ready to start your project?</p>
+                    <div class="bg-dark-blend-a separator flex-col"><span>Professionalism.</span><span>People.</span><span>Persistance.</span><span>Perception.</span></div>
+                </div>
+                <div class="ticker frc reverse">
+                    <p class="H1 color-black  italic">Ready to start your project?</p>
+                    <div class="bg-dark-blend-a separator flex-col"><span>Professionalism.</span><span>People.</span><span>Persistance.</span><span>Perception.</span></div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+<?php } ?>
 
 <section data=":rq:" id="contact-us" class="width-wrapper">
     <div class="contact-us bg-white">
