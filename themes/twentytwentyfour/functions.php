@@ -252,7 +252,6 @@ function get_product_services()
 			'categories' => $categories,
 		);
 		$template = get_template_directory() . '/single-product.php';
-
 	} else {
 
 		$query = new WP_Query([
@@ -291,4 +290,9 @@ function get_label($uk, $en)
 function get_url($slug)
 {
 	return get_permalink(pll_get_post(get_page_by_path($slug)->ID, pll_current_language()));
+}
+
+function is_contact_page()
+{
+	return in_array(get_post()->post_name, ['contact-us', 'contact-us-en']);
 }

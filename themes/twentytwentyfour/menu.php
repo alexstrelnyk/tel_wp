@@ -36,9 +36,19 @@
                 $menu_bottom_color = 'color-before-soft-blue';
             }
 
+            // Custom page switcher
             switch (get_post_field('post_name', get_queried_object_id())) {
                 case 'products-services':
                     $header_bg = 'bg-midnight-blue';
+                    break;
+                case 'products-services-en':
+                    $header_bg = 'bg-midnight-blue';
+                    break;
+                case 'contact-us':
+                    $header_bg = 'bg-light-green';
+                    break;
+                case 'contact-us-en':
+                    $header_bg = 'bg-light-green';
                     break;
             }
 
