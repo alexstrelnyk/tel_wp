@@ -333,9 +333,9 @@ function initSlider(selectorId) {
 initSlider('feedback_swiper');
 initSlider('products_swiper');
 
-function formValidate(selector) {
+function formValidate(selector, fields) {
     var isValid = true;
-    $('#' + selector + ' input[type="text"], #' + selector + ' input[type="email"]').each(function () {
+    $(fields).each(function () {
         var field = $(this);
         if ($(field).attr('aria-required') && !$(field).val()) {
             $(field).parents('.text-input').addClass('error');
@@ -348,7 +348,20 @@ function formValidate(selector) {
         $('[type="submit"]', $('#' + selector).parents('form')).click();
     }
 }
+function initForm(selector) {
+    var fields = $('#' + selector + ' input[type="text"], #' + selector + ' input[type="email"]');
+    $(fields).each(function () {
+        var field = $(this);
 
-$('.send-btn').click(function () {
-    formValidate('contact_us_form');
-});
+        $(field).focus(function () {
+            $(field).parents('.text-input').removeClass('error');
+            $('.input-error', $(field).parents('.text-input')).remove();
+        });
+    });
+
+    $('.send-btn').click(function () {
+        formValidate(selector, fields);
+    });
+}
+
+initForm('contact_us_form');
