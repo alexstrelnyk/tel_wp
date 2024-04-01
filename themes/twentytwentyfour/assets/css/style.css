@@ -8957,7 +8957,8 @@ footer a:hover {
     position: absolute;
     right: calc(100% + 10px);
     width: -webkit-max-content;
-    width: max-content
+    width: max-content;
+    margin-top: 12px;
 }
 
 .checkbox {

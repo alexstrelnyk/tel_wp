@@ -343,6 +343,12 @@ function formValidate(selector, fields) {
             isValid = false;
         }
     });
+    $('#' + selector + ' [type="checkbox"]').each(function () {
+        if (!$(this).is(':checked')) {
+            $(this).parents('label.checkbox').before('<p class="Body color-white checkbox-error">! This field is required</p>');
+            isValid = false;
+        }
+    });
 
     if (isValid) {
         $('[type="submit"]', $('#' + selector).parents('form')).click();
@@ -357,6 +363,10 @@ function initForm(selector) {
             $(field).parents('.text-input').removeClass('error');
             $('.input-error', $(field).parents('.text-input')).remove();
         });
+    });
+
+    $('#' + selector + ' [type="checkbox"]').focus(function () {
+        $('.checkbox-error', $(this).parents('.checkbox-root')).remove();
     });
 
     $('.send-btn').click(function () {
