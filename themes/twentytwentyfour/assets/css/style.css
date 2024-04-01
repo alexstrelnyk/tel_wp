@@ -2103,7 +2103,7 @@ span {
     font-family: var(--font)
 }
 
-p,
+/* p, */
 span {
     white-space: pre-line
 }
@@ -8885,7 +8885,8 @@ footer a:hover {
     line-height: 22px;
     margin-top: 8px;
     outline: 0;
-    padding: 14px 16px
+    padding: 14px 16px;
+    width: 100%;
 }
 
 .text-input .input:focus {
@@ -9001,6 +9002,11 @@ footer a:hover {
     -webkit-transform: scale(1) translateZ(0);
     transform: scale(1) translateZ(0);
     width: 16px
+}
+
+.checkbox.path {
+    top: 10px;
+    margin-right: 25px;
 }
 
 .checkbox.path input:checked {
