@@ -21,10 +21,7 @@
             </div>
         </div>
     </section>
-
 <?php } ?>
-
-
 
 <section data=":rq:" id="contact-us" class="width-wrapper">
     <div class="contact-us bg-<?php echo is_contact_page() ? 'gu-light-green' : 'white' ?>">

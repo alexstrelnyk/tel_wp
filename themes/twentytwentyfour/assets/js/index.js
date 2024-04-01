@@ -332,3 +332,23 @@ function initSlider(selectorId) {
 
 initSlider('feedback_swiper');
 initSlider('products_swiper');
+
+function formValidate(selector) {
+    var isValid = true;
+    $('#' + selector + ' input[type="text"], #' + selector + ' input[type="email"]').each(function () {
+        var field = $(this);
+        if ($(field).attr('aria-required') && !$(field).val()) {
+            $(field).parents('.text-input').addClass('error');
+            $(field).after('<div class="input-error"><p class="Body color-just-grey ">This field is required</p></div>');
+            isValid = false;
+        }
+    });
+
+    if (isValid) {
+        $('[type="submit"]', $('#' + selector).parents('form')).click();
+    }
+}
+
+$('.send-btn').click(function () {
+    formValidate('contact_us_form');
+});

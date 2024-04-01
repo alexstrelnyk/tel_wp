@@ -8915,7 +8915,7 @@ footer a:hover {
 }
 
 .text-input .input-error p:before {
-    background-image: url(/static/media/error_outline.9bc4a0fa83fb5ffe8730.svg);
+    background-image: url(/wp-content/themes/twentytwentyfour/assets/images/error_outline.9bc4a0fa83fb5ffe8730.svg);
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: contain;
@@ -9416,6 +9416,8 @@ footer a:hover {
     height: 950px
 }
 
+.wpcf7 .screen-reader-response,
+form [type="submit"],
 .industries.large .industries-slider .interaction-box {
     display: none
 }
