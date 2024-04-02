@@ -26,6 +26,10 @@
     <link href="<?php echo path('css', 'additional.css') ?>" rel="stylesheet">
     <link href="<?php echo path('css', 'slider.css') ?>" rel="stylesheet">
 
+    <script>
+        var lang = '<?php echo get_label('uk', 'en')?>';
+    </script>
+
 </head>
 
 <body>

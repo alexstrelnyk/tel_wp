@@ -333,19 +333,27 @@ function initSlider(selectorId) {
 initSlider('feedback_swiper');
 initSlider('products_swiper');
 
+function get_label(uk, en) {
+    if (lang == 'en') {
+        return en;
+    } else {
+        return uk;
+    }
+}
+
 function formValidate(selector, fields) {
     var isValid = true;
     $(fields).each(function () {
         var field = $(this);
         if ($(field).attr('aria-required') && !$(field).val()) {
             $(field).parents('.text-input').addClass('error');
-            $(field).after('<div class="input-error"><p class="Body color-just-grey ">This field is required</p></div>');
+            $(field).after('<div class="input-error"><p class="Body color-just-grey ">' + get_label('Заповніть це поле', 'This field is required') + '</p></div>');
             isValid = false;
         }
     });
     $('#' + selector + ' [type="checkbox"]').each(function () {
         if (!$(this).is(':checked')) {
-            $(this).parents('label.checkbox').before('<p class="Body color-white checkbox-error">! This field is required</p>');
+            $(this).parents('label.checkbox').before('<p class="Body color-white checkbox-error">! ' + get_label('Заповніть це поле', 'This field is required') + '</p>');
             isValid = false;
         }
     });

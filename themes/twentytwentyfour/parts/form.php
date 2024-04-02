@@ -25,7 +25,10 @@
 
 <section data=":rq:" id="contact-us" class="width-wrapper">
     <div class="contact-us bg-<?php echo is_contact_page() ? 'gu-light-green' : 'white' ?>">
-        <?php echo do_shortcode('[contact-form-7 id="8039dfd" title="Contact form 1"]') ?>
+        <?php
+        $form = get_label('[contact-form-7 id="53f5d6f" title="Contact form uk"]', '[contact-form-7 id="8039dfd" title="Contact form en"]');
+        echo do_shortcode($form);
+        ?>
     </div>
 </section>
 
