@@ -340,7 +340,16 @@ function get_label(uk, en) {
         return uk;
     }
 }
+function validateEmail(email) {
+    var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+    return pattern.test(email);
+}
+function validateDigits(input) {
+    var pattern = /^\d+$/;
+
+    return pattern.test(input);
+}
 function formValidate(selector, fields) {
     var isValid = true;
     $(fields).each(function () {
@@ -349,6 +358,17 @@ function formValidate(selector, fields) {
             $(field).parents('.text-input').addClass('error');
             $(field).after('<div class="input-error"><p class="Body color-just-grey ">' + get_label('Заповніть це поле', 'This field is required') + '</p></div>');
             isValid = false;
+        } else {
+            if ($(field).attr('type') == 'email' && !validateEmail($(field).val())) {
+                $(field).parents('.text-input').addClass('error');
+                $(field).after('<div class="input-error"><p class="Body color-just-grey ">' + get_label('Недійсний e-mail', 'Invalid email address') + '</p></div>');
+                isValid = false;
+            }
+            if ($(field).attr('name') == 'phone' && !validateDigits($(field).val())) {
+                $(field).parents('.text-input').addClass('error');
+                $(field).after('<div class="input-error"><p class="Body color-just-grey ">' + get_label('Тільки цифри', 'Only Digits') + '</p></div>');
+                isValid = false;
+            }
         }
     });
     $('#' + selector + ' [type="checkbox"]').each(function () {
