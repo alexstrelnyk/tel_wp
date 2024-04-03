@@ -30,7 +30,15 @@
         var lang = '<?php echo get_label('uk', 'en') ?>';
 
         var pages = {
-            'privacy-policy': '<?php echo get_permalink(pll_get_post(get_page_by_path('privacy-policy')->ID, get_label('uk', 'en'))) ?>',
+            <?php
+            $pages = [
+                'privacy-policy'
+            ];
+            foreach ($pages as $slug) {
+                $url = get_url($slug);
+                echo "'$slug': '$url',";
+            }
+            ?>
         };
     </script>
 
