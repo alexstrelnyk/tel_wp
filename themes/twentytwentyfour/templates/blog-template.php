@@ -99,9 +99,23 @@ get_header();
         </div>
     </div>
 </section>
+<section id=":r2:" class="width-wrapper">
+    <div class="blog-preview frc bg-soft-blue">
+        <div class="container">
+            <div class="side f3 flex column">
+                <p class="Sub2 color-black "><?php echo get_label('Слідкуйте за нами', 'Follow us') ?></p>
+            </div>
+            <div class="side f7 flex column">
+                <p class="H3 color-black  italic"><?php echo get_label('Підписуйтеся на наші оновлення', 'Subscribe to our updates') ?></p>
+                <p class="Body color-black "></p>
+                <p class="Body color-black "></p>
+            </div>
+            <div class="f2"></div>
+        </div>
+    </div>
+</section>
 <section id=":r10:" class="width-wrapper">
     <div class="subscribe-form bg-soft-blue">
-
         <?php
         $form = get_label('[contact-form-7 id="c0d1b39" title="Subscribe uk"]', '[contact-form-7 id="e8661ec" title="Subscribe en"]');
         echo do_shortcode($form);
