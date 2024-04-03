@@ -99,6 +99,15 @@ get_header();
         </div>
     </div>
 </section>
+<section id=":r10:" class="width-wrapper">
+    <div class="subscribe-form bg-soft-blue">
+
+        <?php
+        $form = get_label('[contact-form-7 id="c0d1b39" title="Subscribe uk"]', '[contact-form-7 id="e8661ec" title="Subscribe en"]');
+        echo do_shortcode($form);
+        ?>
+    </div>
+</section>
 
 <?php
 

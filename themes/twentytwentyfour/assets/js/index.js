@@ -403,3 +403,4 @@ function initForm(selector) {
 }
 
 initForm('contact_us_form');
+initForm('subscribe_form');
