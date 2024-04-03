@@ -261,6 +261,11 @@ function getProducts(obj, level) {
 function goto(url) {
     document.location.href = url;
 }
+function gotoPage(page) {
+    if(pages[page]){
+        document.location.href = pages[page];
+    }
+}
 
 $('.vacancies-root .single-vacancy .accordion').click(function () {
     var sv = $(this).parents('.single-vacancy');

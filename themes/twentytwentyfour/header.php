@@ -27,7 +27,11 @@
     <link href="<?php echo path('css', 'slider.css') ?>" rel="stylesheet">
 
     <script>
-        var lang = '<?php echo get_label('uk', 'en')?>';
+        var lang = '<?php echo get_label('uk', 'en') ?>';
+
+        var pages = {
+            'privacy-policy': '<?php echo get_permalink(pll_get_post(get_page_by_path('privacy-policy')->ID, get_label('uk', 'en'))) ?>',
+        };
     </script>
 
 </head>
