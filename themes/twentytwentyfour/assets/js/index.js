@@ -261,9 +261,13 @@ function getProducts(obj, level) {
 function goto(url) {
     document.location.href = url;
 }
-function gotoPage(page) {
-    if(pages[page]){
-        document.location.href = pages[page];
+function gotoPage(page, isNewTab) {
+    if (pages[page]) {
+        if (isNewTab) {
+            window.open(pages[page], "_blank");
+        } else {
+            document.location.href = pages[page];
+        }
     }
 }
 
