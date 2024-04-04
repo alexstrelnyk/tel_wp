@@ -8,8 +8,8 @@
 get_header();
 
 $pdf = false;
-if (has_post_thumbnail()) {
-    $pdf = get_the_post_thumbnail_url();
+if (get_field('post_file')) {
+    $pdf = get_field('post_file')['url'];
 }
 
 ?>
