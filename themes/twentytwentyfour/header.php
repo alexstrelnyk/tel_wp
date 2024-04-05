@@ -10,8 +10,6 @@
     <link rel="apple-touch-icon" href="/logo192.png" />
     <link rel="manifest" href="/manifest.json" />
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BKQBLFP3ZT"></script>
     <script>
         function gtag() {
@@ -25,6 +23,7 @@
     <link href="<?php echo path('css', 'style.css') ?>" rel="stylesheet">
     <link href="<?php echo path('css', 'additional.css') ?>" rel="stylesheet">
     <link href="<?php echo path('css', 'slider.css') ?>" rel="stylesheet">
+    <link href="<?php echo path('css', 'fonts.css') ?>" rel="stylesheet">
 
     <script>
         var lang = '<?php echo get_label('uk', 'en') ?>';
