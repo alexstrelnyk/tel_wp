@@ -23,6 +23,8 @@
                                 'career-en',
                                 'uncategorized-uk',
                                 'uncategorized-en',
+                                'gallery',
+                                'gallery-en',
                             ])) {
                                 continue;
                             }
