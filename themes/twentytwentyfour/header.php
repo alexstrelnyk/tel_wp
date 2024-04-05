@@ -20,10 +20,10 @@
     <title>Telesens</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
+    <link href="<?php echo path('css', 'fonts.css') ?>" rel="stylesheet">
     <link href="<?php echo path('css', 'style.css') ?>" rel="stylesheet">
     <link href="<?php echo path('css', 'additional.css') ?>" rel="stylesheet">
     <link href="<?php echo path('css', 'slider.css') ?>" rel="stylesheet">
-    <link href="<?php echo path('css', 'fonts.css') ?>" rel="stylesheet">
 
     <script>
         var lang = '<?php echo get_label('uk', 'en') ?>';
