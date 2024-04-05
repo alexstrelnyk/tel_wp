@@ -35,6 +35,10 @@ get_header();
                                 'career-en',
                                 'uncategorized-uk',
                                 'uncategorized-en',
+                                'gallery',
+                                'gallery-en',
+                                'regions',
+                                'regions-en',
                             ])) {
                                 continue;
                             }
