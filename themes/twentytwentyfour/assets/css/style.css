@@ -10156,6 +10156,10 @@ form [type="submit"],
     }
 }
 
+.wide-gallery-root {
+    overflow-x: hidden;
+}
+
 .wide-gallery-root .gallery-heading {
     margin-left: 85px;
     margin-top: 60px
