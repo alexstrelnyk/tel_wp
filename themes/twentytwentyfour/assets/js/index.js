@@ -342,6 +342,7 @@ function initSlider(selectorId) {
 initSlider('feedback_swiper');
 initSlider('products_swiper');
 initSlider('gallery_swiper');
+initSlider('regions_swiper');
 
 function get_label(uk, en) {
     if (lang == 'en') {

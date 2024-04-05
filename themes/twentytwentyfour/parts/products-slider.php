@@ -25,6 +25,8 @@
                                 'uncategorized-en',
                                 'gallery',
                                 'gallery-en',
+                                'regions',
+                                'regions-en',
                             ])) {
                                 continue;
                             }
