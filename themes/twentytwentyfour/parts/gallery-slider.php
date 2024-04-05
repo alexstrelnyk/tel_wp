@@ -1,13 +1,13 @@
 <section id=":r3:" class="width-wrapper">
     <div class="bg-grey-blue slider-container">
         <div class="slider-side-bar bg-midnight-blue">
-            <p class="Sub color-white  bold">Моменти, повідомлення, фото</p>
+            <p class="Sub color-white  bold"><?php echo get_label('Моменти, повідомлення, фото', 'Moments, messages and photos') ?></p>
         </div>
         <div class="wide-gallery-root">
-            <p class="H2 color-white gallery-heading italic">Галерея</p>
+            <p class="H2 color-white gallery-heading italic"><?php echo get_label('Галерея', 'Gallery') ?></p>
             <div class="wide-gallery-slider">
                 <div class="swiper" id="gallery_swiper">
-                    <div class="swiper-wrapper" data-cursor="slider">
+                    <div class="swiper-wrapper" data-cursor="slider-white">
                         <?php
                         $category = get_category_by_slug(get_label('gallery', 'gallery-en'));
 
