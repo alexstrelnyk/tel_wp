@@ -389,29 +389,38 @@ function formValidate(selector, fields) {
         }
     });
 
+    if ($('#' + selector).data('career_title')) {
+        $('#' + selector + ' [name="hidden-subject"]').val($('#' + selector).data('career_title'));
+    }
+
     if (isValid) {
         $('[type="submit"]', $('#' + selector).parents('form')).click();
+        $('#' + selector + ' [type="submit"]').click();
     }
 }
 function initForm(selector) {
-    var fields = $('#' + selector + ' input[type="text"], #' + selector + ' input[type="email"]');
-    $(fields).each(function () {
-        var field = $(this);
+    $('#' + selector + ' .send-btn').click(function () {
+        if ($('#' + selector).is(':visible')) {
 
-        $(field).focus(function () {
-            $(field).parents('.text-input').removeClass('error');
-            $('.input-error', $(field).parents('.text-input')).remove();
-        });
-    });
+            var fields = $('#' + selector + ' input[type="text"], #' + selector + ' input[type="email"]');
+            $(fields).each(function () {
+                var field = $(this);
 
-    $('#' + selector + ' [type="checkbox"]').focus(function () {
-        $('.checkbox-error', $(this).parents('.checkbox-root')).remove();
-    });
+                $(field).focus(function () {
+                    $(field).parents('.text-input').removeClass('error');
+                    $('.input-error', $(field).parents('.text-input')).remove();
+                });
+            });
 
-    $('.send-btn').click(function () {
-        formValidate(selector, fields);
+            $('#' + selector + ' [type="checkbox"]').focus(function () {
+                $('.checkbox-error', $(this).parents('.checkbox-root')).remove();
+            });
+
+            formValidate(selector, fields);
+        }
     });
 }
 
 initForm('contact_us_form');
 initForm('subscribe_form');
+initForm('career_form');

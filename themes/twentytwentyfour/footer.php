@@ -90,6 +90,15 @@
             </script>
             <script src="<?php echo path('js', 'index.js') ?>"></script>
 
+            <script>
+                // Init multiple career forms
+                if (typeof(formNames) !== 'undefined' && formNames) {
+                    for (var i in formNames) {
+                        initForm(formNames[i]);
+                    }
+                }
+            </script>
+
             </body>
 
             </html>
