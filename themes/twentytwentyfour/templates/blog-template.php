@@ -52,6 +52,7 @@ get_header();
                         <?php echo get_field('description'); ?>
                     </p>
                 </div>
+                <br>
             <?php
             }
             wp_reset_postdata();
