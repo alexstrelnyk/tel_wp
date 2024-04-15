@@ -2292,9 +2292,10 @@ a {
 }
 
 .container {
+    white-space: pre-line;
     display: flex;
     flex: 1 1;
-    max-width: 1280px
+    max-width: 1280px;
 }
 
 .mini-container {
@@ -11172,7 +11173,7 @@ form [type="submit"],
 
 .blog-view .blog-content {
     flex: 1 1;
-    max-width: 715px
+    /* max-width: 715px */
 }
 
 .blog-view .blog-content img {
