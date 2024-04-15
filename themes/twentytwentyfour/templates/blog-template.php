@@ -41,7 +41,9 @@ get_header();
                 setup_postdata($post);
             ?>
                 <div class="module-container type-linkedImage">
-                    <img loading="lazy" src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo basename(get_the_post_thumbnail_url()) ?>">
+                    <a href="<?php the_permalink(); ?>" target="_blank">
+                        <img loading="lazy" src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo basename(get_the_post_thumbnail_url()) ?>">
+                    </a>
                 </div>
                 <div class="module-container type-paragraph">
                     <p class="Body color-  text-left">
