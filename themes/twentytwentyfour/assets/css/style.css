@@ -11173,7 +11173,7 @@ form [type="submit"],
 
 .blog-view .blog-content {
     flex: 1 1;
-    /* max-width: 715px */
+    max-width: 715px
 }
 
 .blog-view .blog-content img {
