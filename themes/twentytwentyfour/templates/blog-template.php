@@ -48,7 +48,7 @@ get_header();
                 <div class="module-container type-paragraph">
                     <p class="Body color-  text-left">
                         <a href="<?php the_permalink(); ?>" target="_blank" class="inh Link"><?php the_title(); ?></a>
-
+                        <br>
                         <?php echo get_field('description'); ?>
                     </p>
                 </div>
