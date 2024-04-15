@@ -41,9 +41,7 @@ get_header();
                 setup_postdata($post);
             ?>
                 <div class="module-container type-linkedImage">
-                    <a href="<?php the_permalink(); ?>" target="_blank">
-                        <img loading="lazy" src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo basename(get_the_post_thumbnail_url()) ?>">
-                    </a>
+                    <img loading="lazy" src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo basename(get_the_post_thumbnail_url()) ?>" onclick="gotoPage('<?php the_permalink()?>')">
                 </div>
                 <div class="module-container type-paragraph">
                     <p class="Body color-  text-left">
