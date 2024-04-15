@@ -2292,7 +2292,7 @@ a {
 }
 
 .container {
-    white-space: pre-line;
+    /* white-space: pre-line; */
     display: flex;
     flex: 1 1;
     max-width: 1280px;
