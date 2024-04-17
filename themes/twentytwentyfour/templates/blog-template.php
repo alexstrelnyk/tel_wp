@@ -67,7 +67,7 @@ get_header();
                 <p class="Body color-grey  text-left"><span class="inh  H4"><?php echo get_label('ТЕЛЕСЕНС НОВИНИ', 'TELESENS NEWS') ?></span></p>
             </div>
             <div class="module-container type-paragraph" style="white-space: pre-line;">
-                <p class="Body color-  text-left"><a href="https://telesens.ua/charity" target="_blank" class="inh Link"><?php echo get_label('Благодійність', 'Charity') ?></a>
+                <p class="Body color-  text-left"><a href="<?php echo get_url('charity') ?>" target="_blank" class="inh Link"><?php echo get_label('Благодійність', 'Charity') ?></a>
 
                     ● <a href="https://helpingdoctors.telesens.co.uk/ua/?lang=ua" target="_blank" class="inh Link"><?php echo get_label('Допомога лікарям', 'Helping doctors') ?></a>
                     ● <a href="https://helpingschoolchildren.telesens.co.uk" target="_blank" class="inh Link"><?php echo get_label('Допомога школярам', 'Helping schoolchildren') ?></a>
