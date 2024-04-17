@@ -7,7 +7,7 @@ get_header();
 ?>
 
 <section data=":rr:" id="blog-section" class="blog-view frc bg-soft-blue">
-    <div class="container" style="white-space: pre-line;">
+    <div class="container">
         <div class="blog-side-bar">
             <div class="">
                 <p class="Sub color-black  mv12"><?php echo get_label('Закладки', 'Bookmarks') ?></p><a class="flex-row align-center gap8 mb12" href="#ТЕЛЕСЕНС ІНСАЙТИ">
@@ -48,10 +48,13 @@ get_header();
                 <div class="module-container type-paragraph">
                     <p class="Body color-  text-left">
                         <a href="<?php the_permalink(); ?>" target="_blank" class="inh Link"><?php the_title(); ?></a>
-                        
+                        <br>
+                        <br>
                         <?php echo get_field('description'); ?>
                     </p>
                 </div>
+                <br>
+                <br>
             <?php
             }
             wp_reset_postdata();
@@ -89,10 +92,13 @@ get_header();
                     <p class="Body color-  text-left">
 
                         <a href="<?php the_permalink(); ?>" target="_blank" class="inh Link"><?php the_title(); ?></a>
-                        
+                        <br>
+                        <br>
                         <?php echo get_field('description'); ?>
                     </p>
                 </div>
+                <br>
+                <br>
             <?php
             }
             wp_reset_postdata();
