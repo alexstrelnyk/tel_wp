@@ -92,10 +92,13 @@ get_header();
                     <p class="Body color-  text-left">
 
                         <a href="<?php the_permalink(); ?>" target="_blank" class="inh Link"><?php the_title(); ?></a>
-
+                        <br>
+                        <br>
                         <?php echo get_field('description'); ?>
                     </p>
                 </div>
+                <br>
+                <br>
             <?php
             }
             wp_reset_postdata();
