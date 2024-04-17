@@ -98,7 +98,6 @@ get_header();
                     </p>
                 </div>
                 <br>
-                <br>
             <?php
             }
             wp_reset_postdata();
