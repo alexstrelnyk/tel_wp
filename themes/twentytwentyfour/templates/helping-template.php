@@ -31,11 +31,7 @@ get_header();
             ?>
                 <div class="module-container type-paragraph">
                     <p class="Body color-  text-left">
-                        <span class="inh  italic">
-                            <span class="inh  H5">
-                                <span class="inh  color-navy-green"><?php the_title(); ?></span>
-                            </span>
-                        </span>
+                        <span class="inh  italic"><span class="inh  H5"><span class="inh  color-navy-green"><?php the_title(); ?></span></span></span>
                     </p>
                 </div>
                 <?php the_content(); ?>
