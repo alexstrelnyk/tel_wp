@@ -7,7 +7,7 @@ get_header();
 ?>
 
 <section data=":r1s:" id="blog-section" class="blog-view frc bg-soft-blue">
-    <div class="container" style="white-space: pre-line;">
+    <div class="container">
         <div class="blog-side-bar">
             <div class="charity-tabs">
                 <p class="Sub color-black  mv12"><?php echo get_label('Закладки', 'Bookmarks')?></p>
