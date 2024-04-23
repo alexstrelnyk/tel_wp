@@ -39,6 +39,8 @@ get_header();
                                 'gallery-en',
                                 'regions',
                                 'regions-en',
+                                'charity',
+                                'charity-en',
                             ])) {
                                 continue;
                             }
