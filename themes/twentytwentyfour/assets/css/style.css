@@ -11918,4 +11918,10 @@ html {
     }
 }
 
+.charity-tabs {
+    svg {
+        display: none;
+    }
+}
+
 /*# sourceMappingURL=main.53d41e13.css.map*/

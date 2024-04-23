@@ -32,7 +32,7 @@ get_header();
                 'category_name'  => get_label('blog', 'blog-en'),
                 'orderby'        => 'date',
                 'order'          => 'DESC',
-                'posts_per_page' => 50,
+                'posts_per_page' => -1,
             );
 
             $posts = get_posts($args);
@@ -80,7 +80,7 @@ get_header();
                 'category_name'  => get_label('news', 'news-en'),
                 'orderby'        => 'date',
                 'order'          => 'DESC',
-                'posts_per_page' => 50,
+                'posts_per_page' => -1,
             );
 
             $posts = get_posts($args);

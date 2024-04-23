@@ -424,3 +424,8 @@ function initForm(selector) {
 initForm('contact_us_form');
 initForm('subscribe_form');
 initForm('career_form');
+
+$('.one-tab').click(function () {
+    $('.charity-tabs svg').hide();
+    $('svg', $(this)).show();
+});
