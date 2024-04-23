@@ -10,7 +10,7 @@ get_header();
     <div class="container">
         <div class="blog-side-bar">
             <div class="charity-tabs">
-                <p class="Sub color-black  mv12"><?php echo get_label('Закладки', 'Bookmarks')?></p>
+                <p class="Sub color-black  mv12"><?php echo get_label('Закладки', 'Bookmarks') ?></p>
 
                 <?php
                 $args = array(
@@ -60,7 +60,13 @@ get_header();
                     <p class="Sub color- anchor-name" id="<?php the_title(); ?>"><?php the_title(); ?></p>
                 </div>
                 <div class="module-container type-image">
-                    <img loading="lazy" src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo basename(get_the_post_thumbnail_url()) ?>">
+                    <?php if (get_field('image_link')) { ?>
+                        <a href="<?php echo get_field('image_link') ?>" target="_blank" data-cursor="active">
+                            <img loading="lazy" src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo basename(get_the_post_thumbnail_url()) ?>">
+                        </a>
+                    <?php } else { ?>
+                        <img loading="lazy" src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo basename(get_the_post_thumbnail_url()) ?>">
+                    <?php } ?>
                 </div>
                 <div class="module-container type-paragraph">
                     <?php the_content() ?>
