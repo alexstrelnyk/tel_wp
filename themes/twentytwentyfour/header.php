@@ -31,7 +31,8 @@
         var pages = {
             <?php
             $pages = [
-                'privacy-policy'
+                'privacy-policy',
+                'helping-defenders',
             ];
             foreach ($pages as $slug) {
                 $url = get_url($slug);
