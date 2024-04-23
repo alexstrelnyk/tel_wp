@@ -10,7 +10,7 @@ get_header();
     <div class="container" style="white-space: pre-line;">
         <div class="blog-side-bar">
             <div class="charity-tabs">
-                <p class="Sub color-black  mv12">Закладки</p>
+                <p class="Sub color-black  mv12"><?php echo get_label('Закладки', 'Bookmarks')?></p>
 
                 <?php
                 $args = array(
