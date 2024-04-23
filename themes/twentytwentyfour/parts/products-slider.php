@@ -29,6 +29,8 @@
                                 'regions-en',
                                 'charity',
                                 'charity-en',
+                                'helping',
+                                'helping-en',
                             ])) {
                                 continue;
                             }
