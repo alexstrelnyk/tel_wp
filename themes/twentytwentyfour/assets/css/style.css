@@ -4024,6 +4024,10 @@ a {
     width: 180px
 }
 
+form [type="file"] {
+    opacity: 0;
+}
+
 @media screen and (max-width:1200px)and (min-width:481px) {
     .contact-us {
         padding: 60px 64px 60px 32px
@@ -9064,7 +9068,8 @@ footer a:hover {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 2
+    z-index: 2;
+    display: none;
 }
 
 @media screen and (min-width:960px)and (-webkit-device-pixel-ratio:1.25) {
@@ -9089,6 +9094,7 @@ footer a:hover {
     text-decoration-line: none
 }
 
+.dropzone.green-bg,
 .dropzone:hover {
     background-color: var(--light-green) !important
 }

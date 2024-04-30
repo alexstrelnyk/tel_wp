@@ -429,3 +429,70 @@ $('.one-tab').click(function () {
     $('.charity-tabs svg').hide();
     $('svg', $(this)).show();
 });
+
+
+//Dropzone
+
+
+function initDropzone(selector) {
+
+    var dropWrap = $('#'+selector);
+    var dropArea = $('.dropzone', dropWrap);
+
+    dropArea.on('dragenter dragover dragleave drop', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+    });
+
+    dropArea.on('dragenter dragover', function() {
+        dropArea.addClass('highlight');
+        if (!$('.dropzone-overlay', dropWrap).is(':visible')) {
+            $('.dropzone-overlay', dropWrap).show();
+            $('.dropzone', dropWrap).addClass('green-bg');
+        }
+    });
+
+    dropArea.on('dragleave drop', function() {
+
+        dropArea.removeClass('highlight');
+        if ($('.dropzone-overlay', dropWrap).is(':visible')) {
+            $('.dropzone-overlay', dropWrap).hide();
+            $('.dropzone', dropWrap).removeClass('green-bg');
+        }
+    });
+
+    dropArea.on('drop', function(e) {
+        var files = e.originalEvent.dataTransfer.files;
+        handleFiles(files);
+    });
+
+    $('[type="file"]', dropArea).on('change', function() {
+        var files = $(this)[0].files;
+        handleFiles(files);
+    });
+
+    function handleFiles(files) {
+        for (var i = 0; i < files.length; i++) {
+            var file = files[0];
+            uploadFile(file);
+        }
+    }
+
+    function uploadFile(file) {
+        var fileName = file.name;
+        $('.gap16').append('<div class="flex row gap12 single-file"><svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 0C0.9 0 0.0100002 0.9 0.0100002 2L0 18C0 19.1 0.89 20 1.99 20H14C15.1 20 16 19.1 16 18V6L10 0H2ZM9 7V1.5L14.5 7H9Z" fill="#AFBCBA"></path></svg><p class="Body2 color-navy-green f2 file-label">' + fileName + '</p><div class="f1"><div class="delete-button"></div></div></div>');
+    }
+
+    function deleteFile(file) {}
+
+    $(dropArea).click(function(e) {
+        $('[name="file-492"]', e).click();
+    });
+}
+/*
+setTimeout(function(){
+    $('.single-vacancy .accordion').eq(0).click();
+    $('.single-vacancy .single-desc .apply-btn').click();
+
+}, 500);
+*/

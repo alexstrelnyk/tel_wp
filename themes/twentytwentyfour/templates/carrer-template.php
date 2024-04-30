@@ -97,6 +97,13 @@ get_header();
     <?php } else { ?>
         var formNames = false;
     <?php } ?>
+
+    $(document).ready(function() {
+        <?php foreach ($form_names as $fname) {
+            echo 'initDropzone(\'' . $fname . '\');';
+        } ?>
+
+    });
 </script>
 
 <?php
