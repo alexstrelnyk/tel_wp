@@ -6,19 +6,26 @@
         </div>
         <div class="services-slider" style="transform: translateX(0px);">
             <?php
+            $is_last_row = true;
+            foreach ($categories as $cat_key => $cat_val) {
+                if ($is_last_row) {
+                    $sub_cat = get_categories(['parent' => $cat_val->cat_ID]);
+                    $is_last_row = !count($sub_cat) ? true : false;
+                }
+            }
             foreach ($categories as $key => $category) {
                 $image = get_field('category_image', 'category_' . $category->cat_ID);
-                $categories = get_categories(['parent' => $category->cat_ID]);
+                $sub_categories = get_categories(['parent' => $category->cat_ID]);
                 $sc_class = '';
                 if ($level % 2 === 0) {
                     $sc_class .= ' light-blue';
                 } else {
                     $sc_class .= ' yellow';
                 }
-                if (!count($categories)) {
+                if (!count($sub_categories)) {
                     $sc_class .= ' ending';
                 }
-                if ($level > 2) {
+                if ($is_last_row) {
                     $sc_class .= ' square';
                 }
             ?>
