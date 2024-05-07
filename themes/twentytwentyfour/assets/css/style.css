@@ -4429,7 +4429,7 @@ form [type="file"] {
         left: 64px
     }
 
-    .quotes-mob-wrapper .quotes-mob .quote-mob .single-quote {
+    .quote-container .single-quote {
         padding: 60px 64px
     }
 }
