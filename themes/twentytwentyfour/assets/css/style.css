@@ -9367,7 +9367,10 @@ footer a:hover {
 }
 
 .industries .industries-slider.still {
-    transition: none
+    transition: none;
+    overflow: scroll;
+    padding: 14px 0;
+    margin-top: -14px;
 }
 
 .industries .industries-slider.still .shadow-slider {
