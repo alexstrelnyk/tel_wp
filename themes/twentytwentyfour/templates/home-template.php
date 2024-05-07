@@ -183,11 +183,43 @@ get_template_part('parts/planets');
 
 <?php get_template_part('parts/form') ?>
 
-
-
-
-
-<section id=":r24:" class="width-wrapper">
+<?php
+$industries = [
+    [
+        'name' => 'Телеком',
+        'img' => '1657202444886-mL.jpg',
+    ],
+    [
+        'name' => 'Безпека',
+        'img' => '1657202456313-yL.jpg',
+    ],
+    [
+        'name' => 'Фінанси',
+        'img' => '1657202464929-eL.jpg',
+    ],
+    [
+        'name' => 'Охорона здоров\'я',
+        'img' => '1657202471835-eL.jpg',
+    ],
+    [
+        'name' => 'ЖКГ',
+        'img' => '1657202477758-yL.jpg',
+    ],
+    [
+        'name' => 'Ігрова індустрія',
+        'img' => '1657202484393-gL.jpg',
+    ],
+    [
+        'name' => 'Фітнес',
+        'img' => '1657202493553-sL.jpg',
+    ],
+    [
+        'name' => 'FinTech',
+        'img' => '1657202500010-hL.jpg',
+    ],
+];
+?>
+<section id="industries-wrap" class="width-wrapper">
     <div class="bg-light-grey industries">
         <div class="industries-title">
             <p class="Body color-soft-blue  italic">Industries expertise</p>
@@ -195,80 +227,37 @@ get_template_part('parts/planets');
         <div class="industries-slider" style="width: 2848px; transform: translate(806px, 145px);">
             <div class="interaction-box"></div>
             <div class="shadow-slider" style="left: -2848px;">
-                <div class="industry-card spread">
-                    <p class="Body color-soft-blue ">Телеком</p><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1657202566628-mM.jpg" alt="Телеком">
-                </div>
-                <div class="industry-card spread">
-                    <p class="Body color-soft-blue ">Безпека</p><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1657202574248-yM.jpg" alt="Безпека">
-                </div>
-                <div class="industry-card spread">
-                    <p class="Body color-grey ">Фінанси</p><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1657202580458-eM.jpg" alt="Фінанси">
-                </div>
-                <div class="industry-card spread">
-                    <p class="Body color-soft-blue ">Охорона здоров'я</p><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1657202590719-eM.jpg" alt="Охорона здоров'я">
-                </div>
-                <div class="industry-card spread">
-                    <p class="Body color-soft-blue ">ЖКГ</p><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1657202599113-yM.jpg" alt="ЖКГ">
-                </div>
-                <div class="industry-card spread">
-                    <p class="Body color-soft-blue ">Ігрова індустрія</p><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1657202605141-gM.jpg" alt="Ігрова індустрія">
-                </div>
-                <div class="industry-card spread">
-                    <p class="Body color-grey ">Фітнес</p><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1657202609306-sM.jpg" alt="Фітнес">
-                </div>
-                <div class="industry-card spread">
-                    <p class="Body color-soft-blue ">FinTech</p><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1657202613975-hM.jpg" alt="FinTech">
-                </div>
+                <?php
+                foreach ($industries as $arr) {
+                    echo '
+                        <div class="industry-card spread">
+                            <p class="Body color-soft-blue ">' . $arr['name'] . '</p><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/' . $arr['img'] . '" alt="' . $arr['name'] . '">
+                        </div>
+                    ';
+                }
+                ?>
             </div>
-            <div id="industry-card" class="industry-card" style="z-index: 8; transform: translate(0px, 0px) rotate(5deg);">
-                <p class="Body color-soft-blue ">Телеком</p><img loading="lazy" src="https://telesens.ua/admin/files/upload/1657202444886-mL.jpg" alt="Телеком">
-            </div>
-            <div id="industry-card" class="industry-card" style="z-index: 7; transform: translate(-356px, 0px) rotate(10deg);">
-                <p class="Body color-soft-blue ">Безпека</p><img loading="lazy" src="https://telesens.ua/admin/files/upload/1657202456313-yL.jpg" alt="Безпека">
-            </div>
-            <div id="industry-card" class="industry-card" style="z-index: 6; transform: translate(-712px, 0px) rotate(15deg);">
-                <p class="Body color-grey ">Фінанси</p><img loading="lazy" src="https://telesens.ua/admin/files/upload/1657202464929-eL.jpg" alt="Фінанси">
-            </div>
-            <div id="industry-card" class="industry-card" style="z-index: 5; transform: translate(-1068px, 0px) rotate(20deg);">
-                <p class="Body color-soft-blue ">Охорона здоров'я</p><img loading="lazy" src="https://telesens.ua/admin/files/upload/1657202471835-eL.jpg" alt="Охорона здоров'я">
-            </div>
-            <div id="industry-card" class="industry-card" style="z-index: 4; transform: translate(-1424px, 0px) rotate(25deg);">
-                <p class="Body color-soft-blue ">ЖКГ</p><img loading="lazy" src="https://telesens.ua/admin/files/upload/1657202477758-yL.jpg" alt="ЖКГ">
-            </div>
-            <div id="industry-card" class="industry-card" style="z-index: 3; transform: translate(-1780px, 0px) rotate(30deg);">
-                <p class="Body color-soft-blue ">Ігрова індустрія</p><img loading="lazy" src="https://telesens.ua/admin/files/upload/1657202484393-gL.jpg" alt="Ігрова індустрія">
-            </div>
-            <div id="industry-card" class="industry-card" style="z-index: 2; transform: translate(-2136px, 0px) rotate(35deg);">
-                <p class="Body color-grey ">Фітнес</p><img loading="lazy" src="https://telesens.ua/admin/files/upload/1657202493553-sL.jpg" alt="Фітнес">
-            </div>
-            <div id="industry-card" class="industry-card" style="z-index: 1; transform: translate(-2492px, 0px) rotate(40deg);">
-                <p class="Body color-soft-blue ">FinTech</p><img loading="lazy" src="https://telesens.ua/admin/files/upload/1657202500010-hL.jpg" alt="FinTech">
-            </div>
+
+            <?php
+            foreach ($industries as $key => $arr) {
+                echo '
+                    <div id="industry-card" class="industry-card" style="z-index: ' . (count($industries) - $key) . '; transform: translate(-' . (356 * $key) . 'px, 0px) rotate(' . (5 + ($key * 5)) . 'deg);">
+                        <p class="Body color-soft-blue ">' . $arr['name'] . '</p><img loading="lazy" src="https://telesens.ua/admin/files/upload/' . $arr['img'] . '" alt="' . $arr['name'] . '">
+                    </div>
+                ';
+            }
+            ?>
             <div class="shadow-slider" style="right: -2848px;">
-                <div class="industry-card spread">
-                    <p class="Body color-soft-blue ">Телеком</p><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1657202566628-mM.jpg" alt="Телеком">
-                </div>
-                <div class="industry-card spread">
-                    <p class="Body color-soft-blue ">Безпека</p><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1657202574248-yM.jpg" alt="Безпека">
-                </div>
-                <div class="industry-card spread">
-                    <p class="Body color-grey ">Фінанси</p><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1657202580458-eM.jpg" alt="Фінанси">
-                </div>
-                <div class="industry-card spread">
-                    <p class="Body color-soft-blue ">Охорона здоров'я</p><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1657202590719-eM.jpg" alt="Охорона здоров'я">
-                </div>
-                <div class="industry-card spread">
-                    <p class="Body color-soft-blue ">ЖКГ</p><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1657202599113-yM.jpg" alt="ЖКГ">
-                </div>
-                <div class="industry-card spread">
-                    <p class="Body color-soft-blue ">Ігрова індустрія</p><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1657202605141-gM.jpg" alt="Ігрова індустрія">
-                </div>
-                <div class="industry-card spread">
-                    <p class="Body color-grey ">Фітнес</p><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1657202609306-sM.jpg" alt="Фітнес">
-                </div>
-                <div class="industry-card spread">
-                    <p class="Body color-soft-blue ">FinTech</p><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1657202613975-hM.jpg" alt="FinTech">
-                </div>
+
+                <?php
+                foreach ($industries as $arr) {
+                    echo '
+                        <div class="industry-card spread">
+                            <p class="Body color-soft-blue ">' . $arr['name'] . '</p><img loading="lazy" src="https://telesens.ua/admin/files/upload/' . $arr['img'] . '" alt="' . $arr['name'] . '">
+                        </div>
+                    ';
+                }
+                ?>
             </div>
         </div>
     </div>
