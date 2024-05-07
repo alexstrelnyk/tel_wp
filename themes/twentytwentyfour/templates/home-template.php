@@ -186,63 +186,43 @@ get_template_part('parts/planets');
 <?php
 $industries = [
     [
-        'name' => 'Телеком',
+        'name' => get_label('Телеком', 'Telecom'),
         'img' => '1657202444886-mL.jpg',
+        'img_mob' => '1657202566628-mM.jpg',
     ], [
-        'name' => 'Безпека',
+        'name' => get_label('Безпека', 'Security'),
         'img' => '1657202456313-yL.jpg',
+        'img_mob' => '1657202574248-yM.jpg',
     ], [
-        'name' => 'Фінанси',
+        'name' => get_label('Фінанси', 'Finance'),
         'img' => '1657202464929-eL.jpg',
+        'img_mob' => '1657202580458-eM.jpg',
     ], [
-        'name' => 'Охорона здоров\'я',
+        'name' => get_label('Охорона здоров\'я', 'Healthcare'),
         'img' => '1657202471835-eL.jpg',
+        'img_mob' => '1657202590719-eM.jpg',
     ], [
-        'name' => 'ЖКГ',
+        'name' => get_label('ЖКГ', 'Utility'),
         'img' => '1657202477758-yL.jpg',
+        'img_mob' => '1657202599113-yM.jpg',
     ], [
-        'name' => 'Ігрова індустрія',
+        'name' => get_label('Ігрова індустрія', 'Gaming'),
         'img' => '1657202484393-gL.jpg',
+        'img_mob' => '1657202605141-gM.jpg',
     ], [
-        'name' => 'Фітнес',
+        'name' => get_label('Фітнес', 'Fitness'),
         'img' => '1657202493553-sL.jpg',
+        'img_mob' => '1657202609306-sM.jpg',
     ], [
         'name' => 'FinTech',
         'img' => '1657202500010-hL.jpg',
-    ],
-];
-
-$industries_mob = [
-    [
-        'name' => 'Телеком',
-        'img' => '1657202566628-mM.jpg',
-    ], [
-        'name' => 'Безпека',
-        'img' => '1657202574248-yM.jpg',
-    ], [
-        'name' => 'Фінанси',
-        'img' => '1657202580458-eM.jpg',
-    ], [
-        'name' => 'Охорона здоров\'я',
-        'img' => '1657202590719-eM.jpg',
-    ], [
-        'name' => 'ЖКГ',
-        'img' => '1657202599113-yM.jpg',
-    ], [
-        'name' => 'Ігрова індустрія',
-        'img' => '1657202605141-gM.jpg',
-    ], [
-        'name' => 'Фітнес',
-        'img' => '1657202609306-sM.jpg',
-    ], [
-        'name' => 'FinTech',
-        'img' => '1657202613975-hM.jpg',
+        'img_mob' => '1657202613975-hM.jpg',
     ],
 ];
 ?>
 
 
-<section id="ind-wrap-mob" class="width-wrapper">
+<section id="ind_wrap_mob" class="width-wrapper">
     <div class="bg-light-grey industries-mob">
         <div class="industries-title">
             <p class="H-mob color-soft-blue ">Industries expertise</p>
@@ -250,8 +230,8 @@ $industries_mob = [
         <div class="industries-slider hsh">
             <div class="flex-row">
                 <?php
-                foreach ($industries_mob as $arr) {
-                    $cls = in_array($arr['img'], [
+                foreach ($industries as $arr) {
+                    $cls = in_array($arr['img_mob'], [
                         '1657202580458-eM.jpg',
                         '1657202609306-sM.jpg',
                     ]) ? 'color-grey' : 'color-soft-blue';
@@ -259,7 +239,7 @@ $industries_mob = [
                         <div class="industry-card">
                             <div>
                                 <p class="Body ' . $cls . '">' . $arr['name'] . '</p>
-                                <img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/' . $arr['img'] . '" alt="' . $arr['name'] . '">
+                                <img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/' . $arr['img_mob'] . '" alt="' . $arr['name'] . '">
                             </div>
                         </div>
                     ';
@@ -269,7 +249,7 @@ $industries_mob = [
         </div>
     </div>
 </section>
-<section id="ind-wrap-large" class="width-wrapper">
+<section id="ind_wrap_large" class="width-wrapper">
     <div class="bg-light-grey industries">
         <div class="industries-title">
             <p class="Body color-soft-blue  italic">Industries expertise</p>
@@ -281,7 +261,7 @@ $industries_mob = [
                 foreach ($industries as $arr) {
                     echo '
                         <div class="industry-card spread">
-                            <p class="Body color-soft-blue ">' . $arr['name'] . '</p><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/' . $arr['img'] . '" alt="' . $arr['name'] . '">
+                            <p class="Body color-soft-blue ">' . $arr['name'] . '</p><img loading="lazy" src="https://telesens.ua/admin/files/upload/' . $arr['img'] . '" alt="' . $arr['name'] . '">
                         </div>
                     ';
                 }

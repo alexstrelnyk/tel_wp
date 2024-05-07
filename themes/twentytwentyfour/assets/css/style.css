@@ -9492,13 +9492,13 @@ form [type="submit"],
 }
 
 @media screen and (max-width:768px) {
-    #ind-wrap-large {
+    #ind_wrap_large {
         display: none;
     }
 }
 
 @media screen and (min-width:769px) {
-    #ind-wrap-mob {
+    #ind_wrap_mob {
         display: none;
     }
 }
