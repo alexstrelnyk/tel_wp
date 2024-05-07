@@ -9491,6 +9491,18 @@ form [type="submit"],
     }
 }
 
+@media screen and (max-width:768px) {
+    #ind-wrap-large {
+        display: none;
+    }
+}
+
+@media screen and (min-width:769px) {
+    #ind-wrap-mob {
+        display: none;
+    }
+}
+
 @media screen and (max-width:1229px)and (min-width:960px)and (-webkit-device-pixel-ratio:1.25) {
     .industries .industries-title {
         left: auto;

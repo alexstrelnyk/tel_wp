@@ -5,6 +5,7 @@ var previewBlocked = sessionStorage.getItem('eventTriggered');
 var previewTimeout = 3;
 
 var vacancyHeight = 0;
+var isLargeScreen = false;
 
 $('#root').hide();
 $(document).ready(function () {
@@ -42,11 +43,14 @@ $(document).ready(function () {
 
     }, previewTimeout);
 
+    // Check mob/large view
+    isLargeScreen = $(window).width() > 768 ? true : false;
+
     // Card slider margin
-    if ($(window).width() > 768) {
+    if (isLargeScreen) {
         cardSliderMargin = (($(window).width()) / 2 + 200);
+        $('.industries-slider').css('transform', 'translate(' + cardSliderMargin + 'px, 145px)');
     }
-    $('.industries-slider').css('transform', 'translate(' + cardSliderMargin + 'px, 145px)');
 });
 
 $('.menu-bar').click(function () {

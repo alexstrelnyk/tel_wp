@@ -188,38 +188,83 @@ $industries = [
     [
         'name' => 'Телеком',
         'img' => '1657202444886-mL.jpg',
-    ],
-    [
+    ], [
         'name' => 'Безпека',
         'img' => '1657202456313-yL.jpg',
-    ],
-    [
+    ], [
         'name' => 'Фінанси',
         'img' => '1657202464929-eL.jpg',
-    ],
-    [
+    ], [
         'name' => 'Охорона здоров\'я',
         'img' => '1657202471835-eL.jpg',
-    ],
-    [
+    ], [
         'name' => 'ЖКГ',
         'img' => '1657202477758-yL.jpg',
-    ],
-    [
+    ], [
         'name' => 'Ігрова індустрія',
         'img' => '1657202484393-gL.jpg',
-    ],
-    [
+    ], [
         'name' => 'Фітнес',
         'img' => '1657202493553-sL.jpg',
-    ],
-    [
+    ], [
         'name' => 'FinTech',
         'img' => '1657202500010-hL.jpg',
     ],
 ];
+
+$industries_mob = [
+    [
+        'name' => 'Телеком',
+        'img' => '1657202566628-mM.jpg',
+    ], [
+        'name' => 'Безпека',
+        'img' => '1657202574248-yM.jpg',
+    ], [
+        'name' => 'Фінанси',
+        'img' => '1657202580458-eM.jpg',
+    ], [
+        'name' => 'Охорона здоров\'я',
+        'img' => '1657202590719-eM.jpg',
+    ], [
+        'name' => 'ЖКГ',
+        'img' => '1657202599113-yM.jpg',
+    ], [
+        'name' => 'Ігрова індустрія',
+        'img' => '1657202605141-gM.jpg',
+    ], [
+        'name' => 'Фітнес',
+        'img' => '1657202609306-sM.jpg',
+    ], [
+        'name' => 'FinTech',
+        'img' => '1657202613975-hM.jpg',
+    ],
+];
 ?>
-<section id="industries-wrap" class="width-wrapper">
+
+
+<section id="ind-wrap-mob" class="width-wrapper">
+    <div class="bg-light-grey industries-mob">
+        <div class="industries-title">
+            <p class="H-mob color-soft-blue ">Industries expertise</p>
+        </div>
+        <div class="industries-slider hsh">
+            <div class="flex-row">
+                <?php
+                foreach ($industries_mob as $arr) {
+                    echo '
+                        <div class="industry-card">
+                            <div>
+                                <p class="Body color-soft-blue ">' . $arr['name'] . '</p><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/' . $arr['img'] . '" alt="' . $arr['name'] . '">
+                            </div>
+                        </div>
+                    ';
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="ind-wrap-large" class="width-wrapper">
     <div class="bg-light-grey industries">
         <div class="industries-title">
             <p class="Body color-soft-blue  italic">Industries expertise</p>
