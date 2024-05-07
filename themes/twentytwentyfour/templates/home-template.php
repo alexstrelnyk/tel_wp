@@ -222,33 +222,6 @@ $industries = [
 ?>
 
 
-<section id="ind_wrap_mob" class="width-wrapper">
-    <div class="bg-light-grey industries-mob">
-        <div class="industries-title">
-            <p class="H-mob color-soft-blue ">Industries expertise</p>
-        </div>
-        <div class="industries-slider hsh">
-            <div class="flex-row">
-                <?php
-                foreach ($industries as $arr) {
-                    $cls = in_array($arr['img_mob'], [
-                        '1657202580458-eM.jpg',
-                        '1657202609306-sM.jpg',
-                    ]) ? 'color-grey' : 'color-soft-blue';
-                    echo '
-                        <div class="industry-card">
-                            <div>
-                                <p class="Body ' . $cls . '">' . $arr['name'] . '</p>
-                                <img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/' . $arr['img_mob'] . '" alt="' . $arr['name'] . '">
-                            </div>
-                        </div>
-                    ';
-                }
-                ?>
-            </div>
-        </div>
-    </div>
-</section>
 <section id="ind_wrap_large" class="width-wrapper">
     <div class="bg-light-grey industries">
         <div class="industries-title">
@@ -284,6 +257,33 @@ $industries = [
                     echo '
                         <div class="industry-card spread">
                             <p class="Body color-soft-blue ">' . $arr['name'] . '</p><img loading="lazy" src="https://telesens.ua/admin/files/upload/' . $arr['img'] . '" alt="' . $arr['name'] . '">
+                        </div>
+                    ';
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="ind_wrap_mob" class="width-wrapper">
+    <div class="bg-light-grey industries-mob">
+        <div class="industries-title">
+            <p class="H-mob color-soft-blue ">Industries expertise</p>
+        </div>
+        <div class="industries-slider hsh">
+            <div class="flex-row">
+                <?php
+                foreach ($industries as $arr) {
+                    $cls = in_array($arr['img_mob'], [
+                        '1657202580458-eM.jpg',
+                        '1657202609306-sM.jpg',
+                    ]) ? 'color-grey' : 'color-soft-blue';
+                    echo '
+                        <div class="industry-card">
+                            <div>
+                                <p class="Body ' . $cls . '">' . $arr['name'] . '</p>
+                                <img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/' . $arr['img_mob'] . '" alt="' . $arr['name'] . '">
+                            </div>
                         </div>
                     ';
                 }
