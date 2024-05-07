@@ -251,10 +251,15 @@ $industries_mob = [
             <div class="flex-row">
                 <?php
                 foreach ($industries_mob as $arr) {
+                    $cls = in_array($arr['img'], [
+                        '1657202580458-eM.jpg',
+                        '1657202609306-sM.jpg',
+                    ]) ? 'color-grey' : 'color-soft-blue';
                     echo '
                         <div class="industry-card">
                             <div>
-                                <p class="Body color-soft-blue ">' . $arr['name'] . '</p><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/' . $arr['img'] . '" alt="' . $arr['name'] . '">
+                                <p class="Body ' . $cls . '">' . $arr['name'] . '</p>
+                                <img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/' . $arr['img'] . '" alt="' . $arr['name'] . '">
                             </div>
                         </div>
                     ';
