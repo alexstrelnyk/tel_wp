@@ -229,34 +229,29 @@ $industries = [
         </div>
         <div class="industries-slider" style="width: 2848px; transform: translate(806px, 145px);">
             <div class="interaction-box"></div>
-            <div class="shadow-slider" style="left: -2848px;">
-                <?php
-                foreach ($industries as $arr) {
-                    echo '
-                        <div class="industry-card spread">
-                            <p class="Body color-soft-blue ">' . $arr['name'] . '</p><img loading="lazy" src="https://telesens.ua/admin/files/upload/' . $arr['img'] . '" alt="' . $arr['name'] . '">
-                        </div>
-                    ';
-                }
-                ?>
-            </div>
-
             <?php
             foreach ($industries as $key => $arr) {
+                $cls = in_array($arr['img'], [
+                    '1657202464929-eL.jpg',
+                    '1657202493553-sL.jpg',
+                ]) ? 'color-grey' : 'color-soft-blue';
                 echo '
                     <div id="industry-card" class="industry-card" style="z-index: ' . (count($industries) - $key) . '; transform: translate(-' . (356 * $key) . 'px, 0px) rotate(' . (5 + ($key * 5)) . 'deg);">
-                        <p class="Body color-soft-blue ">' . $arr['name'] . '</p><img loading="lazy" src="https://telesens.ua/admin/files/upload/' . $arr['img'] . '" alt="' . $arr['name'] . '">
+                        <p class="Body '.$cls.'">' . $arr['name'] . '</p><img loading="lazy" src="https://telesens.ua/admin/files/upload/' . $arr['img'] . '" alt="' . $arr['name'] . '">
                     </div>
                 ';
             }
             ?>
             <div class="shadow-slider" style="right: -2848px;">
-
                 <?php
                 foreach ($industries as $arr) {
+                    $cls = in_array($arr['img'], [
+                        '1657202464929-eL.jpg',
+                        '1657202493553-sL.jpg',
+                    ]) ? 'color-grey' : 'color-soft-blue';
                     echo '
                         <div class="industry-card spread">
-                            <p class="Body color-soft-blue ">' . $arr['name'] . '</p><img loading="lazy" src="https://telesens.ua/admin/files/upload/' . $arr['img'] . '" alt="' . $arr['name'] . '">
+                            <p class="Body '.$cls.'">' . $arr['name'] . '</p><img loading="lazy" src="https://telesens.ua/admin/files/upload/' . $arr['img'] . '" alt="' . $arr['name'] . '">
                         </div>
                     ';
                 }

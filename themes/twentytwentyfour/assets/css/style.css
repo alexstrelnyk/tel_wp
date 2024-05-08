@@ -9363,7 +9363,8 @@ footer a:hover {
     position: absolute;
     top: 0;
     -webkit-user-select: none;
-    user-select: none
+    user-select: none;
+    padding: 14px 0;
 }
 
 .industries .industries-slider.still {
