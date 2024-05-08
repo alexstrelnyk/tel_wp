@@ -136,17 +136,25 @@ var slider_styles = [
 $('.interaction-box').click(function () {
     $('.industries').addClass('large');
     $('.industries-title').addClass('spread');
-    $('.industries-slider').eq(0).addClass('still').attr('style', 'width: 2848px; transform: translate(0px, 280px)');
+    $('.industries-slider').eq(0)
+        .addClass('still')
+        .attr('style', 'width: 2848px; transform: translate(0px, 280px)')
+        .attr('data-cursor', 'slider');
     $('.industry-card').addClass('spread').attr('style', '');
 
     $('.industry-card.spread').click(function () {
         $('.industries').removeClass('large');
         $('.industries-title').removeClass('spread');
-        $('.industries-slider').removeClass('still').attr('style', 'width: 2848px; transform: translate(' + cardSliderMargin + 'px, 145px)');
+        $('.industries-slider')
+            .removeClass('still')
+            .attr('style', 'width: 2848px; transform: translate(' + cardSliderMargin + 'px, 145px)')
+            .attr('data-cursor', 'slider-img-green');
         $('#industry-card.industry-card').removeClass('spread').each(function (key, slide) {
             $(slide).attr('style', slider_styles[key]);
         });
     });
+
+    initCursor();
 });
 
 $('.interaction-box').hover(function () {

@@ -227,7 +227,7 @@ $industries = [
         <div class="industries-title">
             <p class="Body color-soft-blue  italic">Industries expertise</p>
         </div>
-        <div class="industries-slider" style="width: 2848px; transform: translate(806px, 145px);">
+        <div class="industries-slider" style="width: 2848px; transform: translate(806px, 145px);" data-cursor="slider-img-green">
             <div class="interaction-box"></div>
             <?php
             foreach ($industries as $key => $arr) {
@@ -237,7 +237,7 @@ $industries = [
                 ]) ? 'color-grey' : 'color-soft-blue';
                 echo '
                     <div id="industry-card" class="industry-card" style="z-index: ' . (count($industries) - $key) . '; transform: translate(-' . (356 * $key) . 'px, 0px) rotate(' . (5 + ($key * 5)) . 'deg);">
-                        <p class="Body '.$cls.'">' . $arr['name'] . '</p><img loading="lazy" src="https://telesens.ua/admin/files/upload/' . $arr['img'] . '" alt="' . $arr['name'] . '">
+                        <p class="Body ' . $cls . '">' . $arr['name'] . '</p><img loading="lazy" src="https://telesens.ua/admin/files/upload/' . $arr['img'] . '" alt="' . $arr['name'] . '">
                     </div>
                 ';
             }
@@ -251,7 +251,7 @@ $industries = [
                     ]) ? 'color-grey' : 'color-soft-blue';
                     echo '
                         <div class="industry-card spread">
-                            <p class="Body '.$cls.'">' . $arr['name'] . '</p><img loading="lazy" src="https://telesens.ua/admin/files/upload/' . $arr['img'] . '" alt="' . $arr['name'] . '">
+                            <p class="Body ' . $cls . '">' . $arr['name'] . '</p><img loading="lazy" src="https://telesens.ua/admin/files/upload/' . $arr['img'] . '" alt="' . $arr['name'] . '">
                         </div>
                     ';
                 }

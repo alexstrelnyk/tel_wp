@@ -37,56 +37,67 @@ requestAnimationFrame(function loop() {
   requestAnimationFrame(loop);
 });
 
-document.querySelectorAll("[data-cursor]").forEach((item) => {
-  item.addEventListener("mouseover", (e) => {
-    if (item.dataset.cursor === "pointer") {
-      cursorBorder.style.backgroundColor = "rgba(255, 255, 255, .6)";
-      cursorBorder.style.setProperty("--size", "30px");
-    }
-    if (item.dataset.cursor === "pointer2") {
-      cursorBorder.style.backgroundColor = "white";
-      cursorBorder.style.mixBlendMode = "difference";
-      cursorBorder.style.setProperty("--size", "80px");
-    }
-    if (item.dataset.cursor === "slider") {
-      cursor.classList.add("slider");
-      cursorBorder.classList.add("slider");
-    }
-    if (item.dataset.cursor === "slider-white") {
-      cursor.classList.add("slider-white");
-      cursorBorder.classList.add("slider-white");
-    }
-    if (item.dataset.cursor === "input-text") {
-      cursor.classList.add("input-text");
-      cursorBorder.classList.add("input-text");
-    }
-    if (item.dataset.cursor === "active") {
-      cursor.classList.add("active");
-      cursorBorder.classList.add("active");
-    }
-    if (item.dataset.cursor === "slider-img") {
-      cursor.classList.add("slider-img");
-      cursorBorder.classList.add("slider-img");
-    }
+function initCursor() {
+  document.querySelectorAll("[data-cursor]").forEach((item) => {
+    item.addEventListener("mouseover", (e) => {
+      if (item.dataset.cursor === "pointer") {
+        cursorBorder.style.backgroundColor = "rgba(255, 255, 255, .6)";
+        cursorBorder.style.setProperty("--size", "30px");
+      }
+      if (item.dataset.cursor === "pointer2") {
+        cursorBorder.style.backgroundColor = "white";
+        cursorBorder.style.mixBlendMode = "difference";
+        cursorBorder.style.setProperty("--size", "80px");
+      }
+      if (item.dataset.cursor === "slider") {
+        cursor.classList.add("slider");
+        cursorBorder.classList.add("slider");
+      }
+      if (item.dataset.cursor === "slider-white") {
+        cursor.classList.add("slider-white");
+        cursorBorder.classList.add("slider-white");
+      }
+      if (item.dataset.cursor === "input-text") {
+        cursor.classList.add("input-text");
+        cursorBorder.classList.add("input-text");
+      }
+      if (item.dataset.cursor === "active") {
+        cursor.classList.add("active");
+        cursorBorder.classList.add("active");
+      }
+      if (item.dataset.cursor === "slider-img") {
+        cursor.classList.add("slider-img");
+        cursorBorder.classList.add("slider-img");
+      }
+      if (item.dataset.cursor === "slider-img-green") {
+        cursor.classList.add("slider-img-green");
+        cursorBorder.classList.add("slider-img-green");
+      }
+    });
+    item.addEventListener("mouseout", (e) => {
+      cursor.classList.remove("slider-img-green");
+      cursorBorder.classList.remove("slider-img-green");
+
+      cursor.classList.remove("slider-img");
+      cursorBorder.classList.remove("slider-img");
+
+      cursor.classList.remove("active");
+      cursorBorder.classList.remove("active");
+
+      cursor.classList.remove("input-text");
+      cursorBorder.classList.remove("input-text");
+
+      cursor.classList.remove("slider-white");
+      cursorBorder.classList.remove("slider-white");
+
+      cursor.classList.remove("slider");
+      cursorBorder.classList.remove("slider");
+
+      cursorBorder.style.backgroundColor = "unset";
+      cursorBorder.style.mixBlendMode = "unset";
+      cursorBorder.style.setProperty("--size", "50px");
+    });
   });
-  item.addEventListener("mouseout", (e) => {
-    cursor.classList.remove("slider-img");
-    cursorBorder.classList.remove("slider-img");
+}
 
-    cursor.classList.remove("active");
-    cursorBorder.classList.remove("active");
-
-    cursor.classList.remove("input-text");
-    cursorBorder.classList.remove("input-text");
-
-    cursor.classList.remove("slider-white");
-    cursorBorder.classList.remove("slider-white");
-
-    cursor.classList.remove("slider");
-    cursorBorder.classList.remove("slider");
-
-    cursorBorder.style.backgroundColor = "unset";
-    cursorBorder.style.mixBlendMode = "unset";
-    cursorBorder.style.setProperty("--size", "50px");
-  });
-});
+initCursor();
