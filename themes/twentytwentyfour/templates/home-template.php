@@ -4,8 +4,13 @@ Template Name: Homepage
 */
 get_header();
 
-// echo get_post_field('post_content', get_queried_object_id());
 
+$h1 = 'Professionalism. People. Persistence. Perception.';
+$h2 = get_label(
+    'Рішення, що змінюють правила гри. Ми розвиваємо бізнес наших клієнтів шляхом унікальних технічних продуктів і досвіду',
+    'Game-changing solutions. We develop our clients\' business with unique technical products and expertise'
+);
+$h3 = get_label('Прокрути вниз', 'Scroll down');
 ?>
 
 <section id="top_section_mob" class="width-wrapper">
@@ -13,7 +18,7 @@ get_header();
     <div class="hero-root full-width bg-light-grey">
         <div class="block container wrap-word">
             <div class="motto">
-                <p class="H2 color-navy-green ">Professionalism. People. Persistence. Perception.</p>
+                <p class="H2 color-navy-green "><?php echo $h1 ?></p>
             </div>
             <div class="hero-desc">
                 <div class="btn-box hero-button">
@@ -22,11 +27,11 @@ get_header();
                         </a></div>
                 </div>
                 <div class="description">
-                    <p class="Body color-navy-green ">Рішення, що змінюють правила гри. Ми розвиваємо бізнес наших клієнтів шляхом унікальних технічних продуктів і досвіду</p>
+                    <p class="Body color-navy-green "><?php echo $h2 ?></p>
                 </div>
             </div>
             <div class="scroll-text frc">
-                <p class="Button color-navy-green  italic">Прокрути вниз</p><svg width="6" height="24" viewBox="0 0 6 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <p class="Button color-navy-green  italic"><?php echo $h3 ?></p><svg width="6" height="24" viewBox="0 0 6 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3 24L5.88675 19L0.113246 19L3 24ZM2.5 -6.55671e-08L2.5 19.5L3.5 19.5L3.5 6.55671e-08L2.5 -6.55671e-08Z" class="fill-navy-green"></path>
                 </svg>
             </div>
@@ -42,7 +47,7 @@ get_header();
     <div class="hero-root full-width">
         <div class="block container wrap-word">
             <div class="motto">
-                <p class="H2 color-white ">Professionalism. People. Persistence. Perception.</p>
+                <p class="H2 color-white "><?php echo $h1 ?></p>
             </div>
             <div class="hero-desc">
                 <div class="btn-box hero-button">
@@ -51,11 +56,11 @@ get_header();
                         </a></div>
                 </div>
                 <div class="description">
-                    <p class="Body color-white ">Рішення, що змінюють правила гри. Ми розвиваємо бізнес наших клієнтів шляхом унікальних технічних продуктів і досвіду</p>
+                    <p class="Body color-white "><?php echo $h2 ?></p>
                 </div>
             </div>
             <div class="scroll-text frc">
-                <p class="Button color-white  italic">Прокрути вниз</p><svg width="6" height="24" viewBox="0 0 6 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <p class="Button color-white  italic"><?php echo $h3 ?></p><svg width="6" height="24" viewBox="0 0 6 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M3 24L5.88675 19L0.113246 19L3 24ZM2.5 -6.55671e-08L2.5 19.5L3.5 19.5L3.5 6.55671e-08L2.5 -6.55671e-08Z" class="fill-white"></path>
                 </svg>
             </div>
