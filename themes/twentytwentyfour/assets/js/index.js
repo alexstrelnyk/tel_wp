@@ -54,7 +54,8 @@ $(document).ready(function () {
 });
 
 function switchHeader() {
-    if ($(window).width() <= 1024) {
+    if ($(window).width() <= 1024 &&
+        ($('body').hasClass('home') || $('body').hasClass('home-english'))) {
         var header = $('header');
         $(header).attr('class', 'bg-light-grey');
         $('#logo', header).attr('class', 'fill-navy-green');
