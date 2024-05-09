@@ -44,7 +44,7 @@
 
 </head>
 
-<body class="<?php echo get_post_field('post_name', get_queried_object_id()); ?>">
+<body data-page="<?php echo get_post_field('post_name', get_queried_object_id()); ?>">
     <noscript>You need to enable JavaScript to run this app.</noscript>
 
     <section id="splash-screen" class="splash">
