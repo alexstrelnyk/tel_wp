@@ -6812,7 +6812,7 @@ header .root {
         width: 310px
     }
 
-    .services-mob .shelf-content-mob {
+    .services-tree .shelf-content-mob {
         padding: 60px 264px 40px 32px
     }
 
@@ -9514,7 +9514,8 @@ form [type="submit"],
 }
 
 @media screen and (max-width:1024px) {
-
+    
+    #cards-tree,
     .slider-side-bar,
     #top_section {
         display: none !important;
@@ -9522,9 +9523,15 @@ form [type="submit"],
 }
 
 @media screen and (min-width:1025px) {
-
+    
+    #cards-tree-mob,
     #top_section_mob {
         display: none;
+    }
+}
+@media screen and (max-width:1440px) {
+    .width-wrapper{
+        margin-top: -1px;
     }
 }
 

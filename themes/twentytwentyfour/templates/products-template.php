@@ -4,17 +4,26 @@ Template Name: Products
 */
 
 get_header();
+
+$t1 = get_label('Продукти та Послуги', 'Products & Services');
+$t2 = get_label('НАШІ ПРОДУКТИ ТА ПОСЛУГИ', 'OUR PRODUCTS AND SERVICES');
 ?>
 
 <section id=":r17:" class="width-wrapper">
     <div class="services-tree">
         <div class="flex-col sub_parent_0">
-            <div id="cards-tree" class="shelf-content bg-midnight-blue">
-                <p class="H3 color-white  italic"><?php echo get_label('Продукти та Послуги', 'Products & Services') ?></p>
+            <div id="cards-tree-mob" class="bg-midnight-blue shelf-content-mob">
+                <p class="Cap color-white medium mb6"><?php echo $t2 ?></p>
+                <p class="H-mob color-white  mb32"><?php echo $t1 ?></p>
             </div>
+
+            <div id="cards-tree" class="shelf-content bg-midnight-blue">
+                <p class="H3 color-white  italic"><?php echo $t1 ?></p>
+            </div>
+
             <div class="slider-container bg-midnight-blue">
                 <div class="slider-side-bar bg-midnight-blue">
-                    <p class="Sub color-white "><?php echo get_label('НАШІ ПРОДУКТИ ТА ПОСЛУГИ', 'OUR PRODUCTS AND SERVICES') ?></p>
+                    <p class="Sub color-white "><?php echo $t2 ?></p>
                 </div>
                 <div class="services-slider" style="transform: translateX(0px);">
 
