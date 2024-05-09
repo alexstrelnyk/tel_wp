@@ -48,6 +48,12 @@
                 case 'contact-us-en':
                     $header_bg = 'bg-light-green';
                     break;
+                case 'career':
+                    $header_bg = 'bg-white';
+                    break;
+                case 'career-en':
+                    $header_bg = 'bg-white';
+                    break;
             }
 
 
