@@ -9495,13 +9495,21 @@ form [type="submit"],
     }
 }
 
+#top_section_mob {
+    margin-top: -1px;
+}
+
 @media screen and (max-width:768px) {
+
+    #top_section,
     #ind_wrap_large {
         display: none;
     }
 }
 
 @media screen and (min-width:769px) {
+
+    #top_section_mob,
     #ind_wrap_mob {
         display: none;
     }

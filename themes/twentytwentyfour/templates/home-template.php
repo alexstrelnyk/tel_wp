@@ -4,7 +4,157 @@ Template Name: Homepage
 */
 get_header();
 
-echo get_post_field('post_content', get_queried_object_id());
+// echo get_post_field('post_content', get_queried_object_id());
+
+?>
+
+<section id="top_section_mob" class="width-wrapper">
+    <div class="full-size background-img floor-1"></div>
+    <div class="hero-root full-width bg-light-grey">
+        <div class="block container wrap-word">
+            <div class="motto">
+                <p class="H2 color-navy-green ">Professionalism. People. Persistence. Perception.</p>
+            </div>
+            <div class="hero-desc">
+                <div class="btn-box hero-button">
+                    <div class="btn-joint" style="transition: all 0.75s ease-out 0s;"><a class="pulse" href="#contact-us">
+                            <div id="floating-pointer" style="background-image: url(&quot;https://telesens.ua/admin/files/upload/3d7e8e5e-900f-49d6-8f5b-2c9c741bb4a4Group1347png&quot;);"></div>
+                        </a></div>
+                </div>
+                <div class="description">
+                    <p class="Body color-navy-green ">Рішення, що змінюють правила гри. Ми розвиваємо бізнес наших клієнтів шляхом унікальних технічних продуктів і досвіду</p>
+                </div>
+            </div>
+            <div class="scroll-text frc">
+                <p class="Button color-navy-green  italic">Прокрути вниз</p><svg width="6" height="24" viewBox="0 0 6 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 24L5.88675 19L0.113246 19L3 24ZM2.5 -6.55671e-08L2.5 19.5L3.5 19.5L3.5 6.55671e-08L2.5 -6.55671e-08Z" class="fill-navy-green"></path>
+                </svg>
+            </div>
+        </div>
+        <div class="scroll-down scroll-navy-green"></div>
+    </div>
+</section>
+
+<section id="top_section" class="width-wrapper">
+    <div class="full-size floor-2" style="background-image: radial-gradient(circle at 0% 0%, rgba(3, 166, 90, 0.3) 0px, rgb(21, 45, 49) 600px);"></div>
+    <div class="full-size floor-3 parallax-background-img"></div>
+    <div class="full-size floor-4" style="background-color: rgb(21, 45, 49);"></div>
+    <div class="hero-root full-width">
+        <div class="block container wrap-word">
+            <div class="motto">
+                <p class="H2 color-white ">Professionalism. People. Persistence. Perception.</p>
+            </div>
+            <div class="hero-desc">
+                <div class="btn-box hero-button">
+                    <div class="btn-joint"><a class="pulse" href="#contact-us">
+                            <div id="floating-pointer" data-cursor="active" style="background-image: url(&quot;/wp-content/themes/twentytwentyfour/assets/images/80ed0f70-d440-4c1a-b929-22572edbb941-whitegetintouch.svg&quot;);"></div>
+                        </a></div>
+                </div>
+                <div class="description">
+                    <p class="Body color-white ">Рішення, що змінюють правила гри. Ми розвиваємо бізнес наших клієнтів шляхом унікальних технічних продуктів і досвіду</p>
+                </div>
+            </div>
+            <div class="scroll-text frc">
+                <p class="Button color-white  italic">Прокрути вниз</p><svg width="6" height="24" viewBox="0 0 6 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 24L5.88675 19L0.113246 19L3 24ZM2.5 -6.55671e-08L2.5 19.5L3.5 19.5L3.5 6.55671e-08L2.5 -6.55671e-08Z" class="fill-white"></path>
+                </svg>
+            </div>
+        </div>
+        <div class="scroll-down scroll-white"></div>
+    </div>
+</section>
+
+<section id="sec_r3" class="width-wrapper">
+    <div class="counter full-width row flex center bg-soft-blue">
+        <div class="container">
+            <div class="f1 single-counter center">
+                <div>
+                    <p class="H1 color-grey  text-center italic"><span class="regular" data-count="11">0</span></p>
+                    <p class="H6 color-grey  text-center">авторських продуктів</p>
+                </div>
+            </div>
+            <div class="f1 single-counter center">
+                <div>
+                    <p class="H1 color-grey  text-center italic"><span class="regular" data-count="700">0</span></p>
+                    <p class="H6 color-grey  text-center">завершених проєктів</p>
+                </div>
+            </div>
+            <div class="f1 single-counter center">
+                <div>
+                    <p class="H1 color-grey  text-center italic"><span class="regular" data-count="25">0</span></p>
+                    <p class="H6 color-grey  text-center">років досвіду</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id=":r4:" class="root-values bg-white">
+    <div class="sticky values-header center bg-white" style="top: 60px;">
+        <div id="inner-blog-section" class="container inner-blog-preview">
+            <div class="side f3 flex-column">
+                <p class="Body color-black "></p>
+            </div>
+            <div class="side f7 flex column">
+                <p class="H3 color-black  italic">Наші цінності</p>
+                <p class="Body color-black "></p>
+            </div>
+        </div>
+    </div>
+    <div class="spacer"></div>
+    <div class="container up-2 sticky" style="top: 207px;">
+        <div class="single-card">
+            <div class="card-spacer" style="height: 240px;"></div>
+            <div class="sticky" style="top: 207px;">
+                <div class="value-card bg-navy-green">
+                    <div class="card-content">
+                        <div class="value-circle" style="background-image: url(&quot;/wp-content/themes/twentytwentyfour/assets/images/72940c30-f145-4a15-8cc5-d8f530f5d5a8-Ellipse67.png&quot;);"></div>
+                        <p class="Sub color-white value-title">Професіоналізм.</p>
+                        <p class="Body2 color-white ">Ми використовуємо наш досвід і компетентність для досягнення амбітних цілей наших клієнтів.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="single-card">
+            <div class="card-spacer" style="height: 0px;"></div>
+            <div class="sticky" style="top: 207px;">
+                <div class="value-card bg-navy-green">
+                    <div class="card-content">
+                        <div class="value-circle" style="background-image: url(&quot;/wp-content/themes/twentytwentyfour/assets/images/044d9dee-41d6-42aa-a7e8-503e3d6a7e19-Ellipse681.png&quot;);"></div>
+                        <p class="Sub color-white value-title">Люди.</p>
+                        <p class="Body2 color-white ">Успіх кожного покращує нас.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="single-card">
+            <div class="card-spacer" style="height: 140px;"></div>
+            <div class="sticky" style="top: 207px;">
+                <div class="value-card bg-navy-green">
+                    <div class="card-content">
+                        <div class="value-circle" style="background-image: url(&quot;/wp-content/themes/twentytwentyfour/assets/images/943b676c-e89c-484a-8ec5-47d28461c643-Ellipse69.png&quot;);"></div>
+                        <p class="Sub color-white value-title">Наполегливість.</p>
+                        <p class="Body2 color-white ">Найкращі результати досягаються завдяки наполегливості та відданості справі.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="single-card">
+            <div class="card-spacer" style="height: 300px;"></div>
+            <div class="sticky" style="top: 207px;">
+                <div class="value-card bg-navy-green">
+                    <div class="card-content">
+                        <div class="value-circle" style="background-image: url(&quot;/wp-content/themes/twentytwentyfour/assets/images/fb365d2a-5a82-4f91-b67e-3ea1aee7102a-Ellipse701.png&quot;);"></div>
+                        <p class="Sub color-white value-title">Сприйняття.</p>
+                        <p class="Body2 color-white ">Ми адаптуємося, щоб досягати виняткових результатів і задовольнити всі явні та неявні потреби.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<?php
 
 get_template_part('parts/products-slider');
 

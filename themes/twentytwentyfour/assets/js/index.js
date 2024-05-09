@@ -7,6 +7,9 @@ var previewTimeout = 3;
 var vacancyHeight = 0;
 var isLargeScreen = false;
 
+// Check mob/large view
+isLargeScreen = $(window).width() > 768 ? true : false;
+
 $('#root').hide();
 $(document).ready(function () {
 
@@ -43,15 +46,27 @@ $(document).ready(function () {
 
     }, previewTimeout);
 
-    // Check mob/large view
-    isLargeScreen = $(window).width() > 768 ? true : false;
-
     // Card slider margin
     if (isLargeScreen) {
         cardSliderMargin = (($(window).width()) / 2 + 200);
         $('.industries-slider').css('transform', 'translate(' + cardSliderMargin + 'px, 145px)');
     }
 });
+
+function switchHeader() {
+    if (!isLargeScreen) {
+        var header = $('header');
+        $(header).attr('class', 'bg-light-grey');
+        $('#logo', header).attr('class', 'fill-navy-green');
+        $('.locale-btn', header).attr('class', 'locale-btn bg- bw1 border-color-navy-green');
+        $('.locale-btn input', header).attr('class', 'hover-border-color-undefined');
+        $('.locale-btn .knobs', header).attr('class', 'knobs color-before-white bg-before-navy-green');
+        $('.locale-btn .labels', header).attr('class', 'labels color-before-navy-green color-after-navy-green');
+        $('#header-menu .menu-button', header).attr('class', 'menu-button bg-navy-green');
+        $('#header-menu .menu-check .contrast-bg-white', header).attr('class', 'contrast-bg-navy-green');
+    }
+}
+switchHeader();
 
 $('.menu-bar').click(function () {
     var menu_btn_pos = $('#header-menu .menu-bar').offset();
