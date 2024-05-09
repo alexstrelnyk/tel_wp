@@ -9501,7 +9501,6 @@ form [type="submit"],
 
 @media screen and (max-width:768px) {
 
-    #top_section,
     #ind_wrap_large {
         display: none;
     }
@@ -9509,8 +9508,21 @@ form [type="submit"],
 
 @media screen and (min-width:769px) {
 
-    #top_section_mob,
     #ind_wrap_mob {
+        display: none;
+    }
+}
+
+@media screen and (max-width:1024px) {
+
+    #top_section {
+        display: none;
+    }
+}
+
+@media screen and (min-width:1025px) {
+
+    #top_section_mob {
         display: none;
     }
 }

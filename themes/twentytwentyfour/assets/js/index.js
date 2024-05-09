@@ -54,7 +54,7 @@ $(document).ready(function () {
 });
 
 function switchHeader() {
-    if (!isLargeScreen) {
+    if ($(window).width() <= 1024) {
         var header = $('header');
         $(header).attr('class', 'bg-light-grey');
         $('#logo', header).attr('class', 'fill-navy-green');
