@@ -9515,8 +9515,9 @@ form [type="submit"],
 
 @media screen and (max-width:1024px) {
 
+    .slider-side-bar,
     #top_section {
-        display: none;
+        display: none !important;
     }
 }
 
