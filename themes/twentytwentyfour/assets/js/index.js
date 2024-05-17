@@ -281,6 +281,9 @@ function getProducts(obj, level) {
             if (postId) {
                 productCatUrl += '&post_slug=' + postId;
                 postId = false;
+
+                //TODO Remove this line to avoid opening post in new tab
+                window.open('?'+productCatUrl, "_blank");
             }
             history.pushState(null, null, '?' + productCatUrl);
         },
