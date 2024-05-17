@@ -277,13 +277,15 @@ function getProducts(obj, level) {
                     $(window).scrollTop(targetBlockPosition);
                 }, 400);
             }
-
             if (postId) {
                 productCatUrl += '&post_slug=' + postId;
                 postId = false;
 
                 //TODO Remove this line to avoid opening post in new tab
-                window.open('?'+productCatUrl, "_blank");
+                if (!redirectBlocked) {
+                    document.location.href = '?' + productCatUrl;
+                }
+                redirectBlocked = false;
             }
             history.pushState(null, null, '?' + productCatUrl);
         },
