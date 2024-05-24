@@ -372,7 +372,7 @@ function initSlider(selectorId) {
 
         scrollTimeout = setTimeout(function () {
             scrollTimeout = null;
-        }, 50);
+        }, 40);
     });
 }
 
