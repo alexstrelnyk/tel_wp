@@ -22,14 +22,20 @@ https://drive.google.com/drive/folders/13r_Yvnb7859LddWZrahv5lRiczwn_QBz?usp=sha
 Download and unpach "plugins" in /wp-content
 unpack "images" to  /wp-content/themes/twentytwentyfour/assets/
 
-Go to admin -> Plugins
-And activate ACF, Polylang, Disableguttenberg
 
-Create empty homepage and set "Template" -> "Homepage"
+Migrate wp_telek.sql
 
-Go to admin -> Settings -> Reading
+Go to your mysql console and run these queries
+update wp_options set option_value='http://localhost:8000/' where option_name='siteurl';
+update wp_options set option_value='http://localhost:8000/' where option_name='home';
+update wp_options set option_value='http://localhost:8000/' where option_name='blogname';
 
-And set static homepage
+now go to 
+http://localhost:8000/wp-admin/
+
+and login with
+telek_user
+strong-mysql-pass$
 
 That's it
 Enjoy
