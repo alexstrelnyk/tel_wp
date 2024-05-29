@@ -9,6 +9,7 @@
     <meta name="description" content="Telesens global solutions" />
     <link rel="apple-touch-icon" href="/logo192.png" />
     <link rel="manifest" href="/manifest.json" />
+    <?php header("Cache-Control: no-store"); ?>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BKQBLFP3ZT"></script>
     <script>
