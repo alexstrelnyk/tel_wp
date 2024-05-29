@@ -122,7 +122,7 @@
         </a>
         <div class="frc gap32">
             <div class="locale-btn bg-transparent bw1 border-color-<?php echo $loc_color ?>" data-cursor="active" onclick="goto('<?php echo get_permalink(pll_get_post(get_the_ID(), pll_current_language() == 'en' ? 'uk' : 'en')) ?>')">
-                <input class="hover-border-color-<?php echo $loc_color ?>" type="checkbox" <?php echo pll_current_language() == 'en' ? 'checked' : '' ?>>
+                <input class="hover-border-color-<?php echo $loc_color ?>" type="checkbox" autocomplete='off' <?php echo pll_current_language() == 'en' ? 'checked' : '' ?>>
                 <div data-left="UA" data-right="EN" class="knobs color-before-<?php echo $loc_text ?> bg-before-<?php echo $loc_color ?>"></div>
                 <div data-left="UA" data-right="EN" class="labels color-before-<?php echo $loc_color ?> color-after-<?php echo $loc_color ?>"></div>
             </div>
