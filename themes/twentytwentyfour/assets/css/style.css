@@ -2238,7 +2238,8 @@ a {
 .Body {
     font-size: 16px;
     letter-spacing: .015em;
-    line-height: 22px
+    line-height: 22px;
+    white-space: pre-line;
 }
 
 .Body,
