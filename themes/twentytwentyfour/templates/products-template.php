@@ -40,7 +40,7 @@ $t2 = get_label('НАШІ ПРОДУКТИ ТА ПОСЛУГИ', 'OUR PRODUCTS A
                         foreach ($sorted_categories as $category) {
                             $image = get_field('category_image', 'category_' . $category->term_id);
                     ?>
-                            <div id="cat_slug_<?php echo $category->slug ?>" class="services-card light-blue" onclick="getProducts(this, 0)" data-cat_id="<?php echo $category->term_id ?>" data-cat_title="<?php echo $category->cat_name ?>" data-cat_slug="<?php echo $category->slug ?>">
+                            <div id="cat_slug_<?php echo $category->slug ?>" class="services-card light-blue" onclick="getProducts(this, 0)" data-cat_id="<?php echo $category->term_id ?>" data-cat_title="<?php echo $category->name ?>" data-cat_slug="<?php echo $category->slug ?>">
                                 <?php if ($image) { ?>
                                     <div class="image"><img loading="lazy" src="<?php echo $image['url'] ?>" alt="<?php echo $image['name'] ?>"></div>
                                 <?php } ?>
