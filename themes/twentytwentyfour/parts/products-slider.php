@@ -8,7 +8,7 @@
                 <div class="swiper-wrapper">
                     <?php
                     $slugs = [
-                        get_label('departament-pm-ba', 'pm-ba-office'),
+                        get_label('pm-ba-departament', 'pm-ba-office'),
                         get_label('telecom-solution', 'telecom-solutions-en'),
                         get_label('services', 'services-en'),
                         get_label('qa-services', 'qa-services-en'),
