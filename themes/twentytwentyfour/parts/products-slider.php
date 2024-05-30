@@ -11,8 +11,6 @@
                     $categories = get_categories(['parent' => 0]);
 
                     if (!empty($categories)) {
-                        $categories = array_reverse($categories);
-                        uasort($categories,'cmp_products');
                         foreach ($categories as $category) {
                             if (in_array($category->slug, [
                                 'blog',
