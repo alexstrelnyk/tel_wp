@@ -7,35 +7,22 @@
             <div class="swiper" id="products_swiper">
                 <div class="swiper-wrapper">
                     <?php
+                    $order = [
+                        get_label('telecom-solution', 'telecom-solutions-en'),
+                        get_label('services', 'services-en'),
+                        get_label('qa-services', 'qa-services-en'),
+                        get_label('departament-pm-ba', 'pm-ba-office'),
+                    ];
 
-                    $categories = get_categories(['parent' => 0]);
+                    $categories = get_terms([
+                        'taxonomy' => 'category',
+                        'slug' => $order,
+                        'hide_empty' => false,
+                    ]);
 
                     if (!empty($categories)) {
                         foreach ($categories as $category) {
-                            if (in_array($category->slug, [
-                                'blog',
-                                'blog-en',
-                                'news',
-                                'news-en',
-                                'client_feedback',
-                                'client_feedback-en',
-                                'career',
-                                'career-en',
-                                'uncategorized-uk',
-                                'uncategorized-en',
-                                'gallery',
-                                'gallery-en',
-                                'regions',
-                                'regions-en',
-                                'charity',
-                                'charity-en',
-                                'helping',
-                                'helping-en',
-                            ])) {
-                                continue;
-                            }
-
-                            $image = get_field('category_image', 'category_' . $category->cat_ID);
+                            $image = get_field('category_image', 'category_' . $category->term_id);
                     ?>
                             <div class="swiper-slide">
 
