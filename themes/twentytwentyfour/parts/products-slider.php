@@ -8,10 +8,10 @@
                 <div class="swiper-wrapper">
                     <?php
                     $slugs = [
-                        get_label('pm-ba-departament', 'pm-ba-office'),
                         get_label('telecom-solution', 'telecom-solutions-en'),
                         get_label('services', 'services-en'),
                         get_label('qa-services', 'qa-services-en'),
+                        get_label('pm-ba-departament', 'pm-ba-office'),
                     ];
 
                     $categories = get_terms([
