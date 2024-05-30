@@ -296,3 +296,41 @@ function is_contact_page()
 {
 	return in_array(get_post()->post_name, ['contact-us', 'contact-us-en']);
 }
+
+function cmp_products($a, $b)
+{
+	if($a->slug == 'telecom-solution' && $b->slug == 'services'){
+		return 0;
+	}
+	else if($a->slug == 'telecom-solution' && $b->slug != 'services')
+	{
+		return -1;
+	}
+	else if($a->slug != 'telecom-solution' && $b->slug == 'services'){
+		return 1;
+	}
+	else if($a->slug == 'services' && $b->slug == 'qa-services')
+	{
+		return 0;
+	}
+	else if($a->slug == 'services' && $b->slug != 'qa-services')
+	{
+		return -1;
+	}
+	else if($a->slug != 'services' && $b->slug == 'qa-services')
+	{
+		return 1;
+	}
+	else if($a->slug == 'qa-services' && $b->slug == 'pm-ba-departament')
+	{
+		return 0;
+	}
+	else if($a->slug == 'qa-services' && $b->slug != 'pm-ba-departament')
+	{
+		return -1;
+	}
+	else if($a->slug != 'qa-services' && $b->slug == 'pm-ba-departament')
+	{
+		return 1;
+	}
+}
