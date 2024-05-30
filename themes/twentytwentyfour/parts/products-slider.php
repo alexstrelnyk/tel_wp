@@ -7,21 +7,36 @@
             <div class="swiper" id="products_swiper">
                 <div class="swiper-wrapper">
                     <?php
-                    $order = [
+                    $slugs = [
+                        get_label('departament-pm-ba', 'pm-ba-office'),
                         get_label('telecom-solution', 'telecom-solutions-en'),
                         get_label('services', 'services-en'),
                         get_label('qa-services', 'qa-services-en'),
-                        get_label('departament-pm-ba', 'pm-ba-office'),
                     ];
 
                     $categories = get_terms([
                         'taxonomy' => 'category',
-                        'slug' => $order,
+                        'slug' => $slugs,
                         'hide_empty' => false,
                     ]);
 
-                    if (!empty($categories)) {
-                        foreach ($categories as $category) {
+                    function sort_categories_by_slugs($categories, $slugs) {
+                        $sorted_categories = [];
+                        foreach ($slugs as $slug) {
+                            foreach ($categories as $category) {
+                                if ($category->slug === $slug) {
+                                    $sorted_categories[] = $category;
+                                    break;
+                                }
+                            }
+                        }
+                        return $sorted_categories;
+                    }
+                    
+                    $sorted_categories = sort_categories_by_slugs($categories, $slugs);
+
+                    if (!empty($sorted_categories)) {
+                        foreach ($sorted_categories as $category) {
                             $image = get_field('category_image', 'category_' . $category->term_id);
                     ?>
                             <div class="swiper-slide">
