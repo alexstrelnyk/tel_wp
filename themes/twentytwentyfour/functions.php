@@ -299,37 +299,21 @@ function is_contact_page()
 
 function cmp_products($a, $b)
 {
-	if($a->slug == 'telecom-solution' && $b->slug == 'services'){
-		return 0;
-	}
-	else if($a->slug == 'telecom-solution' && $b->slug != 'services')
-	{
-		return -1;
-	}
-	else if($a->slug != 'telecom-solution' && $b->slug == 'services'){
-		return 1;
-	}
-	else if($a->slug == 'services' && $b->slug == 'qa-services')
+	if(($a->slug == 'telecom-solution' && $b->slug == 'services')
+		|| ($a->slug == 'services' && $b->slug == 'qa-services')
+		|| ($a->slug == 'qa-services' && $b->slug == 'pm-ba-departament'))
 	{
 		return 0;
 	}
-	else if($a->slug == 'services' && $b->slug != 'qa-services')
+	else if(($a->slug == 'telecom-solution' && $b->slug != 'services')
+		|| ($a->slug == 'services' && $b->slug != 'qa-services')
+		|| ($a->slug == 'qa-services' && $b->slug != 'pm-ba-departament'))
 	{
 		return -1;
 	}
-	else if($a->slug != 'services' && $b->slug == 'qa-services')
-	{
-		return 1;
-	}
-	else if($a->slug == 'qa-services' && $b->slug == 'pm-ba-departament')
-	{
-		return 0;
-	}
-	else if($a->slug == 'qa-services' && $b->slug != 'pm-ba-departament')
-	{
-		return -1;
-	}
-	else if($a->slug != 'qa-services' && $b->slug == 'pm-ba-departament')
+	else if(($a->slug != 'telecom-solution' && $b->slug == 'services')
+		|| ($a->slug != 'services' && $b->slug == 'qa-services')
+		|| ($a->slug != 'qa-services' && $b->slug == 'pm-ba-departament'))
 	{
 		return 1;
 	}
