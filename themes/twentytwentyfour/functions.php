@@ -320,3 +320,26 @@ function sort_categories_by_slugs($categories, $slugs)
 
 	return $sorted_categories;
 }
+
+function yoast_seo_meta()
+{
+	if (is_singular()) {
+		global $post;
+
+		// Get Yoast SEO title
+		$yoast_title = get_post_meta($post->ID, '_yoast_wpseo_title', true);
+		if (!$yoast_title) {
+			$yoast_title = get_the_title($post->ID);
+		}
+
+		// Get Yoast SEO meta description
+		$yoast_description = get_post_meta($post->ID, '_yoast_wpseo_metadesc', true);
+		if (!$yoast_description) {
+			$yoast_description = get_bloginfo('description');
+		}
+
+		// Print the meta tags
+		echo '<title>' . esc_html($yoast_title) . '</title>' . "\n";
+		echo '<meta name="description" content="' . esc_attr($yoast_description) . '">' . "\n";
+	}
+}
