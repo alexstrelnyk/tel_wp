@@ -48,7 +48,7 @@ $(document).ready(function () {
 
     // Card slider margin
     if (isLargeScreen) {
-        cardSliderMargin = (($(window).width()) / 2 + 200);
+        cardSliderMargin = (($(window).width()) / 2 + 100);
         $('.industries-slider').css('transform', 'translate(' + cardSliderMargin + 'px, 145px)');
     }
 });
@@ -143,6 +143,10 @@ function handleScroll() {
     }
 }
 
+
+
+const slider = $('.industries-slider');
+const sliderWidth = slider.width();
 var slider_styles = [
     'z-index: 8; transform: translate(0px, 0px) rotate(5deg);',
     'z-index: 7; transform: translate(-356px, 0px) rotate(10deg);',
@@ -154,6 +158,10 @@ var slider_styles = [
     'z-index: 1; transform: translate(-2492px, 0px) rotate(40deg);'
 ];
 $('.interaction-box').click(function () {
+    let currentScrollLeft = 0;
+    let positionX = 0;
+    let isDraggable = false;
+    slider.scrollLeft(0);
     $('.industries').addClass('large');
     $('.industries-title').addClass('spread');
     $('.industries-slider').eq(0)
@@ -162,7 +170,37 @@ $('.interaction-box').click(function () {
         .attr('data-cursor', 'slider');
     $('.industry-card').addClass('spread').attr('style', '');
 
+    $('.industries-slider.still').mousedown(({ clientX }) => {
+        isDraggable = true;
+        currentScrollLeft = slider.scrollLeft();
+        positionX = clientX;
+    })
+    .mousemove(({ clientX }) => {
+        if(!isDraggable)
+            return;
+
+        const delta = (positionX - clientX) / 40;
+
+        currentScrollLeft = currentScrollLeft + delta;  
+        if(currentScrollLeft <= 0){
+            currentScrollLeft = sliderWidth - 1;
+        }
+        if(currentScrollLeft >= sliderWidth){
+            currentScrollLeft = 0;
+        }
+        
+        slider.scrollLeft(currentScrollLeft);
+    
+    })
+    .mouseup(() => {
+        isDraggable = false;
+    })
+    .mouseleave(() => {
+        isDraggable = false;
+    })
+
     $('.industry-card.spread').click(function () {
+        slider.scrollLeft(0)
         $('.industries').removeClass('large');
         $('.industries-title').removeClass('spread');
         $('.industries-slider')
@@ -193,6 +231,7 @@ $('.interaction-box').hover(function () {
         }
     });
 });
+
 
 $('.techno-card-title').click(function () {
     if ($(this).parents('.techno-card').hasClass('selected')) {
