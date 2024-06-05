@@ -487,14 +487,17 @@ function get_label(uk, en) {
     }
 }
 function validateEmail(email) {
-    var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var pattern = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 
     return pattern.test(email);
 }
 function validateDigits(input) {
-    var pattern = /^\d+$/;
+    var pattern = /^[+\d][0-9]+$/;
 
     return pattern.test(input);
+}
+function validateTextArea(input){
+    return input.length <= 2000;
 }
 function formValidate(selector, fields) {
     var isValid = true;
@@ -513,6 +516,11 @@ function formValidate(selector, fields) {
             if ($(field).attr('name') == 'phone' && !validateDigits($(field).val())) {
                 $(field).parents('.text-input').addClass('error');
                 $(field).after('<div class="input-error"><p class="Body color-just-grey ">' + get_label('Тільки цифри', 'Only Digits') + '</p></div>');
+                isValid = false;
+            }
+            if ($(field).attr('name') == 'your-message' && !validateTextArea($(field).val())) {
+                $(field).parents('.text-input').addClass('error');
+                $(field).after('<div class="input-error"><p class="Body color-just-grey ">' + get_label('Максимальна кількість символів 2000!', 'The maximum number of characters is 2000!') + '</p></div>');
                 isValid = false;
             }
         }
@@ -537,7 +545,7 @@ function initForm(selector) {
     $('#' + selector + ' .send-btn').click(function () {
         if ($('#' + selector).is(':visible')) {
 
-            var fields = $('#' + selector + ' input[type="text"], #' + selector + ' input[type="email"]');
+            var fields = $('#' + selector + ' input[type="text"], #' + selector + ' input[type="email"], textarea');
             $(fields).each(function () {
                 var field = $(this);
 
