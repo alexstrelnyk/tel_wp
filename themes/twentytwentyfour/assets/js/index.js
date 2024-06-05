@@ -248,9 +248,15 @@ $('.interaction-box').hover(function () {
 $('.techno-card-title').click(function () {
     if ($(this).parents('.techno-card').hasClass('selected')) {
         $('.techno-card').removeClass('selected');
+        setTimeout(() => {
+            $('html, body').animate({ scrollTop: $('.techno-root').offset().top }, 1000);
+        }, 600);
     } else {
         $('.techno-card').removeClass('selected');
         $(this).parents('.techno-card').addClass('selected');
+        setTimeout(() => {
+            $('html, body').animate({ scrollTop: $(this).parents('.techno-card').offset().top }, 1000);
+        }, 600);
     }
 });
 
