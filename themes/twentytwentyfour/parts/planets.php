@@ -33,22 +33,29 @@
                 </g>
             </svg>
             <div class="partner-list">
-                <div class="partner dynamic pos-0 line-0 offset-0" data-cursor="active"><a href="https://ucell.uz/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1676384661951-l1.png" alt=""></a></div>
-                <div class="partner dynamic pos-1 line-1 offset-1" data-cursor="active"><a href="https://kyivstar.ua/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/57231fa9-fb4d-4b86-9c8a-c8b3bdaf091aimage 72.png" alt=""></a></div>
-                <div class="partner dynamic pos-2 line-2 offset-2" data-cursor="active"><a href="https://vega.ua/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/2f0189f7-33a6-4557-8330-58a1f664813dimage 74.png" alt=""></a></div>
-                <div class="partner dynamic pos-3 line-3 offset-3" data-cursor="active"><a href="https://ukrtelecom.ua/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/5124694f-6725-45da-9767-e7e7dbea0e11image 77.png" alt=""></a></div>
-                <div class="partner dynamic pos-4 line-4 offset-4" data-cursor="active"><a href="https://www.kcell.kz/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/9fece58a-8056-471e-bb7f-20861e07ae94image 78.png" alt=""></a></div>
-                <div class="partner dynamic pos-5 line-5 offset-5" data-cursor="active"><a href="https://beeline.uz/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1676030146193-an.png" alt=""></a></div>
-                <div class="partner dynamic pos-6 line-6 offset-6" data-cursor="active"><a href="https://career.vodafone.ua/it-smartflex" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/7eb376cf-ee3b-460e-8c62-4b2d1e3df4c1image 81.png" alt=""></a></div>
-                <div class="partner dynamic pos-7 line-0 offset-7" data-cursor="active"><a href="https://www.vodafone.ua/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/a850870d-ec7c-43ce-97cc-f6cfbfd171c3image 83.png" alt=""></a></div>
-                <div class="partner dynamic pos-8 line-1 offset-8" data-cursor="active"><a href="https://telecom.kz/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/c8ba895e-0c1d-4f92-930e-8545b6881855image 84.png" alt=""></a></div>
-                <div class="partner dynamic pos-9 line-2 offset-9" data-cursor="active"><a href="https://www.jusanmobile.kz/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1676276950561-go.png" alt=""></a></div>
-                <div class="partner dynamic pos-10 line-3 offset-0" data-cursor="active"><a href="https://www.nokia.com/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1676629856247-ns.png" alt=""></a></div>
-                <div class="partner dynamic pos-11 line-4 offset-1" data-cursor="active"><a href="https://tele2.kz/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/adcbf938-e6ef-4a57-82d1-7f98dc2faeceimage 79.png" alt=""></a></div>
-                <div class="partner dynamic pos-12 line-5 offset-2" data-cursor="active"><a href="https://www.velton.ua/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1676557818689-go.png" alt=""></a></div>
-                <div class="partner dynamic pos-13 line-6 offset-3"><a href="https://www.velton.ua/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://telesens.ua/admin/files/upload/1676557818689-go.png" alt=""></a></div>
+                <div class="partner dynamic pos-1 line-0 offset-1" data-cursor="active"><a href="https://career.vodafone.ua/it-smartflex" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/7eb376cf-ee3b-460e-8c62-4b2d1e3df4c1image 81.png" alt=""></a></div>
+                <div class="partner dynamic pos-2 line-0 offset-2" data-cursor="active"><a href="https://www.ericsson.com/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/ericsson_logo.png" alt=""></a></div>
+                <div class="partner dynamic pos-3 line-0 offset-3" data-cursor="active"><a href="https://ucell.uz/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1676384661951-l1.png" alt=""></a></div>
+                
 
-                <div class="partner dynamic pos-14 line-0 offset-4"><a href="https://www.ericsson.com/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="https://telesens.ua/admin/files/upload/1707407943790-go.png" alt=""></a></div>
+                <div class="partner dynamic pos-4 line-1 offset-4" data-cursor="active"><a href="https://www.vodafone.ua/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/a850870d-ec7c-43ce-97cc-f6cfbfd171c3image 83.png" alt=""></a></div>
+                <div class="partner dynamic pos-5 line-1 offset-5" data-cursor="active"><a href="https://kyivstar.ua/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/57231fa9-fb4d-4b86-9c8a-c8b3bdaf091aimage 72.png" alt=""></a></div>
+
+                <div class="partner dynamic pos-2 line-2 offset-2" data-cursor="active"><a href="https://vega.ua/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/2f0189f7-33a6-4557-8330-58a1f664813dimage 74.png" alt=""></a></div>
+                <div class="partner dynamic pos-3 line-2 offset-8" data-cursor="active"><a href="https://telecom.kz/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/c8ba895e-0c1d-4f92-930e-8545b6881855image 84.png" alt=""></a></div>
+                
+                <div class="partner dynamic pos-9 line-3 offset-9" data-cursor="active"><a href="https://www.jusanmobile.kz/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1676276950561-go.png" alt=""></a></div>
+                <div class="partner dynamic pos-4 line-3 offset-3" data-cursor="active"><a href="https://ukrtelecom.ua/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/5124694f-6725-45da-9767-e7e7dbea0e11image 77.png" alt=""></a></div>
+
+                <div class="partner dynamic pos-10 line-4 offset-0" data-cursor="active"><a href="https://www.nokia.com/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/nokia_logo.png" alt=""></a></div>
+                <div class="partner dynamic pos-4 line-4 offset-4" data-cursor="active"><a href="https://www.kcell.kz/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/9fece58a-8056-471e-bb7f-20861e07ae94image 78.png" alt=""></a></div>
+
+                <div class="partner dynamic pos-5 line-5 offset-5" data-cursor="active"><a href="https://beeline.uz/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1676030146193-an.png" alt=""></a></div>
+                <div class="partner dynamic pos-11 line-5 offset-1" data-cursor="active"><a href="https://tele2.kz/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/adcbf938-e6ef-4a57-82d1-7f98dc2faeceimage 79.png" alt=""></a></div>
+
+                <div class="partner dynamic pos-13 line-6 offset-3"><a href="https://www.velton.ua/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/velton_logo.png" alt=""></a></div>
+                <div class="partner dynamic pos-14 line-6 offset-5"><a href="https://www.lifecell.ua/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/lifecell_logo.png" alt=""></a></div>
+
             </div>
         </div>
     </div>
