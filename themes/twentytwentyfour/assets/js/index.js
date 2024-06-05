@@ -244,6 +244,47 @@ $('.interaction-box').hover(function () {
     });
 });
 
+$('#wpcf7-f616-o1, #wpcf7-f615-o1').on('keypress', (event) => {
+    if(event.which == 13){//enter key
+        event.preventDefault();
+        const inputs = $('.wpcf7-form > #contact_us_form > .text-input > p > .wpcf7-form-control-wrap > .input');
+        let focusedInputIndex;
+        inputs.each(function(index, input) {
+            if($(input).is(':focus')){
+                focusedInputIndex = index + 1;
+            }
+        });
+        if(focusedInputIndex <= inputs.length - 1){
+            inputs[focusedInputIndex].focus();
+        }
+        else{
+            const textarea = inputs[inputs.length - 1];
+            textarea.value += '\n';
+            const { style } = textarea;
+            
+            style.height = style.minHeight = 'auto';
+            style.minHeight = `${ Math.min(textarea.scrollHeight + 4, parseInt(textarea.style.maxHeight)) }px`;
+            style.height = `${ textarea.scrollHeight + 4 }px`;
+            textarea.dispatchEvent(new InputEvent('input'));
+        }
+    }
+});
+
+$('.wpcf7-form > #contact_us_form > .text-input > p > .wpcf7-form-control-wrap > .wpcf7-textarea')
+.bind('input propertychange', function() {
+    const counter = $('.wpcf7-form > #contact_us_form > .text-input > .letters-counter');
+    if(this.value.length){
+      counter[0].innerText = `${this.value.length}/2000`;
+      if(this.value.length > 2000){
+        $(counter).css({ color: 'red' });
+      } else {
+        $(counter).css({ color: '#333' });
+      }
+    } else {
+        counter[0].innerText = `0/2000`;
+    }
+});
+
 
 $('.techno-card-title').click(function () {
     if ($(this).parents('.techno-card').hasClass('selected')) {
@@ -504,11 +545,16 @@ function initForm(selector) {
                     $(field).parents('.text-input').removeClass('error');
                     $('.input-error', $(field).parents('.text-input')).remove();
                 });
+
+                $(field).parents('.text-input').removeClass('error');
+                $('.input-error', $(field).parents('.text-input')).remove();
             });
 
             $('#' + selector + ' [type="checkbox"]').focus(function () {
                 $('.checkbox-error', $(this).parents('.checkbox-root')).remove();
             });
+
+            $('.checkbox-error', $('#' + selector + ' [type="checkbox"]').parents('.checkbox-root')).remove();
 
             formValidate(selector, fields);
         }
