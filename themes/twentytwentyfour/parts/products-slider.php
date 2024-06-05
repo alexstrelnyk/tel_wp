@@ -7,35 +7,19 @@
             <div class="swiper" id="products_swiper">
                 <div class="swiper-wrapper">
                     <?php
+                    global $category_order;
 
-                    $categories = get_categories(['parent' => 0]);
+                    $categories = get_terms([
+                        'taxonomy' => 'category',
+                        'slug' => $category_order,
+                        'hide_empty' => false,
+                    ]);
 
-                    if (!empty($categories)) {
-                        foreach ($categories as $category) {
-                            if (in_array($category->slug, [
-                                'blog',
-                                'blog-en',
-                                'news',
-                                'news-en',
-                                'client_feedback',
-                                'client_feedback-en',
-                                'career',
-                                'career-en',
-                                'uncategorized-uk',
-                                'uncategorized-en',
-                                'gallery',
-                                'gallery-en',
-                                'regions',
-                                'regions-en',
-                                'charity',
-                                'charity-en',
-                                'helping',
-                                'helping-en',
-                            ])) {
-                                continue;
-                            }
+                    $sorted_categories = sort_categories_by_slugs($categories, $category_order);
 
-                            $image = get_field('category_image', 'category_' . $category->cat_ID);
+                    if (!empty($sorted_categories)) {
+                        foreach ($sorted_categories as $category) {
+                            $image = get_field('category_image', 'category_' . $category->term_id);
                     ?>
                             <div class="swiper-slide">
 

@@ -95,7 +95,6 @@ function initCursor() {
 
       cursorBorder.style.backgroundColor = "unset";
       cursorBorder.style.mixBlendMode = "unset";
-      cursorBorder.style.setProperty("--size", "50px");
     });
   });
 }

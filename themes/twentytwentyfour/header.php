@@ -6,7 +6,6 @@
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
     <meta name="theme-color" content="#004d35" />
-    <meta name="description" content="Telesens global solutions" />
     <link rel="apple-touch-icon" href="/logo192.png" />
     <link rel="manifest" href="/manifest.json" />
     <?php header("Cache-Control: no-store"); ?>
@@ -18,7 +17,6 @@
         }
         window.dataLayer = window.dataLayer || [], gtag("js", new Date), gtag("config", "G-BKQBLFP3ZT")
     </script>
-    <title>Telesens</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <link href="<?php echo path('css', 'fonts.css') ?>" rel="stylesheet">
@@ -42,6 +40,12 @@
             ?>
         };
     </script>
+
+    <?php
+    if (function_exists('yoast_seo_meta')) {
+        yoast_seo_meta();
+    }
+    ?>
 
 </head>
 

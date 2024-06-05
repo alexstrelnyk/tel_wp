@@ -29,36 +29,18 @@ $t2 = get_label('НАШІ ПРОДУКТИ ТА ПОСЛУГИ', 'OUR PRODUCTS A
 
                     <?php
 
-                    $categories = get_categories(['parent' => 0]);
+                    $categories = get_terms([
+                        'taxonomy' => 'category',
+                        'slug' => $category_order,
+                        'hide_empty' => false,
+                    ]);
 
+                    $sorted_categories = sort_categories_by_slugs($categories, $category_order);
                     if (!empty($categories)) {
-                        foreach ($categories as $category) {
-                            if (in_array($category->slug, [
-                                'blog',
-                                'blog-en',
-                                'news',
-                                'news-en',
-                                'client_feedback',
-                                'client_feedback-en',
-                                'career',
-                                'career-en',
-                                'uncategorized-uk',
-                                'uncategorized-en',
-                                'gallery',
-                                'gallery-en',
-                                'regions',
-                                'regions-en',
-                                'charity',
-                                'charity-en',
-                                'helping',
-                                'helping-en',
-                            ])) {
-                                continue;
-                            }
-
-                            $image = get_field('category_image', 'category_' . $category->cat_ID);
+                        foreach ($sorted_categories as $category) {
+                            $image = get_field('category_image', 'category_' . $category->term_id);
                     ?>
-                            <div id="cat_slug_<?php echo $category->slug ?>" class="services-card light-blue" onclick="getProducts(this, 0)" data-cat_id="<?php echo $category->cat_ID ?>" data-cat_title="<?php echo $category->cat_name ?>" data-cat_slug="<?php echo $category->slug ?>">
+                            <div id="cat_slug_<?php echo $category->slug ?>" class="services-card light-blue" onclick="getProducts(this, 0)" data-cat_id="<?php echo $category->term_id ?>" data-cat_title="<?php echo $category->name ?>" data-cat_slug="<?php echo $category->slug ?>">
                                 <?php if ($image) { ?>
                                     <div class="image"><img loading="lazy" src="<?php echo $image['url'] ?>" alt="<?php echo $image['name'] ?>"></div>
                                 <?php } ?>

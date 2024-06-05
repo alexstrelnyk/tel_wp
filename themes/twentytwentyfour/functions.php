@@ -9,6 +9,15 @@
  * @since Twenty Twenty-Four 1.0
  */
 
+
+// Used for product sliders and products page
+$category_order = [
+	get_label('telecom-solution', 'telecom-solutions-en'),
+	get_label('services', 'services-en'),
+	get_label('qa-services', 'qa-services-en'),
+	get_label('pm-ba-departament', 'pm-ba-office'),
+];
+
 /**
  * Register block styles.
  */
@@ -295,4 +304,42 @@ function get_url($slug)
 function is_contact_page()
 {
 	return in_array(get_post()->post_name, ['contact-us', 'contact-us-en']);
+}
+
+function sort_categories_by_slugs($categories, $slugs)
+{
+	$sorted_categories = [];
+	foreach ($slugs as $slug) {
+		foreach ($categories as $category) {
+			if ($category->slug === $slug) {
+				$sorted_categories[] = $category;
+				break;
+			}
+		}
+	}
+
+	return $sorted_categories;
+}
+
+function yoast_seo_meta()
+{
+	if (is_singular()) {
+		global $post;
+
+		// Get Yoast SEO title
+		$yoast_title = get_post_meta($post->ID, '_yoast_wpseo_title', true);
+		if (!$yoast_title) {
+			$yoast_title = get_the_title($post->ID);
+		}
+
+		// Get Yoast SEO meta description
+		$yoast_description = get_post_meta($post->ID, '_yoast_wpseo_metadesc', true);
+		if (!$yoast_description) {
+			$yoast_description = get_bloginfo('description');
+		}
+
+		// Print the meta tags
+		echo '<title>' . esc_html($yoast_title) . '</title>' . "\n";
+		echo '<meta name="description" content="' . esc_attr($yoast_description) . '">' . "\n";
+	}
 }
