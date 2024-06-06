@@ -244,47 +244,6 @@ $('.interaction-box').hover(function () {
     });
 });
 
-$('#wpcf7-f616-o1, #wpcf7-f615-o1').on('keypress', (event) => {
-    if(event.which == 13){//enter key
-        event.preventDefault();
-        const inputs = $('.wpcf7-form > #contact_us_form > .text-input > p > .wpcf7-form-control-wrap > .input');
-        let focusedInputIndex;
-        inputs.each(function(index, input) {
-            if($(input).is(':focus')){
-                focusedInputIndex = index + 1;
-            }
-        });
-        if(focusedInputIndex <= inputs.length - 1){
-            inputs[focusedInputIndex].focus();
-        }
-        else{
-            const textarea = inputs[inputs.length - 1];
-            textarea.value += '\n';
-            const { style } = textarea;
-            
-            style.height = style.minHeight = 'auto';
-            style.minHeight = `${ Math.min(textarea.scrollHeight + 4, parseInt(textarea.style.maxHeight)) }px`;
-            style.height = `${ textarea.scrollHeight + 4 }px`;
-            textarea.dispatchEvent(new InputEvent('input'));
-        }
-    }
-});
-
-$('.wpcf7-form > #contact_us_form > .text-input > p > .wpcf7-form-control-wrap > .wpcf7-textarea')
-.bind('input propertychange', function() {
-    const counter = $('.wpcf7-form > #contact_us_form > .text-input > .letters-counter');
-    if(this.value.length){
-      counter[0].innerText = `${this.value.length}/2000`;
-      if(this.value.length > 2000){
-        $(counter).css({ color: 'red' });
-      } else {
-        $(counter).css({ color: '#333' });
-      }
-    } else {
-        counter[0].innerText = `0/2000`;
-    }
-});
-
 
 $('.techno-card-title').click(function () {
     if ($(this).parents('.techno-card').hasClass('selected')) {
@@ -545,7 +504,7 @@ function initForm(selector) {
     $('#' + selector + ' .send-btn').click(function () {
         if ($('#' + selector).is(':visible')) {
 
-            var fields = $('#' + selector + ' input[type="text"], #' + selector + ' input[type="email"], textarea');
+            var fields = $('#' + selector + ' input[type="text"], #' + selector + ' input[type="email"], #'+ selector +' textarea');
             $(fields).each(function () {
                 var field = $(this);
 
@@ -567,6 +526,51 @@ function initForm(selector) {
             formValidate(selector, fields);
         }
     });
+
+    $(`#${selector}`).on('keypress', function(event) {
+        if(event.which == 13){ // 13 = Key Enter
+            event.preventDefault();
+            const inputs = $(this).find('.input');
+            const length = inputs.length - 1;
+
+            $(inputs).each(function(index, input) {
+                if($(input).is(':focus')){
+                    focusedInputIndex = index + 1;
+                }
+
+                if($(input).attr('name') == 'your-message'){
+                    $(input).bind('input propertychange', function() {
+                        const lettersCounter =  $(input).parents('.text-input').find('.letters-counter');
+                        const value = this.value;
+                        if(value.length){
+                            lettersCounter.text(`${value.length}/2000`);
+                            value.length > 2000 ? lettersCounter.css({ color: 'red' }) : lettersCounter.css({ color: '#333' });
+                        }
+                        else{
+                            lettersCounter.text(`0/2000`);
+                        }
+                    });       
+                }
+            });
+            if(focusedInputIndex <= length){
+                inputs[focusedInputIndex].focus();
+        
+            } else if(focusedInputIndex > length && $(inputs).last().is('textarea')) {
+
+                const textarea = $(inputs).last()[0];
+                let start = textarea.selectionStart;
+                let end = textarea.selectionEnd;
+                $(textarea).val($(textarea).val().substring(0,start) + '\n' + $(textarea).val().substring(end));
+                textarea.selectionStart = textarea.selectionEnd = start + 1;
+                
+                const { style } = textarea;
+                style.height = style.minHeight = 'auto';
+                style.minHeight = `${ Math.min(textarea.scrollHeight + 4, parseInt(textarea.style.maxHeight)) }px`;
+                style.height = `${ textarea.scrollHeight + 4 }px`;
+                textarea.dispatchEvent(new InputEvent('input'));
+            }
+        }
+    })
 }
 
 initForm('contact_us_form');
