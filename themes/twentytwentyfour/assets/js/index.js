@@ -245,20 +245,21 @@ $('.interaction-box').hover(function () {
 });
 
 
-$('.techno-card-title').click(function () {
-    if ($(this).parents('.techno-card').hasClass('selected')) {
+$('.techno-card').click(function () {
+    if ($(this).hasClass('selected')) {
         $('.techno-card').removeClass('selected');
         setTimeout(() => {
-            $('html, body').animate({ scrollTop: $('.techno-root').offset().top }, 1000);
-        }, 600);
+            $('html, body').animate({ scrollTop: $('.techno-root').offset().top }, 500);
+        }, 1000);
     } else {
         $('.techno-card').removeClass('selected');
-        $(this).parents('.techno-card').addClass('selected');
+        $(this).addClass('selected');
         setTimeout(() => {
-            $('html, body').animate({ scrollTop: $(this).parents('.techno-card').offset().top }, 1000);
-        }, 600);
+            $('html, body').animate({ scrollTop: $(this).offset().top }, 500);
+        }, 1000);
     }
 });
+
 
 
 function getProducts(obj, level) {
