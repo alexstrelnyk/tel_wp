@@ -446,9 +446,9 @@ function get_label(uk, en) {
     }
 }
 function validateEmail(email) {
-    var pattern = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-
-    return pattern.test(email);
+    var pattern = /^[a-zA-Z0-9.+]+@[a-zA-Z0-9]+\.[a-zA-Z0-9-.]+$/;
+    
+    return pattern.test(email) && !email.includes('xn--'); //check is punycode(converted cirilic characters) include
 }
 function validateDigits(input) {
     var pattern = /^[+\d][0-9]+$/;
@@ -477,11 +477,6 @@ function formValidate(selector, fields) {
                 $(field).after('<div class="input-error"><p class="Body color-just-grey ">' + get_label('Тільки цифри', 'Only Digits') + '</p></div>');
                 isValid = false;
             }
-            if ($(field).attr('name') == 'your-message' && !validateTextArea($(field).val())) {
-                $(field).parents('.text-input').addClass('error');
-                $(field).after('<div class="input-error"><p class="Body color-just-grey ">' + get_label('Максимальна кількість символів 2000!', 'The maximum number of characters is 2000!') + '</p></div>');
-                isValid = false;
-            }
         }
     });
     $('#' + selector + ' [type="checkbox"]').each(function () {
@@ -500,11 +495,35 @@ function formValidate(selector, fields) {
         $('#' + selector + ' [type="submit"]').click();
     }
 }
+
 function initForm(selector) {
+
+    var textarea = $('#'+ selector +' textarea');
+    if(textarea){
+        if($(textarea).attr('name') == 'your-message'){
+            $(textarea).bind('input propertychange', function() {
+                const lettersCounter =  $(textarea).parents('.text-input').find('.letters-counter');
+                
+                const value = this.value;
+                if(value.length){
+                    if(!validateTextArea($(textarea).val())){
+                        $(textarea).val($(textarea).val().substring(0,2000));
+                        lettersCounter.text(`2000/2000`);
+                    }else{
+                        lettersCounter.text(`${value.length}/2000`);
+                    }
+                }
+                else{
+                    lettersCounter.text(`0/2000`);
+                }
+            });       
+        }
+    }
+
     $('#' + selector + ' .send-btn').click(function () {
         if ($('#' + selector).is(':visible')) {
 
-            var fields = $('#' + selector + ' input[type="text"], #' + selector + ' input[type="email"], #'+ selector +' textarea');
+            var fields = $('#' + selector + ' input[type="text"], #' + selector + ' input[type="email"]');
             $(fields).each(function () {
                 var field = $(this);
 
@@ -528,7 +547,7 @@ function initForm(selector) {
     });
 
     $(`#${selector}`).on('keypress', function(event) {
-        if(event.which == 13){ // 13 = Key Enter
+        if(event.which == 13){
             event.preventDefault();
             const inputs = $(this).find('.input');
             const length = inputs.length - 1;
@@ -536,20 +555,6 @@ function initForm(selector) {
             $(inputs).each(function(index, input) {
                 if($(input).is(':focus')){
                     focusedInputIndex = index + 1;
-                }
-
-                if($(input).attr('name') == 'your-message'){
-                    $(input).bind('input propertychange', function() {
-                        const lettersCounter =  $(input).parents('.text-input').find('.letters-counter');
-                        const value = this.value;
-                        if(value.length){
-                            lettersCounter.text(`${value.length}/2000`);
-                            value.length > 2000 ? lettersCounter.css({ color: 'red' }) : lettersCounter.css({ color: '#333' });
-                        }
-                        else{
-                            lettersCounter.text(`0/2000`);
-                        }
-                    });       
                 }
             });
             if(focusedInputIndex <= length){
