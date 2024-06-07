@@ -446,9 +446,9 @@ function get_label(uk, en) {
     }
 }
 function validateEmail(email) {
-    var pattern = /^[a-zA-Z0-9.+]+@[a-zA-Z0-9]+\.[a-zA-Z0-9-.]+$/;
+    var pattern = /^[a-zA-Z0-9.+]+@[a-zA-Z0-9]+\.[a-zA-Z0-9.]+$/;
     
-    return pattern.test(email) && !email.includes('xn--'); //check is punycode(converted cirilic characters) include
+    return pattern.test(email);
 }
 function validateDigits(input) {
     var pattern = /^[+\d][0-9]+$/;
