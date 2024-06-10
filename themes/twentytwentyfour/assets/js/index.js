@@ -507,9 +507,11 @@ $('.btn-joint').hover(function() {
             const x = (clientX- TX) / 7;
             const y = (clientY - TY) / 7;
             $(this).css({ 'transform': `translate(${x}px, ${y}px)`,'transition':`none`,'animation':`none` });
-        } else {
-            $(this).css({ 'transform': `translate(0, 0)`, 'transition': `transition:all 0.75s ease-out;`});;
         }
+    });
+
+    $(this).mouseout(() => {
+        $(this).css({ 'transform': `translate(0, 0)`, 'transition': `transition:all 0.75s ease-out;`});
     });
 });
 
