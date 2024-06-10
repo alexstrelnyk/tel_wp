@@ -511,7 +511,7 @@ $('.btn-joint').hover(function() {
     });
 
     $(this).mouseout(() => {
-        $(this).css({ 'transform': `translate(0, 0)`, 'transition': `transition:all 0.75s ease-out;`});
+        $(this).css({ 'transform': `translate(0, 0)`, 'transition': `all 0.75s ease-out`});
     });
 });
 
