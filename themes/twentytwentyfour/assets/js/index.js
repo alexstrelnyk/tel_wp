@@ -497,7 +497,37 @@ function formValidate(selector, fields) {
     }
 }
 
+$('.btn-joint').hover(function() {
+    $(this).mousemove(({clientX, clientY}) => {
+        const { width, left, top, height } = adjustedLocation(this);
+        const TX = left + width / 2;
+        const TY = top + height / 2;
+        const dist = Math.hypot(clientX - TX, clientY - TY);
+        if (dist < width / 2 + 20) {
+            const x = (clientX- TX) / 7;
+            const y = (clientY - TY) / 7;
+            $(this).css({ 'transform': `translate(${x}px, ${y}px)`,'transition':`none`,'animation':`none` });
+        } else {
+            $(this).css({ 'transform': `translate(0, 0)`, 'transition': `transition:all 0.75s ease-out;`});;
+        }
+    });
+});
+
+function adjustedLocation(ref){
+    const ratio = window.devicePixelRatio === 1.25 ? 0.8 : 1;
+    let { width, x, y, height } = $(ref).parents('.btn-box')[0].getBoundingClientRect();
+    return { width: width * ratio, left: x * ratio, top: y * ratio, height: height * ratio };
+}
+
 function initForm(selector) {
+    const clutchLink = $(`#${selector}`).find('.clutch').find('a');
+    if(clutchLink.length){
+        $(`#${selector}`).find('.clutch').find('br').remove();
+        $(`#${selector}`).find('.clutch').find('p').remove();
+
+        clutchLink.append($(`#${selector}`).find('.clutch').find('.clutch-btn'));
+        $(`#${selector}`).find('.clutch').append(clutchLink);
+    };
 
     var textarea = $('#'+ selector +' textarea');
     if(textarea){
