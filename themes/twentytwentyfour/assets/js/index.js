@@ -261,7 +261,6 @@ $('.techno-card').click(function () {
 });
 
 
-
 function getProducts(obj, level) {
     var level = parseInt(level);
     var cat_id = $(obj).data('cat_id');
@@ -615,10 +614,43 @@ initForm('contact_us_form');
 initForm('subscribe_form');
 initForm('career_form');
 
+function setBookmark(){
+    const content = $('.blog-content');
+    if(!content.length)
+        return;
+    const scrollY = Math.floor(window.scrollY);
+    const anchors = $(content).find('.anchor-name');
+    let index = 0;
+    anchors.each((i, anchor) => {
+        if(scrollY >= anchor.offsetTop - 20){
+            index = i;
+        }
+    });
+    
+    const link = $('.one-tab')[index];
+    $('.blog-side-bar').find('svg').hide();
+    $(link).find('svg').show();
+}
+
 $('.one-tab').click(function () {
-    $('.charity-tabs svg').hide();
+    $(window).off('scroll');
+    $('.blog-side-bar').find('svg').hide();
     $('svg', $(this)).show();
+    setTimeout(() => {
+        $(window).on('scroll', setBookmark);
+    }, 500);
 });
+
+$(window).on('load',function(){
+    const blogSideBar= $('.blog-side-bar').find('svg');
+    if(blogSideBar.length){
+        $(blogSideBar).hide();
+    }
+    
+    $(window).on('scroll',  setBookmark)
+});
+
+    
 
 
 //Dropzone

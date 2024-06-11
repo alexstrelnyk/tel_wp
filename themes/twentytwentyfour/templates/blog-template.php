@@ -10,9 +10,15 @@ get_header();
     <div class="container">
         <div class="blog-side-bar">
             <div class="">
-                <p class="Sub color-black  mv12"><?php echo get_label('Закладки', 'Bookmarks') ?></p><a class="flex-row align-center gap8 mb12" href="#ТЕЛЕСЕНС ІНСАЙТИ">
+                <p class="Sub color-black  mv12"><?php echo get_label('Закладки', 'Bookmarks') ?></p><a class="flex-row align-center gap8 mb12 one-tab" href="#ТЕЛЕСЕНС ІНСАЙТИ">
+                    <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.33203 0H1.66536C0.932031 0 0.338698 0.6 0.338698 1.33333L0.332031 12L4.9987 10L9.66537 12V1.33333C9.66537 0.6 9.06536 0 8.33203 0Z" fill="#004D35"></path>
+                    </svg>
                     <p class="Body color-grey "><?php echo get_label('ТЕЛЕСЕНС ІНСАЙТИ', 'TELESENS INSIGHTS') ?></p>
-                </a><a class="flex-row align-center gap8 mb12" href="#ТЕЛЕСЕНС НОВИНИ">
+                </a><a class="flex-row align-center gap8 mb12 one-tab" href="#ТЕЛЕСЕНС НОВИНИ">
+                    <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.33203 0H1.66536C0.932031 0 0.338698 0.6 0.338698 1.33333L0.332031 12L4.9987 10L9.66537 12V1.33333C9.66537 0.6 9.06536 0 8.33203 0Z" fill="#004D35"></path>
+                    </svg>
                     <p class="Body color-grey "><?php echo get_label('ТЕЛЕСЕНС НОВИНИ', 'TELESENS NEWS') ?></p>
                 </a>
             </div>
@@ -23,7 +29,7 @@ get_header();
                 <p class="Sub color-transparent anchor-name" id="ТЕЛЕСЕНС ІНСАЙТИ"></p>
             </div>
             <div class="module-container type-paragraph bg-transparent">
-                <p class="Body color-grey  text-left"><span class="inh  H4"><?php echo get_label('ТЕЛЕСЕНС ІНСАЙТИ', 'TELESENS INSIGHTS') ?></span></p>
+                <p class="Body color-grey  text-left"><span class="inh  H4"><?php echo get_label('ТЕЛЕСЕНС - ІНСАЙТИ', 'TELESENS INSIGHTS') ?></span></p>
             </div>
 
             <?php

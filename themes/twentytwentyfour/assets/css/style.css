@@ -3969,7 +3969,7 @@ a {
 }
 
 .contact-form-root.subscribe {
-    grid-template-areas: "fn ln" "pn pn" "ea ea"
+    grid-template-areas: "fn ln" "pn pn" "ea ea" "sn sn";
 }
 
 .contact-form-root>div:first-child {
@@ -4002,6 +4002,10 @@ a {
 
 .contact-form-root>div:nth-child(8) {
     grid-area: sn
+}
+
+.contact-form-root.subscribe>div:nth-child(5){
+    grid-area: sn;
 }
 
 .contact-form-root .submission .svg-btn {
