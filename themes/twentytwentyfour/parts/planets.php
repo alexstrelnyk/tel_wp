@@ -1,4 +1,4 @@
-<section id=":r6:" class="width-wrapper">
+<section id="planets_header_desktop" class="width-wrapper">
     <div class="blog-preview frc bg-white">
         <div class="container">
             <div class="side f3 flex column">
@@ -14,7 +14,7 @@
     </div>
 </section>
 
-<section id=":r7:" class="width-wrapper">
+<section id="planets_body_desktop" class="width-wrapper">
     <div class="bg-white partners-section">
         <div class="partners">
             <svg class="motion-path" width="1920" height="1046" viewBox="0 0 1920 1046" fill="none">
@@ -56,6 +56,33 @@
                 <div class="partner dynamic pos-13 line-6 offset-3"><a href="https://www.velton.ua/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/velton_logo.png" alt=""></a></div>
                 <div class="partner dynamic pos-14 line-6 offset-5"><a href="https://www.lifecell.ua/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/lifecell_logo.png" alt=""></a></div>
 
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="planets_mobile" class="width-wrapper">
+    <div class="bg-white partners-mob">
+        <div class="hinge" style="transform: rotate(360deg);"></div>
+        <div class="blocker"></div>
+        <p class="Overline color-white hinge-msg italic">Ви можете обертати коло. Спробуйте!</p>
+        <div class="partners hsh">
+            <div class="partner-list">
+                <div class="partner"><img src="/wp-content/themes/twentytwentyfour/assets/images/ericsson_logo.png" alt=""></div>
+                <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1676384661951-l1.png" alt=""></div>
+                <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/57231fa9-fb4d-4b86-9c8a-c8b3bdaf091aimage 72.png" alt=""></div>
+                <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/2f0189f7-33a6-4557-8330-58a1f664813dimage 74.png" alt=""></div>
+                <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/5124694f-6725-45da-9767-e7e7dbea0e11image 77.png" alt=""></div>
+                <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/9fece58a-8056-471e-bb7f-20861e07ae94image 78.png" alt=""></div>
+                <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/lifecell_logo.png" alt=""></div>
+                <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/velton_logo.png" alt=""></div>
+                <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/7eb376cf-ee3b-460e-8c62-4b2d1e3df4c1image 81.png" alt=""></div>
+                <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/a850870d-ec7c-43ce-97cc-f6cfbfd171c3image 83.png" alt=""></div>
+                <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/c8ba895e-0c1d-4f92-930e-8545b6881855image 84.png" alt=""></div>
+                <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1676276950561-go.png" alt=""></div>
+                <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/adcbf938-e6ef-4a57-82d1-7f98dc2faeceimage 79.png" alt=""></div>
+                <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/ericsson_logo.png" alt=""></div>
+                <div class="partner last-partner"><img src="/wp-content/themes/twentytwentyfour/assets/images/1676384661951-l1.png" alt=""></div>
             </div>
         </div>
     </div>

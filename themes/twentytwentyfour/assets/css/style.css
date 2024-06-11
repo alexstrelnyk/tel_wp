@@ -8580,7 +8580,7 @@ footer a:hover {
 
 .partners-mob .hinge {
     aspect-ratio: 1/1;
-    background-image: url(/static/media/hinge.1e244e2c0165617a7843.png);
+    background-image: url(/wp-content/themes/twentytwentyfour/assets/images/hinge.1e244e2c0165617a7843.png);
     position: absolute;
     right: -250px;
     top: 0;
@@ -8608,7 +8608,7 @@ footer a:hover {
 
 .partners-mob .blocker:after,
 .partners-mob .blocker:before {
-    background-image: url(/static/media/cil.7310162e9d18e9fd7cdf.svg);
+    background-image: url(/wp-content/themes/twentytwentyfour/assets/images/cil.7310162e9d18e9fd7cdf.svg);
     content: "";
     height: 24px;
     position: absolute;
@@ -8988,7 +8988,7 @@ footer a:hover {
     outline: none;
     padding: 0;
     position: absolute;
-    top:0;
+    top: 0;
     transition: box-shadow .3s
 }
 
@@ -9371,7 +9371,7 @@ footer a:hover {
 
 .industries .industries-slider.still {
     transition: none;
-    overflow: hidden;
+    overflow: scroll;
     padding: 14px 0;
     margin-top: -14px;
 }
@@ -9501,12 +9501,26 @@ form [type="submit"],
     margin-top: -1px;
 }
 
+@media screen and (max-width:480px) {
+
+    #planets_header_desktop,
+    #planets_body_desktop {
+        display: none;
+    }
+}
+@media screen and (min-width:481px) {
+
+    #planets_mobile {
+        display: none;
+    }
+}
 @media screen and (max-width:768px) {
 
     #ind_wrap_large {
         display: none;
     }
 }
+
 
 @media screen and (min-width:769px) {
 
@@ -9516,7 +9530,7 @@ form [type="submit"],
 }
 
 @media screen and (max-width:1024px) {
-    
+
     #cards-tree,
     .slider-side-bar,
     #top_section {
@@ -9525,14 +9539,15 @@ form [type="submit"],
 }
 
 @media screen and (min-width:1025px) {
-    
+
     #cards-tree-mob,
     #top_section_mob {
         display: none;
     }
 }
+
 @media screen and (max-width:1440px) {
-    .width-wrapper{
+    .width-wrapper {
         margin-top: -1px;
     }
 }
