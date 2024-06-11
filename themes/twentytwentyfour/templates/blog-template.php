@@ -23,7 +23,7 @@ get_header();
                 <p class="Sub color-transparent anchor-name" id="ТЕЛЕСЕНС ІНСАЙТИ"></p>
             </div>
             <div class="module-container type-paragraph bg-transparent">
-                <p class="Body color-grey  text-left"><span class="inh  H4"><?php echo get_label('ТЕЛЕСЕНС ІНСАЙТИ', 'TELESENS INSIGHTS') ?></span></p>
+                <p class="Body color-grey  text-left"><span class="inh  H4"><?php echo get_label('ТЕЛЕСЕНС - ІНСАЙТИ', 'TELESENS INSIGHTS') ?></span></p>
             </div>
 
             <?php
