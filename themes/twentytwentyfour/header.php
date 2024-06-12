@@ -45,6 +45,7 @@
     if (function_exists('yoast_seo_meta')) {
         yoast_seo_meta();
     }
+    wp_head();
     ?>
 
 </head>
