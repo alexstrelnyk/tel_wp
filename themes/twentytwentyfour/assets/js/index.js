@@ -221,13 +221,13 @@ $('.value-card').hover(function () {
     $(this).css({ transition: "all 1s ease-out", transform: 'rotateY(0deg)  rotateX(0deg)  translateZ(1px)' });
     $(this).mousemove(({ clientX, clientY }) => {
         const { x, y, width, height } = this.getBoundingClientRect();
-        const ratio = $(window).devicePixelRatio === 1.25 ? 1.25 : 1;
+        const ratio = window.devicePixelRatio === 1.25 ? 1.25 : 1;
         const ax = (x + width / 2 - clientX * ratio) / 10;
         const ay = (y + height / 2 - clientY) / 20;
         this.style.transition = "none";
         this.style.transform = `rotateY(${-ax}deg) rotateX(${ay}deg) translateZ(10px) scale(1.05)`;
     })
-})
+}).mouseleave(() => { $(this).off('mousemove')});
 
 $('.interaction-box').hover(function () {
     $('#industry-card.industry-card').each(function (key, obj) {
