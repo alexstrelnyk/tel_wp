@@ -550,6 +550,7 @@ function initForm(selector) {
                 else {
                     lettersCounter.text(`0/2000`);
                 }
+                resizeTextarea(textarea[0]);
             });
         }
     }
@@ -595,21 +596,23 @@ function initForm(selector) {
                 inputs[focusedInputIndex].focus();
 
             } else if (focusedInputIndex > length && $(inputs).last().is('textarea')) {
-
                 const textarea = $(inputs).last()[0];
                 let start = textarea.selectionStart;
                 let end = textarea.selectionEnd;
-                $(textarea).val($(textarea).val().substring(0, start) + '\n' + $(textarea).val().substring(end));
+                $(textarea).val($(textarea).val().substring(0,start) + '\n' + $(textarea).val().substring(end));
                 textarea.selectionStart = textarea.selectionEnd = start + 1;
-
-                const { style } = textarea;
-                style.height = style.minHeight = 'auto';
-                style.minHeight = `${Math.min(textarea.scrollHeight + 4, parseInt(textarea.style.maxHeight))}px`;
-                style.height = `${textarea.scrollHeight + 4}px`;
+                resizeTextarea(textarea);
                 textarea.dispatchEvent(new InputEvent('input'));
             }
         }
     })
+}
+
+function resizeTextarea(textarea){
+    const { style } = textarea;
+    style.height = style.minHeight = 'auto';
+    style.minHeight = `${ Math.min(textarea.scrollHeight + 4, parseInt(textarea.style.maxHeight)) }px`;
+    style.height = `${ textarea.scrollHeight + 4 }px`;
 }
 
 initForm('contact_us_form');

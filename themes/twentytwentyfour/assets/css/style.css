@@ -11997,4 +11997,7 @@ html {
     }
 }
 
+div.wpcf7-validation-errors { display: none !important; }
+span.wpcf7-not-valid-tip { display: none; }
+
 /*# sourceMappingURL=main.53d41e13.css.map*/
