@@ -8921,7 +8921,7 @@ footer a:hover {
     left: 16px;
     pointer-events: none;
     position: absolute;
-    top: 35px
+    top: -10px
 }
 
 .text-input .input-error p:before {
@@ -8968,7 +8968,6 @@ footer a:hover {
     right: calc(100% + 10px);
     width: -webkit-max-content;
     width: max-content;
-    margin-top: 12px;
 }
 
 .checkbox {
