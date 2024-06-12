@@ -9511,6 +9511,9 @@ form [type="submit"],
     #planets_body_desktop {
         display: none;
     }
+    .quote-container .single-quote {
+        padding: 0 32px;
+    }
 }
 @media screen and (min-width:481px) {
 
