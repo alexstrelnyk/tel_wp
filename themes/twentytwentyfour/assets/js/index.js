@@ -51,6 +51,8 @@ $(document).ready(function () {
         cardSliderMargin = (($(window).width()) / 2 + 100);
         $('.industries-slider').css('transform', 'translate(' + cardSliderMargin + 'px, 145px)');
     }
+
+    initMobilePlanetsSpinner();
 });
 
 function switchHeader() {
@@ -175,29 +177,29 @@ $('.interaction-box').click(function () {
         currentScrollLeft = slider.scrollLeft();
         positionX = clientX;
     })
-    .mousemove(({ clientX }) => {
-        if(!isDraggable)
-            return;
+        .mousemove(({ clientX }) => {
+            if (!isDraggable)
+                return;
 
-        const delta = (positionX - clientX) / 40;
+            const delta = (positionX - clientX) / 40;
 
-        currentScrollLeft = currentScrollLeft + delta;  
-        if(currentScrollLeft <= 0){
-            currentScrollLeft = sliderWidth - 1;
-        }
-        if(currentScrollLeft >= sliderWidth){
-            currentScrollLeft = 0;
-        }
-        
-        slider.scrollLeft(currentScrollLeft);
-    
-    })
-    .mouseup(() => {
-        isDraggable = false;
-    })
-    .mouseleave(() => {
-        isDraggable = false;
-    })
+            currentScrollLeft = currentScrollLeft + delta;
+            if (currentScrollLeft <= 0) {
+                currentScrollLeft = sliderWidth - 1;
+            }
+            if (currentScrollLeft >= sliderWidth) {
+                currentScrollLeft = 0;
+            }
+
+            slider.scrollLeft(currentScrollLeft);
+
+        })
+        .mouseup(() => {
+            isDraggable = false;
+        })
+        .mouseleave(() => {
+            isDraggable = false;
+        })
 
     $('.industry-card.spread').click(function () {
         slider.scrollLeft(0)
@@ -215,8 +217,8 @@ $('.interaction-box').click(function () {
     initCursor();
 });
 
-$('.value-card').hover(function() {
-    $(this).css({transition: "all 1s ease-out", transform: 'rotateY(0deg)  rotateX(0deg)  translateZ(1px)'});
+$('.value-card').hover(function () {
+    $(this).css({ transition: "all 1s ease-out", transform: 'rotateY(0deg)  rotateX(0deg)  translateZ(1px)' });
     $(this).mousemove(({ clientX, clientY }) => {
         const { x, y, width, height } = this.getBoundingClientRect();
         const ratio = $(window).devicePixelRatio === 1.25 ? 1.25 : 1;
@@ -447,7 +449,7 @@ function get_label(uk, en) {
 }
 function validateEmail(email) {
     var pattern = /^[a-zA-Z0-9.+]+@[a-zA-Z0-9]+\.[a-zA-Z0-9.]+$/;
-    
+
     return pattern.test(email);
 }
 function validateDigits(input) {
@@ -455,7 +457,7 @@ function validateDigits(input) {
 
     return pattern.test(input);
 }
-function validateTextArea(input){
+function validateTextArea(input) {
     return input.length <= 2000;
 }
 function formValidate(selector, fields) {
@@ -496,25 +498,25 @@ function formValidate(selector, fields) {
     }
 }
 
-$('.btn-joint').hover(function() {
-    $(this).mousemove(({clientX, clientY}) => {
+$('.btn-joint').hover(function () {
+    $(this).mousemove(({ clientX, clientY }) => {
         const { width, left, top, height } = adjustedLocation(this);
         const TX = left + width / 2;
         const TY = top + height / 2;
         const dist = Math.hypot(clientX - TX, clientY - TY);
         if (dist < width / 2 + 20) {
-            const x = (clientX- TX) / 7;
+            const x = (clientX - TX) / 7;
             const y = (clientY - TY) / 7;
-            $(this).css({ 'transform': `translate(${x}px, ${y}px)`,'transition':`none`,'animation':`none` });
+            $(this).css({ 'transform': `translate(${x}px, ${y}px)`, 'transition': `none`, 'animation': `none` });
         }
     });
 
     $(this).mouseout(() => {
-        $(this).css({ 'transform': `translate(0, 0)`, 'transition': `all 0.75s ease-out`});
+        $(this).css({ 'transform': `translate(0, 0)`, 'transition': `all 0.75s ease-out` });
     });
 });
 
-function adjustedLocation(ref){
+function adjustedLocation(ref) {
     const ratio = window.devicePixelRatio === 1.25 ? 0.8 : 1;
     let { width, x, y, height } = $(ref).parents('.btn-box')[0].getBoundingClientRect();
     return { width: width * ratio, left: x * ratio, top: y * ratio, height: height * ratio };
@@ -522,7 +524,7 @@ function adjustedLocation(ref){
 
 function initForm(selector) {
     const clutchLink = $(`#${selector}`).find('.clutch').find('a');
-    if(clutchLink.length){
+    if (clutchLink.length) {
         $(`#${selector}`).find('.clutch').find('br').remove();
         $(`#${selector}`).find('.clutch').find('p').remove();
 
@@ -530,25 +532,25 @@ function initForm(selector) {
         $(`#${selector}`).find('.clutch').append(clutchLink);
     };
 
-    var textarea = $('#'+ selector +' textarea');
-    if(textarea){
-        if($(textarea).attr('name') == 'your-message'){
-            $(textarea).bind('input propertychange', function() {
-                const lettersCounter =  $(textarea).parents('.text-input').find('.letters-counter');
-                
+    var textarea = $('#' + selector + ' textarea');
+    if (textarea) {
+        if ($(textarea).attr('name') == 'your-message') {
+            $(textarea).bind('input propertychange', function () {
+                const lettersCounter = $(textarea).parents('.text-input').find('.letters-counter');
+
                 const value = this.value;
-                if(value.length){
-                    if(!validateTextArea($(textarea).val())){
-                        $(textarea).val($(textarea).val().substring(0,2000));
+                if (value.length) {
+                    if (!validateTextArea($(textarea).val())) {
+                        $(textarea).val($(textarea).val().substring(0, 2000));
                         lettersCounter.text(`2000/2000`);
-                    }else{
+                    } else {
                         lettersCounter.text(`${value.length}/2000`);
                     }
                 }
-                else{
+                else {
                     lettersCounter.text(`0/2000`);
                 }
-            });       
+            });
         }
     }
 
@@ -578,32 +580,32 @@ function initForm(selector) {
         }
     });
 
-    $(`#${selector}`).on('keypress', function(event) {
-        if(event.which == 13){
+    $(`#${selector}`).on('keypress', function (event) {
+        if (event.which == 13) {
             event.preventDefault();
             const inputs = $(this).find('.input');
             const length = inputs.length - 1;
 
-            $(inputs).each(function(index, input) {
-                if($(input).is(':focus')){
+            $(inputs).each(function (index, input) {
+                if ($(input).is(':focus')) {
                     focusedInputIndex = index + 1;
                 }
             });
-            if(focusedInputIndex <= length){
+            if (focusedInputIndex <= length) {
                 inputs[focusedInputIndex].focus();
-        
-            } else if(focusedInputIndex > length && $(inputs).last().is('textarea')) {
+
+            } else if (focusedInputIndex > length && $(inputs).last().is('textarea')) {
 
                 const textarea = $(inputs).last()[0];
                 let start = textarea.selectionStart;
                 let end = textarea.selectionEnd;
-                $(textarea).val($(textarea).val().substring(0,start) + '\n' + $(textarea).val().substring(end));
+                $(textarea).val($(textarea).val().substring(0, start) + '\n' + $(textarea).val().substring(end));
                 textarea.selectionStart = textarea.selectionEnd = start + 1;
-                
+
                 const { style } = textarea;
                 style.height = style.minHeight = 'auto';
-                style.minHeight = `${ Math.min(textarea.scrollHeight + 4, parseInt(textarea.style.maxHeight)) }px`;
-                style.height = `${ textarea.scrollHeight + 4 }px`;
+                style.minHeight = `${Math.min(textarea.scrollHeight + 4, parseInt(textarea.style.maxHeight))}px`;
+                style.height = `${textarea.scrollHeight + 4}px`;
                 textarea.dispatchEvent(new InputEvent('input'));
             }
         }
@@ -614,19 +616,19 @@ initForm('contact_us_form');
 initForm('subscribe_form');
 initForm('career_form');
 
-function setBookmark(){
+function setBookmark() {
     const content = $('.blog-content');
-    if(!content.length)
+    if (!content.length)
         return;
     const scrollY = Math.floor(window.scrollY);
     const anchors = $(content).find('.anchor-name');
     let index = 0;
     anchors.each((i, anchor) => {
-        if(scrollY >= anchor.offsetTop - 20){
+        if (scrollY >= anchor.offsetTop - 20) {
             index = i;
         }
     });
-    
+
     const link = $('.one-tab')[index];
     $('.blog-side-bar').find('svg').hide();
     $(link).find('svg').show();
@@ -641,16 +643,16 @@ $('.one-tab').click(function () {
     }, 500);
 });
 
-$(window).on('load',function(){
-    const blogSideBar= $('.blog-side-bar').find('svg');
-    if(blogSideBar.length){
+$(window).on('load', function () {
+    const blogSideBar = $('.blog-side-bar').find('svg');
+    if (blogSideBar.length) {
         $(blogSideBar).hide();
     }
-    
-    $(window).on('scroll',  setBookmark)
+
+    $(window).on('scroll', setBookmark)
 });
 
-    
+
 
 
 //Dropzone
@@ -718,3 +720,20 @@ setTimeout(function(){
 
 }, 500);
 */
+
+function initMobilePlanetsSpinner() {
+    var currentRotation = 0;
+    const hinge = $('#planets_mobile .hinge');
+    var move = 4;
+    $('.partners-mob').on('wheel', function (event) {
+        // var pos = $('#planets_mobile .partner').eq(0).offset();
+        // var top = pos.top;
+        if (event.originalEvent.deltaY > 0) {
+            currentRotation += move;
+        } else {
+            currentRotation -= move;
+        }
+
+        hinge.attr('style', 'transform: rotate(' + currentRotation + 'deg)');
+    });
+}
