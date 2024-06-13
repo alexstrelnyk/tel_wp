@@ -9544,7 +9544,6 @@ form [type="submit"],
         font-size: 60px;
         font-weight: 700;
         text-align: right;
-        white-space: nowrap;
         line-height: normal;
     }
     .Body.animated-link {
