@@ -9500,6 +9500,23 @@ form [type="submit"],
     .quote-container .single-quote {
         padding: 0 32px;
     }
+    .wide-gallery-root .wide-gallery-slider .wide-gallery-card .mb12{
+        margin-bottom: 0;
+    }
+    .wide-gallery-root .wide-gallery-slider .wide-gallery-card {
+        margin: 40px 40px 30px 32px !important;
+    }
+    .wide-gallery-root .gallery-heading {
+        font-size: 40px !important;
+        line-height: 47px !important;
+        margin-left: 32px !important;
+        font-weight: 400;
+        padding-right: 10px;
+    }
+    .wide-gallery-root .wide-gallery-slider .wide-gallery-card,
+    .wide-gallery-root .wide-gallery-slider .wide-gallery-card .wide-gallery-image {
+        width: 310px !important;
+    }
 }
 @media screen and (min-width:481px) {
 
