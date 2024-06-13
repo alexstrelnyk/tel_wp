@@ -221,13 +221,13 @@ $('.value-card').hover(function () {
     $(this).css({ transition: "all 1s ease-out", transform: 'rotateY(0deg)  rotateX(0deg)  translateZ(1px)' });
     $(this).mousemove(({ clientX, clientY }) => {
         const { x, y, width, height } = this.getBoundingClientRect();
-        const ratio = $(window).devicePixelRatio === 1.25 ? 1.25 : 1;
+        const ratio = window.devicePixelRatio === 1.25 ? 1.25 : 1;
         const ax = (x + width / 2 - clientX * ratio) / 10;
         const ay = (y + height / 2 - clientY) / 20;
         this.style.transition = "none";
         this.style.transform = `rotateY(${-ax}deg) rotateX(${ay}deg) translateZ(10px) scale(1.05)`;
     })
-})
+}).mouseleave(() => { $(this).off('mousemove')});
 
 $('.interaction-box').hover(function () {
     $('#industry-card.industry-card').each(function (key, obj) {
@@ -550,6 +550,7 @@ function initForm(selector) {
                 else {
                     lettersCounter.text(`0/2000`);
                 }
+                resizeTextarea(textarea[0]);
             });
         }
     }
@@ -595,21 +596,23 @@ function initForm(selector) {
                 inputs[focusedInputIndex].focus();
 
             } else if (focusedInputIndex > length && $(inputs).last().is('textarea')) {
-
                 const textarea = $(inputs).last()[0];
                 let start = textarea.selectionStart;
                 let end = textarea.selectionEnd;
-                $(textarea).val($(textarea).val().substring(0, start) + '\n' + $(textarea).val().substring(end));
+                $(textarea).val($(textarea).val().substring(0,start) + '\n' + $(textarea).val().substring(end));
                 textarea.selectionStart = textarea.selectionEnd = start + 1;
-
-                const { style } = textarea;
-                style.height = style.minHeight = 'auto';
-                style.minHeight = `${Math.min(textarea.scrollHeight + 4, parseInt(textarea.style.maxHeight))}px`;
-                style.height = `${textarea.scrollHeight + 4}px`;
+                resizeTextarea(textarea);
                 textarea.dispatchEvent(new InputEvent('input'));
             }
         }
     })
+}
+
+function resizeTextarea(textarea){
+    const { style } = textarea;
+    style.height = style.minHeight = 'auto';
+    style.minHeight = `${ Math.min(textarea.scrollHeight + 4, parseInt(textarea.style.maxHeight)) }px`;
+    style.height = `${ textarea.scrollHeight + 4 }px`;
 }
 
 initForm('contact_us_form');
