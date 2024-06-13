@@ -9500,19 +9500,6 @@ form [type="submit"],
     .quote-container .single-quote {
         padding: 0 32px;
     }
-    .wide-gallery-root .wide-gallery-slider .wide-gallery-card .mb12{
-        margin-bottom: 0;
-    }
-    .wide-gallery-root .wide-gallery-slider .wide-gallery-card {
-        margin: 40px 40px 30px 32px !important;
-    }
-    .wide-gallery-root .gallery-heading {
-        font-size: 40px !important;
-        line-height: 47px !important;
-        margin-left: 32px !important;
-        font-weight: 400;
-        padding-right: 10px;
-    }
     .wide-gallery-root .wide-gallery-slider .wide-gallery-card,
     .wide-gallery-root .wide-gallery-slider .wide-gallery-card .wide-gallery-image {
         width: 310px !important;
@@ -9528,6 +9515,24 @@ form [type="submit"],
 
     #ind_wrap_large {
         display: none;
+    }
+
+    .wide-gallery-root .wide-gallery-slider .wide-gallery-card,
+    .wide-gallery-root .wide-gallery-slider .wide-gallery-card .wide-gallery-image {
+        width: 700px;
+    }
+    .wide-gallery-root .wide-gallery-slider .wide-gallery-card .mb12{
+        margin-bottom: 0;
+    }
+    .wide-gallery-root .wide-gallery-slider .wide-gallery-card {
+        margin: 40px 40px 30px 32px !important;
+    }
+    .wide-gallery-root .gallery-heading {
+        font-size: 40px !important;
+        line-height: 47px !important;
+        margin-left: 32px !important;
+        font-weight: 400;
+        padding-right: 10px;
     }
     .services-slider .product-card .mob-card-arrow .arrow-svg .point {
         fill: var(--navy-green);
@@ -10307,7 +10312,6 @@ form [type="submit"],
     flex-direction: column;
     margin: 60px 40px 30px 85px;
     pointer-events: none;
-    width: 925px
 }
 
 .wide-gallery-root .wide-gallery-slider .wide-gallery-card .wide-gallery-image {
@@ -10315,7 +10319,6 @@ form [type="submit"],
     margin-bottom: 30px;
     -webkit-user-select: none;
     user-select: none;
-    width: 925px
 }
 
 .wide-gallery-root .wide-gallery-slider .wide-gallery-card .wide-gallery-image.cover {
