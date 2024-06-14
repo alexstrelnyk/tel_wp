@@ -9529,6 +9529,9 @@ form [type="submit"],
     .blog-view .container .blog-content .H4 {
         font-size: 32px;
     }
+    .blog-view .container .blog-content .module-container.type-paragraph {
+        margin-bottom: 32px;
+    }
     .blog-view .container .blog-content .H3 {
         font-weight: 400;
         font-size: 40px;
