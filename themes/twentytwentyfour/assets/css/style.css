@@ -9530,6 +9530,7 @@ form [type="submit"],
 }
 @media screen and (max-width:768px) {
 
+    .main-menu .up .footer-links,
     .blog-view .container .blog-side-bar,
     #ind_wrap_large {
         display: none;
@@ -9605,7 +9606,7 @@ form [type="submit"],
         line-height: normal;
     }
     .Body.animated-link {
-        display: none;
+        /* display: none; */
     }
 
     .services-title {
@@ -9621,6 +9622,8 @@ form [type="submit"],
 
 @media screen and (min-width:769px) {
 
+    .follow-links.mob-wrap,
+    .page-links.mob-wrap,
     .services-slider .product-card .mob-card-arrow,
     #ind_wrap_mob {
         display: none;
