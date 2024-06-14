@@ -9622,8 +9622,8 @@ form [type="submit"],
 
 @media screen and (min-width:769px) {
 
-    .follow-links.mob-wrap,
-    .page-links.mob-wrap,
+    .main-menu .up .follow-links.mob-wrap,
+    .main-menu .up .page-links.mob-wrap,
     .services-slider .product-card .mob-card-arrow,
     #ind_wrap_mob {
         display: none;
