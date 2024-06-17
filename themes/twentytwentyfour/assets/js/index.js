@@ -78,16 +78,14 @@ function isPage(slug) {
 $('.menu-bar').click(function () {
     var menu_btn_pos = $('#header-menu .menu-bar').offset();
     $('.main-menu .menu').css({
-        'top': menu_btn_pos.top + 'px',
-        'left': menu_btn_pos.left + 'px'
+        'top': isLargeScreen ? '30px' : '10px',
+        'left': isLargeScreen ? (menu_btn_pos.left - 30) + 'px' : '349px'
     });
 
     if ($('.main-menu').hasClass('visible')) {
-        $('#root').css('overflow', 'visible');
         $('.main-menu').removeClass('visible');
         $('#header-menu .menu-check').removeClass('active');
     } else {
-        $('#root').css({ 'overflow': 'hidden', 'height': '100vh' });
         $('.main-menu').addClass('visible');
         $('#header-menu .menu-check').addClass('active');
     }
@@ -227,7 +225,7 @@ $('.value-card').hover(function () {
         this.style.transition = "none";
         this.style.transform = `rotateY(${-ax}deg) rotateX(${ay}deg) translateZ(10px) scale(1.05)`;
     })
-}).mouseleave(() => { $(this).off('mousemove')});
+}).mouseleave(() => { $(this).off('mousemove') });
 
 $('.interaction-box').hover(function () {
     $('#industry-card.industry-card').each(function (key, obj) {
@@ -599,7 +597,7 @@ function initForm(selector) {
                 const textarea = $(inputs).last()[0];
                 let start = textarea.selectionStart;
                 let end = textarea.selectionEnd;
-                $(textarea).val($(textarea).val().substring(0,start) + '\n' + $(textarea).val().substring(end));
+                $(textarea).val($(textarea).val().substring(0, start) + '\n' + $(textarea).val().substring(end));
                 textarea.selectionStart = textarea.selectionEnd = start + 1;
                 resizeTextarea(textarea);
                 textarea.dispatchEvent(new InputEvent('input'));
@@ -608,11 +606,11 @@ function initForm(selector) {
     })
 }
 
-function resizeTextarea(textarea){
+function resizeTextarea(textarea) {
     const { style } = textarea;
     style.height = style.minHeight = 'auto';
-    style.minHeight = `${ Math.min(textarea.scrollHeight + 4, parseInt(textarea.style.maxHeight)) }px`;
-    style.height = `${ textarea.scrollHeight + 4 }px`;
+    style.minHeight = `${Math.min(textarea.scrollHeight + 4, parseInt(textarea.style.maxHeight))}px`;
+    style.height = `${textarea.scrollHeight + 4}px`;
 }
 
 initForm('contact_us_form');

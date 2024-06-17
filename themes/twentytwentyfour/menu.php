@@ -53,6 +53,16 @@
                 case 'career-en':
                     $header_bg = 'bg-white';
                     break;
+                case 'home':
+                    $menu_bg_class = 'bg-navy-green';
+                    $menu_bg_label = 'color-soft-blue';
+                    $menu_bottom_color = 'color-before-soft-blue';
+                    break;
+                case 'home-english':
+                    $menu_bg_class = 'bg-navy-green';
+                    $menu_bg_label = 'color-soft-blue';
+                    $menu_bottom_color = 'color-before-soft-blue';
+                    break;
             }
 
 
