@@ -9530,6 +9530,7 @@ form [type="submit"],
 }
 @media screen and (max-width:768px) {
 
+    .services-slider .product-desc .animated-link,
     .main-menu .up .footer-links,
     .blog-view .container .blog-side-bar,
     #ind_wrap_large {
