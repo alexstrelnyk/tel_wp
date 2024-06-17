@@ -65,7 +65,7 @@ function switchHeader() {
         $('.locale-btn input', header).attr('class', 'hover-border-color-undefined');
         $('.locale-btn .knobs', header).attr('class', 'knobs color-before-white bg-before-navy-green');
         $('.locale-btn .labels', header).attr('class', 'labels color-before-navy-green color-after-navy-green');
-        $('#header-menu .menu-button', header).attr('class', 'menu-button bg-navy-green');
+        $('#header-menu .menu-button', header).attr('class', 'menu-button bg-navy-green bordered-navy-green');
         $('#header-menu .menu-check .contrast-bg-white', header).attr('class', 'contrast-bg-navy-green');
     }
 }
