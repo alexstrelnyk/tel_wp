@@ -67,6 +67,9 @@ function switchHeader() {
         $('.locale-btn .labels', header).attr('class', 'labels color-before-navy-green color-after-navy-green');
         $('#header-menu .menu-button', header).attr('class', 'menu-button bg-navy-green bordered-navy-green');
         $('#header-menu .menu-check .contrast-bg-white', header).attr('class', 'contrast-bg-navy-green');
+        $('.main-menu .menu').attr('class', 'menu bg-navy-green');
+        $('.main-menu .main-links .label').attr('class', 'label color-soft-blue');
+        $('.main-menu .page-links .animated-link .title span, .main-menu .follow-links .animated-link .title span').attr('class', 'color-before-soft-blue');
     }
 }
 switchHeader();
@@ -579,7 +582,7 @@ function initForm(selector) {
 
             $(fields).each(function () {
                 var field = $(this);
-                
+
                 $(field).focus(function () {
                     $(field).parents('.text-input').removeClass('error');
                     $('.input-error', $(field).parents('.text-input')).remove();
