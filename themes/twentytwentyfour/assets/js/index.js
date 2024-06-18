@@ -534,6 +534,7 @@ function initForm(selector) {
     var textarea = $('#' + selector + ' textarea');
     if (textarea) {
         if ($(textarea).attr('name') == 'your-message') {
+            $(textarea).attr('data-cursor', 'input-text');
             $(textarea).bind('input propertychange', function () {
                 const lettersCounter = $(textarea).parents('.text-input').find('.letters-counter');
 
@@ -554,13 +555,15 @@ function initForm(selector) {
         }
     }
 
+    var fields = $('#' + selector + ' input[type="text"], #' + selector + ' input[type="email"]');
+    $(fields).attr('data-cursor', 'input-text');
+
     $('#' + selector + ' .send-btn').click(function () {
         if ($('#' + selector).is(':visible')) {
 
-            var fields = $('#' + selector + ' input[type="text"], #' + selector + ' input[type="email"]');
             $(fields).each(function () {
                 var field = $(this);
-
+                
                 $(field).focus(function () {
                     $(field).parents('.text-input').removeClass('error');
                     $('.input-error', $(field).parents('.text-input')).remove();
