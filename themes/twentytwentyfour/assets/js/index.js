@@ -497,29 +497,41 @@ function formValidate(selector, fields) {
     }
 }
 
-$('.btn-joint').add('.clutch-btn').hover(function () {
-    $(this).mousemove(({ clientX, clientY }) => {
-        const { width, left, top, height } = adjustedLocation(this);
-        const TX = left + width / 2;
-        const TY = top + height / 2;
-        const dist = Math.hypot(clientX - TX, clientY - TY);
-        if (dist < width / 2 + 20) {
-            const x = (clientX - TX) / 5;
-            const y = (clientY - TY) / 5;
-            $('.btn-joint').css({ 'transform': `translate(${x}px, ${y}px)`, 'transition': `none`, 'animation': `none` });
-        }
-    });
+initSticky('#header-menu', '.menu-button');
+initSticky('.btn-box', '.btn-joint');
+function initSticky(wrapper, domestic) {
+    var selector = $(domestic);
+    if (wrapper == '.btn-box') {
+        selector = $(domestic).add('.clutch-btn');
+    }
+    selector.hover(function () {
+        $(this).mousemove(({ clientX, clientY }) => {
+            const { width, left, top, height } = adjustedLocation(this, wrapper);
+            const TX = left + width / 2;
+            const TY = top + height / 2;
+            const dist = Math.hypot(clientX - TX, clientY - TY);
+            if (dist < width / 2 + 20) {
+                const x = (clientX - TX) / 5;
+                const y = (clientY - TY) / 5;
+                $(domestic).css({ 'transform': `translate(${x}px, ${y}px)`, 'transition': `none`, 'animation': `none` });
+            }
+        });
 
-    $(this).mouseout(() => {
-        $($('.btn-joint')).css({ 'transform': `translate(0, 0)`, 'transition': `all 0.75s ease-out` });
+        $(this).mouseout(() => {
+            $($(domestic)).css({ 'transform': `translate(0, 0)`, 'transition': `all 0.75s ease-out` });
+        });
     });
-});
-
-function adjustedLocation(ref) {
+}
+function adjustedLocation(ref, wrapper) {
     const ratio = window.devicePixelRatio === 1.25 ? 0.8 : 1;
-    let buttonBox = $(ref).parents('.btn-box')[0];
-    if(!buttonBox){
-        buttonBox = $(ref).parents('.submission').find('.btn-box')[0];
+    let buttonBox = $(ref).parents(wrapper)[0];
+
+    if (!buttonBox) {
+        switch (wrapper) {
+            case '.btn-box':
+                buttonBox = $(ref).parents('.submission').find('.btn-box')[0];
+                break;
+        }
     }
     let { width, x, y, height } = buttonBox.getBoundingClientRect();
     return { width: width * ratio, left: x * ratio, top: y * ratio, height: height * ratio };
