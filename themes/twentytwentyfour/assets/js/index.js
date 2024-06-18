@@ -497,27 +497,31 @@ function formValidate(selector, fields) {
     }
 }
 
-$('.btn-joint').hover(function () {
+$('.btn-joint').add('.clutch-btn').hover(function () {
     $(this).mousemove(({ clientX, clientY }) => {
         const { width, left, top, height } = adjustedLocation(this);
         const TX = left + width / 2;
         const TY = top + height / 2;
         const dist = Math.hypot(clientX - TX, clientY - TY);
         if (dist < width / 2 + 20) {
-            const x = (clientX - TX) / 7;
-            const y = (clientY - TY) / 7;
-            $(this).css({ 'transform': `translate(${x}px, ${y}px)`, 'transition': `none`, 'animation': `none` });
+            const x = (clientX - TX) / 5;
+            const y = (clientY - TY) / 5;
+            $('.btn-joint').css({ 'transform': `translate(${x}px, ${y}px)`, 'transition': `none`, 'animation': `none` });
         }
     });
 
     $(this).mouseout(() => {
-        $(this).css({ 'transform': `translate(0, 0)`, 'transition': `all 0.75s ease-out` });
+        $($('.btn-joint')).css({ 'transform': `translate(0, 0)`, 'transition': `all 0.75s ease-out` });
     });
 });
 
 function adjustedLocation(ref) {
     const ratio = window.devicePixelRatio === 1.25 ? 0.8 : 1;
-    let { width, x, y, height } = $(ref).parents('.btn-box')[0].getBoundingClientRect();
+    let buttonBox = $(ref).parents('.btn-box')[0];
+    if(!buttonBox){
+        buttonBox = $(ref).parents('.submission').find('.btn-box')[0];
+    }
+    let { width, x, y, height } = buttonBox.getBoundingClientRect();
     return { width: width * ratio, left: x * ratio, top: y * ratio, height: height * ratio };
 }
 
@@ -534,6 +538,7 @@ function initForm(selector) {
     var textarea = $('#' + selector + ' textarea');
     if (textarea) {
         if ($(textarea).attr('name') == 'your-message') {
+            $(textarea).attr('data-cursor', 'input-text');
             $(textarea).bind('input propertychange selectionchange paste', function () {
                 const lettersCounter = $(textarea).parents('.text-input').find('.letters-counter');
 
@@ -554,13 +559,15 @@ function initForm(selector) {
         }
     }
 
+    var fields = $('#' + selector + ' input[type="text"], #' + selector + ' input[type="email"]');
+    $(fields).attr('data-cursor', 'input-text');
+
     $('#' + selector + ' .send-btn').click(function () {
         if ($('#' + selector).is(':visible')) {
 
-            var fields = $('#' + selector + ' input[type="text"], #' + selector + ' input[type="email"]');
             $(fields).each(function () {
                 var field = $(this);
-
+                
                 $(field).focus(function () {
                     $(field).parents('.text-input').removeClass('error');
                     $('.input-error', $(field).parents('.text-input')).remove();
