@@ -79,7 +79,7 @@ $('.menu-bar').click(function () {
     var menu_btn_pos = $('#header-menu .menu-bar').offset();
     $('.main-menu .menu').css({
         'top': isLargeScreen ? '30px' : '10px',
-        'left': isLargeScreen ? (menu_btn_pos.left - 30) + 'px' : '349px'
+        'left': (menu_btn_pos.left - 30) + 'px'
     });
 
     if ($('.main-menu').hasClass('visible')) {
@@ -362,6 +362,7 @@ function gotoPage(page, isNewTab) {
         } else {
             document.location.href = pages[page];
         }
+        event.preventDefault();
     }
 }
 
