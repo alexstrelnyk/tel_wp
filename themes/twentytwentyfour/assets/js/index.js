@@ -539,7 +539,7 @@ function initForm(selector) {
     if (textarea) {
         if ($(textarea).attr('name') == 'your-message') {
             $(textarea).attr('data-cursor', 'input-text');
-            $(textarea).bind('input propertychange', function () {
+            $(textarea).bind('input propertychange selectionchange paste', function () {
                 const lettersCounter = $(textarea).parents('.text-input').find('.letters-counter');
 
                 const value = this.value;
