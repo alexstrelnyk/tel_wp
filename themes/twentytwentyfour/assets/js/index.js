@@ -662,6 +662,8 @@ $('.one-tab').click(function () {
     $(window).off('scroll');
     $('.blog-side-bar').find('svg').hide();
     $('svg', $(this)).show();
+    $('.charity-tabs .flex-row .Body').attr('class', 'Body color-grey ');
+    $('.Body', $(this)).attr('class', 'Body color-navy-green');
     setTimeout(() => {
         $(window).on('scroll', setBookmark);
     }, 500);
