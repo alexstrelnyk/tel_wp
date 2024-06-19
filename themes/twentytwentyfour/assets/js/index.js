@@ -641,6 +641,7 @@ initForm('subscribe_form');
 initForm('career_form');
 
 function setBookmark() {
+    const ratio = window.devicePixelRatio === 1.25 ? 1.25 : 1;
     const content = $('.blog-content');
     if (!content.length)
         return;
@@ -648,7 +649,7 @@ function setBookmark() {
     const anchors = $(content).find('.anchor-name');
     let index = 0;
     anchors.each((i, anchor) => {
-        if (scrollY >= anchor.offsetTop - 20) {
+        if (scrollY >= anchor.offsetTop / ratio - 100) {
             index = i;
         }
     });
