@@ -52,6 +52,11 @@ $(document).ready(function () {
         $('.industries-slider').css('transform', 'translate(' + cardSliderMargin + 'px, 145px)');
     }
 
+    $('.pum-overlay').css({ 'z-index' : '0' });
+    $('.pum-title').css({ 'font-family' : 'Commissioner'});
+    $('#pum-1370').css({ 'cursor' : 'none' }).find('*').css({ 'cursor' : 'none' });
+    $('#pum-1373').css({ 'cursor' : 'none' }).find('*').css({ 'cursor' : 'none' });
+
     initMobilePlanetsSpinner();
 });
 
@@ -502,6 +507,7 @@ function formValidate(selector, fields) {
 
 initSticky('#header-menu', '.menu-button');
 initSticky('.btn-box', '.btn-joint');
+initSticky('.pum-close', '.pum-close');
 function initSticky(wrapper, domestic) {
     var selector = $(domestic);
     if (wrapper == '.btn-box') {
@@ -533,6 +539,9 @@ function adjustedLocation(ref, wrapper) {
         switch (wrapper) {
             case '.btn-box':
                 buttonBox = $(ref).parents('.submission').find('.btn-box')[0];
+                break;
+            case '.pum-close':
+                buttonBox = $(ref)[0];
                 break;
         }
     }
