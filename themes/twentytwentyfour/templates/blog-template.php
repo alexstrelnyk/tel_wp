@@ -48,7 +48,7 @@ get_header();
             ?>
                 <div class="module-container type-linkedImage">
                     <a href="<?php the_permalink(); ?>" data-cursor="active" target="_blank">
-                        <img loading="lazy" src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo basename(get_the_post_thumbnail_url()) ?>">
+                        <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php echo basename(get_the_post_thumbnail_url()) ?>">
                     </a>
                 </div>
                 <div class="module-container type-paragraph">
