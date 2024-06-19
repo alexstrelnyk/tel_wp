@@ -8,6 +8,7 @@
     <meta name="theme-color" content="#004d35" />
     <link rel="apple-touch-icon" href="/logo192.png" />
     <link rel="manifest" href="/manifest.json" />
+    <link href="https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&display=swap" rel="stylesheet">
     <?php header("Cache-Control: no-store"); ?>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BKQBLFP3ZT"></script>
