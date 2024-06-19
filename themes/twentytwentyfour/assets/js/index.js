@@ -254,17 +254,19 @@ $('.interaction-box').hover(function () {
 
 
 $('.techno-card').click(function () {
+    const ratio = window.devicePixelRatio === 1.25 ? 1.25 : 1;
     if ($(this).hasClass('selected')) {
         $('.techno-card').removeClass('selected');
         setTimeout(() => {
-            $('html, body').animate({ scrollTop: $('.techno-root').offset().top }, 500);
-        }, 1000);
+            window.scrollTo({ top: $(this).parents('.width-wrappers')[0].offsetTop / ratio });
+        }, 1200);
     } else {
         $('.techno-card').removeClass('selected');
         $(this).addClass('selected');
         setTimeout(() => {
-            $('html, body').animate({ scrollTop: $(this).offset().top }, 500);
+            window.scrollTo({ top: ($(this).parents('.width-wrappers')[0].offsetTop + $(this)[0].offsetTop) / ratio });
         }, 1000);
+        
     }
 });
 
