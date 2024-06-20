@@ -296,8 +296,8 @@ $industries = [
         <div class="industries-title">
             <p class="Body color-soft-blue  italic">Industries expertise</p>
         </div>
-        <div class="industries-slider" style="width: 2848px; transform: translate(806px, 145px);" data-cursor="slider-img-green">
-            <div class="interaction-box"></div>
+        <div class="industries-slider" style="width: 2848px; transform: translate(806px, 145px);" >
+            <div class="interaction-box" data-cursor="slider-img-green"></div>
             <?php
             foreach ($industries as $key => $arr) {
                 $cls = in_array($arr['img'], [
