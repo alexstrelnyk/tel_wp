@@ -217,7 +217,7 @@ $('.interaction-box').click(function () {
         $('.industries-slider')
             .removeClass('still')
             .attr('style', 'width: 2848px; transform: translate(' + cardSliderMargin + 'px, 145px)')
-            .attr('data-cursor', 'slider-img-green');
+            .removeAttr('data-cursor');
         $('#industry-card.industry-card').removeClass('spread').each(function (key, slide) {
             $(slide).attr('style', slider_styles[key]);
         });
