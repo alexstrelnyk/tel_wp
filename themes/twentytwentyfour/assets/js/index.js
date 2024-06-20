@@ -166,9 +166,10 @@ var slider_styles = [
     'z-index: 1; transform: translate(-2492px, 0px) rotate(40deg);'
 ];
 $('.interaction-box').click(function () {
-    let currentScrollLeft = 0;
     let positionX = 0;
     let isDraggable = false;
+    let timing;
+    const clickEventTiming = 150;
     slider.scrollLeft(0);
     $('.industries').addClass('large');
     $('.industries-title').addClass('spread');
@@ -180,25 +181,24 @@ $('.interaction-box').click(function () {
 
     $('.industries-slider.still').mousedown(({ clientX }) => {
         isDraggable = true;
-        currentScrollLeft = slider.scrollLeft();
-        positionX = clientX;
+        positionX = slider.scrollLeft() + clientX;
+        timing = Date.now();
     })
-        .mousemove(({ clientX }) => {
+        .mousemove((event) => {
             if (!isDraggable)
                 return;
-
-            const delta = (positionX - clientX) / 40;
-
-            currentScrollLeft = currentScrollLeft + delta;
-            if (currentScrollLeft <= 0) {
-                currentScrollLeft = sliderWidth - 1;
+            
+            let delta = positionX - event.clientX;
+           
+            if (delta <= 0) {
+                delta = sliderWidth + delta;
             }
-            if (currentScrollLeft >= sliderWidth) {
-                currentScrollLeft = 0;
+            if (delta >= sliderWidth) {
+                delta = 0 + delta - sliderWidth;
             }
-
-            slider.scrollLeft(currentScrollLeft);
-
+            
+            slider.get(0).scrollTo({ left: delta });
+            
         })
         .mouseup(() => {
             isDraggable = false;
@@ -208,13 +208,16 @@ $('.interaction-box').click(function () {
         })
 
     $('.industry-card.spread').click(function () {
+        if(Date.now() - timing > clickEventTiming){
+            return;
+        }
         slider.scrollLeft(0)
         $('.industries').removeClass('large');
         $('.industries-title').removeClass('spread');
         $('.industries-slider')
             .removeClass('still')
             .attr('style', 'width: 2848px; transform: translate(' + cardSliderMargin + 'px, 145px)')
-            .attr('data-cursor', 'slider-img-green');
+            .removeAttr('data-cursor');
         $('#industry-card.industry-card').removeClass('spread').each(function (key, slide) {
             $(slide).attr('style', slider_styles[key]);
         });
