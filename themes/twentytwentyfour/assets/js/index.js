@@ -52,32 +52,32 @@ $(document).ready(function () {
         $('.industries-slider').css('transform', 'translate(' + cardSliderMargin + 'px, 145px)');
     }
 
-    $('.pum-overlay').css({ 'z-index' : '0' });
-    $('.pum-title').css({ 'font-family' : 'Commissioner'});
-    $('#pum-1370').css({ 'cursor' : 'none' }).find('*').css({ 'cursor' : 'none' });
-    $('#pum-1373').css({ 'cursor' : 'none' }).find('*').css({ 'cursor' : 'none' });
+    $('.pum-overlay').css({ 'z-index': '0' });
+    $('.pum-title').css({ 'font-family': 'Commissioner' });
+    $('#pum-1370').css({ 'cursor': 'none' }).find('*').css({ 'cursor': 'none' });
+    $('#pum-1373').css({ 'cursor': 'none' }).find('*').css({ 'cursor': 'none' });
 
-    $('#feedback_swiper').mousedown(function(event){
+    $('#feedback_swiper').mousedown(function (event) {
         $('#cursor').attr('class', 'slider');
-        $('.quotes-slider').css({ 'transition' : 'none' });
+        $('.quotes-slider').css({ 'transition': 'none' });
         const x = event.pageX;
         const posX = $('.quotes-slider').get(0).getBoundingClientRect().x;
         const start = posX - x;
         let isPressed = true;
         const children = $(this).find('.quote-container');
-        $(this).mousemove(function(event){
-            if(isPressed){
-                $('.quotes-slider').css({ 'transform' : `translateX(${start + event.pageX}px)` });
+        $(this).mousemove(function (event) {
+            if (isPressed) {
+                $('.quotes-slider').css({ 'transform': `translateX(${start + event.pageX}px)` });
             }
         });
-        $(this).mouseup(function(event) {
+        $(this).mouseup(function (event) {
             if (isPressed) {
                 const slideWidth = $('.quotes-slider').width();
                 isPressed = false;
                 const offset = Math.abs(event.pageX - x) > 250 ? Math.sign(event.pageX - x) : 0;
                 const dir = Math.floor(posX / slideWidth) + offset;
-                $('.quotes-slider').css({ 'transition' : "transform 0.3s ease-out"});
-                $('.quotes-slider').css({ 'transform' : `translateX(${clamp(dir, -children.length + 1, 0) * slideWidth}px)`});
+                $('.quotes-slider').css({ 'transition': "transform 0.3s ease-out" });
+                $('.quotes-slider').css({ 'transform': `translateX(${clamp(dir, -children.length + 1, 0) * slideWidth}px)` });
                 $('#cursor').removeAttr('class');
             }
         });
@@ -219,18 +219,18 @@ $('.interaction-box').click(function () {
         .mousemove((event) => {
             if (!isDraggable)
                 return;
-            
+
             let delta = positionX - event.clientX;
-           
+
             if (delta <= 0) {
                 delta = sliderWidth + delta;
             }
             if (delta >= sliderWidth) {
                 delta = 0 + delta - sliderWidth;
             }
-            
+
             slider.get(0).scrollTo({ left: delta });
-            
+
         })
         .mouseup(() => {
             isDraggable = false;
@@ -240,7 +240,7 @@ $('.interaction-box').click(function () {
         })
 
     $('.industry-card.spread').click(function () {
-        if(Date.now() - timing > clickEventTiming){
+        if (Date.now() - timing > clickEventTiming) {
             return;
         }
         slider.scrollLeft(0)
@@ -301,7 +301,7 @@ $('.techno-card').click(function () {
         setTimeout(() => {
             window.scrollTo({ top: ($(this).parents('.width-wrappers')[0].offsetTop + $(this)[0].offsetTop) / ratio });
         }, 1000);
-        
+
     }
 });
 
@@ -809,4 +809,48 @@ function initMobilePlanetsSpinner() {
 
         hinge.attr('style', 'transform: rotate(' + currentRotation + 'deg)');
     });
+}
+
+
+function renderPDF(pdfUrl) {
+    // Load the PDF document with the reference of its file object URL
+    var loadingTask = pdfjsLib.getDocument(pdfUrl);
+
+    loadingTask.promise.then(
+        function (pdf) {
+            // get the first page of the PDF document
+            pdf.getPage(1).then(function (page) {
+                var scale = 1;
+                var viewport = page.getViewport({
+                    scale: scale
+                });
+
+                // Target HTML canvas element
+                var canvas = document.getElementById("pdfCanvas");
+                var context = canvas.getContext("2d");
+
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                // Build 2D viewport with context
+                var renderContext = {
+                    canvasContext: context,
+                    viewport: viewport
+                };
+
+                // Embed the PDF docuemtnt on the HTML canvas
+                if (typeof page.render === 'function') {
+                    page.render(renderContext);
+                } else {
+                    page.render(renderContext);
+                    console.log("Page rendered!");
+                }
+
+                document.getElementById("pdf-embed-library").style.display = "block";
+            });
+        },
+        function (reason) {
+            console.error(reason);
+        }
+    );
 }

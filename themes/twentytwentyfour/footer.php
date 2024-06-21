@@ -86,6 +86,8 @@
             </main>
             <script defer="defer" src="<?php echo path('js', 'cursor.js') ?>"></script>
             <script src="<?php echo path('js', 'swiper-bundle.min.js') ?>"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+
             <script>
                 <?php if (pll_current_language() == 'uk') { ?>
                     var firstVisitCountryPageUrl = '<?php echo get_permalink(pll_get_post(get_the_ID(), 'en')) ?>';

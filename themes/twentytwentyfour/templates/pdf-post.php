@@ -37,12 +37,18 @@ if (get_field('post_file')) {
             <p class="H3 color-black "></p>
         </div>
         <div class="pdf">
-            <div class="react-pdf__Document">
-                <embed src="<?php echo $pdf ?>" type="application/pdf" width="100%" height="800px" />
+            <div id="pdf-embed-library">
+                <canvas id="pdfCanvas"></canvas>
             </div>
         </div>
     </div>
 </section>
+
+<script>
+    $(document).ready(function() {
+        renderPDF('<?php echo $pdf ?>');
+    });
+</script>
 
 <?php
 
