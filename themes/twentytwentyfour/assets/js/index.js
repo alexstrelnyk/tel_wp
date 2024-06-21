@@ -459,22 +459,31 @@ function getUserCountry() {
 function initSlider(selectorId) {
 
     var swiper = new Swiper('#' + selectorId);
-    
-    var scrollingDirection = 0;
-    var lastScroll = 9999;
-    var scrollIdleTime = 40;
+    let wheelStatus = {
+        wheel: false,
+        isDone: false
+    };
+    let timer = false;
 
-    $('#' + selectorId + ' .swiper-wrapper').on('wheel', function (e) {
-        var timeNow = performance.now();
-        var delta = e.originalEvent.deltaX;
-        if (delta > 0 && ( scrollingDirection != 1 || timeNow > lastScroll + scrollIdleTime)) {
-            swiper.slideNext();
-            scrollingDirection = 1;
-        } else if(delta < 0 && ( scrollingDirection != 2 || timeNow > lastScroll + scrollIdleTime)) {
-            swiper.slidePrev();
-            scrollingDirection = 2;
+    $('#' + selectorId + ' .swiper-wrapper').on('wheel', function (event) {
+        if(event.originalEvent.deltaX === 0)
+            return;
+        wheelStatus.wheel = true;
+        if(!wheelStatus.isDone){
+            direction = event.originalEvent.deltaX > 0;
+            if(direction){
+                swiper.slideNext();
+            }
+            else{
+                swiper.slidePrev();
+            }
+            wheelStatus.isDone = true;
         }
-        lastScroll = timeNow;
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            wheelStatus.wheel = false;
+            wheelStatus.isDone = false;
+        }, 50);
     });
 }
 
