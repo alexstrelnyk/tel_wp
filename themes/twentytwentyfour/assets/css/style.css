@@ -12101,3 +12101,6 @@ span.wpcf7-not-valid-tip { display: none; }
     text-align: center;
     margin-bottom: 60px;
 }
+#pdfCanvas {
+    display: none;
+}

@@ -37,6 +37,7 @@ if (get_field('post_file')) {
             <p class="H3 color-black "></p>
         </div>
         <div class="pdf">
+            <span id="pdf_loader">Loading PDF...</span>
             <div id="pdf-embed-library">
                 <canvas id="pdfCanvas"></canvas>
             </div>

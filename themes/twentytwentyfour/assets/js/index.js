@@ -818,39 +818,56 @@ function renderPDF(pdfUrl) {
 
     loadingTask.promise.then(
         function (pdf) {
-            // get the first page of the PDF document
-            pdf.getPage(1).then(function (page) {
-                var scale = 1;
-                var viewport = page.getViewport({
-                    scale: scale
-                });
+            // Get the total number of pages
+            var numPages = pdf.numPages;
 
-                // Target HTML canvas element
-                var canvas = document.getElementById("pdfCanvas");
-                var context = canvas.getContext("2d");
-
-                canvas.height = viewport.height;
-                canvas.width = viewport.width;
-
-                // Build 2D viewport with context
-                var renderContext = {
-                    canvasContext: context,
-                    viewport: viewport
-                };
-
-                // Embed the PDF docuemtnt on the HTML canvas
-                if (typeof page.render === 'function') {
-                    page.render(renderContext);
-                } else {
-                    page.render(renderContext);
-                    console.log("Page rendered!");
+            // Iterate through all the pages
+            for (var pageNum = 1; pageNum <= numPages; pageNum++) {
+                renderPage(pdf, pageNum);
+                if (pageNum == 1) {
+                    $('#pdf_loader').remove();
                 }
-
-                document.getElementById("pdf-embed-library").style.display = "block";
-            });
+            }
         },
         function (reason) {
             console.error(reason);
         }
     );
+}
+
+function renderPage(pdf, pageNum) {
+    pdf.getPage(pageNum).then(function (page) {
+        var scale = 1;
+        var viewport = page.getViewport({ scale: scale });
+
+        // Create a new canvas element for each page
+        var canvas = document.createElement("canvas");
+        canvas.id = "pdfCanvas" + pageNum;
+        var context = canvas.getContext("2d");
+
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+
+        // Append the canvas to the container
+        document.getElementById("pdf-embed-library").appendChild(canvas);
+
+        // Build 2D viewport with context
+        var renderContext = {
+            canvasContext: context,
+            viewport: viewport
+        };
+
+        // Render the PDF page on the canvas
+        if (typeof page.render === 'function') {
+            page.render(renderContext).promise.then(function () {
+                console.log("Page " + pageNum + " rendered!");
+            });
+        } else {
+            page.render(renderContext);
+            console.log("Page " + pageNum + " rendered!");
+        }
+
+        // Display the PDF container
+        document.getElementById("pdf-embed-library").style.display = "block";
+    });
 }
