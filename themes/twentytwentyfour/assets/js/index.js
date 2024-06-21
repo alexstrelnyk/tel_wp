@@ -459,23 +459,22 @@ function getUserCountry() {
 function initSlider(selectorId) {
 
     var swiper = new Swiper('#' + selectorId);
-    var scrollTimeout;
+    
+    var scrollingDirection = 0;
+    var lastScroll = 9999;
+    var scrollIdleTime = 40;
 
     $('#' + selectorId + ' .swiper-wrapper').on('wheel', function (e) {
-        clearTimeout(scrollTimeout);
-
-        if (!scrollTimeout) {
-            var direction = e.originalEvent.deltaX > 0 ? 'next' : 'prev';
-            if (direction === 'next') {
-                swiper.slideNext();
-            } else {
-                swiper.slidePrev();
-            }
+        var timeNow = performance.now();
+        var delta = e.originalEvent.deltaX;
+        if (delta > 0 && ( scrollingDirection != 1 || timeNow > lastScroll + scrollIdleTime)) {
+            swiper.slideNext();
+            scrollingDirection = 1;
+        } else if(delta < 0 && ( scrollingDirection != 2 || timeNow > lastScroll + scrollIdleTime)) {
+            swiper.slidePrev();
+            scrollingDirection = 2;
         }
-
-        scrollTimeout = setTimeout(function () {
-            scrollTimeout = null;
-        }, 40);
+        lastScroll = timeNow;
     });
 }
 
