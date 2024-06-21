@@ -46,7 +46,7 @@ if (get_field('post_file')) {
 </section>
 
 <script>
-    $(document).ready(function() {
+    $(window).on('load', function() {
         renderPDF('<?php echo $pdf ?>');
     });
 </script>

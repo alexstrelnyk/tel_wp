@@ -813,6 +813,9 @@ function initMobilePlanetsSpinner() {
 
 
 function renderPDF(pdfUrl) {
+    // Get the width of the .flex-col block
+    var pdfWidth = $('.flex-col').width();
+
     // Load the PDF document with the reference of its file object URL
     var loadingTask = pdfjsLib.getDocument(pdfUrl);
 
@@ -823,10 +826,10 @@ function renderPDF(pdfUrl) {
 
             // Iterate through all the pages
             for (var pageNum = 1; pageNum <= numPages; pageNum++) {
-                renderPage(pdf, pageNum);
-                if (pageNum == 1) {
-                    $('#pdf_loader').remove();
-                }
+                renderPage(pdf, pageNum, pdfWidth);
+            }
+            if (numPages > 0) {
+                $('#pdf_loader').remove();
             }
         },
         function (reason) {
@@ -835,18 +838,21 @@ function renderPDF(pdfUrl) {
     );
 }
 
-function renderPage(pdf, pageNum) {
+function renderPage(pdf, pageNum, customWidth) {
     pdf.getPage(pageNum).then(function (page) {
-        var scale = 1;
-        var viewport = page.getViewport({ scale: scale });
+        var viewport = page.getViewport({ scale: 1 });
+
+        // Calculate scale based on the custom width
+        var scale = customWidth / viewport.width;
+        var scaledViewport = page.getViewport({ scale: scale });
 
         // Create a new canvas element for each page
         var canvas = document.createElement("canvas");
         canvas.id = "pdfCanvas" + pageNum;
         var context = canvas.getContext("2d");
 
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
+        canvas.height = scaledViewport.height;
+        canvas.width = customWidth;
 
         // Append the canvas to the container
         document.getElementById("pdf-embed-library").appendChild(canvas);
@@ -854,18 +860,13 @@ function renderPage(pdf, pageNum) {
         // Build 2D viewport with context
         var renderContext = {
             canvasContext: context,
-            viewport: viewport
+            viewport: scaledViewport
         };
 
         // Render the PDF page on the canvas
-        if (typeof page.render === 'function') {
-            page.render(renderContext).promise.then(function () {
-                console.log("Page " + pageNum + " rendered!");
-            });
-        } else {
-            page.render(renderContext);
+        page.render(renderContext).promise.then(function () {
             console.log("Page " + pageNum + " rendered!");
-        }
+        });
 
         // Display the PDF container
         document.getElementById("pdf-embed-library").style.display = "block";
