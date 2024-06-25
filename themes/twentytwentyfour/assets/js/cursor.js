@@ -1,7 +1,8 @@
 const cursor = document.querySelector("#cursor");
 const cursorBorder = document.querySelector("#cursor-border");
+const cursorCircle = document.querySelector("#cursor-circle");
 const cursorPos = { x: 0, y: 0 };
-const cursorBorderPos = { x: 0, y: 0 };
+const cursorBorderPos = { x: 0, y: 0, destinationX: 0, destinationY: 0 };
 
 // FlashLight cursor effect for homepage
 var windowWidth = window.innerWidth;
@@ -12,7 +13,7 @@ const floor3 = document.querySelector(".full-size.floor-3");
 document.addEventListener("mousemove", (e) => {
   cursorPos.x = e.clientX;
   cursorPos.y = e.clientY;
-
+  
   cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
 });
 
@@ -33,9 +34,28 @@ requestAnimationFrame(function loop() {
     floor3.style = 'background-position: ' + calculateB(cursorFlashPosX) + '% ' + calculateB(cursorFlashPosY) + '%;';
   }
 
-  cursorBorder.style.transform = `translate(${cursorBorderPos.x}px, ${cursorBorderPos.y}px)`;
+  let distX = cursorBorderPos.x - cursorBorderPos.destinationX;
+  let distY = cursorBorderPos.y - cursorBorderPos.destinationY;
+  let dir = (Math.atan2(distY, distX) / Math.PI) * 180;
+
+  if (!cursorBorderPos.destinationX || !cursorBorderPos.destinationY) {
+    cursorBorderPos.destinationX = cursorBorderPos.x;
+    cursorBorderPos.destinationY = cursorBorderPos.y;
+  } else {
+    if (Math.abs(distX) + Math.abs(distY) < 0.1) {
+      cursorBorderPos.destinationX = cursorBorderPos.x;
+      cursorBorderPos.destinationY = cursorBorderPos.y;
+    } else {
+      cursorBorderPos.destinationX += distX * 0.1;
+      cursorBorderPos.destinationY += distY * 0.1;
+    }
+  }
+  
+  cursorBorder.style.transform = `translate(${cursorBorderPos.destinationX}px, ${cursorBorderPos.destinationY}px) rotate(${dir}deg)`;
+  cursorCircle.style.transform = `translate(-50%,-50%) scaleX(${1 - Math.min((Math.abs(distX) + Math.abs(distY)) / 100, 0.5)})`;
   requestAnimationFrame(loop);
 });
+
 
 function initCursor() {
   document.querySelectorAll("[data-cursor]").forEach((item) => {
