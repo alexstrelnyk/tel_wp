@@ -11,13 +11,24 @@
     z-index: 9999;
 }
 
-#cursor-border {
+#cursor-border{
+    height: 0;
+    overflow: visible;
+    pointer-events: none;
+    position: fixed;
+    -webkit-transform: translate(0);
+    transform: translate(0);
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    width: 0;
+    z-index: 10000;
+}
+
+#cursor-circle {
     --size: 40px;
     position: fixed;
-    top: calc(var(--size) / -2);
-    left: calc(var(--size) / -2);
     width: var(--size);
-    height: var(--size);
+    height: var(--size); 
     border-radius: 50%;
     border: 1px solid #777;
     /* box-shadow: 0 0 0 1px white; */

@@ -76,7 +76,9 @@
             </span>
             <div class="input-bg"></div>
         </div>
-        <div id="cursor-border"></div>
+        <div id="cursor-border">
+            <div id=cursor-circle></div>
+        </div>
 
         <div class="fade bg-navy-green"></div>
         <?php get_template_part('menu'); ?>
