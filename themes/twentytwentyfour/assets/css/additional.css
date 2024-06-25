@@ -35,6 +35,9 @@
     pointer-events: none;
     transition: top 0.15s ease-out, left 0.15s ease-out, width 0.15s ease-out,
         height 0.15s ease-out, background-color 0.15s ease-out;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    -webkit-transform-origin: center;
     z-index: 9999;
 }
 

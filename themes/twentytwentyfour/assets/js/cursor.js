@@ -13,8 +13,7 @@ const floor3 = document.querySelector(".full-size.floor-3");
 document.addEventListener("mousemove", (e) => {
   cursorPos.x = e.clientX;
   cursorPos.y = e.clientY;
-  cursorBorderPos.x = e.clientX;
-  cursorBorderPos.y = e.clientY;
+  
   cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
 });
 
