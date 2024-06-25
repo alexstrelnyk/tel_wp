@@ -466,15 +466,15 @@ function initSlider(selectorId) {
     let timer = false;
 
     $('#' + selectorId + ' .swiper-wrapper').on('wheel', function (event) {
-        if(event.originalEvent.deltaX === 0)
+        if (event.originalEvent.deltaX === 0)
             return;
         wheelStatus.wheel = true;
-        if(!wheelStatus.isDone){
+        if (!wheelStatus.isDone) {
             direction = event.originalEvent.deltaX > 0;
-            if(direction){
+            if (direction) {
                 swiper.slideNext();
             }
-            else{
+            else {
                 swiper.slidePrev();
             }
             wheelStatus.isDone = true;
@@ -822,7 +822,7 @@ function initMobilePlanetsSpinner() {
 
 function renderPDF(pdfUrl) {
     // Get the width of the .flex-col block
-    var pdfWidth = $('.flex-col').width();
+    pdfWidth = $(window).width() * 0.9;
 
     // Load the PDF document with the reference of its file object URL
     var loadingTask = pdfjsLib.getDocument(pdfUrl);
