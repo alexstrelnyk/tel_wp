@@ -67,7 +67,6 @@ $t2 = get_label('НАШІ ПРОДУКТИ ТА ПОСЛУГИ', 'OUR PRODUCTS A
 <script>
     var parentCatSlugs = false;
     var postId = false;
-    var redirectBlocked = false;
 </script>
 
 <?php
@@ -98,7 +97,6 @@ if (isset($_GET['post_slug']) && $_GET['post_slug']) {
             $parent_cat_slugs = array_reverse(get_parent_cat($categories[0]->parent, $parent_cat_slugs));
 ?>
             <script>
-                redirectBlocked = true;
                 var parentCatSlugs = JSON.parse('<?php echo json_encode($parent_cat_slugs) ?>');
             </script>
     <?php
