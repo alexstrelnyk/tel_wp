@@ -34,7 +34,7 @@ if (get_field('post_file')) {
             </a>
         </div>
         <div class="title">
-            <p class="H3 color-black "></p>
+            <p class="H3 color-black "><?php echo get_field('description') ?></p>
         </div>
         <div class="pdf">
             <span id="pdf_loader">Loading PDF...</span>
