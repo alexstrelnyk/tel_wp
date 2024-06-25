@@ -8,8 +8,10 @@
 get_header();
 
 $pdf = false;
-if (get_field('post_file')) {
-    $pdf = get_field('post_file')['url'];
+if (!$pdf = get_field('image_link')) {
+    if (get_field('post_file')) {
+        $pdf = get_field('post_file')['url'];
+    }
 }
 
 ?>
