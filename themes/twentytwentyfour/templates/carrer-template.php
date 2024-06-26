@@ -34,7 +34,7 @@ get_header();
                     <div class="overflow-hidden">
                         <div>
                             <div class="filter-item">
-                                <p class="Body color-navy-green "><?php echo get_label('Всі', 'All') ?>  (1)</p>
+                                <p class="Body color-navy-green "><?php echo get_label('Всі', 'All') ?> (1)</p>
                                 <div class="tick-empty"></div>
                             </div>
                             <div class="filter-item  selected">
@@ -57,7 +57,7 @@ get_header();
                     <div class="overflow-hidden">
                         <div>
                             <div class="filter-item">
-                                <p class="Body color-navy-green "><?php echo get_label('Всі', 'All') ?>  (1)</p>
+                                <p class="Body color-navy-green "><?php echo get_label('Всі', 'All') ?> (1)</p>
                                 <div class="tick-empty"></div>
                             </div>
                             <div class="filter-item  selected">
@@ -67,7 +67,7 @@ get_header();
                                     <path d="M5.85938 9L7.85938 11L11.8594 7" stroke="white" stroke-linecap="round" stroke-linejoin="round">
                                     </path>
                                 </svg>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -129,16 +129,26 @@ get_header();
 <script>
     <?php if ($form_names) { ?>
         var formNames = JSON.parse('<?php echo (json_encode($form_names)) ?>');
+        $(document).ready(function() {
+            <?php foreach ($form_names as $fname) { ?>
+                initDropzone('<?php echo $fname ?>');
+
+                var <?php echo $fname ?> = true;
+                $('#<?php echo $fname ?> form .dropzone').on('click', function() {
+                    if (<?php echo $fname ?>) {
+                        <?php echo $fname ?> = false;
+                        $('input[type="file"]', $(this)).click();
+                        setTimeout(function() {
+                            <?php echo $fname ?> = true;
+                        }, 500);
+                    }
+                });
+
+            <?php } ?>
+        });
     <?php } else { ?>
         var formNames = false;
     <?php } ?>
-
-    $(document).ready(function() {
-        <?php foreach ($form_names as $fname) {
-            echo 'initDropzone(\'' . $fname . '\');';
-        } ?>
-
-    });
 </script>
 
 <?php
