@@ -127,6 +127,9 @@ get_header();
 </section>
 
 <script>
+    function deleteFile(file) {
+        $(file).parents('.single-file').remove();
+    }
     <?php if ($form_names) { ?>
         var formNames = JSON.parse('<?php echo (json_encode($form_names)) ?>');
         $(document).ready(function() {
