@@ -60,6 +60,7 @@ $(document).ready(function () {
 
     $('.pum-overlay').css({ 'z-index': '0' });
     $('.pum-title').css({ 'font-family': 'Commissioner' });
+    $('.pum-content').css({ 'font-family': 'Commissioner' });
     $('#pum-1370').css({ 'cursor': 'none' }).find('*').css({ 'cursor': 'none' });
     $('#pum-1373').css({ 'cursor': 'none' }).find('*').css({ 'cursor': 'none' });
 
@@ -647,6 +648,14 @@ function initSticky(wrapper, domestic) {
     var selector = $(domestic);
     if (wrapper == '.btn-box') {
         selector = $(domestic).add('.clutch-btn');
+    } else if (domestic == '.pum-close') {
+        const pumButton = $('.pum-container').find('.pum-close');
+        const invisibleButton = document.createElement('button');
+        $(invisibleButton).css({ 'width' : `${pumButton.width() + 30}px`,
+            'height' : `${pumButton.height() + 30}px`, 'border': 'none', 'position': 'absolute', 'top': '5px',
+            'bottom': 'auto', 'left': 'auto', 'right': '10px', 'opacity' : 0});
+        $('.pum-container').append(invisibleButton);
+        selector = $(invisibleButton).add('.pum-close');
     }
     selector.hover(function () {
         $(this).mousemove(({ clientX, clientY }) => {
