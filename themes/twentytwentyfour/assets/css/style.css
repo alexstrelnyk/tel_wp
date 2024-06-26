@@ -2118,7 +2118,8 @@ a {
 }
 
 .overflow-hidden {
-    overflow: hidden
+    overflow: hidden;
+    height: 0px;
 }
 
 .hsh::-webkit-scrollbar {
@@ -6739,7 +6740,7 @@ header .root {
 
 @media screen and (max-width:1200px)and (min-width:481px) {
     .services-slider .product-card {
-        margin: 192px 0 60px 16px
+        margin: 192px 0 92px 16px
     }
 
     .services-slider .product-card .product-desc .product-image {
@@ -6852,7 +6853,7 @@ header .root {
 
 @media screen and (max-width:480px) {
     .services-slider .product-card {
-        margin: 192px 0 60px 16px
+        margin: 192px 0 92px 16px
     }
 
     .services-slider .product-card .product-desc .product-image {
@@ -6865,7 +6866,6 @@ header .root {
         object-fit: cover;
         width: 100%
     }
-
 
     .services-title p {
         font-weight: 600
@@ -9501,9 +9501,26 @@ form [type="submit"],
     .quote-container .single-quote {
         padding: 0 32px;
     }
+    .quote-container .single-quote .H4 {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 28px;
+        margin-bottom: 40px;
+    }
+    .quote-container .single-quote .Body {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    .quote-container .single-quote .Body2 {
+        font-size: 13px;
+        line-height: 17px;
+    }
     .wide-gallery-root .wide-gallery-slider .wide-gallery-card,
     .wide-gallery-root .wide-gallery-slider .wide-gallery-card .wide-gallery-image {
         width: 310px !important;
+        margin-bottom: 20px;
+        -webkit-user-select: none;
+        user-select: none;
     }
     .blog-view .container .blog-content {
         padding: 0 !important;
@@ -9562,9 +9579,10 @@ form [type="submit"],
     }
     .wide-gallery-root .wide-gallery-slider .wide-gallery-card .mb12{
         margin-bottom: 0;
+        display: none;
     }
     .wide-gallery-root .wide-gallery-slider .wide-gallery-card {
-        margin: 40px 40px 30px 32px !important;
+        margin: 20px 0 60px 22px !important;
     }
     .wide-gallery-root .gallery-heading {
         font-size: 40px !important;
@@ -9572,6 +9590,9 @@ form [type="submit"],
         margin-left: 32px !important;
         font-weight: 400;
         padding-right: 10px;
+    }
+    .services-slider .swiper .slider-wrapper {
+        flex-shrink: 1 !important;
     }
     .services-slider .product-card .mob-card-arrow .arrow-svg .point {
         fill: var(--navy-green);
@@ -9591,10 +9612,10 @@ form [type="submit"],
     .services-slider .product-card {
         display: block;
         width: 310px;
-        margin: 120px 0 60px 32px;
+        margin: 170px 0 60px 22px;
     }
     .services-slider .product-card .product-title {
-        left: -230px;
+        left: -215px;
         bottom: 200px;
         transform: rotate(90deg);
         padding-top: 0;
@@ -9605,7 +9626,7 @@ form [type="submit"],
         font-size: 60px;
         font-weight: 700;
         text-align: right;
-        line-height: normal;
+        line-height: 1;
     }
     .Body.animated-link {
         /* display: none; */
@@ -9614,7 +9635,7 @@ form [type="submit"],
     .services-title {
         align-items: center;
         display: flex;
-        margin-top: 60px;
+        margin-top: 130px;
         padding-inline: 32px;
         width: 100%;
         position: absolute;
@@ -9627,6 +9648,7 @@ form [type="submit"],
     .main-menu .up .follow-links.mob-wrap,
     .main-menu .up .page-links.mob-wrap,
     .services-slider .product-card .mob-card-arrow,
+    .services-title,
     #ind_wrap_mob {
         display: none;
     }
@@ -9647,6 +9669,7 @@ form [type="submit"],
     #top_section_mob {
         display: none;
     }
+    
 }
 
 @media screen and (max-width:1440px) {
@@ -9660,6 +9683,7 @@ form [type="submit"],
         left: auto;
         right: 50%
     }
+    
 }
 
 .not-found-root {
@@ -10474,7 +10498,7 @@ form [type="submit"],
         margin-bottom: 20px;
         -webkit-user-select: none;
         user-select: none;
-        width: 310px
+        width: 310px !important;
     }
 
     .wide-gallery-mob-root .wide-gallery-mob-slider .wide-gallery-card .wide-gallery-image.cover {
