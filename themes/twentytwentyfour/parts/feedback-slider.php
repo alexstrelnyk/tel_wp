@@ -1,7 +1,7 @@
 <section id=":r9:" class="width-wrapper">
     <div class="quotes bg-soft-blue">
         <div class="quotes bg-soft-blue swiper" id="feedback_swiper">
-            <div class="quotes-slider" >
+            <div class="quotes-slider swiper-wrapper" >
                 <?php
                 $category = get_category_by_slug(get_label('client_feedback', 'client_feedback-en'));
 
