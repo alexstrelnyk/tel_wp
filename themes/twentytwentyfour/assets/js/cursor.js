@@ -22,10 +22,6 @@ function calculateB(A) {
 }
 
 requestAnimationFrame(function loop() {
-  const easting = 8;
-  cursorBorderPos.x += (cursorPos.x - cursorBorderPos.x) / easting;
-  cursorBorderPos.y += (cursorPos.y - cursorBorderPos.y) / easting;
-
   if (flashBlock) {
     var cursorFlashPosX = cursorPos.x / flashSection.offsetWidth * 100;
     var cursorFlashPosY = cursorPos.y / (flashSection.offsetHeight + 80) * 100;
@@ -34,17 +30,17 @@ requestAnimationFrame(function loop() {
     floor3.style = 'background-position: ' + calculateB(cursorFlashPosX) + '% ' + calculateB(cursorFlashPosY) + '%;';
   }
 
-  let distX = cursorBorderPos.x - cursorBorderPos.destinationX;
-  let distY = cursorBorderPos.y - cursorBorderPos.destinationY;
+  let distX = cursorPos.x - cursorBorderPos.destinationX;
+  let distY = cursorPos.y - cursorBorderPos.destinationY;
   let dir = (Math.atan2(distY, distX) / Math.PI) * 180;
 
   if (!cursorBorderPos.destinationX || !cursorBorderPos.destinationY) {
-    cursorBorderPos.destinationX = cursorBorderPos.x;
-    cursorBorderPos.destinationY = cursorBorderPos.y;
+    cursorBorderPos.destinationX = cursorPos.x;
+    cursorBorderPos.destinationY = cursorPos.y;
   } else {
     if (Math.abs(distX) + Math.abs(distY) < 0.1) {
-      cursorBorderPos.destinationX = cursorBorderPos.x;
-      cursorBorderPos.destinationY = cursorBorderPos.y;
+      cursorBorderPos.destinationX = cursorPos.x;
+      cursorBorderPos.destinationY = cursorPos.y;
     } else {
       cursorBorderPos.destinationX += distX * 0.1;
       cursorBorderPos.destinationY += distY * 0.1;
