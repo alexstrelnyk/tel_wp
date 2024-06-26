@@ -27,14 +27,49 @@ get_header();
             <div class="vacancies-bar">
                 <div class="bar-filter">
                     <p class="Sub color-black  mb12"><?php echo get_label('Департаменти', 'Department') ?></p>
-                    <div class="flex-row">
+                    <div class="accordion">
                         <p class="Body color-black  mb12"><?php echo get_label('Продукт', 'Product') ?> (1)</p>
+                        <div class="toggle"></div>
+                    </div>
+                    <div class="overflow-hidden">
+                        <div>
+                            <div class="filter-item">
+                                <p class="Body color-navy-green "><?php echo get_label('Всі', 'All') ?>  (1)</p>
+                                <div class="tick-empty"></div>
+                            </div>
+                            <div class="filter-item  selected">
+                                <p class="Body color-black "><?php echo get_label('Продукт', 'Product') ?> (1)</p>
+                                <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="9.09375" cy="9" r="7" fill="#004D35"></circle>
+                                    <path d="M5.85938 9L7.85938 11L11.8594 7" stroke="white" stroke-linecap="round" stroke-linejoin="round">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="bar-filter">
                     <p class="Sub color-black  mb12"><?php echo get_label('Розташування', 'Location') ?></p>
-                    <div class="flex-row">
+                    <div class="accordion">
                         <p class="Body color-black  mb12"><?php echo get_label('Повністю дістанційно', 'Full Remote') ?> (1)</p>
+                        <div class="toggle"></div>
+                    </div>
+                    <div class="overflow-hidden">
+                        <div>
+                            <div class="filter-item">
+                                <p class="Body color-navy-green "><?php echo get_label('Всі', 'All') ?>  (1)</p>
+                                <div class="tick-empty"></div>
+                            </div>
+                            <div class="filter-item  selected">
+                                <p class="Body color-black "><?php echo get_label('Повністю дістанційно', 'Full Remote') ?> (1)</p>
+                                <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="9.09375" cy="9" r="7" fill="#004D35"></circle>
+                                    <path d="M5.85938 9L7.85938 11L11.8594 7" stroke="white" stroke-linecap="round" stroke-linejoin="round">
+                                    </path>
+                                </svg>
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
