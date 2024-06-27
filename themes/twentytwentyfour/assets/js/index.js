@@ -568,7 +568,7 @@ function initSlider(selectorId) {
                 };
             }
     }
-
+    
 }
 
 initSlider('feedback_swiper');
@@ -703,7 +703,10 @@ function initForm(selector) {
     if (textarea) {
         if ($(textarea).attr('name') == 'your-message') {
             $(textarea).attr('data-cursor', 'input-text');
-            $(textarea).bind('input propertychange selectionchange paste', function () {
+            $('.pum-close').click(() => {
+                textarea[0].dispatchEvent(new InputEvent('input'));
+            })
+            $(textarea).bind('input propertychange', function () {
                 const lettersCounter = $(textarea).parents('.text-input').find('.letters-counter');
 
                 const value = this.value;
