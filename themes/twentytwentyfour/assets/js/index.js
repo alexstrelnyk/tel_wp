@@ -48,7 +48,8 @@ $(document).ready(function () {
 
     // Card slider margin
     if (isLargeScreen) {
-        cardSliderMargin = (($(window).width()) / 2 + 100);
+        const ratio = window.devicePixelRatio === 1.25 ? 1.25 : 1;
+        cardSliderMargin = (($(window).width()) / 2 + 100) * ratio;
         $('.industries-slider').css('transform', 'translate(' + cardSliderMargin + 'px, 145px)');
     }
 

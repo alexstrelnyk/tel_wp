@@ -9363,7 +9363,7 @@ footer a:hover {
 
 .industries .industries-slider.still {
     transition: none;
-    overflow: scroll;
+    overflow: hidden;
     padding: 14px 0;
     margin-top: -14px;
 }
