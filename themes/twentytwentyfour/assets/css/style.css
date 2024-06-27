@@ -5411,7 +5411,8 @@ header .root {
     background-size: 2800px;
     -webkit-filter: contrast(200%);
     filter: contrast(200%);
-    opacity: .2
+    opacity: .2;
+    background-size: 120% 120%;
 }
 
 .char {
