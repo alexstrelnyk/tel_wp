@@ -650,12 +650,15 @@ function initSticky(wrapper, domestic) {
         selector = $(domestic).add('.clutch-btn');
     } else if (domestic == '.pum-close') {
         const pumButton = $('.pum-container').find('.pum-close');
-        const invisibleButton = document.createElement('button');
-        $(invisibleButton).css({ 'width' : `${pumButton.width() + 30}px`,
-            'height' : `${pumButton.height() + 30}px`, 'border': 'none', 'position': 'absolute', 'top': '5px',
-            'bottom': 'auto', 'left': 'auto', 'right': '10px', 'opacity' : 0});
-        $('.pum-container').append(invisibleButton);
-        selector = $(invisibleButton).add('.pum-close');
+        $('.pum-container').each((index, item) => {
+            const invisibleButton = document.createElement('button');
+            $(invisibleButton).css({ 'width' : `${pumButton.width() + 24}px`,
+            'height' : `${pumButton.height() + 24}px`, 'border': 'none', 'position': 'absolute', 'top': '11px',
+            'bottom': 'auto', 'left': 'auto', 'right': '13px', 'opacity' : 0, 'z-index' : 1});
+            $(item).append(invisibleButton);
+            $(invisibleButton).addClass('pum-button-container');
+        })
+        selector = $('.pum-button-container').add('.pum-close');
     }
     selector.hover(function () {
         $(this).mousemove(({ clientX, clientY }) => {
