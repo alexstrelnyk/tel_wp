@@ -647,7 +647,7 @@ initSticky('.pum-close', '.pum-close');
 function initSticky(wrapper, domestic) {
     var selector = $(domestic);
     if (wrapper == '.btn-box') {
-        selector = $(domestic).add('.clutch-btn');
+        selector = $(domestic).add('.contact-us').add('.subscribe-form');
     } else if (domestic == '.pum-close') {
         const pumButton = $('.pum-container').find('.pum-close');
         $('.pum-container').each((index, item) => {
@@ -685,7 +685,7 @@ function adjustedLocation(ref, wrapper) {
     if (!buttonBox) {
         switch (wrapper) {
             case '.btn-box':
-                buttonBox = $(ref).parents('.submission').find('.btn-box')[0];
+                buttonBox = $(ref).find('.btn-box')[0];
                 break;
             case '.pum-close':
                 buttonBox = $(ref)[0];
