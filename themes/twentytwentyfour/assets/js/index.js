@@ -515,25 +515,37 @@ function getUserCountry() {
 
 function initSlider(selectorId) {
 
-    var swiper = new Swiper('#' + selectorId);
-    let wheelStatus = {
-        wheel: false,
-        isDone: false
-    };
-    let timer = false;
+    var swiper = new Swiper('#' + selectorId, { 
+        slidesPerView: 1,
+        mousewheel: {
+          releaseOnEdges: true,
+          thresholdTime: 1000,
+          forceToAxis: true,
+          thresholdDelta: 30
+    }});
     const isHaveSwiper = $(`#${selectorId}`).length;
     switch (selectorId) {
         case 'feedback_swiper':
             if (isHaveSwiper) {
                 if (isLargeScreen) {
                     swiper.destroy(true, true);
+                    swiper = new Swiper('#' + selectorId, { 
+                        allowTouchStart: false,
+                        allowTouchMove: false,
+                        allowTouchEnd: false,
+                        slidesPerView: 1,
+                        mousewheel: {
+                          releaseOnEdges: true,
+                          thresholdTime: 1000,
+                          forceToAxis: true,
+                          thresholdDelta: 30
+                    }});
                 } else {
                     $(`#${selectorId}`).off('mousedown mousemove mouseup');
                     swiper.on('beforeTransitionStart', function (event) {
                         const nextSlideHeight = $(event.el).find('.swiper-slide-active')[0].firstChild.offsetHeight;
                         $('.quotes-slider').animate({ height: `${nextSlideHeight + 120}px` }, 100);
                     });
-                    swiper.init();
                 }
             }
             break;
@@ -556,26 +568,6 @@ function initSlider(selectorId) {
             }
     }
 
-    $('#' + selectorId + ' .swiper-wrapper').on('wheel', function (event) {
-        if (event.originalEvent.deltaX === 0)
-            return;
-        wheelStatus.wheel = true;
-        if (!wheelStatus.isDone) {
-            direction = event.originalEvent.deltaX > 0;
-            if (direction) {
-                swiper.slideNext();
-            }
-            else {
-                swiper.slidePrev();
-            }
-            wheelStatus.isDone = true;
-        }
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-            wheelStatus.wheel = false;
-            wheelStatus.isDone = false;
-        }, 50);
-    });
 }
 
 initSlider('feedback_swiper');
