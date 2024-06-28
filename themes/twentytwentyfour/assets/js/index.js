@@ -62,8 +62,7 @@ $(document).ready(function () {
     $('.pum-overlay').css({ 'z-index': '0' });
     $('.pum-title').css({ 'font-family': 'Commissioner' });
     $('.pum-content').css({ 'font-family': 'Commissioner' });
-    $('#pum-1370').css({ 'cursor': 'none' }).find('*').css({ 'cursor': 'none' });
-    $('#pum-1373').css({ 'cursor': 'none' }).find('*').css({ 'cursor': 'none' });
+    $('.pum').css({ 'cursor': 'none' }).find('*').css({ 'cursor': 'none' });
 
     $('#feedback_swiper').mousedown(function (event) {
         if (isLargeScreen) {
