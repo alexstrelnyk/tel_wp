@@ -807,7 +807,9 @@ function setBookmark() {
 
     const link = $('.one-tab')[index];
     $('.blog-side-bar').find('svg').hide();
+    $('.blog-side-bar .Body').attr('class', 'Body color-grey ');
     $(link).find('svg').show();
+    $(link).find('.Body').attr('class', 'Body color-navy-green');
 }
 
 $('.one-tab').click(function () {
