@@ -55,6 +55,7 @@ get_header();
                     <p class="Body color-  text-left"><a href="<?php the_permalink(); ?>" data-cursor="active" target="_blank" class="inh Link"><?php the_title(); ?></a>
                     
                         <?php echo get_field('description'); ?>
+                        
                     </p>
                 </div>
             <?php
