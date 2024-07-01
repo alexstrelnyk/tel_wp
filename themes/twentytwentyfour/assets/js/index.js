@@ -59,7 +59,6 @@ $(document).ready(function () {
         $('#cursor-border').css({ 'display': 'none' });
     }
 
-    $('.pum-overlay').css({ 'z-index': '0' });
     $('.pum-title').css({ 'font-family': 'Commissioner' });
     $('.pum-content').css({ 'font-family': 'Commissioner' });
     $('.pum').css({ 'cursor': 'none' }).find('*').css({ 'cursor': 'none' });
