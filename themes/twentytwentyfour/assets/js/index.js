@@ -64,38 +64,6 @@ $(document).ready(function () {
     $('.pum-content').css({ 'font-family': 'Commissioner' });
     $('.pum').css({ 'cursor': 'none' }).find('*').css({ 'cursor': 'none' });
 
-    $('#feedback_swiper').mousedown(function (event) {
-        if (isLargeScreen) {
-            $('#cursor').attr('class', 'slider');
-            $('#cursor-border').attr('class', 'slider');
-        }
-        $('.quotes-slider').css({ 'transition': 'none' });
-        const x = event.pageX;
-        const posX = $('.quotes-slider').get(0).getBoundingClientRect().x;
-        const start = posX - x;
-        let isPressed = true;
-        const children = $(this).find('.quote-container');
-        $(this).mousemove(function (event) {
-            if (isPressed) {
-                $('.quotes-slider').css({ 'transform': `translateX(${start + event.pageX}px)` });
-            }
-        });
-        $(this).mouseup(function (event) {
-            if (isPressed) {
-                const slideWidth = $('.quotes-slider').width();
-                isPressed = false;
-                const offset = Math.abs(event.pageX - x) > 250 ? Math.sign(event.pageX - x) : 0;
-                const dir = Math.floor(posX / slideWidth) + offset;
-                $('.quotes-slider').css({ 'transition': "transform 0.3s ease-out" });
-                $('.quotes-slider').css({ 'transform': `translateX(${clamp(dir, -children.length + 1, 0) * slideWidth}px)` });
-                if (isLargeScreen) {
-                    $('#cursor').removeAttr('class');
-                    $('#cursor-border').removeAttr('class');
-                }
-            }
-        });
-    });
-
     initMobilePlanetsSpinner();
 });
 
@@ -530,16 +498,26 @@ function initSlider(selectorId) {
                 if (isLargeScreen) {
                     swiper.destroy(true, true);
                     swiper = new Swiper('#' + selectorId, { 
-                        allowTouchStart: false,
-                        allowTouchMove: false,
-                        allowTouchEnd: false,
                         slidesPerView: 1,
+                        touchStartPreventDefault: false,
                         mousewheel: {
                           releaseOnEdges: true,
                           thresholdTime: 1000,
                           forceToAxis: true,
                           thresholdDelta: 30
                     }});
+                    swiper.on('touchStart', function(){
+                        if (isLargeScreen) {
+                            $('#cursor').attr('class', 'slider');
+                            $('#cursor-border').attr('class', 'slider');
+                        };
+                        swiper.on('touchEnd', function(){
+                            if (isLargeScreen) {
+                                $('#cursor').removeAttr('class');
+                                $('#cursor-border').removeAttr('class');
+                            }
+                        });
+                    })
                 } else {
                     $(`#${selectorId}`).off('mousedown mousemove mouseup');
                     swiper.on('beforeTransitionStart', function (event) {
@@ -557,7 +535,6 @@ function initSlider(selectorId) {
                     swiper.on('beforeTransitionStart', function (event) {
                         const currentCardIndex = event.activeIndex;
                         if (currentCardIndex === countCard) {
-                            console.log('here');
                             swiper.setTranslate((-cardWidth * currentCardIndex) + 12);
                         } else {
                             swiper.setTranslate(-cardWidth * currentCardIndex);
