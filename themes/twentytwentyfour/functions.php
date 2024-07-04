@@ -343,3 +343,47 @@ function yoast_seo_meta()
 		echo '<meta name="description" content="' . esc_attr($yoast_description) . '">' . "\n";
 	}
 }
+
+function get_cats_by_slug($catslugs) {
+    $catids = array();
+    foreach($catslugs as $slug) {
+        $catids[] = get_category_by_slug($slug)->term_id;
+    }
+    return $catids;
+}
+
+function codecanal_ajax_enqueue() {
+	wp_localize_script( 'ajax-script', 'codecanal_ajax_object',
+	array( 'ajax_url' => admin_url( 'admin-ajax.php' ) ) );
+}
+add_action( 'wp_enqueue_scripts', 'codecanal_ajax_enqueue' );
+
+function codecanal_ajax_request() {
+	
+	 if(isset($_REQUEST['category_slug'])){
+
+		$category_slug = $_REQUEST['category_slug'];
+		$cat_id = get_cats_by_slug($category_slug);
+		$args = array(
+			'category__in' => $cat_id,
+			'posts_per_page' => -1,
+		);
+
+		$the_query = new WP_Query( $args );
+		$result = '';
+		if($the_query->have_posts()){
+		while($the_query->have_posts()){
+				$the_query->the_post();
+				$form_name = 'career_form_' . $the_query->post->ID;
+				$form_names[] = $form_name;
+				$result .= get_template_part('parts/single-vacancy', null, array('form_name' => $form_name));
+			};
+			wp_reset_postdata();
+		};
+
+		echo $result; 
+	}
+	exit;
+}
+add_action( 'wp_ajax_codecanal_ajax_request', 'codecanal_ajax_request' );
+add_action('wp_ajax_nopriv_codecanal_ajax_request', 'codecanal_ajax_request');

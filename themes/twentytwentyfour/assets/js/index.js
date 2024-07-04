@@ -4,7 +4,6 @@ var productCatUrlObj = {};
 var previewBlocked = sessionStorage.getItem('eventTriggered');
 var previewTimeout = 3;
 
-var vacancyHeight = 0;
 var isLargeScreen = false;
 
 // Check mob/large view
@@ -51,20 +50,122 @@ $(document).ready(function () {
         const ratio = window.devicePixelRatio === 1.25 ? 1.25 : 1;
         cardSliderMargin = (($(window).width()) / 2 + 100) * ratio;
         $('.industries-slider').css('transform', 'translate(' + cardSliderMargin + 'px, 145px)');
+        $('.bar-filter').find('.overflow-hidden').css({ 'display': 'none'});
+        $('.bar-filter').find('.flex-row').find('svg').hide();
     }
 
     if (!isLargeScreen) {
         $('.wide-gallery-slider').find('img').width('310px').css({ 'object-fit': 'cover' });
         $('#products_swiper, #gallery_swiper, #regions_swiper').find('.swiper-slide').css({ 'flex-shrink': 1 });
         $('#cursor-border').css({ 'display': 'none' });
+        $('.vacancies-bar .bar-filter .accordion .flex-row svg').hide();
     }
 
     $('.pum-title').css({ 'font-family': 'Commissioner' });
     $('.pum-content').css({ 'font-family': 'Commissioner' });
     $('.pum').css({ 'cursor': 'none' }).find('*').css({ 'cursor': 'none' });
 
+    initCareerPageComponet();
+
     initMobilePlanetsSpinner();
 });
+
+function initCareerPageComponet(){
+    initAccordionVacancy();
+    initFileUploader();
+    initSticky('.btn-box', '.btn-joint');
+    $('.vacancy-application').each(function(){
+        initForm($(this).attr('id'));
+        $(this).find('form').on('wpcf7submit', function(){
+            $(this).find('.file-wrapper').children().remove();
+            $(this).find('.dropzone').removeClass('disabled');
+            $(this).find('.uploader').removeAttr('disabled');
+        })
+    })
+}
+
+function initFileUploader(){
+    $('.dropzone').find('.wpcf7-form-control-wrap').css({ 'white-space': 'unset'});
+    $('.dropzone').each((index, item) => {
+        const containerUploads = $(item).find('.container-uploads');
+        $(item).find('.container-uploads').remove();
+        $(item).find('.codedropz-btn-wrap').append(containerUploads);
+        const text = $(item).find('p.Body').text();
+        const dropzoneLink = $(item).find('a')
+                                .addClass('Body color-navy-green semi-bold download-button')
+                                .removeClass('cd-upload-btn')
+                                .text(text);
+        $(item).find('a').remove();
+        $(item).find('p.Body').replaceWith(dropzoneLink);
+        $(item).find('.codedropz-upload-handler').add('.uploader').on('drop change', function(event){
+            const errorText = window.location.href.includes('/en/') ? 'Some file isn’t matched of requirements' : 'Файл не відповідає вимогам';
+            const uploadStatus = $(item).find('.dnd-upload-status');
+            if($(item).find('.dropzone-error').length){
+                $(item).find('.dropzone-error').remove();
+                const error = $(item).find('.dnd-upload-status').find('.has-error');
+                error.parents('.dnd-upload-status').remove();
+            }
+            uploadStatus.hide();
+            const MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+            const observer = new MutationObserver(statusMutationHandler);
+            const params = {
+                childList: true,
+                characterData: true,
+                attributes: true,
+                subtree: true
+            };
+            uploadStatus.each((index, element) => {
+                observer.observe(element,params);
+                if($(element).find('.has-error').length){
+                    const dropError = '<div class="dropzone-error"><svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.935222 9.2496C0.74224 9.58293 0.98277 10.0001 1.36794 10.0001H10.6335C11.0187 10.0001 11.2592 9.58293 11.0662 9.2496L6.43342 1.24753C6.24084 0.914886 5.76058 0.914887 5.568 1.24753L0.935222 9.2496ZM6.50071 8.50012H5.50071V7.50012H6.50071V8.50012ZM6.50071 6.50012H5.50071V4.50012H6.50071V6.50012Z" fill="white"></path></svg>' +
+                    `<p class="Overline color-white ">${errorText}</p></div>`;
+                    $(uploadStatus).parents('.dropzone').append(dropError);
+                    const input = $(item).find('upload');
+                    const storageName = input.attr('data-name') + '_count_files';
+                    const count = localStorage.getItem(storageName);
+                    localStorage.setItem('upload-file_count_files', Number(count) - 1);
+                    $(element).remove();
+                }
+            })
+        })
+    });
+    $('.dropzone').find('.codedropz-upload-inner').find('span').remove();
+}
+
+function statusMutationHandler(mutationRecord){
+    mutationRecord.every(function(mutation){
+        if($(mutation.target).hasClass('dnd-upload-status') && mutation.attributeName == 'class'){
+            const uploadStatus = $(mutation.target);
+            const container = $(mutation.target).parents('.text-input');
+            const fileWrapper = container.find('.file-wrapper');
+            if($(uploadStatus).hasClass('complete')){
+                const fileName = uploadStatus.find('.name').find('span').text();
+                $(fileWrapper).append(
+                    '<div class="flex row gap12 single-file"><svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 0C0.9 0 0.0100002 0.9 0.0100002 2L0 18C0 19.1 0.89 20 1.99 20H14C15.1 20 16 19.1 16 18V6L10 0H2ZM9 7V1.5L14.5 7H9Z" fill="#AFBCBA"></path></svg><p class="Body2 color-navy-green f2 file-label">' + 
+                    fileName + `</p><div class="f1"><div id='${uploadStatus.attr('id')}_' class="delete-button"></div></div></div>`);   
+                $(fileWrapper).find(`#${uploadStatus.attr('id')}_`).click(function(event){
+                    const buttonDelete = $(`#${uploadStatus.attr('id')}`);
+                    buttonDelete.find('.dnd-icon-remove').trigger('click');
+                    setTimeout(() => {
+                        $(event.target).parents('.single-file').remove();
+                    }, 1500);
+                    if(container.find('.dnd-upload-status').length <= 3){
+                        container.find('.dropzone').removeClass('disabled');
+                        $('.uploader').removeAttr('disabled');
+                    }
+                });
+                const dropzone = $(mutation.target).parents('.dropzone');
+                const completedUploads = dropzone.find('.dnd-upload-status.complete');
+                if(completedUploads.length > 2){
+                    $(dropzone).addClass('disabled');
+                    $('.uploader').attr('disabled', 'disabled');
+                    $(dropzone).find('.has-error-msg').remove();
+                }
+                return false;
+            }
+        }
+    });
+}
 
 function clamp(value, lower, upper) {
     if (value > upper) return upper;
@@ -403,67 +504,144 @@ function gotoPage(page, isNewTab) {
     }
 }
 
-$('.vacancies-root .single-vacancy .accordion').click(function () {
-    var sv = $(this).parents('.single-vacancy');
-    if (sv.hasClass('collapse')) {
-        vacancyHeight = 0;
-        sv.removeClass('collapse');
-        $('.single-desc', sv).css({ 'overflow-y': 'hidden', 'height': vacancyHeight + 'px' });
-    } else {
-        vacancyHeight = $('.single-desc div:eq(0)', sv).height();
-        sv.addClass('collapse');
-        $('.single-desc', sv).css({ 'overflow-y': 'initial', 'height': vacancyHeight + 'px' });
-    }
-});
+function initAccordionVacancy(){
+    $('.vacancies-root .single-vacancy .accordion').click(function (e) {
+        let vacancyHeight = 0;
+        var sv = $(this).parents('.single-vacancy');
+        if (sv.hasClass('collapse')) {
+            vacancyHeight = 0;
+            sv.removeClass('collapse');
+            $('.single-desc', sv).css({ 'overflow-y': 'hidden', 'height': vacancyHeight + 'px' });
+        } else {
+            vacancyHeight = $('.single-desc div:eq(0)', sv).height();
+            sv.addClass('collapse');
+            $('.single-desc', sv).css({ 'overflow-y': 'initial', 'height': vacancyHeight + 'px' });
+        }
+    });
+    
+    $('.vacancies-root .single-vacancy .apply-btn').click(function (e) {
+        var va = $('.vacancy-application', $(this).parents('.single-desc'));
+        let vacancyHeight = 0;
+        if ($(this).hasClass('apply')) {
+            vacancyHeight = va.parents('.single-desc div:eq(0)').height() - va.height() - 50;
+            $(this).removeClass('apply');
+            va.removeClass('apply');
+            $(this).parents('.single-desc').css({ 'overflow-y': 'initial', 'height': vacancyHeight + 'px' });
+        } else {
+            vacancyHeight = va.parents('.single-desc div:eq(0)').height() + va.height() + 50;
+            localStorage.setItem(`${va.attr('id')}`, va.height());
+            $(this).addClass('apply');
+            va.addClass('apply');
+            $(this).parents('.single-desc').css({ 'overflow-y': 'initial', 'height': vacancyHeight + 'px' });
+        }
 
-$('.vacancies-root .single-vacancy .apply-btn').click(function () {
-    var va = $('.vacancy-application', $(this).parents('.single-desc'));
+    });
 
-    if ($(this).hasClass('apply')) {
-        vacancyHeight -= va.height();
-        $(this).removeClass('apply');
-        va.removeClass('apply');
-        $(this).parents('.single-desc').css({ 'overflow-y': 'initial', 'height': vacancyHeight + 'px' });
-    } else {
-        vacancyHeight += va.height();
-        $(this).addClass('apply');
-        va.addClass('apply');
-        $(this).parents('.single-desc').css({ 'overflow-y': 'initial', 'height': vacancyHeight + 'px' });
-    }
+    $('.vacancy-application').each(function(){
+        new ResizeObserver(resizeSingleDesc).observe(this);
+    });
 
-});
+    function resizeSingleDesc(event){
+        if($(event[0].target).hasClass('apply')){
+            const prevHeight = localStorage.getItem(`${$(event[0].target).attr('id')}`);
+            const height = $(event[0].target).parents('.single-desc div:eq(0)').height() - (Number(prevHeight) - event[0].contentRect.height);
+            $(event[0].target).parents('.single-desc').css({ 'overflow-y': 'initial', 'height': height + 'px' })
+        }
+    }   
+}
 
-$('.vacancies-bar .bar-filter .accordion').click(function () {
-    const accordion = $(this);
-    const bar = $(this).parents('.bar-filter');
-    const overflow = bar.find('.overflow-hidden');
-    if (bar.hasClass('collapse')) {
-        bar.removeClass('collapse');
-        overflow.height(0);
-    }
-    else {
-        bar.addClass('collapse');
-        const childHeight = overflow.find('div').height();
-        overflow.height(childHeight);
-        let svg;
-        overflow.find('.filter-item').click(function () {
-            overflow.find('.filter-item').each((index, item) => {
-                if ($(item).hasClass('selected')) {
-                    $(item).removeClass('selected');
-                    svg = $(item).find('svg');
-                    $(svg).remove();
-                    $(item).append('<div class="tick-empty"></div>')
-                }
+
+
+function accordionClick(element) {
+    if (!isLargeScreen) {
+        const accordion = $(element);
+        const bar = $(element).parents('.bar-filter');
+        const overflow = bar.find('.overflow-hidden');
+        if (bar.hasClass('collapse')) {
+            bar.removeClass('collapse');
+            overflow.height(0);
+        }
+        else {
+            bar.addClass('collapse');
+            const childHeight = overflow.find('div').height();
+            overflow.height(childHeight);
+            let svg;
+            overflow.find('.filter-item').click(function () {
+                overflow.find('.filter-item').each((index, item) => {
+                    if ($(item).hasClass('selected')) {
+                        $(item).removeClass('selected');
+                        svg = $(item).find('svg');
+                        $(svg).remove();
+                        $(item).append('<div class="tick-empty"></div>')
+                    }
+                })
+                $(this).append(svg);
+                $(this).find('.tick-empty').remove();
+                $(this).addClass('selected');
+                accordion.find('p').text($(this).find('p').text());
+                let category = [];
+                $('.vacancies-bar .bar-filter .overflow-hidden').find('.selected').each((index, item) => {
+                    category.push($(item).find('p').attr('slug'));
+                });
+                vacancyAjaxPosts(category);
             })
-            $(this).append(svg);
-            $(this).find('.tick-empty').remove();
-            $(this).addClass('selected');
-            text = $(this).find('p').text();
-            accordion.find('p').text(text);
-        })
 
+        }
     }
-})
+}
+
+$('.bar-filter').find('.flex-row').click(function(event) {
+    if(isLargeScreen){
+        const flexRow = $(this);
+        const svg = flexRow.find('svg');
+        const accordion = flexRow.parents('.accordion');
+        if(flexRow.hasClass('selected')){
+            flexRow.removeClass('selected');
+            svg.hide();
+            flexRow.find('p').removeClass('color-navy-green');
+        } else {
+            accordion.find('.flex-row').removeClass('selected')
+            accordion.find('svg').hide();
+            accordion.find('p').removeClass('color-navy-green').addClass('color-black');
+            flexRow.addClass('selected');
+            flexRow.find('p').addClass('color-navy-green');
+            svg.show();
+            let category = [];
+            $('.vacancies-bar .bar-filter .accordion').find('.selected').each((index, item) => {
+                category.push($(item).find('p').attr('slug'));
+            })
+            if(category.length){
+                vacancyAjaxPosts(category);
+            }
+        }
+    }
+});
+
+function vacancyAjaxPosts(category){
+    $.ajax({
+        url: '/wp-admin/admin-ajax.php',
+        data: {
+         'action':'codecanal_ajax_request',
+         'category_slug' : category
+        },
+        success:function(data) {
+            if(data){
+                const vacancies = $('.vacancies-list');
+                vacancies.children().remove();
+                vacancies.append(data);
+            }
+        },
+        error: function(errorThrown){
+            console.log(errorThrown);
+        }
+        }).done(function(){
+            $('.wpcf7 > form').each(function(){
+                wpcf7.init(this);
+            });
+            window.initDragDrop();
+            initCareerPageComponet();
+        });
+}
 
 function getUserCountry() {
     return new Promise((resolve, reject) => {
@@ -603,10 +781,32 @@ function formValidate(selector, fields) {
         $('#' + selector + ' [name="hidden-subject"]').val($('#' + selector).data('career_title'));
     }
 
+    // var formData = new FormData($('#' + selector + ' form ').html());
+    // console.log(formData);
+    // console.log($('#' + selector + ' form').serialize());
+    // sendAjaxForm($('#' + selector + ' form'));
+
     if (isValid) {
         $('[type="submit"]', $('#' + selector).parents('form')).click();
         $('#' + selector + ' [type="submit"]').click();
     }
+}
+
+function sendAjaxForm(data) {
+    $.ajax({
+        type: 'POST',
+        url: '/wp-admin/admin-ajax.php',
+        data: {
+            action: 'send_email',
+            data: data
+        },
+        success: function (response) {
+            console.log(response);
+        },
+        error: function (xhr, status, error) {
+            console.error(xhr.responseText);
+        }
+    });
 }
 
 initSticky('#header-menu', '.menu-button');
@@ -814,66 +1014,66 @@ $(window).on('load', function () {
 //Dropzone
 
 
-function initDropzone(selector) {
+// function initDropzone(selector) {
 
-    var dropWrap = $('#' + selector);
-    var dropArea = $('.dropzone', dropWrap);
+//     var dropWrap = $('#' + selector);
+//     var dropArea = $('.dropzone', dropWrap);
 
-    dropArea.on('dragenter dragover dragleave drop', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-    });
+//     dropArea.on('dragenter dragover dragleave drop', function (e) {
+//         e.preventDefault();
+//         e.stopPropagation();
+//     });
 
-    dropArea.on('dragenter dragover', function () {
-        dropArea.addClass('highlight');
-        if (!$('.dropzone-overlay', dropWrap).is(':visible')) {
-            $('.dropzone-overlay', dropWrap).show();
-            $('.dropzone', dropWrap).addClass('green-bg');
-        }
-    });
+//     dropArea.on('dragenter dragover', function () {
+//         dropArea.addClass('highlight');
+//         if (!$('.dropzone-overlay', dropWrap).is(':visible')) {
+//             $('.dropzone-overlay', dropWrap).show();
+//             $('.dropzone', dropWrap).addClass('green-bg');
+//         }
+//     });
 
-    dropArea.on('dragleave drop', function () {
+//     dropArea.on('dragleave drop', function () {
 
-        dropArea.removeClass('highlight');
-        if ($('.dropzone-overlay', dropWrap).is(':visible')) {
-            $('.dropzone-overlay', dropWrap).hide();
-            $('.dropzone', dropWrap).removeClass('green-bg');
-        }
-    });
+//         dropArea.removeClass('highlight');
+//         if ($('.dropzone-overlay', dropWrap).is(':visible')) {
+//             $('.dropzone-overlay', dropWrap).hide();
+//             $('.dropzone', dropWrap).removeClass('green-bg');
+//         }
+//     });
 
-    dropArea.on('drop', function (e) {
-        var files = e.originalEvent.dataTransfer.files;
-        handleFiles(files);
-    });
+//     dropArea.on('drop', function (e) {
+//         var files = e.originalEvent.dataTransfer.files;
+//         handleFiles(files);
+//     });
 
-    $('[type="file"]', dropArea).on('change', function () {
-        var files = $(this)[0].files;
-        handleFiles(files);
-    });
+//     $('[type="file"]', dropArea).on('change', function () {
+//         var files = $(this)[0].files;
+//         handleFiles(files);
+//     });
 
-    function handleFiles(files) {
-        for (var i = 0; i < files.length; i++) {
-            var file = files[0];
-            uploadFile(file);
-        }
-    }
+//     function handleFiles(files) {
+//         for (var i = 0; i < files.length; i++) {
+//             var file = files[0];
+//             uploadFile(file);
+//         }
+//     }
 
-    function uploadFile(file) {
-        var fileName = file.name;
-        $('.gap16', dropWrap).append('<div class="flex row gap12 single-file"><svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 0C0.9 0 0.0100002 0.9 0.0100002 2L0 18C0 19.1 0.89 20 1.99 20H14C15.1 20 16 19.1 16 18V6L10 0H2ZM9 7V1.5L14.5 7H9Z" fill="#AFBCBA"></path></svg><p class="Body2 color-navy-green f2 file-label">' + fileName + '</p><div class="f1"><div class="delete-button" onClick="deleteFile(this)"></div></div></div>');
-    }
+//     function uploadFile(file) {
+//         console.log(file);
+//         sendAjaxForm(file);
+//         var fileName = file.name;
+//         $('.gap16', dropWrap).append('<div class="flex row gap12 single-file"><svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 0C0.9 0 0.0100002 0.9 0.0100002 2L0 18C0 19.1 0.89 20 1.99 20H14C15.1 20 16 19.1 16 18V6L10 0H2ZM9 7V1.5L14.5 7H9Z" fill="#AFBCBA"></path></svg><p class="Body2 color-navy-green f2 file-label">' + fileName + '</p><div class="f1"><div class="delete-button" onClick="deleteFile(this)"></div></div></div>');
+//     }
 
-    $(dropArea).click(function (e) {
-        $('[name="file-492"]', e).click();
-    });
-}
-/*
-setTimeout(function(){
-    $('.single-vacancy .accordion').eq(0).click();
-    $('.single-vacancy .single-desc .apply-btn').click();
+//     $(dropArea).click(function (e) {
+//         $('[name="file-492"]', e).click();
+//     });
+// }
+// setTimeout(function(){
+//     $('.single-vacancy .accordion').eq(0).click();
+//     $('.single-vacancy .single-desc .apply-btn').click();
 
-}, 500);
-*/
+// }, 500);
 
 function initMobilePlanetsSpinner() {
     var currentRotation = 0;

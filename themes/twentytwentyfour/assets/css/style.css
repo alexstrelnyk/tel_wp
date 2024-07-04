@@ -9083,6 +9083,11 @@ footer a:hover {
     color: var(--light-grey)
 }
 
+.dropzone.disabled a {
+    fill: var(--light-grey);
+    color: var(--light-grey)
+}
+
 .dropzone.disabled .download-button:hover {
     -webkit-text-decoration-line: none;
     text-decoration-line: none
@@ -12128,4 +12133,18 @@ span.wpcf7-not-valid-tip { display: none; }
 }
 #pdfCanvas {
     display: none;
+}
+
+.dropzone > p {
+    width: 100%;
+    height: inherit;
+}
+
+.codedropz-upload-handler {
+    border: none!important;
+}
+
+.dnd-upload-counter {
+    display: none!important;
+    white-space: unset;
 }
