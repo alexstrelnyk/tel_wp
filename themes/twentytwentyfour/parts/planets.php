@@ -50,11 +50,11 @@
                 <div class="partner dynamic pos-10 line-4 offset-0" data-cursor="active"><a href="https://www.nokia.com/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/nokia_logo.png" alt=""></a></div>
                 <div class="partner dynamic pos-4 line-4 offset-4" data-cursor="active"><a href="https://www.kcell.kz/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/9fece58a-8056-471e-bb7f-20861e07ae94image 78.png" alt=""></a></div>
 
-                <div class="partner dynamic pos-5 line-5 offset-5" data-cursor="active"><a href="https://beeline.uz/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1676030146193-an.png" alt=""></a></div>
+                <div class="partner dynamic pos-14 line-5 offset-5" data-cursor="active"><a href="https://www.lifecell.ua/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/lifecell_logo.png" alt=""></a></div>
                 <div class="partner dynamic pos-11 line-5 offset-1" data-cursor="active"><a href="https://tele2.kz/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/adcbf938-e6ef-4a57-82d1-7f98dc2faeceimage 79.png" alt=""></a></div>
 
                 <div class="partner dynamic pos-13 line-6 offset-3" data-cursor="active"><a target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/velton_logo.png" alt=""></a></div>
-                <div class="partner dynamic pos-14 line-6 offset-5" data-cursor="active"><a href="https://www.lifecell.ua/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/lifecell_logo.png" alt=""></a></div>
+                <div class="partner dynamic pos-5 line-6 offset-5" data-cursor="active"><a href="https://beeline.uz/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1676030146193-an.png" alt=""></a></div>
 
             </div>
         </div>
