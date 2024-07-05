@@ -39,6 +39,31 @@ if (!in_array(get_page_slug(), ['about-us', 'about-us-en'])) {
                 </g>
             </svg>
             <div class="partner-list">
+                <?php
+
+                $menu_object = wp_get_nav_menu_object('planets');
+                $posts = wp_get_nav_menu_items($menu_object->term_id);
+                $line = 0;
+                foreach ($posts as $key => $value) {
+                    $pos = $key + 1;
+                    if (get_post_meta($value->ID, '_menu_item_type', true) == 'custom') {
+                        $url = get_post_meta($value->ID, '_menu_item_url', true);
+                        $title = $value->post_title;
+                        $image = get_field('image', $value->ID);
+                        $href = '';
+                        if ($url && $url !== '/') {
+                            $href = 'href="' . $url . '"';
+                        }
+                ?>
+                        <div class="partner dynamic pos-<?php echo $pos ?> line-<?php echo $line ?> offset-<?php echo $pos ?>" data-cursor="active"><a <?php echo $href ?> target="_blank" rel="noopener noreferrer"><img loading="lazy" src="<?php echo $image ?>" alt=""></a></div>
+                <?php
+                        if (($key + 1) % 3 == 0) {
+                            $line++;
+                        }
+                    }
+                }
+                ?>
+                <!-- 
                 <div class="partner dynamic pos-1 line-0 offset-1" data-cursor="active"><a href="https://career.vodafone.ua/it-smartflex" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/7eb376cf-ee3b-460e-8c62-4b2d1e3df4c1image 81.png" alt=""></a></div>
                 <div class="partner dynamic pos-2 line-0 offset-2" data-cursor="active"><a href="https://www.ericsson.com/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/ericsson_logo.png" alt=""></a></div>
                 <div class="partner dynamic pos-3 line-0 offset-3" data-cursor="active"><a href="https://ucell.uz/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1676384661951-l1.png" alt=""></a></div>
@@ -61,6 +86,7 @@ if (!in_array(get_page_slug(), ['about-us', 'about-us-en'])) {
 
                 <div class="partner dynamic pos-13 line-6 offset-3" data-cursor="active"><a target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/velton_logo.png" alt=""></a></div>
                 <div class="partner dynamic pos-5 line-6 offset-5" data-cursor="active"><a href="https://beeline.uz/" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1676030146193-an.png" alt=""></a></div>
+                -->
 
             </div>
         </div>
