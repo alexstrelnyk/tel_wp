@@ -387,3 +387,8 @@ function codecanal_ajax_request() {
 }
 add_action( 'wp_ajax_codecanal_ajax_request', 'codecanal_ajax_request' );
 add_action('wp_ajax_nopriv_codecanal_ajax_request', 'codecanal_ajax_request');
+
+
+function get_page_slug(){
+	return get_post_field('post_name', get_queried_object_id());
+}
