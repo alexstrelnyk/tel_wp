@@ -1,18 +1,24 @@
-<section id="planets_header_desktop" class="width-wrapper">
-    <div class="blog-preview frc bg-white">
-        <div class="container">
-            <div class="side f3 flex column">
-                <p class="Sub2 color-black "><?php echo get_label('Співпраця', 'Collaborations') ?></p>
+<?php
+if (!in_array(get_page_slug(), ['about-us', 'about-us-en'])) {
+?>
+    <section id="planets_header_desktop" class="width-wrapper">
+        <div class="blog-preview frc bg-white">
+            <div class="container">
+                <div class="side f3 flex column">
+                    <p class="Sub2 color-black "><?php echo get_label('Співпраця', 'Collaborations') ?></p>
+                </div>
+                <div class="side f7 flex column">
+                    <p class="H3 color-black spacer italic"><?php echo get_label('Партнери та клієнти', 'Partners and clients') ?></p>
+                    <p class="Body color-black "></p>
+                    <p class="Body color-black "><?php echo get_label('Компанії, з якими ми маємо честь працювати', 'Companies, we are privileged to work with') ?></p>
+                </div>
+                <div class="f2"></div>
             </div>
-            <div class="side f7 flex column">
-                <p class="H3 color-black spacer italic"><?php echo get_label('Партнери та клієнти', 'Partners and clients') ?></p>
-                <p class="Body color-black "></p>
-                <p class="Body color-black "><?php echo get_label('Компанії, з якими ми маємо честь працювати', 'Companies, we are privileged to work with') ?></p>
-            </div>
-            <div class="f2"></div>
         </div>
-    </div>
-</section>
+    </section>
+<?php
+}
+?>
 
 <section id="planets_body_desktop" class="width-wrapper">
     <div class="bg-white partners-section">
