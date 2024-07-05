@@ -25,58 +25,52 @@ get_header();
     <div class="vacancies-root bg-white">
         <div class="container">
             <div class="vacancies-bar">
-                <div class="bar-filter">
-                    <p class="Sub color-black  mb12"><?php echo get_label('Департаменти', 'Department') ?></p>
-                    <div class="accordion">
-                        <p class="Body color-black  mb12"><?php echo get_label('Продукт', 'Product') ?> (1)</p>
-                        <div class="toggle"></div>
-                    </div>
-                    <div class="overflow-hidden">
-                        <div>
-                            <div class="filter-item">
-                                <p class="Body color-navy-green "><?php echo get_label('Всі', 'All') ?> (1)</p>
-                                <div class="tick-empty"></div>
-                            </div>
-                            <div class="filter-item  selected">
-                                <p class="Body color-black "><?php echo get_label('Продукт', 'Product') ?> (1)</p>
-                                <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="9.09375" cy="9" r="7" fill="#004D35"></circle>
-                                    <path d="M5.85938 9L7.85938 11L11.8594 7" stroke="white" stroke-linecap="round" stroke-linejoin="round">
-                                    </path>
-                                </svg>
-                            </div>
+                <?php 
+                $category = get_category_by_slug(pll_current_language() == 'uk' ? 'career' : 'career-en');
+                if($category){
+                    $categories = get_categories(array( 'parent' => $category->term_id));
+                }?>
+                <?php foreach($categories as $cat) : ?>
+                    <div class="bar-filter">
+                        <p class="Sub color-black  mb12"><?php echo $cat->name ?></p>
+                            <?php  $sub_categories = get_categories(array('parent' => $cat->term_id));
+                            if($sub_categories){ ?>
+                                    <div class="accordion" onClick="accordionClick(this)">
+                                        <?php foreach($sub_categories as $sub) :  ?>
+                                        <div class="flex-row">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 3px 4px;">
+                                                <path d="M8.00065 11.5133L12.1207 13.9999L11.0273 9.31325L14.6673 6.15992L9.87399 5.75325L8.00065 1.33325L6.12732 5.75325L1.33398 6.15992L4.97398 9.31325L3.88065 13.9999L8.00065 11.5133Z" fill="#004D35">
+                                                </path>
+                                            </svg>
+                                            <p class="Body color-black  mb12" slug="<?php echo $sub->slug ?>"><?php echo $sub->name ?></p>
+                                        </div>
+                                        <?php endforeach; ?>
+                                        <div class="toggle"></div>
+                                    </div>
+                                <div class="overflow-hidden">
+                                <div>
+                                    <div class="filter-item selected">
+                                        <p class="Body color-navy-green " slug="<?php echo $cat->slug ?>"><?php echo get_label('Всі', 'All') ?> </p>
+                                        <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="9.09375" cy="9" r="7" fill="#004D35"></circle>
+                                            <path d="M5.85938 9L7.85938 11L11.8594 7" stroke="white" stroke-linecap="round" stroke-linejoin="round">
+                                            </path>
+                                        </svg> 
+                                    </div>
+                                <?php foreach($sub_categories as $sub) :  ?>
+                                    <div class="filter-item ">
+                                        <p class="Body color-black " slug="<?php echo $sub->slug ?>"><?php echo $sub->name ?></p>
+                                        <div class="tick-empty"></div>
+                                    </div>
+                                <?php endforeach; ?>
+                                </div>
+                            <?php } ?>
                         </div>
                     </div>
-                </div>
-                <div class="bar-filter">
-                    <p class="Sub color-black  mb12"><?php echo get_label('Розташування', 'Location') ?></p>
-                    <div class="accordion">
-                        <p class="Body color-black  mb12"><?php echo get_label('Повністю дістанційно', 'Full Remote') ?> (1)</p>
-                        <div class="toggle"></div>
-                    </div>
-                    <div class="overflow-hidden">
-                        <div>
-                            <div class="filter-item">
-                                <p class="Body color-navy-green "><?php echo get_label('Всі', 'All') ?> (1)</p>
-                                <div class="tick-empty"></div>
-                            </div>
-                            <div class="filter-item  selected">
-                                <p class="Body color-black "><?php echo get_label('Повністю дістанційно', 'Full Remote') ?> (1)</p>
-                                <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="9.09375" cy="9" r="7" fill="#004D35"></circle>
-                                    <path d="M5.85938 9L7.85938 11L11.8594 7" stroke="white" stroke-linecap="round" stroke-linejoin="round">
-                                    </path>
-                                </svg>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php endforeach; ?>
             </div>
             <div class="vacancies-list">
-                <?php
-                $category = get_category_by_slug(pll_current_language() == 'uk' ? 'career' : 'career-en');
-
+            <?php  
                 if ($category) {
                     $args = array(
                         'category__in' => array($category->term_id),
@@ -91,68 +85,19 @@ get_header();
                             $form_names[] = $form_name;
 
                 ?>
-                            <div class="single-vacancy">
-                                <div class="accordion">
-                                    <p class="H5 color-navy-green  italic"><?php the_title() ?></p>
-                                    <div class="toggle"></div>
-                                </div>
-                                <div class="single-desc" style="height: 0px; overflow-y: hidden;">
-                                    <div>
-                                        <?php the_content() ?>
-                                        <div class="tablet-separator-16"></div>
-                                        <div class="apply-btn">
-                                            <p class="Sub2 color-navy-green  italic"><?php echo get_label('Подайте заявку', 'Apply') ?>!</p>
-                                            <p></p>
-                                        </div>
-                                        <div class="vacancies-separator"></div>
-                                        <div class="vacancy-application" id="<?php echo $form_name ?>" data-career_title="<?php the_title() ?>">
-                                            <?php
-                                            $form = get_label('[contact-form-7 id="3007c12" title="Career uk"]', '[contact-form-7 id="b1d8cb0" title="Career en"]');
-                                            echo do_shortcode($form);
-                                            ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <?php get_template_part('parts/single-vacancy', null, array('form_name' => $form_name)) ?>
                 <?php
                         }
                         wp_reset_postdata();
                     }
                 }
                 ?>
-
             </div>
         </div>
     </div>
 </section>
 
-<script>
-    function deleteFile(file) {
-        $(file).parents('.single-file').remove();
-    }
-    <?php if ($form_names) { ?>
-        var formNames = JSON.parse('<?php echo (json_encode($form_names)) ?>');
-        $(document).ready(function() {
-            <?php foreach ($form_names as $fname) { ?>
-                initDropzone('<?php echo $fname ?>');
 
-                var <?php echo $fname ?> = true;
-                $('#<?php echo $fname ?> form .dropzone').on('click', function() {
-                    if (<?php echo $fname ?>) {
-                        <?php echo $fname ?> = false;
-                        $('input[type="file"]', $(this)).click();
-                        setTimeout(function() {
-                            <?php echo $fname ?> = true;
-                        }, 500);
-                    }
-                });
-
-            <?php } ?>
-        });
-    <?php } else { ?>
-        var formNames = false;
-    <?php } ?>
-</script>
 
 <?php
 
