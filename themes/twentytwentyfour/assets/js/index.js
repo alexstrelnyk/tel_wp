@@ -1158,8 +1158,8 @@ function renderPage(pdf, pageNum, customWidth) {
     });
 }
 
-function setSlideVisibility(carousel) {
-    var visibleSlides = carousel.find('.slick-slideshow__slide[aria-hidden="false"]');
+function setSlideVisibility() {
+    var visibleSlides = $carousel.find('.slick-slideshow__slide[aria-hidden="false"]');
     $(visibleSlides).each(function () {
         $(this).css('opacity', 1);
     });
@@ -1182,10 +1182,10 @@ function initSliderSlick(selector) {
 
     $carousel.slick(settings);
     $carousel.slick('slickGoTo', 1);
-    setSlideVisibility($carousel);
+    setSlideVisibility();
 
     $carousel.on('afterChange', function () {
-        setSlideVisibility($carousel);
+        setSlideVisibility();
     });
 }
 initSliderSlick('.slider_slick');
