@@ -50,7 +50,7 @@ $(document).ready(function () {
         const ratio = window.devicePixelRatio === 1.25 ? 1.25 : 1;
         cardSliderMargin = (($(window).width()) / 2 + 100) * ratio;
         $('.industries-slider').css('transform', 'translate(' + cardSliderMargin + 'px, 145px)');
-        $('.bar-filter').find('.overflow-hidden').css({ 'display': 'none'});
+        $('.bar-filter').find('.overflow-hidden').css({ 'display': 'none' });
         $('.bar-filter').find('.flex-row').find('svg').hide();
     }
 
@@ -70,13 +70,13 @@ $(document).ready(function () {
     initMobilePlanetsSpinner();
 });
 
-function initCareerPageComponet(){
+function initCareerPageComponet() {
     initAccordionVacancy();
     initFileUploader();
     initSticky('.btn-box', '.btn-joint');
-    $('.vacancy-application').each(function(){
+    $('.vacancy-application').each(function () {
         initForm($(this).attr('id'));
-        $(this).find('form').on('wpcf7submit', function(){
+        $(this).find('form').on('wpcf7submit', function () {
             $(this).find('.file-wrapper').children().remove();
             $(this).find('.dropzone').removeClass('disabled');
             $(this).find('.uploader').removeAttr('disabled');
@@ -84,23 +84,23 @@ function initCareerPageComponet(){
     })
 }
 
-function initFileUploader(){
-    $('.dropzone').find('.wpcf7-form-control-wrap').css({ 'white-space': 'unset'});
+function initFileUploader() {
+    $('.dropzone').find('.wpcf7-form-control-wrap').css({ 'white-space': 'unset' });
     $('.dropzone').each((index, item) => {
         const containerUploads = $(item).find('.container-uploads');
         $(item).find('.container-uploads').remove();
         $(item).find('.codedropz-btn-wrap').append(containerUploads);
         const text = $(item).find('p.Body').text();
         const dropzoneLink = $(item).find('a')
-                                .addClass('Body color-navy-green semi-bold download-button')
-                                .removeClass('cd-upload-btn')
-                                .text(text);
+            .addClass('Body color-navy-green semi-bold download-button')
+            .removeClass('cd-upload-btn')
+            .text(text);
         $(item).find('a').remove();
         $(item).find('p.Body').replaceWith(dropzoneLink);
-        $(item).find('.codedropz-upload-handler').add('.uploader').on('drop change', function(event){
+        $(item).find('.codedropz-upload-handler').add('.uploader').on('drop change', function (event) {
             const errorText = window.location.href.includes('/en/') ? 'Some file isn’t matched of requirements' : 'Файл не відповідає вимогам';
             const uploadStatus = $(item).find('.dnd-upload-status');
-            if($(item).find('.dropzone-error').length){
+            if ($(item).find('.dropzone-error').length) {
                 $(item).find('.dropzone-error').remove();
                 const error = $(item).find('.dnd-upload-status').find('.has-error');
                 error.parents('.dnd-upload-status').remove();
@@ -115,10 +115,10 @@ function initFileUploader(){
                 subtree: true
             };
             uploadStatus.each((index, element) => {
-                observer.observe(element,params);
-                if($(element).find('.has-error').length){
+                observer.observe(element, params);
+                if ($(element).find('.has-error').length) {
                     const dropError = '<div class="dropzone-error"><svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.935222 9.2496C0.74224 9.58293 0.98277 10.0001 1.36794 10.0001H10.6335C11.0187 10.0001 11.2592 9.58293 11.0662 9.2496L6.43342 1.24753C6.24084 0.914886 5.76058 0.914887 5.568 1.24753L0.935222 9.2496ZM6.50071 8.50012H5.50071V7.50012H6.50071V8.50012ZM6.50071 6.50012H5.50071V4.50012H6.50071V6.50012Z" fill="white"></path></svg>' +
-                    `<p class="Overline color-white ">${errorText}</p></div>`;
+                        `<p class="Overline color-white ">${errorText}</p></div>`;
                     $(uploadStatus).parents('.dropzone').append(dropError);
                     const input = $(item).find('upload');
                     const storageName = input.attr('data-name') + '_count_files';
@@ -132,31 +132,31 @@ function initFileUploader(){
     $('.dropzone').find('.codedropz-upload-inner').find('span').remove();
 }
 
-function statusMutationHandler(mutationRecord){
-    mutationRecord.every(function(mutation){
-        if($(mutation.target).hasClass('dnd-upload-status') && mutation.attributeName == 'class'){
+function statusMutationHandler(mutationRecord) {
+    mutationRecord.every(function (mutation) {
+        if ($(mutation.target).hasClass('dnd-upload-status') && mutation.attributeName == 'class') {
             const uploadStatus = $(mutation.target);
             const container = $(mutation.target).parents('.text-input');
             const fileWrapper = container.find('.file-wrapper');
-            if($(uploadStatus).hasClass('complete')){
+            if ($(uploadStatus).hasClass('complete')) {
                 const fileName = uploadStatus.find('.name').find('span').text();
                 $(fileWrapper).append(
-                    '<div class="flex row gap12 single-file"><svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 0C0.9 0 0.0100002 0.9 0.0100002 2L0 18C0 19.1 0.89 20 1.99 20H14C15.1 20 16 19.1 16 18V6L10 0H2ZM9 7V1.5L14.5 7H9Z" fill="#AFBCBA"></path></svg><p class="Body2 color-navy-green f2 file-label">' + 
-                    fileName + `</p><div class="f1"><div id='${uploadStatus.attr('id')}_' class="delete-button"></div></div></div>`);   
-                $(fileWrapper).find(`#${uploadStatus.attr('id')}_`).click(function(event){
+                    '<div class="flex row gap12 single-file"><svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 0C0.9 0 0.0100002 0.9 0.0100002 2L0 18C0 19.1 0.89 20 1.99 20H14C15.1 20 16 19.1 16 18V6L10 0H2ZM9 7V1.5L14.5 7H9Z" fill="#AFBCBA"></path></svg><p class="Body2 color-navy-green f2 file-label">' +
+                    fileName + `</p><div class="f1"><div id='${uploadStatus.attr('id')}_' class="delete-button"></div></div></div>`);
+                $(fileWrapper).find(`#${uploadStatus.attr('id')}_`).click(function (event) {
                     const buttonDelete = $(`#${uploadStatus.attr('id')}`);
                     buttonDelete.find('.dnd-icon-remove').trigger('click');
                     setTimeout(() => {
                         $(event.target).parents('.single-file').remove();
                     }, 1500);
-                    if(container.find('.dnd-upload-status').length <= 3){
+                    if (container.find('.dnd-upload-status').length <= 3) {
                         container.find('.dropzone').removeClass('disabled');
                         $('.uploader').removeAttr('disabled');
                     }
                 });
                 const dropzone = $(mutation.target).parents('.dropzone');
                 const completedUploads = dropzone.find('.dnd-upload-status.complete');
-                if(completedUploads.length > 2){
+                if (completedUploads.length > 2) {
                     $(dropzone).addClass('disabled');
                     $('.uploader').attr('disabled', 'disabled');
                     $(dropzone).find('.has-error-msg').remove();
@@ -504,7 +504,7 @@ function gotoPage(page, isNewTab) {
     }
 }
 
-function initAccordionVacancy(){
+function initAccordionVacancy() {
     $('.vacancies-root .single-vacancy .accordion').click(function (e) {
         let vacancyHeight = 0;
         var sv = $(this).parents('.single-vacancy');
@@ -518,7 +518,7 @@ function initAccordionVacancy(){
             $('.single-desc', sv).css({ 'overflow-y': 'initial', 'height': vacancyHeight + 'px' });
         }
     });
-    
+
     $('.vacancies-root .single-vacancy .apply-btn').click(function (e) {
         var va = $('.vacancy-application', $(this).parents('.single-desc'));
         let vacancyHeight = 0;
@@ -537,17 +537,17 @@ function initAccordionVacancy(){
 
     });
 
-    $('.vacancy-application').each(function(){
+    $('.vacancy-application').each(function () {
         new ResizeObserver(resizeSingleDesc).observe(this);
     });
 
-    function resizeSingleDesc(event){
-        if($(event[0].target).hasClass('apply')){
+    function resizeSingleDesc(event) {
+        if ($(event[0].target).hasClass('apply')) {
             const prevHeight = localStorage.getItem(`${$(event[0].target).attr('id')}`);
             const height = $(event[0].target).parents('.single-desc div:eq(0)').height() - (Number(prevHeight) - event[0].contentRect.height);
             $(event[0].target).parents('.single-desc').css({ 'overflow-y': 'initial', 'height': height + 'px' })
         }
-    }   
+    }
 }
 
 
@@ -590,12 +590,12 @@ function accordionClick(element) {
     }
 }
 
-$('.bar-filter').find('.flex-row').click(function(event) {
-    if(isLargeScreen){
+$('.bar-filter').find('.flex-row').click(function (event) {
+    if (isLargeScreen) {
         const flexRow = $(this);
         const svg = flexRow.find('svg');
         const accordion = flexRow.parents('.accordion');
-        if(flexRow.hasClass('selected')){
+        if (flexRow.hasClass('selected')) {
             flexRow.removeClass('selected');
             svg.hide();
             flexRow.find('p').removeClass('color-navy-green');
@@ -610,37 +610,37 @@ $('.bar-filter').find('.flex-row').click(function(event) {
             $('.vacancies-bar .bar-filter .accordion').find('.selected').each((index, item) => {
                 category.push($(item).find('p').attr('slug'));
             })
-            if(category.length){
+            if (category.length) {
                 vacancyAjaxPosts(category);
             }
         }
     }
 });
 
-function vacancyAjaxPosts(category){
+function vacancyAjaxPosts(category) {
     $.ajax({
         url: '/wp-admin/admin-ajax.php',
         data: {
-         'action':'codecanal_ajax_request',
-         'category_slug' : category
+            'action': 'codecanal_ajax_request',
+            'category_slug': category
         },
-        success:function(data) {
-            if(data){
+        success: function (data) {
+            if (data) {
                 const vacancies = $('.vacancies-list');
                 vacancies.children().remove();
                 vacancies.append(data);
             }
         },
-        error: function(errorThrown){
+        error: function (errorThrown) {
             console.log(errorThrown);
         }
-        }).done(function(){
-            $('.wpcf7 > form').each(function(){
-                wpcf7.init(this);
-            });
-            window.initDragDrop();
-            initCareerPageComponet();
+    }).done(function () {
+        $('.wpcf7 > form').each(function () {
+            wpcf7.init(this);
         });
+        window.initDragDrop();
+        initCareerPageComponet();
+    });
 }
 
 function getUserCountry() {
@@ -660,35 +660,37 @@ function getUserCountry() {
 
 function initSlider(selectorId) {
 
-    var swiper = new Swiper('#' + selectorId, { 
+    var swiper = new Swiper('#' + selectorId, {
         slidesPerView: 1,
         mousewheel: {
-          releaseOnEdges: true,
-          thresholdTime: 1000,
-          forceToAxis: true,
-          thresholdDelta: 30
-    }});
+            releaseOnEdges: true,
+            thresholdTime: 1000,
+            forceToAxis: true,
+            thresholdDelta: 30
+        }
+    });
     const isHaveSwiper = $(`#${selectorId}`).length;
     switch (selectorId) {
         case 'feedback_swiper':
             if (isHaveSwiper) {
                 if (isLargeScreen) {
                     swiper.destroy(true, true);
-                    swiper = new Swiper('#' + selectorId, { 
+                    swiper = new Swiper('#' + selectorId, {
                         slidesPerView: 1,
                         touchStartPreventDefault: false,
                         mousewheel: {
-                          releaseOnEdges: true,
-                          thresholdTime: 1000,
-                          forceToAxis: true,
-                          thresholdDelta: 30
-                    }});
-                    swiper.on('touchStart', function(){
+                            releaseOnEdges: true,
+                            thresholdTime: 1000,
+                            forceToAxis: true,
+                            thresholdDelta: 30
+                        }
+                    });
+                    swiper.on('touchStart', function () {
                         if (isLargeScreen) {
                             $('#cursor').attr('class', 'slider');
                             $('#cursor-border').attr('class', 'slider');
                         };
-                        swiper.on('touchEnd', function(){
+                        swiper.on('touchEnd', function () {
                             if (isLargeScreen) {
                                 $('#cursor').removeAttr('class');
                                 $('#cursor-border').removeAttr('class');
@@ -721,7 +723,7 @@ function initSlider(selectorId) {
                 };
             }
     }
-    
+
 }
 
 initSlider('feedback_swiper');
@@ -820,9 +822,11 @@ function initSticky(wrapper, domestic) {
         const pumButton = $('.pum-container').find('.pum-close');
         $('.pum-container').each((index, item) => {
             const invisibleButton = document.createElement('button');
-            $(invisibleButton).css({ 'width' : `${pumButton.width() + 24}px`,
-            'height' : `${pumButton.height() + 24}px`, 'border': 'none', 'position': 'absolute', 'top': '11px',
-            'bottom': 'auto', 'left': 'auto', 'right': '13px', 'opacity' : 0, 'z-index' : 1});
+            $(invisibleButton).css({
+                'width': `${pumButton.width() + 24}px`,
+                'height': `${pumButton.height() + 24}px`, 'border': 'none', 'position': 'absolute', 'top': '11px',
+                'bottom': 'auto', 'left': 'auto', 'right': '13px', 'opacity': 0, 'z-index': 1
+            });
             $(item).append(invisibleButton);
             $(invisibleButton).addClass('pum-button-container');
         })
