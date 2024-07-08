@@ -86,8 +86,6 @@
             </main>
             <script defer="defer" src="<?php echo path('js', 'cursor.js') ?>"></script>
             <script src="<?php echo path('js', 'swiper-bundle.min.js') ?>"></script>
-
-            <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
 
             <script>

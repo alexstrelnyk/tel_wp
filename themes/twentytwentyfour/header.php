@@ -20,9 +20,6 @@
     </script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-
     <link href="<?php echo path('css', 'fonts.css') ?>" rel="stylesheet">
     <link href="<?php echo path('css', 'style.css') ?>" rel="stylesheet">
     <link href="<?php echo path('css', 'additional.css') ?>" rel="stylesheet">
