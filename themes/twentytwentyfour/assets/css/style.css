@@ -9498,6 +9498,21 @@ form [type="submit"],
     margin-top: -1px;
 }
 
+.slick-slide img {
+    width: 90%;
+    height: 560px;
+    object-fit: cover;
+    margin-bottom: 30px;
+}
+
+.slider_slick .wide-gallery-card p {
+    width: 90%;
+}
+.slider_slick {
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
 @media screen and (max-width:480px) {
 
     #planets_header_desktop,
@@ -9554,6 +9569,7 @@ form [type="submit"],
 }
 @media screen and (max-width:768px) {
 
+    .slider_slick.gallery_desktop,
     .services-slider .product-desc .animated-link,
     .main-menu .up .footer-links,
     .blog-view .container .blog-side-bar,
@@ -9651,12 +9667,13 @@ form [type="submit"],
 
 @media screen and (min-width:769px) {
 
+    .wide-gallery-slider.gallery_mob,
     .main-menu .up .follow-links.mob-wrap,
     .main-menu .up .page-links.mob-wrap,
     .services-slider .product-card .mob-card-arrow,
     .services-title,
     #ind_wrap_mob {
-        display: none;
+        display: none !important;
     }
 }
 

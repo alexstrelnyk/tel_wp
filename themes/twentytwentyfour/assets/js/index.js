@@ -1157,3 +1157,35 @@ function renderPage(pdf, pageNum, customWidth) {
         document.getElementById("pdf-embed-library").style.display = "block";
     });
 }
+
+function setSlideVisibility() {
+    var visibleSlides = $carousel.find('.slick-slideshow__slide[aria-hidden="false"]');
+    $(visibleSlides).each(function () {
+        $(this).css('opacity', 1);
+    });
+
+    $(visibleSlides).first().prev().css('opacity', 0);
+}
+
+function initSliderSlick(selector) {
+
+    var $carousel = $(selector);
+
+    var settings = {
+        dots: false,
+        arrows: false,
+        slide: '.slick-slideshow__slide',
+        slidesToShow: 1,
+        centerMode: true,
+        centerPadding: '85px',
+    };
+
+    $carousel.slick(settings);
+    $carousel.slick('slickGoTo', 1);
+    setSlideVisibility();
+
+    $carousel.on('afterChange', function () {
+        setSlideVisibility();
+    });
+}
+initSliderSlick('.slider_slick');
