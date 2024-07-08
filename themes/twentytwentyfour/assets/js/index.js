@@ -1188,4 +1188,3 @@ function initSliderSlick(selector) {
         setSlideVisibility($carousel);
     });
 }
-initSliderSlick('.slider_slick');

@@ -23,3 +23,10 @@ get_template_part('parts/regions-slider');
 get_template_part('parts/form');
 
 get_footer();
+?>
+
+<script>
+    $(document).ready(function() {
+        initSliderSlick('.slider_slick');
+    });
+</script>
