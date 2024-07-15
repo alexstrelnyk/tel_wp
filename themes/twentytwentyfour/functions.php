@@ -394,6 +394,33 @@ function codecanal_ajax_request()
 add_action('wp_ajax_codecanal_ajax_request', 'codecanal_ajax_request');
 add_action('wp_ajax_nopriv_codecanal_ajax_request', 'codecanal_ajax_request');
 
+function posts_count_ajax_request()
+{
+
+	if (isset($_REQUEST['category_slug'])) {
+
+		$category_slug = $_REQUEST['category_slug'];
+		$cat_id = get_category_by_slug($category_slug)->term_id;
+		$args = array(
+			'cat' => $cat_id,
+			'posts_per_page' => -1,
+		);
+
+		$the_query = new WP_Query($args);
+		$result = '';
+		if ($the_query->have_posts()) {
+			$the_query->the_post();
+			$result .= $the_query->found_posts;
+			wp_reset_postdata();
+		};
+
+		echo $result;
+	}
+	exit;
+}
+add_action('wp_ajax_posts_count_ajax_request', 'posts_count_ajax_request');
+add_action('wp_ajax_nopriv_posts_count_ajax_request', 'posts_count_ajax_request');
+
 
 function get_page_slug()
 {

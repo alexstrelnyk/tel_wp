@@ -66,7 +66,7 @@ $(document).ready(function () {
     $('.pum').css({ 'cursor': 'none' }).find('*').css({ 'cursor': 'none' });
 
     initCareerPageComponet();
-
+    initVacanciesPostsCount();
     initMobilePlanetsSpinner();
 });
 
@@ -82,6 +82,15 @@ function initCareerPageComponet() {
             $(this).find('.uploader').removeAttr('disabled');
         })
     })
+}
+
+function initVacanciesPostsCount(){
+    const vacancies = $('.filter-item, .flex-row');
+    vacancies.each( function(index, item) {
+        const paragraph = $(item).find('p');
+        const slug = $(paragraph).attr('slug');
+        getVacancyPostsCountAjax(slug, paragraph);
+    });
 }
 
 function initFileUploader() {
@@ -616,6 +625,23 @@ $('.bar-filter').find('.flex-row').click(function (event) {
         }
     }
 });
+
+function getVacancyPostsCountAjax(category, paragraph){
+    $.ajax({
+        url: '/wp-admin/admin-ajax.php',
+        data: {
+            'action': 'posts_count_ajax_request',
+            'category_slug': category
+        },
+        success: function (data) {
+            const counter = $(paragraph).find('.posts-count');
+            $(counter).text(` (${data})`);
+        },
+        error: function (errorThrown) {
+            console.log(errorThrown);
+        }
+    });
+}
 
 function vacancyAjaxPosts(category) {
     $.ajax({
