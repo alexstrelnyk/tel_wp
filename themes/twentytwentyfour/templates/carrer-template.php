@@ -42,7 +42,7 @@ get_header();
                                                 <path d="M8.00065 11.5133L12.1207 13.9999L11.0273 9.31325L14.6673 6.15992L9.87399 5.75325L8.00065 1.33325L6.12732 5.75325L1.33398 6.15992L4.97398 9.31325L3.88065 13.9999L8.00065 11.5133Z" fill="#004D35">
                                                 </path>
                                             </svg>
-                                            <p class="Body color-black  mb12" slug="<?php echo $sub->slug ?>"><?php echo $sub->name ?></p>
+                                            <p class="Body color-black  mb12" slug="<?php echo $sub->slug ?>"><?php echo $sub->name ?><span class="posts-count"></span></p>
                                         </div>
                                         <?php endforeach; ?>
                                         <div class="toggle"></div>
@@ -59,7 +59,7 @@ get_header();
                                     </div>
                                 <?php foreach($sub_categories as $sub) :  ?>
                                     <div class="filter-item ">
-                                        <p class="Body color-black " slug="<?php echo $sub->slug ?>"><?php echo $sub->name ?></p>
+                                        <p class="Body color-black " slug="<?php echo $sub->slug ?>"><?php echo $sub->name ?><span class="posts-count"></span></p>
                                         <div class="tick-empty"></div>
                                     </div>
                                 <?php endforeach; ?>
