@@ -151,7 +151,8 @@ function statusMutationHandler(mutationRecord) {
                 const fileName = uploadStatus.find('.name').find('span').text();
                 $(fileWrapper).append(
                     '<div class="flex row gap12 single-file"><svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 0C0.9 0 0.0100002 0.9 0.0100002 2L0 18C0 19.1 0.89 20 1.99 20H14C15.1 20 16 19.1 16 18V6L10 0H2ZM9 7V1.5L14.5 7H9Z" fill="#AFBCBA"></path></svg><p class="Body2 color-navy-green f2 file-label">' +
-                    fileName + `</p><div class="f1"><div id='${uploadStatus.attr('id')}_' class="delete-button"></div></div></div>`);
+                    fileName + `</p><div class="f1"><div id='${uploadStatus.attr('id')}_' data-cursor="active" class="delete-button"></div></div></div>`);
+                initCursor();
                 $(fileWrapper).find(`#${uploadStatus.attr('id')}_`).click(function (event) {
                     const buttonDelete = $(`#${uploadStatus.attr('id')}`);
                     buttonDelete.find('.dnd-icon-remove').trigger('click');
@@ -537,6 +538,7 @@ function initAccordionVacancy() {
             va.removeClass('apply');
             $(this).parents('.single-desc').css({ 'overflow-y': 'initial', 'height': vacancyHeight + 'px' });
         } else {
+            initCursor();
             vacancyHeight = va.parents('.single-desc div:eq(0)').height() + va.height() + 50;
             localStorage.setItem(`${va.attr('id')}`, va.height());
             $(this).addClass('apply');

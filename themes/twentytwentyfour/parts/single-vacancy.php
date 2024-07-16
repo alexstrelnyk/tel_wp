@@ -1,5 +1,5 @@
 <div class="single-vacancy">
-    <div class="accordion">
+    <div class="accordion" data-cursor="active">
         <p class="H5 color-navy-green  italic"><?php the_title() ?></p>
         <div class="toggle"></div>
     </div>
