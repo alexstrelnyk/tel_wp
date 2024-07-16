@@ -518,7 +518,15 @@ function initAccordionVacancy() {
     $('.vacancies-root .single-vacancy .accordion').click(function (e) {
         let vacancyHeight = 0;
         var sv = $(this).parents('.single-vacancy');
+        var va = $('.vacancy-application', $(sv).find('.single-desc'));
         if (sv.hasClass('collapse')) {
+            const apply = sv.find('.apply-btn');
+            if(apply.hasClass('apply')){
+                vacancyHeight = va.parents('.single-desc div:eq(0)').height() - va.height() - 50;
+                apply.removeClass('apply');
+                va.removeClass('apply');
+                apply.parents('.single-desc').css({ 'overflow-y': 'initial', 'height': vacancyHeight + 'px' });
+            }
             vacancyHeight = 0;
             sv.removeClass('collapse');
             $('.single-desc', sv).css({ 'overflow-y': 'hidden', 'height': vacancyHeight + 'px' });
@@ -526,6 +534,7 @@ function initAccordionVacancy() {
             vacancyHeight = $('.single-desc div:eq(0)', sv).height();
             sv.addClass('collapse');
             $('.single-desc', sv).css({ 'overflow-y': 'initial', 'height': vacancyHeight + 'px' });
+            window.scrollTo({ top: sv.offset().top - 25 });
         }
     });
 
