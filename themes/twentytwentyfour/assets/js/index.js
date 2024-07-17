@@ -516,6 +516,8 @@ function gotoPage(page, isNewTab) {
 
 function initAccordionVacancy() {
     $('.vacancies-root .single-vacancy .accordion').click(function (e) {
+        let isMozila = typeof InstallTrigger !== 'undefined';
+        const ratio = window.devicePixelRatio == 1.25 && isMozila ? 1.25 : 1;
         let vacancyHeight = 0;
         var sv = $(this).parents('.single-vacancy');
         var va = $('.vacancy-application', $(sv).find('.single-desc'));
@@ -532,9 +534,14 @@ function initAccordionVacancy() {
             $('.single-desc', sv).css({ 'overflow-y': 'hidden', 'height': vacancyHeight + 'px' });
         } else {
             vacancyHeight = $('.single-desc div:eq(0)', sv).height();
+            const list = sv.parents('.vacancies-list');
+            const openedVacancies = list.find('.collapse');
+            openedVacancies.find('.accordion').trigger('click');
             sv.addClass('collapse');
             $('.single-desc', sv).css({ 'overflow-y': 'initial', 'height': vacancyHeight + 'px' });
-            window.scrollTo({ top: sv.offset().top - 25 });
+            setTimeout(() => {
+                window.scrollTo({ top: sv.offset().top * ratio });
+            },1000);
         }
     });
 
