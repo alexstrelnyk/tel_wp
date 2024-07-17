@@ -84,9 +84,9 @@ function initCareerPageComponet() {
     })
 }
 
-function initVacanciesPostsCount(){
+function initVacanciesPostsCount() {
     const vacancies = $('.filter-item, .flex-row');
-    vacancies.each( function(index, item) {
+    vacancies.each(function (index, item) {
         const paragraph = $(item).find('p');
         const slug = $(paragraph).attr('slug');
         getVacancyPostsCountAjax(slug, paragraph);
@@ -521,7 +521,7 @@ function initAccordionVacancy() {
         var va = $('.vacancy-application', $(sv).find('.single-desc'));
         if (sv.hasClass('collapse')) {
             const apply = sv.find('.apply-btn');
-            if(apply.hasClass('apply')){
+            if (apply.hasClass('apply')) {
                 vacancyHeight = va.parents('.single-desc div:eq(0)').height() - va.height() - 50;
                 apply.removeClass('apply');
                 va.removeClass('apply');
@@ -637,7 +637,7 @@ $('.bar-filter').find('.flex-row').click(function (event) {
     }
 });
 
-function getVacancyPostsCountAjax(category, paragraph){
+function getVacancyPostsCountAjax(category, paragraph) {
     $.ajax({
         url: '/wp-admin/admin-ajax.php',
         data: {
@@ -1040,13 +1040,28 @@ $('.one-tab').click(function () {
     }, 500);
 });
 
-$(window).on('load', function () {
-    const blogSideBar = $('.blog-side-bar').find('svg');
-    if (blogSideBar.length) {
-        $(blogSideBar).hide();
+var panel_svg = '<svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.33203 0H1.66536C0.932031 0 0.338698 0.6 0.338698 1.33333L0.332031 12L4.9987 10L9.66537 12V1.33333C9.66537 0.6 9.06536 0 8.33203 0Z" fill="#004D35"></path></svg>';
+$('#privacy-policy .gap8').click(function () {
+    $('#privacy-policy .gap8 svg').hide();
+    $('#privacy-policy .gap8 .Body').attr('class', 'Body color-grey');
+    $('.Body', this).attr('class', 'Body color-navy-green');
+    if ($('svg', this).length) {
+        $('svg', this).show();
+    } else {
+        $('.Body', this).before(panel_svg);
     }
+});
 
-    $(window).on('scroll', setBookmark)
+$(window).on('load', function () {
+    if (!isPage('privacy-policy') && !isPage('privacy-policy-en')) {
+        const blogSideBar = $('.blog-side-bar').find('svg');
+        console.log(blogSideBar.length);
+        if (blogSideBar.length) {
+            $(blogSideBar).hide();
+        }
+
+        $(window).on('scroll', setBookmark)
+    }
 });
 
 
