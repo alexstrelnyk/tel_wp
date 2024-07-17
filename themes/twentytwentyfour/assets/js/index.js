@@ -1053,6 +1053,9 @@ $('#privacy-policy .gap8').click(function () {
 });
 
 $(window).on('load', function () {
+    $('#privacy-policy .gap8').attr('data-cursor', 'active');
+    initCursor();
+
     if (!isPage('privacy-policy') && !isPage('privacy-policy-en')) {
         const blogSideBar = $('.blog-side-bar').find('svg');
         console.log(blogSideBar.length);
