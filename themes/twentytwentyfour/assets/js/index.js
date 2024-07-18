@@ -106,13 +106,17 @@ function initFileUploader() {
             .text(text);
         $(item).find('a').remove();
         $(item).find('p.Body').replaceWith(dropzoneLink);
-        $(item).find('.codedropz-upload-handler').add('.uploader').on('drop change', function (event) {
+        $(item).find('.codedropz-upload-handler').click(function() {
+            $(item).find('.uploader').click();
+        });
+        $(item).find('.codedropz-upload-handler').add('.uploader').on('drop change click', function (event) {
             const errorText = window.location.href.includes('/en/') ? 'Some file isn’t matched of requirements' : 'Файл не відповідає вимогам';
             const uploadStatus = $(item).find('.dnd-upload-status');
             if ($(item).find('.dropzone-error').length) {
                 $(item).find('.dropzone-error').remove();
-                const error = $(item).find('.dnd-upload-status').find('.has-error');
-                error.parents('.dnd-upload-status').remove();
+            }
+            if($(item).find('.has-error-msg').length){
+                $(item).find('.has-error-msg').remove();
             }
             uploadStatus.hide();
             const MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
@@ -129,7 +133,7 @@ function initFileUploader() {
                     const dropError = '<div class="dropzone-error"><svg width="12" height="10" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0.935222 9.2496C0.74224 9.58293 0.98277 10.0001 1.36794 10.0001H10.6335C11.0187 10.0001 11.2592 9.58293 11.0662 9.2496L6.43342 1.24753C6.24084 0.914886 5.76058 0.914887 5.568 1.24753L0.935222 9.2496ZM6.50071 8.50012H5.50071V7.50012H6.50071V8.50012ZM6.50071 6.50012H5.50071V4.50012H6.50071V6.50012Z" fill="white"></path></svg>' +
                         `<p class="Overline color-white ">${errorText}</p></div>`;
                     $(uploadStatus).parents('.dropzone').append(dropError);
-                    const input = $(item).find('upload');
+                    const input = $(item).find('.wpcf7-form-control-wrap');
                     const storageName = input.attr('data-name') + '_count_files';
                     const count = localStorage.getItem(storageName);
                     localStorage.setItem('upload-file_count_files', Number(count) - 1);
@@ -168,7 +172,7 @@ function statusMutationHandler(mutationRecord) {
                 const completedUploads = dropzone.find('.dnd-upload-status.complete');
                 if (completedUploads.length > 2) {
                     $(dropzone).addClass('disabled');
-                    $('.uploader').attr('disabled', 'disabled');
+                    $(dropzone).find('.uploader').attr('disabled', 'disabled');
                     $(dropzone).find('.has-error-msg').remove();
                 }
                 return false;
