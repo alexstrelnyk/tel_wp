@@ -116,15 +116,11 @@ function initFileUploader() {
         const containerUploads = $(item).find('.container-uploads');
         $(item).find('.container-uploads').remove();
         $(item).find('.codedropz-btn-wrap').append(containerUploads);
-        const text = $(item).find('p.Body').text();
-        const dropzoneLink = $(item).find('a')
-            .addClass('Body color-navy-green semi-bold download-button')
-            .removeClass('cd-upload-btn')
-            .text(text);
         $(item).find('a').remove();
-        $(item).find('p.Body').replaceWith(dropzoneLink);
-        $(item).find('.codedropz-upload-handler').click(function() {
-            $(item).find('.uploader').click();
+        $(item).children('p').click(function(event) {
+            if(!$(event.target).hasClass('uploader') && !$(event.target).hasClass('dnd-icon-remove')){
+                $(item).find('.uploader').click();
+            }
         });
         $(item).find('.codedropz-upload-handler').add('.uploader').on('drop change click', function (event) {
             const errorText = window.location.href.includes('/en/') ? 'Some file isn’t matched of requirements' : 'Файл не відповідає вимогам';
