@@ -534,7 +534,7 @@ function gotoPage(page, isNewTab) {
 function initAccordionVacancy() {
     $('.vacancies-root .single-vacancy .accordion').click(function (e) {
         let isMozila = typeof InstallTrigger !== 'undefined';
-        const ratio = window.devicePixelRatio == 1.25 && isMozila ? 1.25 : 1;
+        const ratio = window.devicePixelRatio == 1.25 && !isMozila ? 1.25 : 1;
         let vacancyHeight = 0;
         var sv = $(this).parents('.single-vacancy');
         var va = $('.vacancy-application', $(sv).find('.single-desc'));
@@ -553,12 +553,12 @@ function initAccordionVacancy() {
             vacancyHeight = $('.single-desc div:eq(0)', sv).height();
             const list = sv.parents('.vacancies-list');
             const openedVacancies = list.find('.collapse');
+            const isPrevChildCollapse = sv.prevAll('.single-vacancy').hasClass('collapse');
             openedVacancies.find('.accordion').trigger('click');
             sv.addClass('collapse');
             $('.single-desc', sv).css({ 'overflow-y': 'initial', 'height': vacancyHeight + 'px' });
-            setTimeout(() => {
-                window.scrollTo({ top: sv.offset().top * ratio });
-            },1000);
+            window.scrollTo({ top: (sv.is(':first-child') || !isPrevChildCollapse ? sv[0].offsetTop : sv[0].offsetTop - vacancyHeight ) / ratio });
+           
         }
     });
 
