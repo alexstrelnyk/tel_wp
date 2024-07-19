@@ -4103,12 +4103,12 @@ form [type="file"] {
     }
 
     .contact-form-root {
-        grid-template-areas: "fn ln" "pn ea" "mc mc" "cv cv" "cb cb" "sn sn";
+        grid-template-areas: "fn ln" "pn ea" "mc mc" "cv cv" "cb cb" "sn sn" "sb sb";
         grid-template-columns: 1fr 1fr
     }
 
     .contact-form-root.subscribe {
-        grid-template-areas: "fn ln" "pn pn" "ea ea";
+        grid-template-areas: "fn ln" "pn pn" "ea ea" "sn sn";
         max-width: 820px
     }
 
@@ -4118,15 +4118,15 @@ form [type="file"] {
     }
 
     .contact-form-root>div:first-child {
-        grid-area: fn
+        grid-area: fn !important
     }
 
     .contact-form-root>div:nth-child(2) {
-        grid-area: ln
+        grid-area: ln !important
     }
 
     .contact-form-root>div:nth-child(3) {
-        grid-area: pn
+        grid-area: pn !important
     }
 
     .contact-form-root>div:nth-child(4) {
@@ -4146,6 +4146,14 @@ form [type="file"] {
     }
 
     .contact-form-root>div:nth-child(8) {
+        grid-area: sn !important
+    }
+
+    .contact-form-root>div:nth-child(9) {
+        grid-area: sb !important
+    }
+
+    .contact-form-root.subscribe>div:nth-child(5){
         grid-area: sn !important
     }
 
