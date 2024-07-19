@@ -3,7 +3,8 @@ var productCatUrlObj = {};
 
 var previewBlocked = sessionStorage.getItem('eventTriggered');
 var previewTimeout = 3;
-
+const isScale = window.devicePixelRatio == 1.25;
+const isMozilaBrow = typeof InstallTrigger !== 'undefined';
 var isLargeScreen = false;
 
 // Check mob/large view
@@ -52,6 +53,22 @@ $(document).ready(function () {
         $('.industries-slider').css('transform', 'translate(' + cardSliderMargin + 'px, 145px)');
         $('.bar-filter').find('.overflow-hidden').css({ 'display': 'none' });
         $('.bar-filter').find('.flex-row').find('svg').hide();
+    }
+
+    if(isScale){
+        const ratio = isMozilaBrow ? 1 : 1.25;
+        const popupContainer = $('.pum-container');
+        popupContainer.each((index, item) => {
+            const observer = new MutationObserver(function(){
+                if(item.style.display != 'none'){
+                    $(item).css({ 
+                        'top' : `${(window.innerHeight / 2) - (popupContainer.height() / 2)}px`, 
+                        'left' : `${((window.innerWidth / 2) - (popupContainer.width() / 2)) * ratio}px`
+                    })
+                }
+            });
+            observer.observe(item, { attributes: true, childList: true });
+        });
     }
 
     if (!isLargeScreen) {
