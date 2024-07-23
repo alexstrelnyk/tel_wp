@@ -98,7 +98,8 @@ function initCareerPageComponet() {
             $(this).find('.dropzone').removeClass('disabled');
             $(this).find('.uploader').removeAttr('disabled');
         })
-    })
+    });
+    initCursor();
 }
 
 function initVacanciesPostsCount() {
@@ -642,13 +643,14 @@ $('.bar-filter').find('.flex-row').click(function (event) {
         const svg = flexRow.find('svg');
         const accordion = flexRow.parents('.accordion');
         const defaultCategory = flexRow.find('p').attr('default-slug');
+        const barFilters = $('.bar-filter');
+        const filterRows = barFilters.find('.flex-row');
         if (flexRow.hasClass('selected')) {
             flexRow.removeClass('selected');
             svg.hide();
             flexRow.find('p').removeClass('color-navy-green');
-            const barFilters = $('.bar-filter');
-            const filterRows = barFilters.find('.flex-row');
             if(!filterRows.hasClass('selected')){
+                category.push(defaultCategory);
                 vacancyAjaxPosts(category);
                 const cat = flexRow.find('p').attr('slug');
                 getVacancyPostsCountAjax(cat, flexRow.find('p'))
@@ -676,6 +678,11 @@ $('.bar-filter').find('.flex-row').click(function (event) {
             if (category.length) {
                 vacancyAjaxPosts(category);
             }
+            filterRows.each((index, item) => {
+                if(!$(item).hasClass('selected')){
+                    getVacancyPostsCountAjax($(item).find('p').attr('slug'), $(item).find('p'))
+                }
+            })
         }
     }
 });
@@ -723,8 +730,9 @@ function vacancyAjaxPosts(category) {
         if(isSelectFilter){
             $('.vacancies-bar .bar-filter .accordion').find('.selected').each((index, item) => {
                 const vacancies = $('.single-vacancy').length;
-                getVacancyPostsCountAjax($(item).find('p').attr('slug'), $(item).find('p'), vacancies)
-            })
+                getVacancyPostsCountAjax($(item).find('p').attr('slug'), $(item).find('p'), vacancies);
+            });
+            isSelectFilter = false;
         }
     });
 }
@@ -1107,7 +1115,6 @@ $(window).on('load', function () {
 
     if (!isPage('privacy-policy') && !isPage('privacy-policy-en')) {
         const blogSideBar = $('.blog-side-bar').find('svg');
-        console.log(blogSideBar.length);
         if (blogSideBar.length) {
             $(blogSideBar).hide();
         }
