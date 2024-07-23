@@ -371,7 +371,7 @@ function codecanal_ajax_request()
 		$category_slug = $_REQUEST['category_slug'];
 		$cat_id = get_cats_by_slug($category_slug);
 		$args = array(
-			'category__in' => $cat_id,
+			'category__and' => $cat_id,
 			'posts_per_page' => -1,
 		);
 
