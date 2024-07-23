@@ -42,7 +42,7 @@ get_header();
                                                 <path d="M8.00065 11.5133L12.1207 13.9999L11.0273 9.31325L14.6673 6.15992L9.87399 5.75325L8.00065 1.33325L6.12732 5.75325L1.33398 6.15992L4.97398 9.31325L3.88065 13.9999L8.00065 11.5133Z" fill="#004D35">
                                                 </path>
                                             </svg>
-                                            <p class="Body color-black  mb12" style="width:100%" data-cursor="active" slug="<?php echo $sub->slug ?>"><?php echo $sub->name ?><span class="posts-count"></span></p>
+                                            <p class="Body color-black  mb12" default-slug="<?php echo $category->slug ?>" style="width:100%" data-cursor="active" slug="<?php echo $sub->slug ?>"><?php echo $sub->name ?> (<span class="posts-count"></span>)</p>
                                         </div>
                                         <?php endforeach; ?>
                                         <div class="toggle"></div>
@@ -50,7 +50,7 @@ get_header();
                                 <div class="overflow-hidden">
                                 <div>
                                     <div class="filter-item selected">
-                                        <p class="Body color-navy-green " slug="<?php echo $cat->slug ?>"><?php echo get_label('Всі', 'All') ?> </p>
+                                        <p class="Body color-navy-green " default-slug="<?php echo $category->slug ?>" slug="<?php echo $cat->slug ?>"><?php echo get_label('Всі', 'All') ?> </p>
                                         <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <circle cx="9.09375" cy="9" r="7" fill="#004D35"></circle>
                                             <path d="M5.85938 9L7.85938 11L11.8594 7" stroke="white" stroke-linecap="round" stroke-linejoin="round">
@@ -59,7 +59,7 @@ get_header();
                                     </div>
                                 <?php foreach($sub_categories as $sub) :  ?>
                                     <div class="filter-item ">
-                                        <p class="Body color-black " slug="<?php echo $sub->slug ?>"><?php echo $sub->name ?><span class="posts-count"></span></p>
+                                        <p class="Body color-black " default-slug="<?php echo $category->slug ?>" slug="<?php echo $sub->slug ?>"><?php echo $sub->name ?> (<span class="posts-count"></span>)</p>
                                         <div class="tick-empty"></div>
                                     </div>
                                 <?php endforeach; ?>
