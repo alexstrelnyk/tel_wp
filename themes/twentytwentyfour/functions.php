@@ -400,9 +400,9 @@ function posts_count_ajax_request()
 	if (isset($_REQUEST['category_slug'])) {
 
 		$category_slug = $_REQUEST['category_slug'];
-		$cat_id = get_category_by_slug($category_slug)->term_id;
+		$cat_id = get_cats_by_slug($category_slug);
 		$args = array(
-			'cat' => $cat_id,
+			'category__and' => $cat_id,
 			'posts_per_page' => -1,
 		);
 
