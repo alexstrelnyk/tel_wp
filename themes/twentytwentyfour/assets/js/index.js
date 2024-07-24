@@ -56,18 +56,19 @@ $(document).ready(function () {
     }
 
     if(isScale){
-        const ratio = isMozilaBrow ? 1 : 1.25;
+        const ratio = 1.25;
         const popupContainer = $('.pum-container');
         popupContainer.each((index, item) => {
             const observer = new MutationObserver(function(){
                 if(item.style.display != 'none'){
                     $(item).css({ 
-                        'top' : `${(window.innerHeight / 2) - (popupContainer.height() / 2)}px`, 
-                        'left' : `${((window.innerWidth / 2) - (popupContainer.width() / 2)) * ratio}px`
-                    })
+                        'top' : `${(window.innerHeight / 2) * ratio - (item.clientHeight / 2)}px`, 
+                        'left' : `${((window.innerWidth / 2) * ratio - (item.clientWidth / 2))}px`
+                    });
+                    return;
                 }
             });
-            observer.observe(item, { attributes: true, childList: true });
+            observer.observe(item, { attributes: true });
         });
     }
 
