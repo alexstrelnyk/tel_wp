@@ -102,12 +102,13 @@ function initCareerPageComponet() {
     initCursor();
 }
 
-function initVacanciesPostsCount() {
-    const vacancies = $('.filter-item, .flex-row');
-    vacancies.each(function (index, item) {
-        const paragraph = $(item).find('p');
-        const slug = $(paragraph).attr('slug');
-        getVacancyPostsCountAjax(slug, paragraph);
+function initVacanciesPostsCount(){
+    const vacanciesFilter = isLargeScreen ? 
+        $('.bar-filter .flex-row .Body') : 
+        $('.bar-filter .overflow-hidden .filter-item .Body');
+    vacanciesFilter.each( function(index, item) {
+        const slug = [$(item).attr('slug')];
+        getVacancyPostsCountAjax(slug, $(item));
     });
 }
 
@@ -649,20 +650,20 @@ $('.bar-filter').find('.flex-row').click(function (event) {
             flexRow.removeClass('selected');
             svg.hide();
             flexRow.find('p').removeClass('color-navy-green');
-            if (!filterRows.hasClass('selected')) {
+            if(!filterRows.hasClass('selected')){
                 category.push(defaultCategory);
                 vacancyAjaxPosts(category);
-                const cat = flexRow.find('p').attr('slug');
-                getVacancyPostsCountAjax(cat, flexRow.find('p'))
+                filterRows.each((index, item) => {
+                    getVacancyPostsCountAjax([$(item).find('.Body').attr('slug')], $(item).find('.Body'));
+                });
             } else {
+                isSelectFilter = true;
                 $('.vacancies-bar .bar-filter .accordion').find('.selected').each((index, item) => {
                     category.push($(item).find('p').attr('slug'));
                 })
                 if (category.length) {
                     vacancyAjaxPosts(category);
                 }
-                const cat = flexRow.find('p').attr('slug');
-                getVacancyPostsCountAjax(cat, flexRow.find('p'))
             }
         } else {
             isSelectFilter = true;
@@ -678,16 +679,11 @@ $('.bar-filter').find('.flex-row').click(function (event) {
             if (category.length) {
                 vacancyAjaxPosts(category);
             }
-            filterRows.each((index, item) => {
-                if (!$(item).hasClass('selected')) {
-                    getVacancyPostsCountAjax($(item).find('p').attr('slug'), $(item).find('p'))
-                }
-            })
         }
     }
 });
 
-function getVacancyPostsCountAjax(category, paragraph, vacancies) {
+function getVacancyPostsCountAjax(category, paragraph){
     $.ajax({
         url: '/wp-admin/admin-ajax.php',
         data: {
@@ -696,7 +692,7 @@ function getVacancyPostsCountAjax(category, paragraph, vacancies) {
         },
         success: function (data) {
             const counter = $(paragraph).find('.posts-count');
-            vacancies ? $(counter).text(`${data - vacancies}`) : $(counter).text(`${data}`);
+            data ? $(counter).text(`${data}`) : $(counter).text(`${0}`);
         },
         error: function (errorThrown) {
             console.log(errorThrown);
@@ -712,11 +708,9 @@ function vacancyAjaxPosts(category) {
             'category_slug': category
         },
         success: function (data) {
-            if (data) {
-                const vacancies = $('.vacancies-list');
-                vacancies.children().remove();
-                vacancies.append(data);
-            }
+            const vacancies = $('.vacancies-list');
+            vacancies.children().remove();
+            vacancies.append(data);
         },
         error: function (errorThrown) {
             console.log(errorThrown);
@@ -727,10 +721,13 @@ function vacancyAjaxPosts(category) {
         });
         window.initDragDrop();
         initCareerPageComponet();
-        if (isSelectFilter) {
-            $('.vacancies-bar .bar-filter .accordion').find('.selected').each((index, item) => {
-                const vacancies = $('.single-vacancy').length;
-                getVacancyPostsCountAjax($(item).find('p').attr('slug'), $(item).find('p'), vacancies);
+        if(isSelectFilter){
+            const filters =  isLargeScreen ? $('.bar-filter .flex-row') : $('.bar-filter .overflow-hidden .filter-item');
+            filters.each((index, item) => {
+                const paragraph = $(item).find('.Body');
+                filteredCategory = category.filter(cat =>  cat !== paragraph.attr('slug'));
+                filteredCategory.push(paragraph.attr('slug'));
+                getVacancyPostsCountAjax(filteredCategory, paragraph);
             });
             isSelectFilter = false;
         }
@@ -1099,7 +1096,6 @@ $('.one-tab').click(function () {
 
 $(window).on('load', function () {
     initCursor();
-
     const blogSideBar = $('.blog-side-bar').find('svg');
     if (blogSideBar.length) {
         $(blogSideBar).hide();
