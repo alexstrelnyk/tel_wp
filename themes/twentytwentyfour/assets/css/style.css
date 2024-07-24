@@ -9548,14 +9548,27 @@ form [type="submit"],
     .blog-view .container .blog-content .H3 {
         padding: 0 32px;
     }
+    .blog-view .container .blog-content .module-container.type-paragraph {
+        margin-bottom: 12px !important;
+    }
+    .blog-view .module-container .Body {
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .module-container-mob {
+        white-space: unset !important;
+    }
+    .blog-view .module-container .H4 {
+        line-height: 38px;
+    }
     .blog-view .container .blog-content .H3 {
         font-size: 30px !important;
-    }
-    .module-container.type-head {
-        margin-top: 0 !important;
+        font-weight: 400;
+        line-height: inherit;
+        padding: 40px 32px 0;
     }
     .blog-view {
-        padding: 30px 0 60px !important;
+        padding: 0 !important;
     }
 }
 @media screen and (min-width:481px) {
