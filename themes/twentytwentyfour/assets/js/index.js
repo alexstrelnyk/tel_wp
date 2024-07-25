@@ -79,6 +79,7 @@ $(document).ready(function () {
         $('#products_swiper, #gallery_swiper, #regions_swiper').find('.swiper-slide').css({ 'flex-shrink': 1 });
         $('#cursor-border').css({ 'display': 'none' });
         $('.vacancies-bar .bar-filter .accordion .flex-row svg').hide();
+        $('.hide-mob').remove();
         $('.pdf-page .flex-col .flex-row').find('.btn').remove();
     }
 
