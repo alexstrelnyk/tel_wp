@@ -55,15 +55,15 @@ $(document).ready(function () {
         $('.bar-filter').find('.flex-row').find('svg').hide();
     }
 
-    if(isScale){
+    if (isScale) {
         const ratio = 1.25;
         const popupContainer = $('.pum-container');
         popupContainer.each((index, item) => {
-            const observer = new MutationObserver(function(){
-                if(item.style.display != 'none'){
-                    $(item).css({ 
-                        'top' : `${(window.innerHeight / 2) * ratio - (item.clientHeight / 2)}px`, 
-                        'left' : `${((window.innerWidth / 2) * ratio - (item.clientWidth / 2))}px`
+            const observer = new MutationObserver(function () {
+                if (item.style.display != 'none') {
+                    $(item).css({
+                        'top': `${(window.innerHeight / 2) * ratio - (item.clientHeight / 2)}px`,
+                        'left': `${((window.innerWidth / 2) * ratio - (item.clientWidth / 2))}px`
                     });
                     return;
                 }
@@ -103,11 +103,11 @@ function initCareerPageComponet() {
     initCursor();
 }
 
-function initVacanciesPostsCount(){
-    const vacanciesFilter = isLargeScreen ? 
-        $('.bar-filter .flex-row .Body') : 
+function initVacanciesPostsCount() {
+    const vacanciesFilter = isLargeScreen ?
+        $('.bar-filter .flex-row .Body') :
         $('.bar-filter .overflow-hidden .filter-item .Body');
-    vacanciesFilter.each( function(index, item) {
+    vacanciesFilter.each(function (index, item) {
         const slug = [$(item).attr('slug')];
         getVacancyPostsCountAjax(slug, $(item));
     });
@@ -651,7 +651,7 @@ $('.bar-filter').find('.flex-row').click(function (event) {
             flexRow.removeClass('selected');
             svg.hide();
             flexRow.find('p').removeClass('color-navy-green');
-            if(!filterRows.hasClass('selected')){
+            if (!filterRows.hasClass('selected')) {
                 category.push(defaultCategory);
                 vacancyAjaxPosts(category);
                 filterRows.each((index, item) => {
@@ -684,7 +684,7 @@ $('.bar-filter').find('.flex-row').click(function (event) {
     }
 });
 
-function getVacancyPostsCountAjax(category, paragraph){
+function getVacancyPostsCountAjax(category, paragraph) {
     $.ajax({
         url: '/wp-admin/admin-ajax.php',
         data: {
@@ -722,11 +722,11 @@ function vacancyAjaxPosts(category) {
         });
         window.initDragDrop();
         initCareerPageComponet();
-        if(isSelectFilter){
-            const filters =  isLargeScreen ? $('.bar-filter .flex-row') : $('.bar-filter .overflow-hidden .filter-item');
+        if (isSelectFilter) {
+            const filters = isLargeScreen ? $('.bar-filter .flex-row') : $('.bar-filter .overflow-hidden .filter-item');
             filters.each((index, item) => {
                 const paragraph = $(item).find('.Body');
-                filteredCategory = category.filter(cat =>  cat !== paragraph.attr('slug'));
+                filteredCategory = category.filter(cat => cat !== paragraph.attr('slug'));
                 filteredCategory.push(paragraph.attr('slug'));
                 getVacancyPostsCountAjax(filteredCategory, paragraph);
             });
@@ -1088,7 +1088,7 @@ $('.one-tab').click(function () {
     $(window).off('scroll');
     $('.blog-side-bar').find('svg').hide();
     $('svg', $(this)).show();
-    $('.charity-tabs .flex-row .Body').attr('class', 'Body color-grey ');
+    $('.charity-tabs .flex-row .Body, .blog-side-bar .flex-row .Body').attr('class', 'Body color-grey ');
     $('.Body', $(this)).attr('class', 'Body color-navy-green');
     setTimeout(() => {
         $(window).on('scroll', setBookmark);
