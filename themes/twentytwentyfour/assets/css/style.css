@@ -9570,6 +9570,48 @@ form [type="submit"],
     .blog-view {
         padding: 0 !important;
     }
+    .pdf-page {
+        padding: 40px 32px 20px !important;
+    }
+    .pdf-page .content .title {
+        margin: 30px 0 !important;
+    }
+    .pdf-page .content .title .H3 {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 28px;
+    }
+    .pdf-page .content .btn-mob {
+        padding: 8px 0 !important;
+        border: none !important;
+    }
+    .pdf-page .content .btn-mob p{
+        font-size: 16px;
+        line-height: 140%;
+        margin-left: 10px;
+    }
+    .pdf-page .content {
+        margin: 0 !important;
+        width: 100% !important;
+    }
+    .pdf-page .content .btn-wrapper-mob {
+        width: auto;
+    }
+    .pdf-page .content .btn-wrapper-mob a .btn-mob.download {
+        background-color: var(--navy-green);
+        padding: 17px 0 !important;
+        width: 100%;
+    }
+    .pdf-page .content .btn-wrapper-mob a .btn-mob.download p {
+        color: #fff;
+        margin-right: 15px;
+    }
+    .pdf-page .content .btn-wrapper-mob a .btn-mob.download svg path {
+        fill: #fff;
+    }
+    #pdf-embed-library {
+        margin-bottom: 30px !important;
+    }
 }
 @media screen and (min-width:481px) {
 

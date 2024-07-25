@@ -53,6 +53,8 @@ $(document).ready(function () {
         $('.industries-slider').css('transform', 'translate(' + cardSliderMargin + 'px, 145px)');
         $('.bar-filter').find('.overflow-hidden').css({ 'display': 'none' });
         $('.bar-filter').find('.flex-row').find('svg').hide();
+        $('.pdf-page .flex-col .flex-row').find('.btn-mob').remove();
+        $('.pdf-page').find('.btn-wrapper-mob').remove();
     }
 
     if (isScale) {
@@ -78,6 +80,7 @@ $(document).ready(function () {
         $('#cursor-border').css({ 'display': 'none' });
         $('.vacancies-bar .bar-filter .accordion .flex-row svg').hide();
         $('.hide-mob').remove();
+        $('.pdf-page .flex-col .flex-row').find('.btn').remove();
     }
 
     $('.pum-title').css({ 'font-family': 'Commissioner' });
@@ -1193,7 +1196,7 @@ function initMobilePlanetsSpinner() {
 
 function renderPDF(pdfUrl) {
     // Get the width of the .flex-col block
-    pdfWidth = $(window).width() * 0.9;
+    pdfWidth = isLargeScreen ? $(window).width() * 0.9 : $(window).width() - 64;
 
     // Load the PDF document with the reference of its file object URL
     var loadingTask = pdfjsLib.getDocument(pdfUrl);
