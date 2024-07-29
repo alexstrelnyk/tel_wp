@@ -90,8 +90,16 @@ $(document).ready(function () {
     initCareerPageComponet();
     initVacanciesPostsCount();
     initMobilePlanetsSpinner();
+    initFocusOnInputs();
 });
 
+function initFocusOnInputs() {
+    $('input[type=text], input[type=email], textarea').focus(function () {
+        $('.Sub2', $(this).parents('.text-input')).attr('class', 'Sub2 color-navy-green');
+    }).blur(function () {
+        $('.Sub2', $(this).parents('.text-input')).attr('class', 'Sub2 color-black');
+    });
+}
 function initCareerPageComponet() {
     initAccordionVacancy();
     initFileUploader();
