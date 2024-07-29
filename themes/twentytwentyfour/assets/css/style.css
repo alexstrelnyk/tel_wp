@@ -7751,13 +7751,16 @@ footer a:hover {
     }
 
     footer .bottom-footer {
-        flex-direction: column;
+        display: block;
         margin-top: 60px
+    }
+    footer .bottom-footer .bottom_block{
+        text-align: center;
     }
 
     footer .bottom-footer svg {
         align-self: flex-start;
-        margin-bottom: 40px;
+        margin-bottom: 36px;
         -webkit-transform: scale(.65) translateX(-26px);
         transform: scale(.65) translateX(-26px)
     }
