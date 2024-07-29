@@ -9515,6 +9515,9 @@ form [type="submit"],
 
 @media screen and (max-width:480px) {
 
+    .industries-mob .industries-slider .industry-card div img {
+        height: auto;
+    }
     #planets_header_desktop,
     #planets_body_desktop {
         display: none;
