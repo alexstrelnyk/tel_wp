@@ -337,7 +337,7 @@ $industries = [
         <div class="industries-slider hsh">
             <div class="flex-row">
                 <?php
-                foreach ($industries as $arr) {
+                foreach (array_merge($industries, $industries) as $arr) {
                     $cls = in_array($arr['img_mob'], [
                         '1657202580458-eM.jpg',
                         '1657202609306-sM.jpg',
