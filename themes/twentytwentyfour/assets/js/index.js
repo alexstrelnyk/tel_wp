@@ -75,12 +75,21 @@ $(document).ready(function () {
     }
 
     if (!isLargeScreen) {
-        $('.wide-gallery-slider').find('img').width('310px').css({ 'object-fit': 'cover' });
         $('#products_swiper, #gallery_swiper, #regions_swiper').find('.swiper-slide').css({ 'flex-shrink': 1 });
         $('#cursor-border').css({ 'display': 'none' });
         $('.vacancies-bar .bar-filter .accordion .flex-row svg').hide();
         $('.hide-mob').remove();
         $('.pdf-page .flex-col .flex-row').find('.btn').remove();
+        $('.wide-gallery-slider').find('img').each((index, item) => {
+            if($(item).attr('alt').includes('Гуманітарна допомога') || $(item).attr('alt').includes('Humanitarian aid')){
+                $(item).attr('src', 'https://wp.telesens.ua/wp-content/uploads/2024/07/5e6bf4f0-58a0-4904-8989-98904225833c-10.png');
+            }
+        });
+        $('.wide-gallery-slider').find('.Body').removeClass('Body').addClass('Button').each((index, item) => {
+            if(isEmpty($(item)))
+                $(item).remove();
+        });
+        $('.wide-gallery-slider').find('.Sub2').removeClass('Sub2').removeClass('mb12').addClass('Body semi-bold mb8'); 
     }
 
     $('.pum-title').css({ 'font-family': 'Commissioner' });
@@ -92,6 +101,10 @@ $(document).ready(function () {
     initMobilePlanetsSpinner();
     initFocusOnInputs();
 });
+
+function isEmpty(el){
+    return !$.trim(el.html());
+}
 
 function initFocusOnInputs() {
     $('input[type=text], input[type=email], textarea').focus(function () {
@@ -807,6 +820,24 @@ function initSlider(selectorId) {
                         const nextSlideHeight = $(event.el).find('.swiper-slide-active')[0].firstChild.offsetHeight;
                         $('.quotes-slider').animate({ height: `${nextSlideHeight + 120}px` }, 100);
                     });
+                }
+            }
+            break;
+        case 'gallery_swiper':
+            if (isHaveSwiper) {
+                if (!isLargeScreen) {
+                    const countCards = $(`#${selectorId}`).find('.swiper-slide').length - 1;
+                    swiper.on('beforeTransitionStart', function (event) {
+                        const currentCardIndex = event.activeIndex;
+                        const slideWidth = $(`#${selectorId}`).find('.swiper-slide')[0].offsetWidth;
+                        const dif = (window.innerWidth - slideWidth) / 2;
+                        if (currentCardIndex === countCards) {
+                            swiper.setTranslate(-slideWidth * currentCardIndex + dif);
+                        } else {
+                            swiper.setTranslate(-slideWidth * currentCardIndex);
+                        }
+
+                    })
                 }
             }
             break;
