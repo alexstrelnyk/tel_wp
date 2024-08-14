@@ -9308,6 +9308,15 @@ footer a:hover {
         -webkit-text-decoration-line: none;
         text-decoration-line: none
     }
+
+    .text-input .letters-counter {
+        bottom: 16px;
+        right: 14px;
+    }
+
+    .pum-title {
+        font-weight: 400 !important;
+    }
 }
 
 .industries {

@@ -55,6 +55,9 @@ $(document).ready(function () {
         $('.bar-filter').find('.flex-row').find('svg').hide();
         $('.pdf-page .flex-col .flex-row').find('.btn-mob').remove();
         $('.pdf-page').find('.btn-wrapper-mob').remove();
+        initSticky('#header-menu', '.menu-button');
+        initSticky('.btn-box', '.btn-joint');
+        initSticky('.pum-close', '.pum-close');
     }
 
     if (isScale) {
@@ -89,7 +92,21 @@ $(document).ready(function () {
             if(isEmpty($(item)))
                 $(item).remove();
         });
-        $('.wide-gallery-slider').find('.Sub2').removeClass('Sub2').removeClass('mb12').addClass('Body semi-bold mb8'); 
+        $('.wide-gallery-slider').find('.Sub2').removeClass('Sub2').removeClass('mb12').addClass('Body semi-bold mb8');
+        const popupContainer = $('.pum-container');
+        popupContainer.each((index, item) => {
+            const observer = new MutationObserver(function () {
+                if (item.style.display != 'none') {
+                    $(item).css({
+                        'width': `${$(window).width() - 32}`,
+                        'top': `${(window.innerHeight / 2) - (item.clientHeight)}px`,
+                        'left': `${((window.innerWidth / 2) - (item.clientWidth / 2))}px`
+                    });
+                    return;
+                }
+            });
+            observer.observe(item, { attributes: true });
+        });
     }
 
     $('.pum-title').css({ 'font-family': 'Commissioner' });
@@ -116,7 +133,9 @@ function initFocusOnInputs() {
 function initCareerPageComponet() {
     initAccordionVacancy();
     initFileUploader();
-    initSticky('.btn-box', '.btn-joint');
+    if (isLargeScreen) {
+        initSticky('.btn-box', '.btn-joint');
+    }
     $('.vacancy-application').each(function () {
         initForm($(this).attr('id'));
         $(this).find('form').on('wpcf7submit', function () {
@@ -926,6 +945,9 @@ function formValidate(selector, fields) {
     if (isValid) {
         $('[type="submit"]', $('#' + selector).parents('form')).click();
         $('#' + selector + ' [type="submit"]').click();
+        if(!selector.includes('subscribe_form') && !isLargeScreen){
+            window.scrollTo({ top: $(`#${selector}`).offset().top });
+        }
     }
 }
 
@@ -946,9 +968,7 @@ function sendAjaxForm(data) {
     });
 }
 
-initSticky('#header-menu', '.menu-button');
-initSticky('.btn-box', '.btn-joint');
-initSticky('.pum-close', '.pum-close');
+
 function initSticky(wrapper, domestic) {
     var selector = $(domestic);
     if (wrapper == '.btn-box') {
@@ -1097,9 +1117,10 @@ function initForm(selector) {
 
 function resizeTextarea(textarea) {
     const { style } = textarea;
+    const diff = isLargeScreen ? 4 : 15;
     style.height = style.minHeight = 'auto';
-    style.minHeight = `${Math.min(textarea.scrollHeight + 4, parseInt(textarea.style.maxHeight))}px`;
-    style.height = `${textarea.scrollHeight + 4}px`;
+    style.minHeight = `${Math.min(textarea.scrollHeight + diff, parseInt(textarea.style.maxHeight))}px`;
+    style.height = `${textarea.scrollHeight + diff}px`;
 }
 
 initForm('contact_us_form');
