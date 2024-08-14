@@ -1234,8 +1234,9 @@ function initMobilePlanetsSpinner() {
 
 
 function renderPDF(pdfUrl) {
+    const ratio = window.devicePixelRatio == 1.25 ? 1.25 : 1;
     // Get the width of the .flex-col block
-    pdfWidth = isLargeScreen ? $(window).width() * 0.9 : $(window).width() - 64;
+    pdfWidth = isLargeScreen ? ($(window).width() * ratio) * 0.9 : $(window).width() - 64;
 
     // Load the PDF document with the reference of its file object URL
     var loadingTask = pdfjsLib.getDocument(pdfUrl);
