@@ -58,6 +58,12 @@ $(document).ready(function () {
         initSticky('#header-menu', '.menu-button');
         initSticky('.btn-box', '.btn-joint');
         initSticky('.pum-close', '.pum-close');
+        $('.services-slider').find('.product-title').each((index, item) => {
+            const text = $(item).find('.mob-link').text();
+            $(item).find('.H2').text(text); 
+            $(item).find('.mob-link').remove();
+            
+        })
     }
 
     if (isScale) {
@@ -107,6 +113,8 @@ $(document).ready(function () {
             });
             observer.observe(item, { attributes: true });
         });
+        $('.services-slider').find('.product-title')[0].style.bottom = '175px';
+        $('.services-slider').find('.product-title')[0].style.left = '-205px';
     }
 
     $('.pum-title').css({ 'font-family': 'Commissioner' });
@@ -798,6 +806,7 @@ function initSlider(selectorId) {
 
     var swiper = new Swiper('#' + selectorId, {
         slidesPerView: 1,
+        touchAngle: 1000,
         mousewheel: {
             releaseOnEdges: true,
             thresholdTime: 1000,
@@ -842,40 +851,24 @@ function initSlider(selectorId) {
                 }
             }
             break;
-        case 'gallery_swiper':
+        default :
             if (isHaveSwiper) {
                 if (!isLargeScreen) {
                     const countCards = $(`#${selectorId}`).find('.swiper-slide').length - 1;
                     swiper.on('beforeTransitionStart', function (event) {
                         const currentCardIndex = event.activeIndex;
                         const slideWidth = $(`#${selectorId}`).find('.swiper-slide')[0].offsetWidth;
-                        const dif = (window.innerWidth - slideWidth) / 2;
+                        const dif = selectorId != 'products_swiper' ? (window.innerWidth - slideWidth) / 2 : 80;
                         if (currentCardIndex === countCards) {
-                            swiper.setTranslate(-slideWidth * currentCardIndex + dif);
+                            swiper.translateTo(-slideWidth * currentCardIndex + dif, 300, false, false);
                         } else {
-                            swiper.setTranslate(-slideWidth * currentCardIndex);
+                            swiper.translateTo(-slideWidth * currentCardIndex, 300, false, false);
                         }
 
                     })
                 }
             }
             break;
-        default:
-            if (isHaveSwiper) {
-                if (!isLargeScreen) {
-                    const cardWidth = 310;
-                    const countCard = $(swiper.el).find('.swiper-slide').length - 1;
-                    swiper.on('beforeTransitionStart', function (event) {
-                        const currentCardIndex = event.activeIndex;
-                        if (currentCardIndex === countCard) {
-                            swiper.setTranslate((-cardWidth * currentCardIndex) + 12);
-                        } else {
-                            swiper.setTranslate(-cardWidth * currentCardIndex);
-                        }
-
-                    })
-                };
-            }
     }
 
 }

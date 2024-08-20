@@ -9701,10 +9701,10 @@ form [type="submit"],
     .services-slider .product-card {
         display: block;
         width: 310px;
-        margin: 170px 0 60px 22px;
+        margin: 170px 16px 92px;
     }
     .services-slider .product-card .product-title {
-        left: -215px;
+        left: -235px;
         bottom: 200px;
         transform: rotate(90deg);
         padding-top: 0;
