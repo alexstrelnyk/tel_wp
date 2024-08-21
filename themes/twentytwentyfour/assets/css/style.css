@@ -12078,6 +12078,10 @@ form [type="submit"],
     .pdf-page-mob .content .pdf .react-pdf__Page {
         margin-bottom: 30px
     }
+
+    html.pum-open.pum-open-overlay.pum-open-scrollable body>:not([aria-modal=true]) {
+        padding: 0 !important;
+    }
 }
 
 body::-webkit-scrollbar {
