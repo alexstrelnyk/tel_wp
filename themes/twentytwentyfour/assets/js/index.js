@@ -1049,11 +1049,12 @@ function initForm(selector) {
                     } else {
                         lettersCounter.text(`${value.length}/2000`);
                     }
+                    resizeTextarea(textarea[0]);
                 }
                 else {
                     lettersCounter.text(`0/2000`);
+                    this.style.height = '98px';
                 }
-                resizeTextarea(textarea[0]);
             });
         }
     }
