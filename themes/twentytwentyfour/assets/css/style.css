@@ -9734,6 +9734,9 @@ form [type="submit"],
 
 @media screen and (min-width:769px) {
 
+    .main-menu .up .main-links {
+        margin: auto 0;
+    }
     .main-menu .up .follow-links.mob-wrap,
     .main-menu .up .page-links.mob-wrap,
     .services-slider .product-card .mob-card-arrow,

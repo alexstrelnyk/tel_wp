@@ -60,9 +60,9 @@ $(document).ready(function () {
         initSticky('.pum-close', '.pum-close');
         $('.services-slider').find('.product-title').each((index, item) => {
             const text = $(item).find('.mob-link').text();
-            $(item).find('.H2').text(text); 
+            $(item).find('.H2').text(text);
             $(item).find('.mob-link').remove();
-            
+
         })
     }
 
@@ -90,12 +90,12 @@ $(document).ready(function () {
         $('.hide-mob').remove();
         $('.pdf-page .flex-col .flex-row').find('.btn').remove();
         $('.wide-gallery-slider').find('img').each((index, item) => {
-            if($(item).attr('alt').includes('Гуманітарна допомога') || $(item).attr('alt').includes('Humanitarian aid')){
+            if ($(item).attr('alt').includes('Гуманітарна допомога') || $(item).attr('alt').includes('Humanitarian aid')) {
                 $(item).attr('src', 'https://wp.telesens.ua/wp-content/uploads/2024/07/5e6bf4f0-58a0-4904-8989-98904225833c-10.png');
             }
         });
         $('.wide-gallery-slider').find('.Body').removeClass('Body').addClass('Button').each((index, item) => {
-            if(isEmpty($(item)))
+            if (isEmpty($(item)))
                 $(item).remove();
         });
         $('.wide-gallery-slider').find('.Sub2').removeClass('Sub2').removeClass('mb12').addClass('Body semi-bold mb8');
@@ -114,7 +114,7 @@ $(document).ready(function () {
             observer.observe(item, { attributes: true });
         });
         const productTitle = $('.services-slider').find('.product-title');
-        if(productTitle.length){
+        if (productTitle.length) {
             productTitle[0].style.bottom = '175px';
             productTitle[0].style.left = '-205px';
         }
@@ -130,7 +130,7 @@ $(document).ready(function () {
     initFocusOnInputs();
 });
 
-function isEmpty(el){
+function isEmpty(el) {
     return !$.trim(el.html());
 }
 
@@ -291,9 +291,11 @@ $('.menu-bar').click(function () {
     if ($('.main-menu').hasClass('visible')) {
         $('.main-menu').removeClass('visible');
         $('#header-menu .menu-check').removeClass('active');
+        $('body').removeAttr('style');
     } else {
         $('.main-menu').addClass('visible');
         $('#header-menu .menu-check').addClass('active');
+        $('body').attr('style', 'overflow: hidden');
     }
 });
 
@@ -854,7 +856,7 @@ function initSlider(selectorId) {
                 }
             }
             break;
-        default :
+        default:
             if (isHaveSwiper) {
                 if (!isLargeScreen) {
                     const countCards = $(`#${selectorId}`).find('.swiper-slide').length - 1;
@@ -941,7 +943,7 @@ function formValidate(selector, fields) {
     if (isValid) {
         $('[type="submit"]', $('#' + selector).parents('form')).click();
         $('#' + selector + ' [type="submit"]').click();
-        if(!selector.includes('subscribe_form') && !isLargeScreen){
+        if (!selector.includes('subscribe_form') && !isLargeScreen) {
             window.scrollTo({ top: $(`#${selector}`).offset().top });
         }
     }
