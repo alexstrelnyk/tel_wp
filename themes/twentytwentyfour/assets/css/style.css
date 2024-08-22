@@ -10735,18 +10735,8 @@ form [type="submit"],
         margin-bottom: 40px
     }
 
-    .vacancies-root .container .vacancies-bar .bar-filter .accordion {
-        align-items: center;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 16px
-    }
-
     .vacancies-root .container .vacancies-bar .bar-filter .accordion .toggle {
-        height: 24px;
-        position: relative;
-        width: 24px
+        display: none;
     }
 
     .vacancies-root .container .vacancies-bar .bar-filter .accordion .toggle:after,
@@ -10960,10 +10950,6 @@ form [type="submit"],
     .vacancies-root .container .vacancies-bar .bar-filter {
         border-bottom: initial;
         margin-bottom: 20px
-    }
-
-    .vacancies-root .container .vacancies-bar .bar-filter .accordion {
-        padding: 24px 0
     }
 
     .vacancies-root .container .vacancies-bar .bar-filter .accordion .toggle {
