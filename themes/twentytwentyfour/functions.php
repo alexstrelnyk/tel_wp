@@ -14,8 +14,6 @@
 $category_order = [
 	get_label('telecom-solution', 'telecom-solutions-en'),
 	get_label('services', 'services-en'),
-	get_label('qa-services', 'qa-services-en'),
-	get_label('pm-ba-departament', 'pm-ba-office'),
 ];
 
 /**
@@ -24,7 +22,7 @@ $category_order = [
 
 if (!function_exists('twentytwentyfour_block_styles')) :
 	/**
-	 * Register custom block styles
+	 * Register custom block stylesÏ
 	 *
 	 * @since Twenty Twenty-Four 1.0
 	 * @return void
