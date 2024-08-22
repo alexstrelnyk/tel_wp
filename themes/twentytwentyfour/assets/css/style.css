@@ -9629,6 +9629,10 @@ form [type="submit"],
         margin-bottom: 30px !important;
     }
 }
+
+.main-menu .up .main-links {
+    margin: auto 0;
+}
 @media screen and (min-width:481px) {
 
     #planets_mobile {
@@ -9734,9 +9738,6 @@ form [type="submit"],
 
 @media screen and (min-width:769px) {
 
-    .main-menu .up .main-links {
-        margin: auto 0;
-    }
     .main-menu .up .follow-links.mob-wrap,
     .main-menu .up .page-links.mob-wrap,
     .services-slider .product-card .mob-card-arrow,
