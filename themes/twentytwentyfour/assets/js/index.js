@@ -1236,19 +1236,27 @@ $(window).on('load', function () {
 // }, 500);
 
 function initMobilePlanetsSpinner() {
-    var currentRotation = 0;
+    const partners = $('#planets_mobile .partners');
     const hinge = $('#planets_mobile .hinge');
-    var move = 4;
-    $('.partners-mob').on('wheel', function (event) {
-        // var pos = $('#planets_mobile .partner').eq(0).offset();
-        // var top = pos.top;
-        if (event.originalEvent.deltaY > 0) {
-            currentRotation += move;
-        } else {
-            currentRotation -= move;
+    const len = $('#planets_mobile .partner').length - 2;
+    $(window).on('scroll', () => {
+        if(partners.length){
+            partners.scrollTop(400);
         }
-
-        hinge.attr('style', 'transform: rotate(' + currentRotation + 'deg)');
+        $(window).off('scroll');
+    })
+    console.log(partners[0].scrollTop);
+    partners.on('scroll', function (e) {
+        const slideHeight = $('#planets_mobile .partner')[0].offsetHeight;
+        hinge.css({ 'transform': `rotate(${(e.target.scrollTop / slideHeight) * 90}deg)`});
+        
+        if (e.target.scrollTop / slideHeight === len + 1) {
+            e.target.scrollTop = slideHeight;
+        } else if (e.target.scrollTop === 0) {
+            e.target.scrollTop = len * slideHeight;
+        } else if (e.target.scrollTop !== slideHeight) {
+            $('#planets_mobile .Overline')[0].style.opacity = 0;
+        }
     });
 }
 
