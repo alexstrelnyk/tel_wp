@@ -1245,7 +1245,6 @@ function initMobilePlanetsSpinner() {
         }
         $(window).off('scroll');
     })
-    console.log(partners[0].scrollTop);
     partners.on('scroll', function (e) {
         const slideHeight = $('#planets_mobile .partner')[0].offsetHeight;
         hinge.css({ 'transform': `rotate(${(e.target.scrollTop / slideHeight) * 90}deg)`});
