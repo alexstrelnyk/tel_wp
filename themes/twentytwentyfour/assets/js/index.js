@@ -856,6 +856,47 @@ function initSlider(selectorId) {
                 }
             }
             break;
+        case 'gallery_swiper':
+            if (isHaveSwiper) {
+                if (!isLargeScreen) {
+                    swiper.detachEvents();
+                    let pressed = false,
+                        startX = 0,
+                        posX = 0,
+                        initX = -1,
+                        len = 0,
+                        slideWidth = 0;
+                    $('.swiper-wrapper').on('touchstart', function(event) {
+                        len = $(this).children().length;
+                        slideWidth = $(this).children()[0].offsetWidth;
+                        this.style.transition = "none";
+                        window.addEventListener("touchend", touchEndSwiper, { once: true });
+                        let positionX = this.getBoundingClientRect().x;
+                        pressed = true;
+                        initX = event.originalEvent.changedTouches[0].pageX;
+                        posX = positionX;
+                        startX = positionX - event.originalEvent.changedTouches[0].pageX;
+                        $(this).on('touchmove', function(event) {
+                            if (pressed) {
+                                this.style.transform = `translateX(${startX + event.originalEvent.changedTouches[0].pageX}px)`;    
+                            }
+                        })
+                    })
+                    function touchEndSwiper(event){
+                        if (pressed) {
+                            pressed = false;
+                            const currentTransate = $('.swiper-wrapper').css("transform").split(",")[4].trim();
+                            const offset = Math.abs(event.changedTouches[0].pageX - initX) > 50 ? Math.sign(event.changedTouches[0].pageX - initX) : 0;
+                            const dir = Math.floor(currentTransate / slideWidth) + offset;
+                            const isLast = -len + 1 >= dir;
+                            const padding = isLast ? 16 : 0;
+                            $('.swiper-wrapper')[0].style.transition = "transform 0.3s ease-out";
+                            $('.swiper-wrapper')[0].style.transform = `translateX(${(clamp(dir, -len + 1, 0) * slideWidth) + padding}px)`;
+                        }
+                    }
+                }
+            }
+            break;    
         default:
             if (isHaveSwiper) {
                 if (!isLargeScreen) {
