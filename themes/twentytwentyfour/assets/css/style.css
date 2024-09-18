@@ -4460,12 +4460,47 @@ form [type="file"] {
 }
 
 @media(max-width:480px) {
+
+    .quotes .quotes-slider .quote-container {
+        display: block;
+        width: 100vw;
+        height: auto;
+    }
+
     .quotes-mob-wrapper .quotes-mob {
         margin-bottom: 65px
     }
 
     .quotes-mob-wrapper.hint:after {
         bottom: 55px
+    }
+
+    .quotes .hint {
+        display: block !important;
+        bottom: 55px;
+        color: var(--just-grey);
+        content: attr(data-hint);
+        font-family: var(--font);
+        font-size: 10px;
+        font-style: italic;
+        font-weight: 400;
+        left: 32px;
+        line-height: 140%;
+        opacity: .3;
+        position: absolute;
+        z-index: 1;
+    }
+
+    .quotes .quotes-slider .quote-container .single-quote .title {
+        margin-bottom: 30px
+    }
+
+    .quotes .quotes-slider {
+        display: flex;
+        -webkit-transform: translateX(0);
+        transition: height 1s ease-in-out 0.5s, transform 0.3s ease-out 0s;
+        transform: translateX(0);
+        margin-bottom: 65px;
     }
 }
 
@@ -9546,14 +9581,14 @@ form [type="submit"],
         font-size: 24px;
         font-weight: 700;
         line-height: 28px;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
     .quote-container .single-quote .Body {
         font-size: 14px;
         margin-bottom: 10px;
     }
     .quote-container .single-quote .Body2 {
-        font-size: 13px;
+        font-size: 12px;
         line-height: 17px;
     }
     .wide-gallery-root .wide-gallery-slider .wide-gallery-card,
@@ -12231,4 +12266,8 @@ span.wpcf7-not-valid-tip { display: none; }
 .dnd-upload-counter {
     display: none!important;
     white-space: unset;
+}
+
+.quotes .hint {
+    display: none;
 }
