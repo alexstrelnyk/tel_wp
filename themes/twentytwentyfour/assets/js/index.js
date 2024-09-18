@@ -428,15 +428,17 @@ $('.interaction-box').click(function () {
 
 $('.value-card').hover(function () {
     $(this).css({ transition: "all 1s ease-out", transform: 'rotateY(0deg)  rotateX(0deg)  translateZ(1px)' });
-    $(this).mousemove(({ clientX, clientY }) => {
-        const { x, y, width, height } = this.getBoundingClientRect();
-        let isMozila = typeof InstallTrigger !== 'undefined';
-        const ratio = window.devicePixelRatio === 1.25 && !isMozila ? 1.25 : 1;
-        const ax = (x + width / 2 - clientX * ratio) / 10;
-        const ay = (y + height / 2 - clientY) / 20;
-        this.style.transition = "none";
-        this.style.transform = `rotateY(${-ax}deg) rotateX(${ay}deg) translateZ(10px) scale(1.05)`;
-    })
+    if(isLargeScreen){
+        $(this).mousemove(({ clientX, clientY }) => {
+            const { x, y, width, height } = this.getBoundingClientRect();
+            let isMozila = typeof InstallTrigger !== 'undefined';
+            const ratio = window.devicePixelRatio === 1.25 && !isMozila ? 1.25 : 1;
+            const ax = (x + width / 2 - clientX * ratio) / 10;
+            const ay = (y + height / 2 - clientY) / 20;
+            this.style.transition = "none";
+            this.style.transform = `rotateY(${-ax}deg) rotateX(${ay}deg) translateZ(10px) scale(1.05)`;
+        })
+    }
 }).mouseleave(() => { $(this).off('mousemove') });
 
 $('.interaction-box').hover(function () {
@@ -847,11 +849,16 @@ function initSlider(selectorId) {
                             }
                         });
                     })
-                } else {
-                    $(`#${selectorId}`).off('mousedown mousemove mouseup');
+                } 
+                else {
                     swiper.on('beforeTransitionStart', function (event) {
                         const nextSlideHeight = $(event.el).find('.swiper-slide-active')[0].firstChild.offsetHeight;
-                        $('.quotes-slider').animate({ height: `${nextSlideHeight + 120}px` }, 100);
+                        $(`#${selectorId} .swiper-wrapper`).css({ height: `${nextSlideHeight + 120}px` });
+                        const parent = $(`#${selectorId} .swiper-wrapper`).parents('.swiper');
+                        const hint = parent.find('.hint');
+                        if(event.activeIndex > 0 && hint.length){
+                            hint.remove();
+                        }
                     });
                 }
             }
@@ -866,7 +873,7 @@ function initSlider(selectorId) {
                         initX = -1,
                         len = 0,
                         slideWidth = 0;
-                    $('.swiper-wrapper').on('touchstart', function(event) {
+                    $(`#${selectorId} .swiper-wrapper`).on('touchstart', function(event) {
                         len = $(this).children().length;
                         slideWidth = $(this).children()[0].offsetWidth;
                         this.style.transition = "none";
@@ -885,13 +892,13 @@ function initSlider(selectorId) {
                     function touchEndSwiper(event){
                         if (pressed) {
                             pressed = false;
-                            const currentTransate = $('.swiper-wrapper').css("transform").split(",")[4].trim();
+                            const currentTransate = $(`#${selectorId} .swiper-wrapper`).css("transform").split(",")[4].trim();
                             const offset = Math.abs(event.changedTouches[0].pageX - initX) > 50 ? Math.sign(event.changedTouches[0].pageX - initX) : 0;
                             const dir = Math.floor(currentTransate / slideWidth) + offset;
                             const isLast = -len + 1 >= dir;
                             const padding = isLast ? 16 : 0;
-                            $('.swiper-wrapper')[0].style.transition = "transform 0.3s ease-out";
-                            $('.swiper-wrapper')[0].style.transform = `translateX(${(clamp(dir, -len + 1, 0) * slideWidth) + padding}px)`;
+                            $(`#${selectorId} .swiper-wrapper`)[0].style.transition = "transform 0.3s ease-out";
+                            $(`#${selectorId} .swiper-wrapper`)[0].style.transform = `translateX(${(clamp(dir, -len + 1, 0) * slideWidth) + padding}px)`;
                         }
                     }
                 }
@@ -1280,11 +1287,10 @@ function initMobilePlanetsSpinner() {
     const partners = $('#planets_mobile .partners');
     const hinge = $('#planets_mobile .hinge');
     const len = $('#planets_mobile .partner').length - 2;
-    $(window).on('scroll', () => {
+    $(window).on('load', () => {
         if(partners.length){
             partners.scrollTop(400);
         }
-        $(window).off('scroll');
     })
     partners.on('scroll', function (e) {
         const slideHeight = $('#planets_mobile .partner')[0].offsetHeight;

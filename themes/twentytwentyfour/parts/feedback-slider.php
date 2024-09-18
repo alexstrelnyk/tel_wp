@@ -25,6 +25,7 @@
                 }
                 ?>
             </div>
+            <div class="hint"><?php echo get_label('Ви можете гортати цей розділ','You can swipe this section')?></div>
         </div>
     </div>
 </section>
