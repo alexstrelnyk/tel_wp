@@ -44,7 +44,7 @@ if (!in_array(get_page_slug(), ['about-us', 'about-us-en'])) {
                 $menu_object = wp_get_nav_menu_object('planets');
                 $posts = wp_get_nav_menu_items($menu_object->term_id);
                 $line = 0;
-                $offset = 1;
+                $offset = 0;
                 foreach ($posts as $key => $value) {
                     $pos = $key + 1;
                     if (get_post_meta($value->ID, '_menu_item_type', true) == 'custom') {
@@ -58,12 +58,13 @@ if (!in_array(get_page_slug(), ['about-us', 'about-us-en'])) {
                 ?>
                         <div class="partner dynamic pos-<?php echo $pos ?> line-<?php echo $line ?> offset-<?php echo $offset ?>" data-cursor="active"><a <?php echo $href ?> target="_blank" rel="noopener noreferrer"><img loading="lazy" src="<?php echo $image ?>" alt=""></a></div>
                 <?php
-                        if (($key + 1) % 5 == 0) {
+                        $offset++;
+                        if ($offset == 10) {
                             $offset = 0;
                         }
-                        $offset++;
-                        if (($key + 1) % 3 == 0) {
-                            $line++;
+                        $line++;
+                        if ($line == 7) {
+                            $line = 0;
                         }
                     }
                 }
@@ -125,14 +126,17 @@ if (!in_array(get_page_slug(), ['about-us', 'about-us-en'])) {
                 <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/2f0189f7-33a6-4557-8330-58a1f664813dimage 74.png" alt=""></div>
                 <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/5124694f-6725-45da-9767-e7e7dbea0e11image 77.png" alt=""></div>
                 <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/9fece58a-8056-471e-bb7f-20861e07ae94image 78.png" alt=""></div>
-                <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/ericsson_logo.png" alt=""></div>
+                <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/lifecell_logo.png" alt=""></div>
+                <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1676030146193-an.png" alt=""></div>
                 <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/7eb376cf-ee3b-460e-8c62-4b2d1e3df4c1image 81.png" alt=""></div>
                 <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/a850870d-ec7c-43ce-97cc-f6cfbfd171c3image 83.png" alt=""></div>
                 <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/c8ba895e-0c1d-4f92-930e-8545b6881855image 84.png" alt=""></div>
                 <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1676276950561-go.png" alt=""></div>
-                <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/lifecell_logo.png" alt=""></div>
+                <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/nokia_logo.png" alt=""></div>
                 <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/adcbf938-e6ef-4a57-82d1-7f98dc2faeceimage 79.png" alt=""></div>
                 <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/velton_logo.png" alt=""></div>
+                <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/ericsson_logo.png" alt=""></div>
+                <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1719995490897-m2.svg" alt=""></div>
                 <div class="partner last-partner"><img src="/wp-content/themes/twentytwentyfour/assets/images/1676384661951-l1.png" alt=""></div>
             </div>
         </div>
