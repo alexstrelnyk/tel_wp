@@ -44,7 +44,7 @@ if (!in_array(get_page_slug(), ['about-us', 'about-us-en'])) {
                 $menu_object = wp_get_nav_menu_object('planets');
                 $posts = wp_get_nav_menu_items($menu_object->term_id);
                 $line = 0;
-                $offset = 1;
+                $offset = 0;
                 foreach ($posts as $key => $value) {
                     $pos = $key + 1;
                     if (get_post_meta($value->ID, '_menu_item_type', true) == 'custom') {
@@ -58,30 +58,14 @@ if (!in_array(get_page_slug(), ['about-us', 'about-us-en'])) {
                 ?>
                         <div class="partner dynamic pos-<?php echo $pos ?> line-<?php echo $line ?> offset-<?php echo $offset ?>" data-cursor="active"><a <?php echo $href ?> target="_blank" rel="noopener noreferrer"><img loading="lazy" src="<?php echo $image ?>" alt=""></a></div>
                 <?php
-                        if (($key + 1) % 5 == 0) {
+                        $offset++;
+                        if ($offset == 10) {
                             $offset = 0;
                         }
-                        $offset++;
-                        switch($pos){
-                            case 3 :
-                                $line = 1;
-                                break;
-                            case 6:
-                                $line = 2;
-                                break;
-                            case 8:
-                                $line = 3;
-                                break;
-                            case 10:
-                                $line = 4;
-                                break;
-                            case 12:
-                                $line = 5;
-                                break;
+                        $line++;
+                        if ($line == 7) {
+                            $line = 0;
                         }
-                        // if (($key + 1) % 3 == 0) {
-                        //     $line++;
-                        // }
                     }
                 }
                 ?>
