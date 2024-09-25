@@ -178,6 +178,7 @@ function initFileUploader() {
         $(item).children('p').click(function (event) {
             if (!$(event.target).hasClass('uploader') && !$(event.target).hasClass('dnd-icon-remove')) {
                 $(item).find('.uploader').click();
+                $(item).find('.uploader')[0].value = null;
             }
         });
         $(item).find('.codedropz-upload-handler').add('.uploader').on('drop change click', function (event) {
@@ -231,9 +232,11 @@ function statusMutationHandler(mutationRecord) {
                 $(fileWrapper).find(`#${uploadStatus.attr('id')}_`).click(function (event) {
                     const buttonDelete = $(`#${uploadStatus.attr('id')}`);
                     buttonDelete.find('.dnd-icon-remove').trigger('click');
-                    setTimeout(() => {
+                    const observer = new MutationObserver(() => {
                         $(event.target).parents('.single-file').remove();
-                    }, 1500);
+                    });
+                    const parent = buttonDelete.parents('.codedropz-upload-wrapper')[0];
+                    observer.observe(parent, { childList: true });
                     if (container.find('.dnd-upload-status').length <= 3) {
                         container.find('.dropzone').removeClass('disabled');
                         $('.uploader').removeAttr('disabled');
