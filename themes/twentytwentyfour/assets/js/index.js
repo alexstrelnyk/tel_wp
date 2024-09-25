@@ -174,6 +174,9 @@ function initFileUploader() {
         const containerUploads = $(item).find('.container-uploads');
         $(item).find('.container-uploads').remove();
         $(item).find('.codedropz-btn-wrap').append(containerUploads);
+        if(!isLargeScreen && containerUploads.length){
+            containerUploads.find('.Cap.mb16').removeClass('Cap').text('');
+        }
         $(item).find('a').remove();
         $(item).children('p').click(function (event) {
             if (!$(event.target).hasClass('uploader') && !$(event.target).hasClass('dnd-icon-remove')) {
@@ -224,7 +227,10 @@ function statusMutationHandler(mutationRecord) {
             const container = $(mutation.target).parents('.text-input');
             const fileWrapper = container.find('.file-wrapper');
             if ($(uploadStatus).hasClass('complete')) {
-                const fileName = uploadStatus.find('.name').find('span').text();
+                let fileName = uploadStatus.find('.name').find('span').text();
+                if (!isLargeScreen && fileName.length > 30) {
+                    fileName = fileName.slice(0, 10) + '.....' + fileName.slice(fileName.length - 10, fileName.length);
+                }
                 $(fileWrapper).append(
                     '<div class="flex row gap12 single-file"><svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 0C0.9 0 0.0100002 0.9 0.0100002 2L0 18C0 19.1 0.89 20 1.99 20H14C15.1 20 16 19.1 16 18V6L10 0H2ZM9 7V1.5L14.5 7H9Z" fill="#AFBCBA"></path></svg><p class="Body2 color-navy-green f2 file-label">' +
                     fileName + `</p><div class="f1"><div id='${uploadStatus.attr('id')}_' data-cursor="active" class="delete-button"></div></div></div>`);

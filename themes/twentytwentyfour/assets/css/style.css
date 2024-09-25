@@ -9309,6 +9309,10 @@ footer a:hover {
 }
 
 @media(max-width:480px) {
+    .dropzone {
+        padding: 25px 16px;
+    }
+
     .dropzone:hover {
         background-color: var(--soft-blue) !important
     }
@@ -9324,6 +9328,20 @@ footer a:hover {
 
     .dropzone-description {
         flex-direction: column
+    }
+
+    .codedropz-upload-container {
+        padding: 0 !important;
+    }
+
+    .container-uploads {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container-uploads .flex-row .Small-11 {
+        text-align: left;
     }
 
     .text-input .Sub2 {
