@@ -184,7 +184,7 @@ function initFileUploader() {
                 $(item).find('.uploader')[0].value = null;
             }
         });
-        $(item).find('.codedropz-upload-handler').add('.uploader').on('drop change click', function (event) {
+        $(item).find('.codedropz-upload-handler').add('.uploader').on('drop change', function (event) {
             const errorText = window.location.href.includes('/en/') ? 'Some file isn’t matched of requirements' : 'Файл не відповідає вимогам';
             const uploadStatus = $(item).find('.dnd-upload-status');
             if ($(item).find('.dropzone-error').length) {
