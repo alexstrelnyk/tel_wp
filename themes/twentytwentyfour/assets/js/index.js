@@ -624,11 +624,12 @@ function initAccordionVacancy() {
             vacancyHeight = $('.single-desc div:eq(0)', sv).height();
             const list = sv.parents('.vacancies-list');
             const openedVacancies = list.find('.collapse');
+            const padding = openedVacancies.find('.accordion').css('padding-top')?.replace('px','');
             const isPrevChildCollapse = sv.prevAll('.single-vacancy').hasClass('collapse');
             const vacancyApply = $(openedVacancies).find('.vacancy-application.apply');
             const vacancyApplyHeight = !!vacancyApply.length ? $(vacancyApply)[0].offsetHeight : 0;
             const isNeedCalcOffset = sv.is(':first-child') || !isPrevChildCollapse;
-            const scroll = isNeedCalcOffset ? sv[0].offsetTop : sv[0].offsetTop - vacancyHeight - vacancyApplyHeight;
+            const scroll = isNeedCalcOffset ? sv[0].offsetTop : sv[0].offsetTop - vacancyHeight - vacancyApplyHeight - Number(padding);
             openedVacancies.find('.accordion').trigger('click');
             sv.addClass('collapse');
             $('.single-desc', sv).css({ 'overflow-y': 'initial', 'height': vacancyHeight + 'px' });
