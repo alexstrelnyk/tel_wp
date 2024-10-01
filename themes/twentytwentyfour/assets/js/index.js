@@ -1115,7 +1115,7 @@ function initForm(selector) {
                 }
                 else {
                     lettersCounter.text(`0/2000`);
-                    this.style.height = '98px';
+                    this.style.height = isLargeScreen ? '116px' : '98px';
                 }
             });
         }
@@ -1178,7 +1178,7 @@ function initForm(selector) {
 
 function resizeTextarea(textarea) {
     const { style } = textarea;
-    const diff = isLargeScreen ? 4 : 15;
+    const diff = 15;
     style.height = style.minHeight = 'auto';
     style.minHeight = `${Math.min(textarea.scrollHeight + diff, parseInt(textarea.style.maxHeight))}px`;
     style.height = `${textarea.scrollHeight + diff}px`;
