@@ -12289,3 +12289,7 @@ span.wpcf7-not-valid-tip { display: none; }
 .quotes .hint {
     display: none;
 }
+
+.pum {
+    overflow: hidden !important;
+}
