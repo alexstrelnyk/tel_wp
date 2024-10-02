@@ -36,6 +36,9 @@ get_header();
                             <?php  $sub_categories = get_categories(array('parent' => $cat->term_id));
                             if($sub_categories){ ?>
                                     <div class="accordion" onClick="accordionClick(this)">
+                                        <div class="flex-row mob-selected">
+                                            <p class="Body color-navy-green"  default-slug="<?php echo $category->slug ?>" slug="<?php echo $cat->slug ?>">Всі (<span class="posts-count"></span>)</p>
+                                        </div>
                                         <?php foreach($sub_categories as $sub) :  ?>
                                         <div class="flex-row">
                                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin: 3px 4px;">
@@ -50,7 +53,7 @@ get_header();
                                 <div class="overflow-hidden">
                                 <div>
                                     <div class="filter-item selected">
-                                        <p class="Body color-navy-green " default-slug="<?php echo $category->slug ?>" slug="<?php echo $cat->slug ?>"><?php echo get_label('Всі', 'All') ?> </p>
+                                        <p class="Body color-navy-green " is-all="true" default-slug="<?php echo $category->slug ?>" slug="<?php echo $cat->slug ?>"><?php echo get_label('Всі', 'All') ?> (<span class="posts-count"></span>)</p>
                                         <svg width="19" height="18" viewBox="0 0 19 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <circle cx="9.09375" cy="9" r="7" fill="#004D35"></circle>
                                             <path d="M5.85938 9L7.85938 11L11.8594 7" stroke="white" stroke-linecap="round" stroke-linejoin="round">

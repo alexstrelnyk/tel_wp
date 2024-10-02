@@ -87,6 +87,7 @@ $(document).ready(function () {
         $('#products_swiper, #gallery_swiper, #regions_swiper').find('.swiper-slide').css({ 'flex-shrink': 1 });
         $('#cursor-border').css({ 'display': 'none' });
         $('.vacancies-bar .bar-filter .accordion .flex-row svg').hide();
+        $('.vacancies-bar .bar-filter .accordion .flex-row').find('.Body').removeClass('mb12').removeClass('color-black').addClass('color-navy-green');
         $('.hide-mob').remove();
         $('.pdf-page .flex-col .flex-row').find('.btn').remove();
         $('.wide-gallery-slider').find('img').each((index, item) => {
@@ -142,6 +143,10 @@ function initFocusOnInputs() {
     });
 }
 function initCareerPageComponet() {
+    if (!isLargeScreen) {
+        $('.vacancies-list .single-desc .mb32').removeClass('mb32').addClass('mb24');
+        $('.vacancies-list .single-desc .Sub2.color-navy-green.mb12').removeClass('mb12').addClass('mb8');
+    }
     initAccordionVacancy();
     initFileUploader();
     if (isLargeScreen) {
@@ -165,6 +170,18 @@ function initVacanciesPostsCount() {
     vacanciesFilter.each(function (index, item) {
         const slug = [$(item).attr('slug')];
         getVacancyPostsCountAjax(slug, $(item));
+    });
+    $('.bar-filter .accordion .flex-row').each((index, item) => {
+        if(isLargeScreen && $(item).hasClass('mob-selected')){
+            $(item).remove();
+        }
+        if(!isLargeScreen && !$(item).hasClass('mob-selected')){
+            $(item).remove();
+        }
+        if(!isLargeScreen && $(item).hasClass('mob-selected')){
+            const slug = [$(item).find('p').attr('slug')];
+            getVacancyPostsCountAjax(slug, $(item));
+        }
     });
 }
 
@@ -641,14 +658,15 @@ function initAccordionVacancy() {
     $('.vacancies-root .single-vacancy .apply-btn').click(function (e) {
         var va = $('.vacancy-application', $(this).parents('.single-desc'));
         let vacancyHeight = 0;
+        const space = isLargeScreen ? 60 : 80;
         if ($(this).hasClass('apply')) {
-            vacancyHeight = va.parents('.single-desc div:eq(0)').height() - va.height() - 50;
+            vacancyHeight = va.parents('.single-desc div:eq(0)').height() - va.height() - space;
             $(this).removeClass('apply');
             va.removeClass('apply');
             $(this).parents('.single-desc').css({ 'overflow-y': 'initial', 'height': vacancyHeight + 'px' });
         } else {
             initCursor();
-            vacancyHeight = va.parents('.single-desc div:eq(0)').height() + va.height() + 50;
+            vacancyHeight = va.parents('.single-desc div:eq(0)').height() + va.height() + space;
             localStorage.setItem(`${va.attr('id')}`, va.height());
             $(this).addClass('apply');
             va.addClass('apply');
@@ -663,8 +681,7 @@ function initAccordionVacancy() {
 
     function resizeSingleDesc(event) {
         if ($(event[0].target).hasClass('apply')) {
-            const prevHeight = localStorage.getItem(`${$(event[0].target).attr('id')}`);
-            const height = $(event[0].target).parents('.single-desc div:eq(0)').height() - (Number(prevHeight) - event[0].contentRect.height);
+            const height = $(event[0].target).parents('.single-desc div:eq(0)').height() - 20;
             $(event[0].target).parents('.single-desc').css({ 'overflow-y': 'initial', 'height': height + 'px' })
         }
     }
@@ -698,12 +715,14 @@ function accordionClick(element) {
                 $(this).append(svg);
                 $(this).find('.tick-empty').remove();
                 $(this).addClass('selected');
-                accordion.find('p').text($(this).find('p').text());
+                const text = $(this).find('p').text();
+                accordion.find('p').text(text);
                 let category = [];
                 $('.vacancies-bar .bar-filter .overflow-hidden').find('.selected').each((index, item) => {
                     category.push($(item).find('p').attr('slug'));
                 });
                 vacancyAjaxPosts(category);
+                isSelectFilter = true;
             })
 
         }
@@ -798,10 +817,12 @@ function vacancyAjaxPosts(category) {
         if (isSelectFilter) {
             const filters = isLargeScreen ? $('.bar-filter .flex-row') : $('.bar-filter .overflow-hidden .filter-item');
             filters.each((index, item) => {
-                const paragraph = $(item).find('.Body');
-                filteredCategory = category.filter(cat => cat !== paragraph.attr('slug'));
-                filteredCategory.push(paragraph.attr('slug'));
-                getVacancyPostsCountAjax(filteredCategory, paragraph);
+                if(!$(item).find('p').attr('is-all')){
+                    const paragraph = $(item).find('.Body');
+                    filteredCategory = category.filter(cat => cat !== paragraph.attr('slug'));
+                    filteredCategory.push(paragraph.attr('slug'));
+                    getVacancyPostsCountAjax(filteredCategory, paragraph);
+                }
             });
             isSelectFilter = false;
         }
@@ -1005,7 +1026,7 @@ function formValidate(selector, fields) {
     if (isValid) {
         $('[type="submit"]', $('#' + selector).parents('form')).click();
         $('#' + selector + ' [type="submit"]').click();
-        if (!selector.includes('subscribe_form') && !isLargeScreen) {
+        if (selector.includes('contact_us_form') && !isLargeScreen) {
             window.scrollTo({ top: $(`#${selector}`).offset().top });
         }
     }
