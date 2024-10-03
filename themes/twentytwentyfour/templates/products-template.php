@@ -44,7 +44,7 @@ $t2 = get_label('НАШІ ПРОДУКТИ ТА ПОСЛУГИ', 'OUR PRODUCTS A
                             </div>
                             <div class="desc">
                                 <div class="main"><a href="#"><?php echo $category->name ?></a></div>
-                                <div><a href="#"><?php echo $category->name ?> <?php echo $category->name ?> <?php echo $category->name ?></a></div>
+                                <div><a href="#"><?php echo $category->name ?></a></div>
                             </div>
                         </div>
                 <?php
