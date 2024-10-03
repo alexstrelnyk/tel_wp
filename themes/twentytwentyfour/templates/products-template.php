@@ -12,49 +12,45 @@ $t2 = get_label('НАШІ ПРОДУКТИ ТА ПОСЛУГИ', 'OUR PRODUCTS A
 <section id=":r17:" class="width-wrapper">
     <div class="services-tree">
         <div class="flex-col sub_parent_0">
-            <div id="cards-tree-mob" class="bg-midnight-blue shelf-content-mob">
-                <p class="Cap color-white medium mb6"><?php echo $t2 ?></p>
-                <p class="H-mob color-white  mb32"><?php echo $t1 ?></p>
+            <div id="cards-tree-mob" class=" shelf-content-mob">
+                <p class="Cap color-black medium mb6"><?php echo $t2 ?></p>
+                <p class="H-mob color-black  mb32"><?php echo $t1 ?></p>
             </div>
 
-            <div id="cards-tree" class="shelf-content bg-midnight-blue">
-                <p class="H3 color-white  italic"><?php echo $t1 ?></p>
+            <div id="cards-tree" class="shelf-content">
+                <p class="H3 color-black  italic"><?php echo $t1 ?></p>
             </div>
 
-            <div class="slider-container bg-midnight-blue">
-                <div class="slider-side-bar bg-midnight-blue">
-                    <p class="Sub color-white "><?php echo $t2 ?></p>
-                </div>
-                <div class="services-slider" style="transform: translateX(0px);">
+            <div class="prod_container">
+                <?php
 
-                    <?php
+                $categories = get_terms([
+                    'taxonomy' => 'category',
+                    'slug' => $category_order,
+                    'hide_empty' => false,
+                ]);
 
-                    $categories = get_terms([
-                        'taxonomy' => 'category',
-                        'slug' => $category_order,
-                        'hide_empty' => false,
-                    ]);
+                $sorted_categories = sort_categories_by_slugs($categories, $category_order);
+                if (!empty($categories)) {
+                    foreach ($sorted_categories as $category) {
+                        $image = get_field('category_image', 'category_' . $category->term_id);
+                ?>
 
-                    $sorted_categories = sort_categories_by_slugs($categories, $category_order);
-                    if (!empty($categories)) {
-                        foreach ($sorted_categories as $category) {
-                            $image = get_field('category_image', 'category_' . $category->term_id);
-                    ?>
-                            <div id="cat_slug_<?php echo $category->slug ?>" class="services-card light-blue" onclick="getProducts(this, 0)" data-cat_id="<?php echo $category->term_id ?>" data-cat_title="<?php echo $category->name ?>" data-cat_slug="<?php echo $category->slug ?>">
-                                <?php if ($image) { ?>
-                                    <div class="image"><img loading="lazy" src="<?php echo $image['url'] ?>" alt="<?php echo $image['name'] ?>"></div>
-                                <?php } ?>
-                                <div class="desc">
-                                    <p class="H5 color-white  bold"><?php echo $category->name ?></p>
-                                    <p class="H6 color-white medium"></p>
-                                </div>
-                            </div>
-                    <?php
-                        }
+                    <div class="single">
+                        <div class="img">
+                            <?php if ($image) { ?>
+                                <img loading="lazy" src="<?php echo $image['url'] ?>" alt="<?php echo $image['name'] ?>">
+                            <?php } ?>
+                        </div>
+                        <div class="desc">
+                            <div class="main"><a href="#"><?php echo $category->name ?></a></div>
+                            <div><a href="#"><?php echo $category->name ?> <?php echo $category->name ?> <?php echo $category->name ?></a></div>
+                        </div>
+                    </div>
+                <?php
                     }
-                    ?>
-
-                </div>
+                }
+                ?>
             </div>
         </div>
     </div>

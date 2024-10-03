@@ -4228,8 +4228,6 @@ form [type="file"] {
 }
 
 .shelf-content {
-    padding-left: 360px;
-    padding-right: calc(40vw - 360px)
 }
 
 .slider-container {
@@ -4263,16 +4261,13 @@ form [type="file"] {
 
 @media screen and (max-width:1536px)and (min-width:1201px) {
     .shelf-content {
-        padding-right: calc(40vw - 120px)
     }
 
     .shelf-content,
     .slider-container {
-        padding-left: 120px
     }
 
     .slider-container .slider-side-bar {
-        width: 120px
     }
 }
 
@@ -4283,11 +4278,9 @@ form [type="file"] {
 
     .shelf-content,
     .slider-container {
-        padding-left: 360px
     }
 
     .slider-container .slider-side-bar {
-        width: 360px
     }
 }
 
@@ -4672,6 +4665,10 @@ form [type="file"] {
         text-align: initial;
         width: 100px
     }
+}
+
+.page_products-services header{
+    padding-bottom: 60px;
 }
 
 header {
@@ -6759,7 +6756,7 @@ header .root {
 }
 
 .services-tree .flex-col:first-child #cards-tree {
-    padding-bottom: 60px
+    text-align: center;
 }
 
 @media screen and (max-width:1536px)and (min-width:1201px) {
@@ -9693,6 +9690,35 @@ form [type="submit"],
 .main-menu .up .main-links {
     margin: auto 0;
 }
+
+.services-tree .prod_container {
+    display: flex;
+    width: 1240px;
+    margin: 0 auto;
+    padding-top: 60px;
+}
+
+.services-tree .prod_container .single {
+    width: 50%;
+    display: inline-flex;
+}
+
+.services-tree .prod_container .single .img{
+}
+
+.services-tree .prod_container .single .desc{
+    padding-left: 30px;
+}
+
+.services-tree .prod_container .single .desc .main{
+    font-weight: 600;
+}
+
+.services-tree .prod_container .single .img img{
+    width: 200px;
+    height: 200px;
+}
+
 @media screen and (min-width:481px) {
 
     #planets_mobile {
