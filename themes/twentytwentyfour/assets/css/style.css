@@ -9686,6 +9686,10 @@ form [type="submit"],
     #pdf-embed-library {
         margin-bottom: 30px !important;
     }
+    .services-tree .prod_container .single .img img{
+        width: 100px;
+        height: 100px;
+    }
 }
 
 .main-menu .up .main-links {
@@ -9693,14 +9697,12 @@ form [type="submit"],
 }
 
 .services-tree .prod_container {
-    display: flex;
-    width: 1240px;
+    display: block;
     margin: 0 auto;
     padding-top: 60px;
 }
 
 .services-tree .prod_container .single {
-    width: 50%;
     display: inline-flex;
 }
 
@@ -9715,15 +9717,14 @@ form [type="submit"],
     font-weight: 600;
 }
 
-.services-tree .prod_container .single .img img{
-    width: 200px;
-    height: 200px;
-}
-
 @media screen and (min-width:481px) {
 
     #planets_mobile {
         display: none;
+    }
+    .services-tree .prod_container .single .img img{
+        width: 200px;
+        height: 200px;
     }
 }
 @media screen and (max-width:768px) {
@@ -9820,6 +9821,14 @@ form [type="submit"],
         width: 100%;
         position: absolute;
     }
+
+    .services-tree .prod_container {
+        padding: 0 32px;
+    }
+
+    .services-tree .prod_container .single {
+        padding-bottom: 32px;
+    }
 }
 
 
@@ -9831,6 +9840,15 @@ form [type="submit"],
     .services-title,
     #ind_wrap_mob {
         display: none;
+    }
+
+    .services-tree .prod_container {
+        display: flex;
+        width: 820px;
+    }
+
+    .services-tree .prod_container .single {
+        width: 50%;
     }
 }
 
@@ -9848,6 +9866,11 @@ form [type="submit"],
     #cards-tree-mob,
     #top_section_mob {
         display: none;
+    }
+
+    .services-tree .prod_container {
+        display: flex;
+        width: 1240px;
     }
     
 }
