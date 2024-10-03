@@ -4667,7 +4667,8 @@ form [type="file"] {
     }
 }
 
-.page_products-services header{
+.page_products-services header,
+.page_products-services-en header{
     padding-bottom: 60px;
 }
 

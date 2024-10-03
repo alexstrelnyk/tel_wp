@@ -10,7 +10,7 @@ $t2 = get_label('НАШІ ПРОДУКТИ ТА ПОСЛУГИ', 'OUR PRODUCTS A
 ?>
 
 <section id=":r17:" class="width-wrapper">
-    <div class="services-tree">
+    <div class="services-tree bg-white">
         <div class="flex-col sub_parent_0">
             <div id="cards-tree-mob" class=" shelf-content-mob">
                 <p class="Cap color-black medium mb6"><?php echo $t2 ?></p>
@@ -36,17 +36,17 @@ $t2 = get_label('НАШІ ПРОДУКТИ ТА ПОСЛУГИ', 'OUR PRODUCTS A
                         $image = get_field('category_image', 'category_' . $category->term_id);
                 ?>
 
-                    <div class="single">
-                        <div class="img">
-                            <?php if ($image) { ?>
-                                <img loading="lazy" src="<?php echo $image['url'] ?>" alt="<?php echo $image['name'] ?>">
-                            <?php } ?>
+                        <div class="single">
+                            <div class="img">
+                                <?php if ($image) { ?>
+                                    <img loading="lazy" src="<?php echo $image['url'] ?>" alt="<?php echo $image['name'] ?>">
+                                <?php } ?>
+                            </div>
+                            <div class="desc">
+                                <div class="main"><a href="#"><?php echo $category->name ?></a></div>
+                                <div><a href="#"><?php echo $category->name ?> <?php echo $category->name ?> <?php echo $category->name ?></a></div>
+                            </div>
                         </div>
-                        <div class="desc">
-                            <div class="main"><a href="#"><?php echo $category->name ?></a></div>
-                            <div><a href="#"><?php echo $category->name ?> <?php echo $category->name ?> <?php echo $category->name ?></a></div>
-                        </div>
-                    </div>
                 <?php
                     }
                 }
