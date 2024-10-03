@@ -37,7 +37,7 @@ get_header();
                             if($sub_categories){ ?>
                                     <div class="accordion" onClick="accordionClick(this)">
                                         <div class="flex-row mob-selected">
-                                            <p class="Body color-navy-green"  default-slug="<?php echo $category->slug ?>" slug="<?php echo $cat->slug ?>">Всі (<span class="posts-count"></span>)</p>
+                                            <p class="Body color-navy-green"  default-slug="<?php echo $category->slug ?>" slug="<?php echo $cat->slug ?>"><?php echo get_label('Всі', 'All') ?> (<span class="posts-count"></span>)</p>
                                         </div>
                                         <?php foreach($sub_categories as $sub) :  ?>
                                         <div class="flex-row">
