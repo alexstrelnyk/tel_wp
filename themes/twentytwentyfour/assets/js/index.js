@@ -892,6 +892,11 @@ function initSlider(selectorId) {
                         $(`#${selectorId} .quotes-slider`).height($(container).find('.single-quote').height() + 120);
                         $(window).off('scroll', setHeightQuotes);
                     }
+                    $(document).on('readystatechange', function(e){
+                        if(document.readyState.includes('complete')){
+                            $(`#${selectorId} .quotes-slider`).height($(container).find('.single-quote').height() + 120);
+                        };
+                    });
                     $(window).on('scroll', setHeightQuotes);
                     $(`#${selectorId} .slider-mob`).on('scroll', function(e) {
                         let pos = e.target.scrollLeft / window.innerWidth;
@@ -913,7 +918,12 @@ function initSlider(selectorId) {
                         $(`#${selectorId} .slider-mob`).find('.swiper-slide').last().css({ 'padding-right' : '16px'});
                         $(window).off('scroll', updatePaddingGalery)
                     }
-                    $(window).on('scroll', updatePaddingGalery)
+                    $(window).on('scroll', updatePaddingGalery);
+                    $(document).on('readystatechange', function(e){
+                        if(document.readyState.includes('complete')){
+                            $(`#${selectorId} .slider-mob`).find('.swiper-slide').last().css({ 'padding-right' : '16px'});
+                        };
+                    });
                 }
             }
             break;    
@@ -1306,7 +1316,14 @@ function initMobilePlanetsSpinner() {
         }
         $(window).off('scroll', setScrollTopPlanets)
     }
-    $(document).on('scroll', setScrollTopPlanets);
+    $(document).on('readystatechange', function(e){
+        if(document.readyState.includes('complete')){
+            if(partners.length){
+                partners.scrollTop(400);
+            }
+        };
+    });
+    $(window).on('scroll', setScrollTopPlanets)
     partners.on('scroll', function (e) {
         const slideHeight = $('#planets_mobile .partner')[0].offsetHeight;
         hinge.css({ 'transform': `rotate(${(e.target.scrollTop / slideHeight) * 90}deg)`});
