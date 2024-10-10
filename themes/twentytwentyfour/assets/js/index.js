@@ -886,13 +886,20 @@ function initSlider(selectorId) {
                     })
                 } 
                 else {
-                    swiper.on('beforeTransitionStart', function (event) {
-                        const nextSlideHeight = $(event.el).find('.swiper-slide-active')[0].firstChild.offsetHeight;
-                        $(`#${selectorId} .swiper-wrapper`).css({ height: `${nextSlideHeight + 120}px` });
-                        const parent = $(`#${selectorId} .swiper-wrapper`).parents('.swiper');
-                        const hint = parent.find('.hint');
-                        if(event.activeIndex > 0 && hint.length){
-                            hint.remove();
+                    swiper.destroy();
+                    const container = $(`#${selectorId} .quotes-slider .quote-container`).first();
+                    $(document).on('readystatechange', function(e){
+                        if(document.readyState.includes('complete')){
+                            $(`#${selectorId} .quotes-slider`).height($(container).find('.single-quote').height() + 120);
+                        };
+                    });
+                    $(`#${selectorId} .slider-mob`).on('scroll', function(e) {
+                        let pos = e.target.scrollLeft / window.innerWidth;
+                        if (pos % 1 === 0) {
+                            const el = $(`#${selectorId} .quotes-slider .quote-container`)[pos];
+                            e.target.style = `height:${$(el).find('.single-quote')[0].clientHeight + 120}px`;
+                            e.target.scrollLeft = pos * window.innerWidth;
+                            $(e.target).parents('.swiper').find('.hint').remove();
                         }
                     });
                 }
@@ -901,41 +908,12 @@ function initSlider(selectorId) {
         case 'gallery_swiper':
             if (isHaveSwiper) {
                 if (!isLargeScreen) {
-                    swiper.detachEvents();
-                    let pressed = false,
-                        startX = 0,
-                        posX = 0,
-                        initX = -1,
-                        len = 0,
-                        slideWidth = 0;
-                    $(`#${selectorId} .swiper-wrapper`).on('touchstart', function(event) {
-                        len = $(this).children().length;
-                        slideWidth = $(this).children()[0].offsetWidth;
-                        this.style.transition = "none";
-                        window.addEventListener("touchend", touchEndSwiper, { once: true });
-                        let positionX = this.getBoundingClientRect().x;
-                        pressed = true;
-                        initX = event.originalEvent.changedTouches[0].pageX;
-                        posX = positionX;
-                        startX = positionX - event.originalEvent.changedTouches[0].pageX;
-                        $(this).on('touchmove', function(event) {
-                            if (pressed) {
-                                this.style.transform = `translateX(${startX + event.originalEvent.changedTouches[0].pageX}px)`;    
-                            }
-                        })
-                    })
-                    function touchEndSwiper(event){
-                        if (pressed) {
-                            pressed = false;
-                            const currentTransate = $(`#${selectorId} .swiper-wrapper`).css("transform").split(",")[4].trim();
-                            const offset = Math.abs(event.changedTouches[0].pageX - initX) > 50 ? Math.sign(event.changedTouches[0].pageX - initX) : 0;
-                            const dir = Math.floor(currentTransate / slideWidth) + offset;
-                            const isLast = -len + 1 >= dir;
-                            const padding = isLast ? 16 : 0;
-                            $(`#${selectorId} .swiper-wrapper`)[0].style.transition = "transform 0.3s ease-out";
-                            $(`#${selectorId} .swiper-wrapper`)[0].style.transform = `translateX(${(clamp(dir, -len + 1, 0) * slideWidth) + padding}px)`;
-                        }
-                    }
+                    swiper.destroy();
+                    $(document).on('readystatechange', function(e){
+                        if(document.readyState.includes('complete')){
+                            $(`#${selectorId} .slider-mob`).find('.swiper-slide').last().css({ 'padding-right' : '16px'});
+                        };
+                    });
                 }
             }
             break;    
@@ -1322,11 +1300,13 @@ function initMobilePlanetsSpinner() {
     const partners = $('#planets_mobile .partners');
     const hinge = $('#planets_mobile .hinge');
     const len = $('#planets_mobile .partner').length - 2;
-    $(window).on('load', () => {
-        if(partners.length){
-            partners.scrollTop(400);
-        }
-    })
+    $(document).on('readystatechange', function(e){
+        if(document.readyState.includes('complete')){
+            if(partners.length){
+                partners.scrollTop(400);
+            }
+        };
+    });
     partners.on('scroll', function (e) {
         const slideHeight = $('#planets_mobile .partner')[0].offsetHeight;
         hinge.css({ 'transform': `rotate(${(e.target.scrollTop / slideHeight) * 90}deg)`});

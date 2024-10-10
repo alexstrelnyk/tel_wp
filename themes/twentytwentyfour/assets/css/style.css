@@ -4498,7 +4498,7 @@ form [type="file"] {
     .quotes .quotes-slider {
         display: flex;
         -webkit-transform: translateX(0);
-        transition: height 1s ease-in-out 0.5s, transform 0.3s ease-out 0s;
+        transition: transform 0.3s ease-out 0s;
         transform: translateX(0);
         margin-bottom: 65px;
     }
@@ -10671,6 +10671,17 @@ form [type="submit"],
 
     .wide-gallery-mob-root .wide-gallery-mob-slider .wide-gallery-card .wide-gallery-image.fill {
         object-fit: fill
+    }
+
+    .slider-mob {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        overflow-y: hidden;
+        transition: height .3s ease-in !important;
+    }
+    .slider-mob > div {
+        scroll-snap-align: start;
     }
 }
 
