@@ -888,11 +888,11 @@ function initSlider(selectorId) {
                 else {
                     swiper.destroy();
                     const container = $(`#${selectorId} .quotes-slider .quote-container`).first();
-                    $(document).on('readystatechange', function(e){
-                        if(document.readyState.includes('complete')){
-                            $(`#${selectorId} .quotes-slider`).height($(container).find('.single-quote').height() + 120);
-                        };
-                    });
+                    function setHeightQuotes(){
+                        $(`#${selectorId} .quotes-slider`).height($(container).find('.single-quote').height() + 120);
+                        $(window).off('scroll', setHeightQuotes);
+                    }
+                    $(window).on('scroll', setHeightQuotes);
                     $(`#${selectorId} .slider-mob`).on('scroll', function(e) {
                         let pos = e.target.scrollLeft / window.innerWidth;
                         if (pos % 1 === 0) {
@@ -909,11 +909,11 @@ function initSlider(selectorId) {
             if (isHaveSwiper) {
                 if (!isLargeScreen) {
                     swiper.destroy();
-                    $(document).on('readystatechange', function(e){
-                        if(document.readyState.includes('complete')){
-                            $(`#${selectorId} .slider-mob`).find('.swiper-slide').last().css({ 'padding-right' : '16px'});
-                        };
-                    });
+                    function updatePaddingGalery(){
+                        $(`#${selectorId} .slider-mob`).find('.swiper-slide').last().css({ 'padding-right' : '16px'});
+                        $(window).off('scroll', updatePaddingGalery)
+                    }
+                    $(window).on('scroll', updatePaddingGalery)
                 }
             }
             break;    
@@ -1300,13 +1300,13 @@ function initMobilePlanetsSpinner() {
     const partners = $('#planets_mobile .partners');
     const hinge = $('#planets_mobile .hinge');
     const len = $('#planets_mobile .partner').length - 2;
-    $(document).on('readystatechange', function(e){
-        if(document.readyState.includes('complete')){
-            if(partners.length){
-                partners.scrollTop(400);
-            }
-        };
-    });
+    function setScrollTopPlanets() {
+        if(partners.length){
+            partners.scrollTop(400);
+        }
+        $(window).off('scroll', setScrollTopPlanets)
+    }
+    $(document).on('scroll', setScrollTopPlanets);
     partners.on('scroll', function (e) {
         const slideHeight = $('#planets_mobile .partner')[0].offsetHeight;
         hinge.css({ 'transform': `rotate(${(e.target.scrollTop / slideHeight) * 90}deg)`});
