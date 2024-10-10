@@ -120,7 +120,7 @@ if (!in_array(get_page_slug(), ['about-us', 'about-us-en'])) {
         <p class="Overline color-white hinge-msg italic"><?php echo get_label('Ви можете обертати коло. Спробуйте!', 'You can rotate the circle. Try') ?></p>
         <div class="partners hsh">
             <div class="partner-list"> 
-                <div class="partner"><img  src="/wp-content/themes/twentytwentyfour/assets/images/velton_logo.png" alt=""></div>
+                <div class="partner"><img src="/wp-content/themes/twentytwentyfour/assets/images/1719995490897-m2.svg" alt=""></div>
                 <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/1676384661951-l1.png" alt=""></div>
                 <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/57231fa9-fb4d-4b86-9c8a-c8b3bdaf091aimage 72.png" alt=""></div>
                 <div class="partner"><img loading="lazy" src="/wp-content/themes/twentytwentyfour/assets/images/2f0189f7-33a6-4557-8330-58a1f664813dimage 74.png" alt=""></div>
