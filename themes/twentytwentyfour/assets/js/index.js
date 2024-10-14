@@ -641,7 +641,7 @@ function initAccordionVacancy() {
             vacancyHeight = $('.single-desc div:eq(0)', sv).height();
             const list = sv.parents('.vacancies-list');
             const openedVacancies = list.find('.collapse');
-            const padding = openedVacancies.find('.accordion').css('padding-top')?.replace('px','');
+            const padding = isLargeScreen ? openedVacancies.find('.accordion').css('padding-top')?.replace('px','') : 5;
             const isPrevChildCollapse = sv.prevAll('.single-vacancy').hasClass('collapse');
             const vacancyApply = $(openedVacancies).find('.vacancy-application.apply');
             const vacancyApplyHeight = !!vacancyApply.length ? $(vacancyApply)[0].offsetHeight : 0;
@@ -681,7 +681,7 @@ function initAccordionVacancy() {
 
     function resizeSingleDesc(event) {
         if ($(event[0].target).hasClass('apply')) {
-            const height = $(event[0].target).parents('.single-desc div:eq(0)').height() - 20;
+            const height = $(event[0].target).parents('.single-desc div:eq(0)').height();
             $(event[0].target).parents('.single-desc').css({ 'overflow-y': 'initial', 'height': height + 'px' })
         }
     }
@@ -786,6 +786,9 @@ function getVacancyPostsCountAjax(category, paragraph) {
         success: function (data) {
             const counter = $(paragraph).find('.posts-count');
             data ? $(counter).text(`${data}`) : $(counter).text(`${0}`);
+            if(!isLargeScreen && $(paragraph.prevObject).hasClass('selected')){
+                $(paragraph).parents('.bar-filter').find('.flex-row .Body').text(paragraph.text());
+            }
         },
         error: function (errorThrown) {
             console.log(errorThrown);
