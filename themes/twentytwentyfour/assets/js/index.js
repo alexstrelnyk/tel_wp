@@ -707,6 +707,7 @@ function accordionClick(element) {
                 overflow.find('.filter-item').each((index, item) => {
                     if ($(item).hasClass('selected')) {
                         $(item).removeClass('selected');
+                        $(item).find('p').removeClass('color-navy-green').addClass('color-black');
                         svg = $(item).find('svg');
                         $(svg).remove();
                         $(item).append('<div class="tick-empty"></div>')
@@ -715,6 +716,7 @@ function accordionClick(element) {
                 $(this).append(svg);
                 $(this).find('.tick-empty').remove();
                 $(this).addClass('selected');
+                $(this).find('p').addClass('color-navy-green').removeClass('color-black');
                 const text = $(this).find('p').text();
                 accordion.find('p').text(text);
                 let category = [];
