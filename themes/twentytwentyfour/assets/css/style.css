@@ -12265,6 +12265,10 @@ html {
         -webkit-transform: scale(.4);
         transform: scale(.4)
     }
+
+    .codedropz-upload-handler {
+        margin-bottom: 0 !important;
+    }
 }
 
 .charity-tabs {
@@ -12293,7 +12297,6 @@ span.wpcf7-not-valid-tip { display: none; }
 
 .codedropz-upload-handler {
     border: none!important;
-    margin-bottom: 0 !important;
 }
 
 .dnd-upload-counter {
