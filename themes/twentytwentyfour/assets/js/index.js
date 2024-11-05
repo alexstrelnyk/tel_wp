@@ -914,25 +914,8 @@ function initSlider(selectorId) {
                     });
                 }
             }
-            break;
-        case 'gallery_swiper':
-            if (isHaveSwiper) {
-                if (!isLargeScreen) {
-                    swiper.destroy();
-                    function updatePaddingGalery(){
-                        $(`#${selectorId} .slider-mob`).find('.swiper-slide').last().css({ 'padding-right' : '16px'});
-                        $(window).off('scroll', updatePaddingGalery)
-                    }
-                    $(window).on('scroll', updatePaddingGalery);
-                    $(document).on('readystatechange', function(e){
-                        if(document.readyState.includes('complete')){
-                            $(`#${selectorId} .slider-mob`).find('.swiper-slide').last().css({ 'padding-right' : '16px'});
-                        };
-                    });
-                }
-            }
             break;    
-        default:
+        case 'products_swiper':
             if (isHaveSwiper) {
                 if (!isLargeScreen) {
                     const countCards = $(`#${selectorId}`).find('.swiper-slide').length - 1;
@@ -950,6 +933,23 @@ function initSlider(selectorId) {
                 }
             }
             break;
+        default:
+            if (isHaveSwiper) {
+                if (!isLargeScreen) {
+                    swiper.destroy();
+                    function updatePaddingGalery(){
+                        $(`#${selectorId} .slider-mob`).find('.swiper-slide').last().css({ 'padding-right' : '16px'});
+                        $(window).off('scroll', updatePaddingGalery)
+                    }
+                    $(window).on('scroll', updatePaddingGalery);
+                    $(document).on('readystatechange', function(e){
+                        if(document.readyState.includes('complete')){
+                            $(`#${selectorId} .slider-mob`).find('.swiper-slide').last().css({ 'padding-right' : '16px'});
+                        };
+                    });
+                }
+            }
+            break;    
     }
 
 }
