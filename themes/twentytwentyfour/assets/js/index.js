@@ -232,7 +232,14 @@ function initFileUploader() {
                     $(element).remove();
                 }
             })
-        })
+        });
+        $(item).find('.uploader').on('click', function() {
+            const dropzone = $(this).parents('.dropzone');
+            const error_zone = dropzone.find('.dropzone-error');
+            if(error_zone.length){
+                error_zone.remove();
+            }
+        });
     });
     $('.dropzone').find('.codedropz-upload-inner').find('span').remove();
 }
