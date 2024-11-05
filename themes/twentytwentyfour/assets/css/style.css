@@ -12048,6 +12048,10 @@ form [type="submit"],
     margin-bottom: 60px
 }
 
+html.pum-open.pum-open-overlay.pum-open-scrollable body>:not([aria-modal=true]) {
+    padding-right: 6px !important;
+}
+
 @media screen and (max-width:1200px)and (min-width:481px) {
     .pdf-page-mob {
         padding: 40px 64px 20px
@@ -12144,7 +12148,7 @@ form [type="submit"],
     }
 
     html.pum-open.pum-open-overlay.pum-open-scrollable body>:not([aria-modal=true]) {
-        padding: 0 !important;
+        padding-right: 0 !important;
     }
 }
 
@@ -12310,8 +12314,4 @@ span.wpcf7-not-valid-tip { display: none; }
 
 .pum {
     overflow: hidden !important;
-}
-
-html.pum-open.pum-open-overlay.pum-open-scrollable body>:not([aria-modal=true]) {
-    padding-right: 6px !important;
 }
