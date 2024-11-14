@@ -5256,7 +5256,7 @@ header .root {
 
     .main-menu .up .main-links .link {
         justify-content: flex-start;
-        padding-bottom: 16px
+        padding-bottom: 32px;
     }
 
     .main-menu .up .main-links .link .label {
