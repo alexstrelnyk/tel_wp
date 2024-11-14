@@ -4746,14 +4746,12 @@ header .root {
 
 .main-menu .up .main-links .link {
     align-items: center;
-    display: flex;
     padding-bottom: 40px;
     width: 100%
 }
 
 .main-menu .up .main-links .link a {
     max-width: 90%;
-    position: relative
 }
 
 .main-menu .up .main-links .link a img {
@@ -5072,11 +5070,6 @@ header .root {
 }
 
 @media screen and (max-width:1200px)and (min-width:481px) {
-    .main-menu .main-menu-picture {
-        height: 794px;
-        left: 50%;
-        width: auto
-    }
 
     .locale-btn {
         height: 32px;
@@ -9697,6 +9690,16 @@ form [type="submit"],
     text-decoration: none;
 }
 @media screen and (min-width:481px) {
+
+    .main-menu .main-menu-picture {
+        /* height: 794px; */
+        left: auto !important;
+        width: auto;
+        right: 0% !important;
+    }
+    .main-menu .up .main-links .link {
+        position: relative;
+    }
 
     #planets_mobile {
         display: none;
