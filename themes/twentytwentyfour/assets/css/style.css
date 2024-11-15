@@ -6250,12 +6250,16 @@ header .root {
     height: 100%;
 }
 
+.services-slider .product-card .product-title .H2{
+    font-size: 94px;
+}
 .services-slider .product-card .product-title {
     position: absolute;
     z-index: 15;
     bottom: 120px;
     left: 40px;
     height: 0px;
+    width: 640px;
 }
 
 .services-slider .product-desc .animated-link {
