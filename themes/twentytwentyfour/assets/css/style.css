@@ -6220,22 +6220,18 @@ header .root {
 }
 
 .services-slider {
-    overflow: auto;
-    display: flex;
-    -webkit-transform: translateX(0);
-    transform: translateX(0)
 }
 
+@media screen and (min-width:1441px) {
+    .services-slider .product-card {
+        margin: 100px;
+        width: 640px;
+    }
+}
 .services-slider .product-card {
     align-items: center;
-    display: flex;
-    margin: 100px 0 100px 85px;
-    position: relative
-}
-
-.services-slider .product-card:nth-child(2) .product-image {
-    -webkit-transform: rotate(-5deg);
-    transform: rotate(-5deg)
+    display: inline-flex;
+    position: relative;
 }
 
 .services-slider .product-card .product-desc .product-image {
@@ -6251,19 +6247,14 @@ header .root {
 }
 
 .services-slider .product-card .product-desc .product-image img {
-    pointer-events: none;
-    -webkit-user-select: none;
-    user-select: none
+    height: 100%;
 }
 
 .services-slider .product-card .product-title {
-    left: 420px;
     position: absolute;
     z-index: 15;
-    vertical-align: middle;
-    height: 100%;
-    padding-top: 230px;
-    padding-left: 3px;
+    bottom: -40px;
+    left: 40px;
 }
 
 .services-slider .product-desc .animated-link {
@@ -6756,9 +6747,6 @@ header .root {
 }
 
 @media screen and (max-width:1536px)and (min-width:1201px) {
-    .services-slider .product-card {
-        margin: 100px 0 100px 85px
-    }
 
     .services-slider .product-card .pager {
         width: 515px
@@ -9834,6 +9822,9 @@ form [type="submit"],
 @media screen and (max-width:1440px) {
     .width-wrapper {
         margin-top: -1px;
+    }
+    .services-slider .product-card {
+        margin: 100px 60px 100px 100px;
     }
 }
 

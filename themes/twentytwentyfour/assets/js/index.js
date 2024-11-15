@@ -922,24 +922,6 @@ function initSlider(selectorId) {
                 }
             }
             break;    
-        case 'products_swiper':
-            if (isHaveSwiper) {
-                if (!isLargeScreen) {
-                    const countCards = $(`#${selectorId}`).find('.swiper-slide').length - 1;
-                    swiper.on('beforeTransitionStart', function (event) {
-                        const currentCardIndex = event.activeIndex;
-                        const slideWidth = $(`#${selectorId}`).find('.swiper-slide')[0].offsetWidth;
-                        const dif = selectorId != 'products_swiper' ? (window.innerWidth - slideWidth) / 2 : 80;
-                        if (currentCardIndex === countCards) {
-                            swiper.translateTo(-slideWidth * currentCardIndex + dif, 300, false, false);
-                        } else {
-                            swiper.translateTo(-slideWidth * currentCardIndex, 300, false, false);
-                        }
-
-                    })
-                }
-            }
-            break;
         default:
             if (isHaveSwiper) {
                 if (!isLargeScreen) {
@@ -962,7 +944,6 @@ function initSlider(selectorId) {
 }
 
 initSlider('feedback_swiper');
-initSlider('products_swiper');
 initSlider('gallery_swiper');
 initSlider('regions_swiper');
 

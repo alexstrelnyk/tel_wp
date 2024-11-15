@@ -10,8 +10,7 @@ $header_text = get_label('ПРОДУКТИ І ПОСЛУГИ', 'PRODUCTS AND SER
             <p class="Body color-white "><?php echo $header_text ?></p>
         </div>
         <div class="services-slider">
-            <div class="swiper" id="products_swiper">
-                <div class="swiper-wrapper">
+            <div id="products_swiper">
                     <?php
                     global $category_order;
 
@@ -27,23 +26,18 @@ $header_text = get_label('ПРОДУКТИ І ПОСЛУГИ', 'PRODUCTS AND SER
                         foreach ($sorted_categories as $category) {
                             $image = get_field('category_image', 'category_' . $category->term_id);
                     ?>
-                            <div class="swiper-slide">
 
                                 <div class="product-card">
                                     <div class="product-desc">
-                                        <div class="product-image" data-cursor="slider-img" onclick="goto('<?php echo get_url('products-services') ?>?cat_slug=<?php echo $category->slug ?>')">
+                                        <div class="product-image" onclick="goto('<?php echo get_url('products-services') ?>?cat_slug=<?php echo $category->slug ?>')">
                                             <img loading="lazy" src="<?php echo $image['url'] ?>" alt="<?php echo $category->name ?>">
                                         </div>
                                         <a class="Body animated-link" style="white-space:nowrap;" data-cursor="active" href="<?php echo get_url('products-services') ?>?cat_slug=<?php echo $category->slug ?>">
                                             <span class="title" style="white-space:nowrap;">
-                                                <span style="white-space:nowrap;" data-text="<?php echo get_label('Читати більше', 'Show more') ?>" class="color-after-bright-green color-before-white">
-                                                    <?php echo get_label('Читати більше', 'Show more') ?>
-                                                </span>
                                             </span>
                                         </a>
                                     </div>
-                                    <div class="pager" data-cursor="slider-white"></div>
-                                    <div class="product-title" style="width:60%; text-wrap:wrap;" data-cursor="slider-white">
+                                    <div class="product-title">
                                         <p class="H2 color-white "><a class="mob-link color-white mob_title" href="<?php echo get_url('products-services') ?>?cat_slug=<?php echo $category->slug ?>"><?php echo $category->name ?></a></p>
                                     </div>
                                     <div class="mob-card-arrow">
@@ -59,12 +53,10 @@ $header_text = get_label('ПРОДУКТИ І ПОСЛУГИ', 'PRODUCTS AND SER
                                     </div>
                                 </div>
 
-                            </div>
                     <?php
                         }
                     }
                     ?>
-                </div>
             </div>
         </div>
     </div>
