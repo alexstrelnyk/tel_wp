@@ -6253,8 +6253,9 @@ header .root {
 .services-slider .product-card .product-title {
     position: absolute;
     z-index: 15;
-    bottom: -40px;
+    bottom: 120px;
     left: 40px;
+    height: 0px;
 }
 
 .services-slider .product-desc .animated-link {
