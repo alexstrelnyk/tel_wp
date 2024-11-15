@@ -172,13 +172,13 @@ function initVacanciesPostsCount() {
         getVacancyPostsCountAjax(slug, $(item));
     });
     $('.bar-filter .accordion .flex-row').each((index, item) => {
-        if(isLargeScreen && $(item).hasClass('mob-selected')){
+        if (isLargeScreen && $(item).hasClass('mob-selected')) {
             $(item).remove();
         }
-        if(!isLargeScreen && !$(item).hasClass('mob-selected')){
+        if (!isLargeScreen && !$(item).hasClass('mob-selected')) {
             $(item).remove();
         }
-        if(!isLargeScreen && $(item).hasClass('mob-selected')){
+        if (!isLargeScreen && $(item).hasClass('mob-selected')) {
             const slug = [$(item).find('p').attr('slug')];
             getVacancyPostsCountAjax(slug, $(item));
         }
@@ -191,7 +191,7 @@ function initFileUploader() {
         const containerUploads = $(item).find('.container-uploads');
         $(item).find('.container-uploads').remove();
         $(item).find('.codedropz-btn-wrap').append(containerUploads);
-        if(!isLargeScreen && containerUploads.length){
+        if (!isLargeScreen && containerUploads.length) {
             containerUploads.find('.Cap.mb16').removeClass('Cap').text('');
         }
         $(item).find('a').remove();
@@ -233,10 +233,10 @@ function initFileUploader() {
                 }
             })
         });
-        $(item).find('.uploader').on('click', function() {
+        $(item).find('.uploader').on('click', function () {
             const dropzone = $(this).parents('.dropzone');
             const error_zone = dropzone.find('.dropzone-error');
-            if(error_zone.length){
+            if (error_zone.length) {
                 error_zone.remove();
             }
         });
@@ -461,7 +461,7 @@ $('.interaction-box').click(function () {
 
 $('.value-card').hover(function () {
     $(this).css({ transition: "all 1s ease-out", transform: 'rotateY(0deg)  rotateX(0deg)  translateZ(1px)' });
-    if(isLargeScreen){
+    if (isLargeScreen) {
         $(this).mousemove(({ clientX, clientY }) => {
             const { x, y, width, height } = this.getBoundingClientRect();
             let isMozila = typeof InstallTrigger !== 'undefined';
@@ -648,7 +648,7 @@ function initAccordionVacancy() {
             vacancyHeight = $('.single-desc div:eq(0)', sv).height();
             const list = sv.parents('.vacancies-list');
             const openedVacancies = list.find('.collapse');
-            const padding = isLargeScreen ? openedVacancies.find('.accordion').css('padding-top')?.replace('px','') : 5;
+            const padding = isLargeScreen ? openedVacancies.find('.accordion').css('padding-top')?.replace('px', '') : 5;
             const isPrevChildCollapse = sv.prevAll('.single-vacancy').hasClass('collapse');
             const vacancyApply = $(openedVacancies).find('.vacancy-application.apply');
             const vacancyApplyHeight = !!vacancyApply.length ? $(vacancyApply)[0].offsetHeight : 0;
@@ -795,7 +795,7 @@ function getVacancyPostsCountAjax(category, paragraph) {
         success: function (data) {
             const counter = $(paragraph).find('.posts-count');
             data ? $(counter).text(`${data}`) : $(counter).text(`${0}`);
-            if(!isLargeScreen && $(paragraph.prevObject).hasClass('selected')){
+            if (!isLargeScreen && $(paragraph.prevObject).hasClass('selected')) {
                 $(paragraph).parents('.bar-filter').find('.flex-row .Body').text(paragraph.text());
             }
         },
@@ -829,7 +829,7 @@ function vacancyAjaxPosts(category) {
         if (isSelectFilter) {
             const filters = isLargeScreen ? $('.bar-filter .flex-row') : $('.bar-filter .overflow-hidden .filter-item');
             filters.each((index, item) => {
-                if(!$(item).find('p').attr('is-all')){
+                if (!$(item).find('p').attr('is-all')) {
                     const paragraph = $(item).find('.Body');
                     filteredCategory = category.filter(cat => cat !== paragraph.attr('slug'));
                     filteredCategory.push(paragraph.attr('slug'));
@@ -896,21 +896,21 @@ function initSlider(selectorId) {
                             }
                         });
                     })
-                } 
+                }
                 else {
                     swiper.destroy();
                     const container = $(`#${selectorId} .quotes-slider .quote-container`).first();
-                    function setHeightQuotes(){
+                    function setHeightQuotes() {
                         $(`#${selectorId} .quotes-slider`).height($(container).find('.single-quote').height() + 120);
                         $(window).off('scroll', setHeightQuotes);
                     }
-                    $(document).on('readystatechange', function(e){
-                        if(document.readyState.includes('complete')){
+                    $(document).on('readystatechange', function (e) {
+                        if (document.readyState.includes('complete')) {
                             $(`#${selectorId} .quotes-slider`).height($(container).find('.single-quote').height() + 120);
                         };
                     });
                     $(window).on('scroll', setHeightQuotes);
-                    $(`#${selectorId} .slider-mob`).on('scroll', function(e) {
+                    $(`#${selectorId} .slider-mob`).on('scroll', function (e) {
                         let pos = e.target.scrollLeft / window.innerWidth;
                         if (pos % 1 === 0) {
                             const el = $(`#${selectorId} .quotes-slider .quote-container`)[pos];
@@ -921,24 +921,24 @@ function initSlider(selectorId) {
                     });
                 }
             }
-            break;    
+            break;
         default:
             if (isHaveSwiper) {
                 if (!isLargeScreen) {
                     swiper.destroy();
-                    function updatePaddingGalery(){
-                        $(`#${selectorId} .slider-mob`).find('.swiper-slide').last().css({ 'padding-right' : '16px'});
+                    function updatePaddingGalery() {
+                        $(`#${selectorId} .slider-mob`).find('.swiper-slide').last().css({ 'padding-right': '16px' });
                         $(window).off('scroll', updatePaddingGalery)
                     }
                     $(window).on('scroll', updatePaddingGalery);
-                    $(document).on('readystatechange', function(e){
-                        if(document.readyState.includes('complete')){
-                            $(`#${selectorId} .slider-mob`).find('.swiper-slide').last().css({ 'padding-right' : '16px'});
+                    $(document).on('readystatechange', function (e) {
+                        if (document.readyState.includes('complete')) {
+                            $(`#${selectorId} .slider-mob`).find('.swiper-slide').last().css({ 'padding-right': '16px' });
                         };
                     });
                 }
             }
-            break;    
+            break;
     }
 
 }
@@ -1304,14 +1304,14 @@ function initMobilePlanetsSpinner() {
     const hinge = $('#planets_mobile .hinge');
     const len = $('#planets_mobile .partner').length - 2;
     function setScrollTopPlanets() {
-        if(partners.length){
+        if (partners.length) {
             partners.scrollTop(400);
         }
         $(window).off('scroll', setScrollTopPlanets)
     }
-    $(document).on('readystatechange', function(e){
-        if(document.readyState.includes('complete')){
-            if(partners.length){
+    $(document).on('readystatechange', function (e) {
+        if (document.readyState.includes('complete')) {
+            if (partners.length) {
                 partners.scrollTop(400);
             }
         };
@@ -1319,8 +1319,8 @@ function initMobilePlanetsSpinner() {
     $(window).on('scroll', setScrollTopPlanets)
     partners.on('scroll', function (e) {
         const slideHeight = $('#planets_mobile .partner')[0].offsetHeight;
-        hinge.css({ 'transform': `rotate(${(e.target.scrollTop / slideHeight) * 90}deg)`});
-        
+        hinge.css({ 'transform': `rotate(${(e.target.scrollTop / slideHeight) * 90}deg)` });
+
         if (e.target.scrollTop / slideHeight === len + 1) {
             e.target.scrollTop = slideHeight;
         } else if (e.target.scrollTop === 0) {
