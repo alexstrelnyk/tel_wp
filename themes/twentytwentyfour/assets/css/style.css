@@ -6776,10 +6776,13 @@ header .root {
     }
 }
 
-@media screen and (max-width:1200px)and (min-width:481px) {
+@media screen and (max-width:1200px) and (min-width:769px) {
+
     .services-slider .product-card {
         margin: 192px 0 92px 16px
     }
+}
+@media screen and (max-width:1200px)and (min-width:481px) {
 
     .services-slider .product-card .product-desc .product-image {
         height: 530px;
@@ -6895,7 +6898,7 @@ header .root {
     }
 
     .services-slider .product-card .product-desc .product-image {
-        height: 530px;
+        height: 200px;
         width: 310px
     }
 
@@ -9704,6 +9707,28 @@ form [type="submit"],
 }
 @media screen and (max-width:768px) {
 
+    #products_swiper {
+        padding-top: 60px;
+    }
+
+    .services-slider .product-card {
+        margin: 0 16px;
+        margin-bottom: 48px;
+    }
+
+    .services-slider .product-card .product-desc .product-image {
+        width: auto;
+        margin-bottom: 16px;
+    }
+
+    .slider-container {
+        display: block;
+    }
+
+    .slider-container .services-title .Body{
+        font-weight: 600;
+    }
+
     .services-slider .product-desc .animated-link,
     .main-menu .up .footer-links,
     .blog-view .container .blog-side-bar,
@@ -9767,21 +9792,18 @@ form [type="submit"],
     }
     .services-slider .product-card {
         display: block;
-        width: 310px;
-        margin: 170px 16px 92px;
     }
     .services-slider .product-card .product-title {
-        left: -235px;
-        bottom: 200px;
-        transform: rotate(90deg);
+        position: static;
         padding-top: 0;
         height: auto;
-        width: 540px !important;
+        width: auto;
+        text-align: right;
     }
     .services-slider .product-card .product-title .H2{
         font-size: 60px;
         font-weight: 700;
-        text-align: right;
+        text-align: left;
         line-height: 1;
     }
     .Body.animated-link {
@@ -9790,11 +9812,9 @@ form [type="submit"],
 
     .services-title {
         align-items: center;
-        display: flex;
         margin-top: 120px;
         padding-inline: 32px;
         width: 100%;
-        position: absolute;
     }
 }
 
@@ -9807,6 +9827,10 @@ form [type="submit"],
     .services-title,
     #ind_wrap_mob {
         display: none;
+    }
+
+    .services-slider .product-card {
+        margin: 100px 60px 100px 100px;
     }
 }
 
@@ -9831,9 +9855,6 @@ form [type="submit"],
 @media screen and (max-width:1440px) {
     .width-wrapper {
         margin-top: -1px;
-    }
-    .services-slider .product-card {
-        margin: 100px 60px 100px 100px;
     }
 }
 
