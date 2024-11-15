@@ -6263,7 +6263,6 @@ header .root {
     bottom: 120px;
     left: 40px;
     height: 0px;
-    width: 640px;
 }
 
 .services-slider .product-desc .animated-link {
@@ -9848,6 +9847,10 @@ form [type="submit"],
     #cards-tree-mob,
     #top_section_mob {
         display: none;
+    }
+
+    .services-slider .product-card .product-title {
+        width: 640px;
     }
     
 }
