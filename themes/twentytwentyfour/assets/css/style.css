@@ -6219,6 +6219,10 @@ header .root {
     padding-top: 60px
 }
 
+#products_swiper {
+    padding-bottom: 100px;
+}
+
 .services-slider {
 }
 
