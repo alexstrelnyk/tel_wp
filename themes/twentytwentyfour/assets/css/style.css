@@ -6229,7 +6229,7 @@ header .root {
 @media screen and (min-width:1441px) {
     .services-slider .product-card {
         margin: 100px;
-        width: 640px;
+        width: 600px;
     }
 }
 .services-slider .product-card {
@@ -9850,7 +9850,7 @@ form [type="submit"],
     }
 
     .services-slider .product-card .product-title {
-        width: 600px;
+        width: 640px;
     }
     
 }
