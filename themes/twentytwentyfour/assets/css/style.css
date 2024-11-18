@@ -4228,6 +4228,8 @@ form [type="file"] {
 }
 
 .shelf-content {
+    padding-left: 360px;
+    padding-right: calc(40vw - 360px)
 }
 
 .slider-container {
@@ -4261,13 +4263,16 @@ form [type="file"] {
 
 @media screen and (max-width:1536px)and (min-width:1201px) {
     .shelf-content {
+        padding-right: calc(40vw - 120px)
     }
 
     .shelf-content,
     .slider-container {
+        padding-left: 120px
     }
 
     .slider-container .slider-side-bar {
+        width: 120px
     }
 }
 
@@ -4278,9 +4283,11 @@ form [type="file"] {
 
     .shelf-content,
     .slider-container {
+        padding-left: 360px
     }
 
     .slider-container .slider-side-bar {
+        width: 360px
     }
 }
 
