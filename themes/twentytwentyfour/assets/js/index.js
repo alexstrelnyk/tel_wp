@@ -172,13 +172,13 @@ function initVacanciesPostsCount() {
         getVacancyPostsCountAjax(slug, $(item));
     });
     $('.bar-filter .accordion .flex-row').each((index, item) => {
-        if(isLargeScreen && $(item).hasClass('mob-selected')){
+        if (isLargeScreen && $(item).hasClass('mob-selected')) {
             $(item).remove();
         }
-        if(!isLargeScreen && !$(item).hasClass('mob-selected')){
+        if (!isLargeScreen && !$(item).hasClass('mob-selected')) {
             $(item).remove();
         }
-        if(!isLargeScreen && $(item).hasClass('mob-selected')){
+        if (!isLargeScreen && $(item).hasClass('mob-selected')) {
             const slug = [$(item).find('p').attr('slug')];
             getVacancyPostsCountAjax(slug, $(item));
         }
@@ -191,7 +191,7 @@ function initFileUploader() {
         const containerUploads = $(item).find('.container-uploads');
         $(item).find('.container-uploads').remove();
         $(item).find('.codedropz-btn-wrap').append(containerUploads);
-        if(!isLargeScreen && containerUploads.length){
+        if (!isLargeScreen && containerUploads.length) {
             containerUploads.find('.Cap.mb16').removeClass('Cap').text('');
         }
         $(item).find('a').remove();
@@ -232,7 +232,14 @@ function initFileUploader() {
                     $(element).remove();
                 }
             })
-        })
+        });
+        $(item).find('.uploader').on('click', function () {
+            const dropzone = $(this).parents('.dropzone');
+            const error_zone = dropzone.find('.dropzone-error');
+            if (error_zone.length) {
+                error_zone.remove();
+            }
+        });
     });
     $('.dropzone').find('.codedropz-upload-inner').find('span').remove();
 }
@@ -454,7 +461,7 @@ $('.interaction-box').click(function () {
 
 $('.value-card').hover(function () {
     $(this).css({ transition: "all 1s ease-out", transform: 'rotateY(0deg)  rotateX(0deg)  translateZ(1px)' });
-    if(isLargeScreen){
+    if (isLargeScreen) {
         $(this).mousemove(({ clientX, clientY }) => {
             const { x, y, width, height } = this.getBoundingClientRect();
             let isMozila = typeof InstallTrigger !== 'undefined';
@@ -641,7 +648,7 @@ function initAccordionVacancy() {
             vacancyHeight = $('.single-desc div:eq(0)', sv).height();
             const list = sv.parents('.vacancies-list');
             const openedVacancies = list.find('.collapse');
-            const padding = openedVacancies.find('.accordion').css('padding-top')?.replace('px','');
+            const padding = isLargeScreen ? openedVacancies.find('.accordion').css('padding-top')?.replace('px', '') : 5;
             const isPrevChildCollapse = sv.prevAll('.single-vacancy').hasClass('collapse');
             const vacancyApply = $(openedVacancies).find('.vacancy-application.apply');
             const vacancyApplyHeight = !!vacancyApply.length ? $(vacancyApply)[0].offsetHeight : 0;
@@ -681,7 +688,7 @@ function initAccordionVacancy() {
 
     function resizeSingleDesc(event) {
         if ($(event[0].target).hasClass('apply')) {
-            const height = $(event[0].target).parents('.single-desc div:eq(0)').height() - 20;
+            const height = $(event[0].target).parents('.single-desc div:eq(0)').height();
             $(event[0].target).parents('.single-desc').css({ 'overflow-y': 'initial', 'height': height + 'px' })
         }
     }
@@ -707,6 +714,7 @@ function accordionClick(element) {
                 overflow.find('.filter-item').each((index, item) => {
                     if ($(item).hasClass('selected')) {
                         $(item).removeClass('selected');
+                        $(item).find('p').removeClass('color-navy-green').addClass('color-black');
                         svg = $(item).find('svg');
                         $(svg).remove();
                         $(item).append('<div class="tick-empty"></div>')
@@ -715,6 +723,7 @@ function accordionClick(element) {
                 $(this).append(svg);
                 $(this).find('.tick-empty').remove();
                 $(this).addClass('selected');
+                $(this).find('p').addClass('color-navy-green').removeClass('color-black');
                 const text = $(this).find('p').text();
                 accordion.find('p').text(text);
                 let category = [];
@@ -786,6 +795,9 @@ function getVacancyPostsCountAjax(category, paragraph) {
         success: function (data) {
             const counter = $(paragraph).find('.posts-count');
             data ? $(counter).text(`${data}`) : $(counter).text(`${0}`);
+            if (!isLargeScreen && $(paragraph.prevObject).hasClass('selected')) {
+                $(paragraph).parents('.bar-filter').find('.flex-row .Body').text(paragraph.text());
+            }
         },
         error: function (errorThrown) {
             console.log(errorThrown);
@@ -817,7 +829,7 @@ function vacancyAjaxPosts(category) {
         if (isSelectFilter) {
             const filters = isLargeScreen ? $('.bar-filter .flex-row') : $('.bar-filter .overflow-hidden .filter-item');
             filters.each((index, item) => {
-                if(!$(item).find('p').attr('is-all')){
+                if (!$(item).find('p').attr('is-all')) {
                     const paragraph = $(item).find('.Body');
                     filteredCategory = category.filter(cat => cat !== paragraph.attr('slug'));
                     filteredCategory.push(paragraph.attr('slug'));
@@ -884,76 +896,46 @@ function initSlider(selectorId) {
                             }
                         });
                     })
-                } 
+                }
                 else {
-                    swiper.on('beforeTransitionStart', function (event) {
-                        const nextSlideHeight = $(event.el).find('.swiper-slide-active')[0].firstChild.offsetHeight;
-                        $(`#${selectorId} .swiper-wrapper`).css({ height: `${nextSlideHeight + 120}px` });
-                        const parent = $(`#${selectorId} .swiper-wrapper`).parents('.swiper');
-                        const hint = parent.find('.hint');
-                        if(event.activeIndex > 0 && hint.length){
-                            hint.remove();
+                    swiper.destroy();
+                    const container = $(`#${selectorId} .quotes-slider .quote-container`).first();
+                    function setHeightQuotes() {
+                        $(`#${selectorId} .quotes-slider`).height($(container).find('.single-quote').height() + 120);
+                        $(window).off('scroll', setHeightQuotes);
+                    }
+                    $(document).on('readystatechange', function (e) {
+                        if (document.readyState.includes('complete')) {
+                            $(`#${selectorId} .quotes-slider`).height($(container).find('.single-quote').height() + 120);
+                        };
+                    });
+                    $(window).on('scroll', setHeightQuotes);
+                    $(`#${selectorId} .slider-mob`).on('scroll', function (e) {
+                        let pos = e.target.scrollLeft / window.innerWidth;
+                        if (pos % 1 === 0) {
+                            const el = $(`#${selectorId} .quotes-slider .quote-container`)[pos];
+                            e.target.style = `height:${$(el).find('.single-quote')[0].clientHeight + 120}px`;
+                            e.target.scrollLeft = pos * window.innerWidth;
+                            $(e.target).parents('.swiper').find('.hint').remove();
                         }
                     });
                 }
             }
             break;
-        case 'gallery_swiper':
-            if (isHaveSwiper) {
-                if (!isLargeScreen) {
-                    swiper.detachEvents();
-                    let pressed = false,
-                        startX = 0,
-                        posX = 0,
-                        initX = -1,
-                        len = 0,
-                        slideWidth = 0;
-                    $(`#${selectorId} .swiper-wrapper`).on('touchstart', function(event) {
-                        len = $(this).children().length;
-                        slideWidth = $(this).children()[0].offsetWidth;
-                        this.style.transition = "none";
-                        window.addEventListener("touchend", touchEndSwiper, { once: true });
-                        let positionX = this.getBoundingClientRect().x;
-                        pressed = true;
-                        initX = event.originalEvent.changedTouches[0].pageX;
-                        posX = positionX;
-                        startX = positionX - event.originalEvent.changedTouches[0].pageX;
-                        $(this).on('touchmove', function(event) {
-                            if (pressed) {
-                                this.style.transform = `translateX(${startX + event.originalEvent.changedTouches[0].pageX}px)`;    
-                            }
-                        })
-                    })
-                    function touchEndSwiper(event){
-                        if (pressed) {
-                            pressed = false;
-                            const currentTransate = $(`#${selectorId} .swiper-wrapper`).css("transform").split(",")[4].trim();
-                            const offset = Math.abs(event.changedTouches[0].pageX - initX) > 50 ? Math.sign(event.changedTouches[0].pageX - initX) : 0;
-                            const dir = Math.floor(currentTransate / slideWidth) + offset;
-                            const isLast = -len + 1 >= dir;
-                            const padding = isLast ? 16 : 0;
-                            $(`#${selectorId} .swiper-wrapper`)[0].style.transition = "transform 0.3s ease-out";
-                            $(`#${selectorId} .swiper-wrapper`)[0].style.transform = `translateX(${(clamp(dir, -len + 1, 0) * slideWidth) + padding}px)`;
-                        }
-                    }
-                }
-            }
-            break;    
         default:
             if (isHaveSwiper) {
                 if (!isLargeScreen) {
-                    const countCards = $(`#${selectorId}`).find('.swiper-slide').length - 1;
-                    swiper.on('beforeTransitionStart', function (event) {
-                        const currentCardIndex = event.activeIndex;
-                        const slideWidth = $(`#${selectorId}`).find('.swiper-slide')[0].offsetWidth;
-                        const dif = selectorId != 'products_swiper' ? (window.innerWidth - slideWidth) / 2 : 80;
-                        if (currentCardIndex === countCards) {
-                            swiper.translateTo(-slideWidth * currentCardIndex + dif, 300, false, false);
-                        } else {
-                            swiper.translateTo(-slideWidth * currentCardIndex, 300, false, false);
-                        }
-
-                    })
+                    swiper.destroy();
+                    function updatePaddingGalery() {
+                        $(`#${selectorId} .slider-mob`).find('.swiper-slide').last().css({ 'padding-right': '16px' });
+                        $(window).off('scroll', updatePaddingGalery)
+                    }
+                    $(window).on('scroll', updatePaddingGalery);
+                    $(document).on('readystatechange', function (e) {
+                        if (document.readyState.includes('complete')) {
+                            $(`#${selectorId} .slider-mob`).find('.swiper-slide').last().css({ 'padding-right': '16px' });
+                        };
+                    });
                 }
             }
             break;
@@ -962,7 +944,6 @@ function initSlider(selectorId) {
 }
 
 initSlider('feedback_swiper');
-initSlider('products_swiper');
 initSlider('gallery_swiper');
 initSlider('regions_swiper');
 
@@ -1322,15 +1303,24 @@ function initMobilePlanetsSpinner() {
     const partners = $('#planets_mobile .partners');
     const hinge = $('#planets_mobile .hinge');
     const len = $('#planets_mobile .partner').length - 2;
-    $(window).on('load', () => {
-        if(partners.length){
+    function setScrollTopPlanets() {
+        if (partners.length) {
             partners.scrollTop(400);
         }
-    })
+        $(window).off('scroll', setScrollTopPlanets)
+    }
+    $(document).on('readystatechange', function (e) {
+        if (document.readyState.includes('complete')) {
+            if (partners.length) {
+                partners.scrollTop(400);
+            }
+        };
+    });
+    $(window).on('scroll', setScrollTopPlanets)
     partners.on('scroll', function (e) {
         const slideHeight = $('#planets_mobile .partner')[0].offsetHeight;
-        hinge.css({ 'transform': `rotate(${(e.target.scrollTop / slideHeight) * 90}deg)`});
-        
+        hinge.css({ 'transform': `rotate(${(e.target.scrollTop / slideHeight) * 90}deg)` });
+
         if (e.target.scrollTop / slideHeight === len + 1) {
             e.target.scrollTop = slideHeight;
         } else if (e.target.scrollTop === 0) {

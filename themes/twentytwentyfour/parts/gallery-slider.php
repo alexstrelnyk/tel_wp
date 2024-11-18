@@ -7,7 +7,7 @@
             <p class="H2 color-white gallery-heading italic"><?php echo get_label('Галерея', 'Gallery') ?></p>
             <div class="wide-gallery-slider">
                 <div class="swiper" id="gallery_swiper">
-                    <div class="swiper-wrapper" data-cursor="slider-white">
+                    <div class="swiper-wrapper slider-mob" data-cursor="slider-white">
                         <?php
                         $category = get_category_by_slug(get_label('gallery', 'gallery-en'));
 
