@@ -9715,6 +9715,11 @@ form [type="submit"],
     font-family: 'Commissioner', sans-serif;
 }
 
+.services-tree .prod_container .single .desc a{
+    font-size: 14px;
+    color: #333333;
+}
+
 @media screen and (min-width:481px) {
 
     .main-menu .main-menu-picture {
@@ -9749,10 +9754,6 @@ form [type="submit"],
     }
     .services-tree .prod_container .single .desc .main{
         font-size: 24px;
-    }
-    .services-tree .prod_container .single .desc a{
-        font-size: 14px;
-        color: #333333;
     }
 }
 @media screen and (min-width:426px) {
