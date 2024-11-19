@@ -9712,6 +9712,7 @@ form [type="submit"],
 
 .services-tree .prod_container .single .desc .main{
     font-weight: 600;
+    font-family: 'Commissioner', sans-serif;
 }
 
 @media screen and (min-width:481px) {
