@@ -13,8 +13,8 @@ $t2 = get_label('НАШІ ПРОДУКТИ ТА ПОСЛУГИ', 'OUR PRODUCTS A
     <div class="services-tree bg-white">
         <div class="flex-col sub_parent_0">
             <div id="cards-tree-mob" class=" shelf-content-mob">
-                <p class="Cap color-black medium mb6"><?php echo $t2 ?></p>
-                <p class="H-mob color-black  mb32"><?php echo $t1 ?></p>
+                <!-- <p class="Cap color-black medium mb6"><?php echo $t2 ?></p> -->
+                <p class="H-mob color-black"><?php echo $t1 ?></p>
             </div>
 
             <div id="cards-tree" class="shelf-content">

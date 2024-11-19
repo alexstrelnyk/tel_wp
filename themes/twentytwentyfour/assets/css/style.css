@@ -4266,7 +4266,6 @@ form [type="file"] {
         padding-right: calc(40vw - 120px)
     }
 
-    .shelf-content,
     .slider-container {
         padding-left: 120px
     }
@@ -6859,7 +6858,8 @@ header .root {
     }
 
     .services-tree .shelf-content-mob {
-        padding: 60px 264px 40px 32px
+        padding: 60px 32px;
+        text-align: center;
     }
 
     .services-mob .services-tree-mob .ending-spacer {
@@ -9700,7 +9700,6 @@ form [type="submit"],
 
 .services-tree .prod_container {
     display: block;
-    margin: 0 auto;
     padding-top: 60px;
 }
 
@@ -9709,10 +9708,6 @@ form [type="submit"],
 }
 
 .services-tree .prod_container .single .img{
-}
-
-.services-tree .prod_container .single .desc{
-    padding-left: 30px;
 }
 
 .services-tree .prod_container .single .desc .main{
@@ -9739,7 +9734,37 @@ form [type="submit"],
         height: 200px;
     }
 }
+@media screen and (max-width:425px) {
+    
+    .services-tree .prod_container .single .img {
+        height: 200px;
+    }
+    .services-tree .prod_container .single .img img {
+        height: 100%;
+        width: 100%;
+    }
+    .services-tree .prod_container .single {
+        display: block;
+    }
+    .services-tree .prod_container .single .desc .main{
+        font-size: 24px;
+    }
+}
+@media screen and (min-width:426px) {
+
+    .services-tree .prod_container {
+        margin: 0 auto;
+    }
+
+    .services-tree .prod_container .single .desc{
+        padding-left: 30px;
+    }
+}
 @media screen and (max-width:768px) {
+
+    .services-tree .shelf-content-mob {
+        padding: 60px 32px 40px;
+    }
 
     #products_swiper {
         padding-top: 60px;
