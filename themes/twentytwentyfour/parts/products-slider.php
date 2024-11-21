@@ -12,38 +12,36 @@ $header_text = get_label('ПРОДУКТИ І ПОСЛУГИ', 'PRODUCTS AND SER
         <div class="services-slider">
             <div id="products_swiper">
                 <?php
-                global $category_order;
 
-                $categories = get_terms([
-                    'taxonomy' => 'category',
-                    'slug' => $category_order,
-                    'hide_empty' => false,
-                ]);
+                $page_slugs = [
+                    get_label('telecom-solution', 'telecom-solutions-en'),
+                    get_label('services', 'services-en'),
+                ];
+                foreach ($page_slugs as $page_slug) {
+                    if (!$page = get_page_by_path($page_slug)) {
+                        break;
+                    }
 
-                $sorted_categories = sort_categories_by_slugs($categories, $category_order);
-
-                if (!empty($sorted_categories)) {
-                    foreach ($sorted_categories as $category) {
-                        $image = get_field('category_image', 'category_' . $category->term_id);
+                    $page_url = esc_url(get_permalink($page->ID));
+                    $page_image = get_field('page_image', $page->ID);
                 ?>
 
-                        <div class="product-card">
-                            <div class="product-desc">
-                                <div class="product-image" onclick="goto('<?php echo get_url('products-services') ?>?cat_slug=<?php echo $category->slug ?>')">
-                                    <img loading="lazy" src="<?php echo $image['url'] ?>" alt="<?php echo $category->name ?>">
-                                </div>
-                                <a class="Body animated-link" style="white-space:nowrap;" data-cursor="active" href="<?php echo get_url('products-services') ?>?cat_slug=<?php echo $category->slug ?>">
-                                    <span class="title" style="white-space:nowrap;">
-                                    </span>
-                                </a>
+                    <div class="product-card">
+                        <div class="product-desc">
+                            <div class="product-image" onclick="goto('<?php echo $page_url ?>')">
+                                <img loading="lazy" src="<?php echo $page_image['url'] ?>" alt="<?php echo $page->post_title ?>">
                             </div>
-                            <div class="product-title">
-                                <p class="H2 color-white "><a class="mob-link color-white mob_title" href="<?php echo get_url('products-services') ?>?cat_slug=<?php echo $category->slug ?>"><?php echo $category->name ?></a></p>
-                            </div>
+                            <a class="Body animated-link" style="white-space:nowrap;" data-cursor="active" href="<?php echo $page_url ?>">
+                                <span class="title" style="white-space:nowrap;">
+                                </span>
+                            </a>
                         </div>
+                        <div class="product-title">
+                            <p class="H2 color-white "><a class="mob-link color-white mob_title" href="<?php echo $page_url ?>"><?php echo $page->post_title ?></a></p>
+                        </div>
+                    </div>
 
                 <?php
-                    }
                 }
                 ?>
             </div>
