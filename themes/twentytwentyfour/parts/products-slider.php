@@ -14,7 +14,7 @@ $header_text = get_label('ПРОДУКТИ І ПОСЛУГИ', 'PRODUCTS AND SER
                 <?php
 
                 $page_slugs = [
-                    get_label('telecom-solution', 'telecom-solutions-en'),
+                    get_label('telecom-solutions', 'telecom-solutions-en'),
                     get_label('services', 'services-en'),
                 ];
                 foreach ($page_slugs as $page_slug) {
