@@ -4262,9 +4262,6 @@ form [type="file"] {
 }
 
 @media screen and (max-width:1536px)and (min-width:1201px) {
-    .shelf-content {
-        padding-right: calc(40vw - 120px)
-    }
 
     .slider-container {
         padding-left: 120px

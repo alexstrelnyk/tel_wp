@@ -5,46 +5,44 @@ Template Name: Products
 
 get_header();
 
-$t1 = get_label('Продукти та Послуги', 'Products & Services');
-$t2 = get_label('НАШІ ПРОДУКТИ ТА ПОСЛУГИ', 'OUR PRODUCTS AND SERVICES');
 ?>
 
 <section id=":r17:" class="width-wrapper">
     <div class="services-tree bg-white">
         <div class="flex-col sub_parent_0">
             <div id="cards-tree-mob" class=" shelf-content-mob">
-                <!-- <p class="Cap color-black medium mb6"><?php echo $t2 ?></p> -->
-                <p class="H-mob color-black"><?php echo $t1 ?></p>
+                <p class="H-mob color-black"><?php echo get_the_title() ?></p>
             </div>
 
             <div id="cards-tree" class="shelf-content">
-                <p class="H3 color-black  italic"><?php echo $t1 ?></p>
+                <p class="H3 color-black  italic"><?php echo get_the_title() ?></p>
             </div>
 
             <div class="prod_container">
                 <?php
+                $subpages = get_pages(['parent' => get_the_ID(), 'sort_column' => 'menu_order']);
 
-                $categories = get_terms([
-                    'taxonomy' => 'category',
-                    'slug' => $category_order,
-                    'hide_empty' => false,
-                ]);
+                if ($subpages) {
+                    foreach ($subpages as $key => $subpage) {
+                        if ($key && ($key % 2 == 0)) {
+                            echo '</div><div class="prod_container">';
+                        }
+                        $page_image = get_field('page_image', $subpage->ID);
 
-                $sorted_categories = sort_categories_by_slugs($categories, $category_order);
-                if (!empty($categories)) {
-                    foreach ($sorted_categories as $category) {
-                        $image = get_field('category_image', 'category_' . $category->term_id);
+                        $page_title = esc_html($subpage->post_title);
+                        $page_url = get_permalink($subpage->ID);
+
+                        // <a href="' . esc_url($page_url) . '">' . $page_title . '</a>';
                 ?>
-
                         <div class="single">
                             <div class="img">
-                                <?php if ($image) { ?>
-                                    <img loading="lazy" src="<?php echo $image['url'] ?>" alt="<?php echo $image['name'] ?>">
+                                <?php if ($page_image) { ?>
+                                    <img loading="lazy" src="<?php echo $page_image['url'] ?>" alt="<?php echo $page_image['name'] ?>">
                                 <?php } ?>
                             </div>
                             <div class="desc">
-                                <div class="main"><?php echo $category->name ?></div>
-                                <div><a href="#"><?php echo $category->name ?></a></div>
+                                <div class="main"><?php echo $page_title ?></div>
+                                <div><a href="#">asdasd</a></div>
                             </div>
                         </div>
                 <?php
