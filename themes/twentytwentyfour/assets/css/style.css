@@ -9904,6 +9904,7 @@ form [type="submit"],
         margin: 100px 60px 100px 100px;
     }
 
+    .single-page-template .module-container,
     .services-tree .prod_container {
         display: flex;
         width: 820px;
@@ -9934,6 +9935,7 @@ form [type="submit"],
         width: 640px;
     }
 
+    .single-page-template .module-container,
     .services-tree .prod_container {
         display: flex;
         width: 1240px;

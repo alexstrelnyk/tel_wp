@@ -5,7 +5,7 @@ Template Name: single-page
 get_header();
 
 ?>
-<div class="services-tree bg-white" style="margin-bottom: 60px;">
+<div class="services-tree bg-white single-page-template" style="margin-bottom: 60px;">
     <div class="flex-col sub_parent_0">
         <div class="prod_container">
             <?php
