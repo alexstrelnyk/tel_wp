@@ -9760,7 +9760,8 @@ form [type="submit"],
     }
 
     .services-tree .prod_container .single .desc{
-        padding-left: 30px;
+        padding-left: 24px;
+        padding-right: 24px;
     }
 }
 @media screen and (max-width:768px) {
