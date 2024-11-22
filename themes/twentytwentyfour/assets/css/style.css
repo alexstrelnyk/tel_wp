@@ -9717,6 +9717,10 @@ form [type="submit"],
     color: #333333;
 }
 
+.single-page-template .module-container img {
+    width: 100%;
+}
+
 @media screen and (min-width:481px) {
 
     .main-menu .main-menu-picture {
