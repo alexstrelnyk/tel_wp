@@ -31,8 +31,6 @@ get_header();
 
                         $page_title = esc_html($subpage->post_title);
                         $page_url = get_permalink($subpage->ID);
-
-                        // <a href="' . esc_url($page_url) . '">' . $page_title . '</a>';
                 ?>
                         <div class="single">
                             <div class="img">
@@ -42,7 +40,18 @@ get_header();
                             </div>
                             <div class="desc">
                                 <div class="main"><?php echo $page_title ?></div>
-                                <div><a href="#">asdasd</a></div>
+                                <?php
+
+                                $sub_pages = get_pages(['parent' => $subpage->ID, 'sort_column' => 'menu_order']);
+
+                                if ($sub_pages) {
+                                    foreach ($sub_pages as $key => $sub_page) {
+                                ?>
+                                        <div><a href="<?php echo get_permalink($sub_page->ID) ?>"><?php echo esc_html($sub_page->post_title) ?></a></div>
+                                <?php
+                                    }
+                                }
+                                ?>
                             </div>
                         </div>
                 <?php
