@@ -55,7 +55,7 @@ get_header();
                                             }
                                         } else {
                                             ?>
-                                            <div><a data-cursor="active" href="<?php echo get_permalink($sub_page->ID) ?>"><?php echo esc_html($sub_page->post_title) ?></a></div>
+                                            <div class="simple_link"><a data-cursor="active" href="<?php echo get_permalink($sub_page->ID) ?>"><?php echo esc_html($sub_page->post_title) ?></a></div>
                                 <?php
                                         }
                                     }
