@@ -9707,7 +9707,10 @@ form [type="submit"],
 .services-tree .prod_container .single .img{
 }
 
-.services-tree .prod_container .single .desc .simple_link{
+.services-tree .prod_container .single .desc .sub_page_title,
+.services-tree .prod_container .single .desc .sub_page_link,
+.services-tree .prod_container .single .desc .simple_link {
+    margin-bottom: 6px;
 }
 .services-tree .prod_container .single .desc .main{
     font-weight: 600;
