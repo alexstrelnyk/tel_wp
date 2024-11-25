@@ -9710,10 +9710,17 @@ form [type="submit"],
 .services-tree .prod_container .single .desc .main{
     font-weight: 600;
     font-family: 'Commissioner', sans-serif;
+    font-size: 24px;
+}
+
+.services-tree .prod_container .single .desc .sub_page_title{
+    font-weight: 600;
+    font-size: 18px;
+    font-family: 'Commissioner', sans-serif;
 }
 
 .services-tree .prod_container .single .desc a{
-    font-size: 14px;
+    font-size: 16px;
     color: #333333;
     text-decoration: underline;
 }

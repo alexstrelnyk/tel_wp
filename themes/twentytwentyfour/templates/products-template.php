@@ -20,9 +20,8 @@ get_header();
 
             <div class="prod_container">
                 <?php
-                $subpages = get_pages(['parent' => get_the_ID(), 'sort_column' => 'menu_order']);
 
-                if ($subpages) {
+                if ($subpages = get_pages(['parent' => get_the_ID(), 'sort_column' => 'menu_order'])) {
                     foreach ($subpages as $key => $subpage) {
                         if ($key && ($key % 2 == 0)) {
                             echo '</div><div class="prod_container">';
@@ -42,13 +41,23 @@ get_header();
                                 <div class="main"><?php echo $page_title ?></div>
                                 <?php
 
-                                $sub_pages = get_pages(['parent' => $subpage->ID, 'sort_column' => 'menu_order']);
-
-                                if ($sub_pages) {
-                                    foreach ($sub_pages as $key => $sub_page) {
+                                if ($sub_pages = get_pages(['parent' => $subpage->ID, 'sort_column' => 'menu_order'])) {
+                                    foreach ($sub_pages as $sub_page) {
+                                        if ($sub_pages2 = get_pages(['parent' => $sub_page->ID, 'sort_column' => 'menu_order'])) {
                                 ?>
-                                        <div><a data-cursor="active" href="<?php echo get_permalink($sub_page->ID) ?>"><?php echo esc_html($sub_page->post_title) ?></a></div>
+                                            <div class="sub_page_title"><?php echo esc_html($sub_page->post_title) ?></div>
+
+                                            <?php
+                                            foreach ($sub_pages2 as $sub_page2) {
+                                            ?>
+                                                <div><a data-cursor="active" href="<?php echo get_permalink($sub_page2->ID) ?>"><?php echo esc_html($sub_page2->post_title) ?></a></div>
+                                            <?php
+                                            }
+                                        } else {
+                                            ?>
+                                            <div><a data-cursor="active" href="<?php echo get_permalink($sub_page->ID) ?>"><?php echo esc_html($sub_page->post_title) ?></a></div>
                                 <?php
+                                        }
                                     }
                                 }
                                 ?>
