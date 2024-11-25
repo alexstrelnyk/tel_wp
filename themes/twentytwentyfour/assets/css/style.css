@@ -9939,8 +9939,7 @@ form [type="submit"],
         margin: 100px 60px 100px 100px;
     }
 
-    .single-page-template .module-container,
-    .services-tree .prod_container {
+    .single-page-template .module-container {
         display: flex;
         width: 820px;
     }
