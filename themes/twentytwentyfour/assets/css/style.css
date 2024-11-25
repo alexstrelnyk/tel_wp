@@ -6257,7 +6257,7 @@ header .root {
 
 .services-slider .product-card .product-title .H2{
     font-size: 94px;
-    line-height: 54px;
+    line-height: 84.6px;
 }
 .services-slider .product-card .product-title {
     position: absolute;
@@ -10101,6 +10101,7 @@ form [type="submit"],
 
     .services-slider .product-card .product-title .H2 {
         font-size: 60px;
+        line-height: 54px;
     }
 }
 
