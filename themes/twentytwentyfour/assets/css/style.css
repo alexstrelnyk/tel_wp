@@ -9711,6 +9711,7 @@ form [type="submit"],
     font-weight: 600;
     font-family: 'Commissioner', sans-serif;
     font-size: 24px;
+    line-height: 29.35px;
 }
 
 .services-tree .prod_container .single .desc .sub_page_title{
@@ -9726,6 +9727,8 @@ form [type="submit"],
     font-size: 16px;
     color: #333333;
     text-decoration: underline;
+    line-height: 22.4px;
+    font-weight: 400;
 }
 
 .single-page-template .module-container img {
