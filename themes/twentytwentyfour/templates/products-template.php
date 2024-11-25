@@ -47,7 +47,7 @@ get_header();
                                 if ($sub_pages) {
                                     foreach ($sub_pages as $key => $sub_page) {
                                 ?>
-                                        <div data-cursor="active"><a href="<?php echo get_permalink($sub_page->ID) ?>"><?php echo esc_html($sub_page->post_title) ?></a></div>
+                                        <div><a data-cursor="active" href="<?php echo get_permalink($sub_page->ID) ?>"><?php echo esc_html($sub_page->post_title) ?></a></div>
                                 <?php
                                     }
                                 }
