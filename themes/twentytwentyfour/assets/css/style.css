@@ -6262,8 +6262,8 @@ header .root {
 .services-slider .product-card .product-title {
     position: absolute;
     z-index: 15;
-    bottom: 120px;
-    left: 40px;
+    bottom: 100px;
+    left: 30px;
     height: 0px;
 }
 
@@ -9956,6 +9956,9 @@ form [type="submit"],
     .slider-side-bar,
     #top_section {
         display: none !important;
+    }
+    .services-slider .product-card .product-title {
+        bottom: 90px;
     }
 }
 
