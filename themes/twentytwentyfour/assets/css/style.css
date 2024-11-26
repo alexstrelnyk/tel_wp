@@ -9768,7 +9768,7 @@ form [type="submit"],
         height: 200px;
     }
 }
-@media screen and (max-width:425px) {
+@media screen and (max-width:480px) {
     
     .services-tree .prod_container .single .img {
         height: 200px;
@@ -9792,7 +9792,7 @@ form [type="submit"],
         font-size: 16px;
     }
 }
-@media screen and (min-width:426px) {
+@media screen and (min-width:481px) {
 
     .services-tree .prod_container {
         margin: 0 auto;
@@ -9953,7 +9953,7 @@ form [type="submit"],
 
 }
 
-@media screen and (max-width:1024px) {
+@media screen and (max-width:1200px) {
 
     #cards-tree,
     .slider-side-bar,
@@ -9965,7 +9965,7 @@ form [type="submit"],
     }
 }
 
-@media screen and (min-width:1025px) {
+@media screen and (min-width:1201px) {
 
     .services-tree .prod_container .single {
         width: 50%;
