@@ -56,11 +56,14 @@ get_header();
                                                     foreach ($sub_pages3 as $sub_page3) {
                                                     ?>
                                                         <div class="sub_page_link sub3_level"><a data-cursor="active" href="<?php echo get_permalink($sub_page3->ID) ?>"><?php echo esc_html($sub_page3->post_title) ?></a></div>
-                                                <?php
+                                                    <?php
                                                     }
+                                                } else {
+                                                    ?>
+                                                    <div class="sub_page_link"><a data-cursor="active" href="<?php echo get_permalink($sub_page2->ID) ?>"><?php echo esc_html($sub_page2->post_title) ?></a></div>
+                                                <?php
                                                 }
                                                 ?>
-                                                <div class="sub_page_link"><a data-cursor="active" href="<?php echo get_permalink($sub_page2->ID) ?>"><?php echo esc_html($sub_page2->post_title) ?></a></div>
                                             <?php
                                             }
                                         } else {
