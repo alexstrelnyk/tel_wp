@@ -51,11 +51,11 @@ get_header();
                                             foreach ($sub_pages2 as $sub_page2) {
                                                 if ($sub_pages3 = get_pages(['parent' => $sub_page2->ID, 'sort_column' => 'menu_order'])) {
                                             ?>
-                                                    <div class="sub_page_title"><?php echo esc_html($sub_page2->post_title) ?></div>
+                                                    <div class="sub_page_title sub3_level"><?php echo esc_html($sub_page2->post_title) ?></div>
                                                     <?php
                                                     foreach ($sub_pages3 as $sub_page3) {
                                                     ?>
-                                                        <div class="sub_page_link"><a data-cursor="active" href="<?php echo get_permalink($sub_page3->ID) ?>"><?php echo esc_html($sub_page3->post_title) ?></a></div>
+                                                        <div class="sub_page_link sub3_level"><a data-cursor="active" href="<?php echo get_permalink($sub_page3->ID) ?>"><?php echo esc_html($sub_page3->post_title) ?></a></div>
                                                 <?php
                                                     }
                                                 }
