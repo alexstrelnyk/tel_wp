@@ -9953,6 +9953,15 @@ form [type="submit"],
 
 }
 
+@media screen and (min-width: 1025px) and (max-width:1200px) {
+    .services-tree .prod_container {
+        width: 1072px;
+        display: flex;
+    }
+    .services-tree .prod_container .single {
+        width: 50%;
+    }
+}
 @media screen and (max-width:1200px) {
 
     #cards-tree,
@@ -9967,9 +9976,6 @@ form [type="submit"],
 
 @media screen and (min-width:1201px) {
 
-    .services-tree .prod_container .single {
-        width: 50%;
-    }
     
     #cards-tree-mob,
     #top_section_mob {
