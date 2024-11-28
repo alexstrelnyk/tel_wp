@@ -9952,14 +9952,17 @@ form [type="submit"],
     }
 
 }
+@media screen and (min-width: 1025px) {
+
+    .services-tree .prod_container .single {
+        width: 50%;
+    }
+}
 
 @media screen and (min-width: 1025px) and (max-width:1200px) {
     .services-tree .prod_container {
         width: 1072px;
         display: flex;
-    }
-    .services-tree .prod_container .single {
-        width: 50%;
     }
 }
 @media screen and (max-width:1200px) {
