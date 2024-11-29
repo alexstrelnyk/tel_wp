@@ -9918,7 +9918,7 @@ form [type="submit"],
     }
 
     .services-tree .prod_container {
-        /* padding: 0 32px; */
+        padding: 0;
     }
 
     .services-tree .prod_container .single {
