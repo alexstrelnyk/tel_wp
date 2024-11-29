@@ -10021,6 +10021,9 @@ form [type="submit"],
         width: 1072px;
         display: flex;
     }
+    .services-tree .prod_container .single {
+        width: 50%;
+    }
 }
 @media screen and (max-width:1200px) {
 
