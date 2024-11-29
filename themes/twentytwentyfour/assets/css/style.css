@@ -9921,10 +9921,6 @@ form [type="submit"],
         width: 100%;
     }
 
-    .services-tree .prod_container {
-        padding: 0;
-    }
-
     .services-tree .prod_container .single {
         padding-bottom: 32px;
     }
@@ -9933,6 +9929,9 @@ form [type="submit"],
 
 @media screen and (min-width:481px) and (max-width:768px) {
     
+    .services-tree .prod_container {
+        padding: 0;
+    }
     .services-tree .prod_container {
         display: flex;
         width: 700px;
