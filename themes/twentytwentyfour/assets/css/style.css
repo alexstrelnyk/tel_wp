@@ -9771,6 +9771,10 @@ form [type="submit"],
     .services-tree .prod_container .single .desc .sub_page_title {
         font-size: 16px;
     }
+
+    .services-tree .prod_container {
+        padding: 0 32px;
+    }
 }
 @media screen and (min-width:481px) {
 
@@ -9918,7 +9922,7 @@ form [type="submit"],
     }
 
     .services-tree .prod_container {
-        padding: 0; 
+        padding: 0;
     }
 
     .services-tree .prod_container .single {
