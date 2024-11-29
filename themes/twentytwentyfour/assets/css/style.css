@@ -5306,7 +5306,7 @@ header .root {
     .main-menu.visible .up {
         gap: 32px;
         justify-content: flex-end;
-        padding: 0 32px 60px;
+        padding: 0 32px 40px;
         width: 100vw
     }
 
