@@ -4781,13 +4781,6 @@ header .root {
     justify-content: space-between
 }
 
-.main-menu .up .footer-links,
-.main-menu .up .footer-links .follow-links,
-.main-menu .up .footer-links .page-links {
-    align-items: center;
-    display: flex;
-    flex-direction: row
-}
 
 .main-menu .up .footer-links .follow-links a:not(:last-child),
 .main-menu .up .footer-links .page-links a:not(:last-child) {
@@ -5351,6 +5344,14 @@ header .root {
     }
 }
 
+
+.main-menu .up .page-links {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 60px;
+}
 .hero-root {
     align-items: center;
     display: flex;
