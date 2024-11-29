@@ -9980,6 +9980,36 @@ form [type="submit"],
 
 }
 
+@media screen and (min-width:769px) and (max-width:1024px) {
+    
+    .services-tree .prod_container {
+        display: flex;
+        width: 920px;
+    }
+
+    .services-tree .prod_container .single {
+        width: 50%;
+    }
+    .services-tree .prod_container .single .img img {
+        height: 140px;
+        width: 140px;
+    }
+    .services-tree .prod_container .single .desc .main {
+        font-size: 14px;
+        line-height: normal;
+        margin-bottom: 6px;
+    }
+    .services-tree .prod_container .single .desc .sub_page_title {
+        line-height: normal;
+        font-size: 12px;
+        margin: 0;
+    }
+    .services-tree .prod_container .single .desc a {
+        line-height: normal;
+        font-size: 12px;
+    }
+}
+
 @media screen and (min-width: 1025px) and (max-width:1200px) {
     .services-tree .prod_container {
         width: 1072px;
