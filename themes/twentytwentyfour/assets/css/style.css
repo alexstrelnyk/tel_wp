@@ -10054,6 +10054,9 @@ form [type="submit"],
         display: flex;
         width: 1240px;
     }
+    .services-tree .prod_container .single {
+        width: 50%;
+    }
     
 }
 
