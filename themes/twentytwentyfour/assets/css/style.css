@@ -9748,26 +9748,6 @@ form [type="submit"],
     width: 100%;
 }
 
-@media screen and (min-width:481px) {
-
-    .main-menu .main-menu-picture {
-        /* height: 794px; */
-        left: auto !important;
-        width: auto;
-        right: 0% !important;
-    }
-    .main-menu .up .main-links .link {
-        position: relative;
-    }
-
-    #planets_mobile {
-        display: none;
-    }
-    .services-tree .prod_container .single .img img{
-        width: 200px;
-        height: 200px;
-    }
-}
 @media screen and (max-width:480px) {
     
     .services-tree .prod_container .single .img {
@@ -9801,6 +9781,24 @@ form [type="submit"],
     .services-tree .prod_container .single .desc{
         padding-left: 24px;
         padding-right: 24px;
+    }
+
+    .main-menu .main-menu-picture {
+        /* height: 794px; */
+        left: auto !important;
+        width: auto;
+        right: 0% !important;
+    }
+    .main-menu .up .main-links .link {
+        position: relative;
+    }
+
+    #planets_mobile {
+        display: none;
+    }
+    .services-tree .prod_container .single .img img{
+        width: 200px;
+        height: 200px;
     }
 }
 @media screen and (max-width:768px) {
@@ -9920,7 +9918,7 @@ form [type="submit"],
     }
 
     .services-tree .prod_container {
-        padding: 0 32px;
+        /* padding: 0 32px; */
     }
 
     .services-tree .prod_container .single {
@@ -9929,6 +9927,35 @@ form [type="submit"],
 }
 
 
+@media screen and (min-width:481px) and (max-width:768px) {
+    
+    .services-tree .prod_container {
+        display: flex;
+        width: 700px;
+    }
+
+    .services-tree .prod_container .single {
+        width: 50%;
+    }
+    .services-tree .prod_container .single .img img {
+        height: 100px;
+        width: 100px;
+    }
+    .services-tree .prod_container .single .desc .main {
+        font-size: 14px;
+        line-height: normal;
+        margin-bottom: 6px;
+    }
+    .services-tree .prod_container .single .desc .sub_page_title {
+        line-height: normal;
+        font-size: 12px;
+        margin: 0;
+    }
+    .services-tree .prod_container .single .desc a {
+        line-height: normal;
+        font-size: 12px;
+    }
+}
 @media screen and (min-width:769px) {
 
     .main-menu .up .follow-links.mob-wrap,
@@ -9951,12 +9978,6 @@ form [type="submit"],
         width: 820px;
     }
 
-}
-@media screen and (min-width: 1025px) {
-
-    .services-tree .prod_container .single {
-        width: 50%;
-    }
 }
 
 @media screen and (min-width: 1025px) and (max-width:1200px) {
