@@ -9986,6 +9986,9 @@ form [type="submit"],
 @media screen and (min-width:769px) and (max-width:1024px) {
     
     .services-tree .prod_container {
+        padding: 0;
+    }
+    .services-tree .prod_container {
         display: flex;
         width: 920px;
     }
