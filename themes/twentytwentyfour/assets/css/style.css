@@ -6784,7 +6784,7 @@ header .root {
         margin: 192px 0 92px 16px
     }
 }
-@media screen and (max-width:1200px)and (min-width:481px) {
+@media screen and (min-width:701px) and (max-width:1200px) {
 
     .services-slider .product-card .product-desc .product-image {
         height: 530px;
@@ -9749,7 +9749,7 @@ form [type="submit"],
     width: 100%;
 }
 
-@media screen and (max-width:480px) {
+@media screen and (max-width:700px) {
     
     .services-tree .prod_container .single .img {
         height: 200px;
@@ -9777,7 +9777,7 @@ form [type="submit"],
         padding: 0 32px;
     }
 }
-@media screen and (min-width:481px) {
+@media screen and (min-width:701px) {
 
     .services-tree .prod_container {
         margin: 0 auto;
@@ -9928,7 +9928,7 @@ form [type="submit"],
 }
 
 
-@media screen and (min-width:481px) and (max-width:768px) {
+@media screen and (min-width:701px) and (max-width:768px) {
     
     .services-tree .prod_container {
         padding: 0;
