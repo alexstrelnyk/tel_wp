@@ -6857,7 +6857,7 @@ header .root {
     }
 
     .services-tree .shelf-content-mob {
-        padding: 60px 32px;
+        padding: 60px 32px 120px;
         text-align: center;
     }
 
@@ -9702,7 +9702,7 @@ form [type="submit"],
     /* padding-top: 60px; */
 }
 #cards-tree.shelf-content .H3 {
-    padding-bottom: 60px;
+    padding-bottom: 120px;
 } 
 
 .services-tree .prod_container .single {
@@ -9753,6 +9753,10 @@ form [type="submit"],
 }
 
 @media screen and (max-width:700px) {
+
+    .services-tree .shelf-content-mob {
+        padding: 60px 32px 40px;
+    }
     
     .services-tree .prod_container .single .img {
         height: 200px;
@@ -9816,10 +9820,6 @@ form [type="submit"],
     }
 }
 @media screen and (max-width:768px) {
-
-    .services-tree .shelf-content-mob {
-        padding: 60px 32px 40px;
-    }
 
     #products_swiper {
         padding-top: 60px;
