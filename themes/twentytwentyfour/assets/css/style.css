@@ -9975,10 +9975,6 @@ form [type="submit"],
     .services-tree .prod_container .single {
         width: 50%;
     }
-    .services-tree .prod_container .single .img img {
-        height: 100px;
-        width: 100px;
-    }
     .services-tree .prod_container .single .desc .main {
         font-size: 14px;
         line-height: normal;
@@ -10015,7 +10011,13 @@ form [type="submit"],
 
 }
 
-@media screen and (min-width:701px) and (max-width:1200px) {
+@media screen and (min-width:701px) and (max-width:1000px) {
+    .services-tree .prod_container .single .img img {
+        height: 100px;
+        width: 100px;
+    }
+}
+@media screen and (min-width:1001px) and (max-width:1200px) {
     .services-tree .prod_container .single .img img {
         height: 140px;
         width: 140px;
