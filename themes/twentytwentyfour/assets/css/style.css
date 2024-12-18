@@ -9754,6 +9754,9 @@ form [type="submit"],
 }
 
 @media screen and (max-width:700px) {
+    .single-page-template .sub_parent_0 {
+        padding: 0 40px;
+    }
 
     .services-tree .shelf-content-mob {
         padding: 60px 32px 40px;
