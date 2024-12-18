@@ -9949,7 +9949,7 @@ form [type="submit"],
 
 @media screen and (min-width:701px) and (max-width:819px) {
     .single-page-template .sub_parent_0 {
-        width: 580px;
+        width: 560px;
     }
     .services-tree .prod_container {
         width: 660px;
@@ -9957,7 +9957,7 @@ form [type="submit"],
 }
 @media screen and (min-width:820px) and (max-width:960px) {
     .single-page-template .sub_parent_0 {
-        width: 680px;
+        width: 660px;
     }
     .services-tree .prod_container {
         width: 760px;
@@ -9965,7 +9965,7 @@ form [type="submit"],
 }
 @media screen and (min-width:961px) and (max-width:1024px) {
     .single-page-template .sub_parent_0 {
-        width: 780px;
+        width: 760px;
     }
     .services-tree .prod_container {
         width: 860px;
@@ -9973,7 +9973,7 @@ form [type="submit"],
 }
 @media screen and (min-width:1025px) and (max-width:1200px) {
     .single-page-template .sub_parent_0 {
-        width: 900px;
+        width: 880px;
     }
     .services-tree .prod_container {
         width: 980px;
@@ -9981,7 +9981,7 @@ form [type="submit"],
 }
 @media screen and (min-width:1201px) and (max-width:1440px) {
     .single-page-template .sub_parent_0 {
-        width: 1010px;
+        width: 990px;
     }
     .services-tree .prod_container {
         width: 1090px;
@@ -9989,7 +9989,7 @@ form [type="submit"],
 }
 @media screen and (min-width:1400px) {
     .single-page-template .sub_parent_0 {
-        width: 1160px;
+        width: 1140px;
     }
     .services-tree .prod_container {
         width: 1240px;
