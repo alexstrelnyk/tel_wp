@@ -9943,6 +9943,9 @@ form [type="submit"],
 }
 
 
+.single-page-template.services-tree .prod_container {
+    width: auto;
+}
 .single-page-template .sub_parent_0 {
     margin: 0 auto;
 }
