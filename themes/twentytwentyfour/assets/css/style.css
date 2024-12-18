@@ -4287,7 +4287,12 @@ form [type="file"] {
     }
 }
 
-@media screen and (max-width:1200px)and (min-width:481px) {
+@media screen and (max-width:768px){ 
+    .slider-side-bar {
+        display: none !important;
+    }
+}
+@media screen and (max-width:1199px)and (min-width:481px) {
     .slider-container {
         padding-left: 0
     }
@@ -4296,7 +4301,7 @@ form [type="file"] {
         height: -webkit-fit-content;
         height: -moz-fit-content;
         height: fit-content;
-        top: 130px;
+        top: 40px;
         width: 100vw
     }
 
@@ -6228,12 +6233,6 @@ header .root {
 .services-slider {
 }
 
-@media screen and (min-width:1441px) {
-    .services-slider .product-card {
-        margin: 100px;
-        width: 600px;
-    }
-}
 .services-slider .product-card {
     align-items: center;
     display: inline-flex;
@@ -10112,10 +10111,27 @@ form [type="submit"],
         width: 50%;
     }
 }
+@media screen and (min-width:700px) and (max-width:943px) {
+    .services-slider {
+        display: contents;
+    }
+    #products_swiper {
+        width: 770px;
+        margin: 0 auto;
+    }
+}
+@media screen and (min-width:944px) and (max-width:1200px) {
+    .services-slider {
+        display: contents;
+    }
+    #products_swiper {
+        width: 1000px;
+        margin: 0 auto;
+    }
+}
 @media screen and (max-width:1200px) {
 
     #cards-tree,
-    .slider-side-bar,
     #top_section {
         display: none !important;
     }
@@ -10124,6 +10140,14 @@ form [type="submit"],
     }
 }
 
+@media screen and (min-width:1200px) {
+    .slider-container .slider-side-bar {
+        width: 120px;
+    }
+    .slider-container {
+        padding-left: 120px;
+    }
+}
 @media screen and (min-width:1201px) {
 
     
