@@ -9753,9 +9753,14 @@ form [type="submit"],
     width: 100%;
 }
 
+.single-page-template .sub_parent_0 {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
 @media screen and (max-width:700px) {
     .single-page-template .sub_parent_0 {
-        padding: 0 40px;
+        padding-left: 40px;
+        padding-right: 40px;
     }
 
     .services-tree .shelf-content-mob {
