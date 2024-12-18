@@ -10033,6 +10033,20 @@ form [type="submit"],
         font-size: 12px;
     }
 }
+@media screen and (min-width:769px) and (max-width:943px) {
+
+    .services-slider .product-card {
+        margin: 100px 60px 50px 10px;
+    }
+
+}
+@media screen and (min-width:944px) {
+
+    .services-slider .product-card {
+        margin: 100px 60px 100px 100px;
+    }
+
+}
 @media screen and (min-width:769px) {
 
     .main-menu .up .follow-links.mob-wrap,
@@ -10042,12 +10056,6 @@ form [type="submit"],
     #ind_wrap_mob {
         display: none;
     }
-
-    .services-slider .product-card {
-        margin: 100px 60px 100px 100px;
-    }
-
-
 }
 
 @media screen and (min-width:701px) and (max-width:1000px) {
