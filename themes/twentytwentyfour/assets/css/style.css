@@ -4949,13 +4949,13 @@ header .root {
     }
 }
 
-@media(max-height:900px) {
+@media screen and (max-width:900px) {
     .main-menu .up .main-links .link .label {
         font-size: 80px
     }
 }
 
-@media screen and (max-height:900px)and (-webkit-device-pixel-ratio:1.25) {
+@media screen and (max-width:900px)and (-webkit-device-pixel-ratio:1.25) {
     .main-menu .up .main-links .link .label {
         font-size: 104px
     }
