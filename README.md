@@ -34,6 +34,7 @@ Go to your mysql console and run these queries
 "update wp_options set option_value='http://localhost:8000/' where option_name='blogname';"
 
 
+
 now go to 
 http://localhost:8000/wp-admin/
 
