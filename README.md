@@ -1,12 +1,16 @@
 # Telesens-site
-
+<br>
 1. Download WP archieve and unpack it
+<br>
 2. run local php server
-php -S localhost:8000
 
+<code>php -S localhost:8000</code>
+<br>
+<br>
 Open http://localhost:8000 and finish all steps of installation<br>
 When it's all done and you see main homepage<br>
-3. 
+<br>
+3. Now we need to fix theme structure<br>
 <code>
 cd wp-content<br>
 rm -rf themes<br>
