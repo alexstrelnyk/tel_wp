@@ -10,8 +10,9 @@ When it's all done and you see main homepage<br>
 <code>
 cd wp-content<br>
 rm -rf themes<br>
-git checkout https://gl.telesens.us/telesens-corporate-site/telesens-site.git<br>
+git checkout https://gl.telesens.us/telesens-corporate-site/telesens-site.git
 </code>
+<br>
 
 Get all theme files in
 "telesens-site"
@@ -35,9 +36,7 @@ Migrate latest wp_telek.sql file (it could be any of wp_telek{version}.sql files
 
 <code>
 update wp_options set option_value='http://localhost:8000/' where option_name='siteurl';
-<br>
 update wp_options set option_value='http://localhost:8000/' where option_name='home';
-<br>
 update wp_options set option_value='http://localhost:8000/' where option_name='blogname';
 </code>
 <br>
