@@ -12,8 +12,7 @@ When it's all done and you see main homepage<br>
 <br>
 3. Now we need to fix theme structure
 
-<code>
-cd wp-content<br>
+<code>cd wp-content<br>
 rm -rf themes<br>
 git checkout https://gl.telesens.us/telesens-corporate-site/telesens-site.git
 </code>
@@ -22,8 +21,7 @@ git checkout https://gl.telesens.us/telesens-corporate-site/telesens-site.git
 Get all theme files in
 "telesens-site"
 
-<code>
-cd telesens-site
+<code>cd telesens-site
 mv themes ../themes
 </code>
 <br>
