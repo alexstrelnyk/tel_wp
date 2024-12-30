@@ -10,7 +10,8 @@
 Open http://localhost:8000 and finish all steps of installation<br>
 When it's all done and you see main homepage<br>
 <br>
-3. Now we need to fix theme structure<br>
+3. Now we need to fix theme structure
+
 <code>
 cd wp-content<br>
 rm -rf themes<br>
