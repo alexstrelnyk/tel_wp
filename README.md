@@ -30,6 +30,7 @@ Go to
 https://drive.google.com/drive/folders/13r_Yvnb7859LddWZrahv5lRiczwn_QBz?usp=sharing
 
 Download and unpach "plugins" in /wp-content
+
 unpack "images" to  /wp-content/themes/twentytwentyfour/assets/
 
 
@@ -55,4 +56,5 @@ telek_user
 strong-mysql-pass$
 
 That's it
+
 Enjoy
