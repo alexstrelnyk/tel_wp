@@ -12,8 +12,8 @@ When it's all done and you see main homepage<br>
 <br>
 3. Now we need to fix theme structure
 
-<code>cd wp-content<br>
-rm -rf themes<br>
+<code>cd wp-content
+rm -rf themes
 git checkout https://gl.telesens.us/telesens-corporate-site/telesens-site.git
 </code>
 <br>
@@ -40,8 +40,7 @@ Migrate latest wp_telek.sql file (it could be any of wp_telek{version}.sql files
 <br>
 <b><i>Go to your mysql console and run these queries:</i></b>
 
-<code>
-update wp_options set option_value='http://localhost:8000/' where option_name='siteurl';
+<code>update wp_options set option_value='http://localhost:8000/' where option_name='siteurl';
 update wp_options set option_value='http://localhost:8000/' where option_name='home';
 update wp_options set option_value='http://localhost:8000/' where option_name='blogname';
 </code>
