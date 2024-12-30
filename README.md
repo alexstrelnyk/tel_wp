@@ -6,15 +6,19 @@ php -S localhost:8000
 
 Open http://localhost:8000 and finish all steps of installation<br>
 When it's all done and you see main homepage<br>
-3. cd wp-content<br>
+3. 
+<code>
+cd wp-content<br>
 rm -rf themes<br>
 git checkout https://gl.telesens.us/telesens-corporate-site/telesens-site.git<br>
+</code>
 
 Get all theme files in
 "telesens-site"
 
-cd telesens-site
-mv themes ../themes
+<code>cd telesens-site</code>
+<br>
+<code>mv themes ../themes</code>
 
 Go to 
 https://drive.google.com/drive/folders/13r_Yvnb7859LddWZrahv5lRiczwn_QBz?usp=sharing
@@ -29,11 +33,13 @@ Migrate latest wp_telek.sql file (it could be any of wp_telek{version}.sql files
 <br>
 <b><i>Go to your mysql console and run these queries:</i></b>
 
-"update wp_options set option_value='http://localhost:8000/' where option_name='siteurl';"
-
-"update wp_options set option_value='http://localhost:8000/' where option_name='home';"
-
-"update wp_options set option_value='http://localhost:8000/' where option_name='blogname';"
+<code>
+update wp_options set option_value='http://localhost:8000/' where option_name='siteurl';
+<br>
+update wp_options set option_value='http://localhost:8000/' where option_name='home';
+<br>
+update wp_options set option_value='http://localhost:8000/' where option_name='blogname';
+</code>
 <br>
 <br>
 
