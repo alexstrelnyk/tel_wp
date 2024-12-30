@@ -4,11 +4,11 @@
 2. run local php server
 php -S localhost:8000
 
-Open http://localhost:8000 and finish all steps of installation
-When it's all done and you see main homepage
-3. cd wp-content
-rm -rf themes
-git checkout https://gl.telesens.us/telesens-corporate-site/telesens-site.git
+Open http://localhost:8000 and finish all steps of installation<br>
+When it's all done and you see main homepage<br>
+3. cd wp-content<br>
+rm -rf themes<br>
+git checkout https://gl.telesens.us/telesens-corporate-site/telesens-site.git<br>
 
 Get all theme files in
 "telesens-site"
@@ -23,8 +23,10 @@ Download and unpach "plugins" in /wp-content
 unpack "images" to  /wp-content/themes/twentytwentyfour/assets/
 
 
+<br>
 Migrate latest wp_telek.sql file (it could be any of wp_telek{version}.sql files)
-
+<br>
+<br>
 <b><i>Go to your mysql console and run these queries:</i></b>
 
 "update wp_options set option_value='http://localhost:8000/' where option_name='siteurl';"
