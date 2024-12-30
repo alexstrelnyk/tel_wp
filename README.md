@@ -26,9 +26,10 @@ unpack "images" to  /wp-content/themes/twentytwentyfour/assets/
 Migrate wp_telek.sql
 
 Go to your mysql console and run these queries
-update wp_options set option_value='http://localhost:8000/' where option_name='siteurl';
-update wp_options set option_value='http://localhost:8000/' where option_name='home';
-update wp_options set option_value='http://localhost:8000/' where option_name='blogname';
+
+"update wp_options set option_value='http://localhost:8000/' where option_name='siteurl';"
+"update wp_options set option_value='http://localhost:8000/' where option_name='home';"
+"update wp_options set option_value='http://localhost:8000/' where option_name='blogname';"
 
 now go to 
 http://localhost:8000/wp-admin/
