@@ -22,9 +22,11 @@ git checkout https://gl.telesens.us/telesens-corporate-site/telesens-site.git
 Get all theme files in
 "telesens-site"
 
-<code>cd telesens-site</code>
+<code>
+cd telesens-site
+mv themes ../themes
+</code>
 <br>
-<code>mv themes ../themes</code>
 
 Go to 
 https://drive.google.com/drive/folders/13r_Yvnb7859LddWZrahv5lRiczwn_QBz?usp=sharing
