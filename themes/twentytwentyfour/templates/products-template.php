@@ -5,56 +5,81 @@ Template Name: Products
 
 get_header();
 
-$t1 = get_label('Продукти та Послуги', 'Products & Services');
-$t2 = get_label('НАШІ ПРОДУКТИ ТА ПОСЛУГИ', 'OUR PRODUCTS AND SERVICES');
 ?>
 
 <section id=":r17:" class="width-wrapper">
-    <div class="services-tree">
+    <div class="services-tree bg-white">
         <div class="flex-col sub_parent_0">
-            <div id="cards-tree-mob" class="bg-midnight-blue shelf-content-mob">
-                <p class="Cap color-white medium mb6"><?php echo $t2 ?></p>
-                <p class="H-mob color-white  mb32"><?php echo $t1 ?></p>
+            <div id="cards-tree-mob" class=" shelf-content-mob">
+                <p class="H-mob color-black"><?php echo get_the_title() ?></p>
             </div>
 
-            <div id="cards-tree" class="shelf-content bg-midnight-blue">
-                <p class="H3 color-white  italic"><?php echo $t1 ?></p>
+            <div id="cards-tree" class="shelf-content">
+                <p class="H3 color-black  italic"><?php echo get_the_title() ?></p>
             </div>
 
-            <div class="slider-container bg-midnight-blue">
-                <div class="slider-side-bar bg-midnight-blue">
-                    <p class="Sub color-white "><?php echo $t2 ?></p>
-                </div>
-                <div class="services-slider" style="transform: translateX(0px);">
+            <div class="prod_container">
+                <?php
 
-                    <?php
-
-                    $categories = get_terms([
-                        'taxonomy' => 'category',
-                        'slug' => $category_order,
-                        'hide_empty' => false,
-                    ]);
-
-                    $sorted_categories = sort_categories_by_slugs($categories, $category_order);
-                    if (!empty($categories)) {
-                        foreach ($sorted_categories as $category) {
-                            $image = get_field('category_image', 'category_' . $category->term_id);
-                    ?>
-                            <div id="cat_slug_<?php echo $category->slug ?>" class="services-card light-blue" onclick="getProducts(this, 0)" data-cat_id="<?php echo $category->term_id ?>" data-cat_title="<?php echo $category->name ?>" data-cat_slug="<?php echo $category->slug ?>">
-                                <?php if ($image) { ?>
-                                    <div class="image"><img loading="lazy" src="<?php echo $image['url'] ?>" alt="<?php echo $image['name'] ?>"></div>
-                                <?php } ?>
-                                <div class="desc">
-                                    <p class="H5 color-white  bold"><?php echo $category->name ?></p>
-                                    <p class="H6 color-white medium"></p>
-                                </div>
-                            </div>
-                    <?php
+                if ($subpages = get_pages(['parent' => get_the_ID(), 'sort_column' => 'menu_order'])) {
+                    foreach ($subpages as $key => $subpage) {
+                        if ($key && ($key % 2 == 0)) {
+                            echo '</div><div class="prod_container">';
                         }
-                    }
-                    ?>
+                        $page_image = get_field('page_image', $subpage->ID);
 
-                </div>
+                        $page_title = esc_html($subpage->post_title);
+                        $page_url = get_permalink($subpage->ID);
+                ?>
+                        <div class="single">
+                            <div class="img">
+                                <?php if ($page_image) { ?>
+                                    <img loading="lazy" src="<?php echo $page_image['url'] ?>" alt="<?php echo $page_image['name'] ?>">
+                                <?php } ?>
+                            </div>
+                            <div class="desc">
+                                <div class="main"><?php echo $page_title ?></div>
+                                <?php
+
+                                if ($sub_pages = get_pages(['parent' => $subpage->ID, 'sort_column' => 'menu_order'])) {
+                                    foreach ($sub_pages as $sub_page) {
+                                        if ($sub_pages2 = get_pages(['parent' => $sub_page->ID, 'sort_column' => 'menu_order'])) {
+                                ?>
+                                            <div class="sub_page_title"><?php echo esc_html($sub_page->post_title) ?></div>
+
+                                            <?php
+                                            foreach ($sub_pages2 as $sub_page2) {
+                                                if ($sub_pages3 = get_pages(['parent' => $sub_page2->ID, 'sort_column' => 'menu_order'])) {
+                                            ?>
+                                                    <div class="sub_page_title sub3_level"><?php echo esc_html($sub_page2->post_title) ?></div>
+                                                    <?php
+                                                    foreach ($sub_pages3 as $sub_page3) {
+                                                    ?>
+                                                        <div class="sub_page_link sub3_level"><a data-cursor="active" href="<?php echo get_permalink($sub_page3->ID) ?>"><?php echo esc_html($sub_page3->post_title) ?></a></div>
+                                                    <?php
+                                                    }
+                                                } else {
+                                                    ?>
+                                                    <div class="sub_page_link"><a data-cursor="active" href="<?php echo get_permalink($sub_page2->ID) ?>"><?php echo esc_html($sub_page2->post_title) ?></a></div>
+                                                <?php
+                                                }
+                                                ?>
+                                            <?php
+                                            }
+                                        } else {
+                                            ?>
+                                            <div class="simple_link"><a data-cursor="active" href="<?php echo get_permalink($sub_page->ID) ?>"><?php echo esc_html($sub_page->post_title) ?></a></div>
+                                <?php
+                                        }
+                                    }
+                                }
+                                ?>
+                            </div>
+                        </div>
+                <?php
+                    }
+                }
+                ?>
             </div>
         </div>
     </div>

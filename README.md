@@ -34,18 +34,13 @@ Download and unpach "plugins" in /wp-content
 unpack "images" to  /wp-content/themes/twentytwentyfour/assets/
 
 
-<br>
-Migrate latest wp_telek.sql file (it could be any of wp_telek{version}.sql files)
-<br>
-<br>
-<b><i>Go to your mysql console and run these queries:</i></b>
+Migrate wp_telek.sql
 
-<code>update wp_options set option_value='http://localhost:8000/' where option_name='siteurl';
-update wp_options set option_value='http://localhost:8000/' where option_name='home';
-update wp_options set option_value='http://localhost:8000/' where option_name='blogname';
-</code>
-<br>
-<br>
+Go to your mysql console and run these queries
+
+"update wp_options set option_value='http://localhost:8000/' where option_name='siteurl';"
+"update wp_options set option_value='http://localhost:8000/' where option_name='home';"
+"update wp_options set option_value='http://localhost:8000/' where option_name='blogname';"
 
 now go to 
 http://localhost:8000/wp-admin/

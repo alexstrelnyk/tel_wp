@@ -47,11 +47,12 @@
         yoast_seo_meta();
     }
     wp_head();
+    $current_page = get_post_field('post_name', get_queried_object_id());
     ?>
 
 </head>
 
-<body data-page="<?php echo get_post_field('post_name', get_queried_object_id()); ?>">
+<body data-page="<?php echo $current_page ?>" class="page_<?php echo $current_page ?>">
     <noscript>You need to enable JavaScript to run this app.</noscript>
 
     <section id="splash-screen" class="splash">
