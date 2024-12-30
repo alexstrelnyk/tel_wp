@@ -23,7 +23,7 @@ Download and unpach "plugins" in /wp-content
 unpack "images" to  /wp-content/themes/twentytwentyfour/assets/
 
 
-Migrate wp_telek.sql
+Migrate latest wp_telek.sql file (it could be any of wp_telek{version}.sql files)
 
 Go to your mysql console and run these queries
 
