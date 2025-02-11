@@ -9614,6 +9614,14 @@ form [type="submit"],
 }
 
 @media screen and (max-width:480px) {
+    .services-slider .product-card .product-desc .product-image {
+        height: 200px;
+        width: 100%;
+    }
+    .services-slider .product-card .product-desc .product-image img {
+        height: auto;
+        width: 100%;
+    }
 
     .industries-mob .industries-slider .industry-card div img {
         height: auto;
@@ -10083,6 +10091,16 @@ form [type="submit"],
     .services-tree .prod_container .single .desc a {
         line-height: normal;
         font-size: 12px;
+    }
+}
+@media screen and (min-width:481px) and (max-width:700px) {
+    .services-slider .product-card .product-desc .product-image {
+        height: 612px;
+        width: 100%;
+    }
+    .services-slider .product-card .product-desc .product-image img {
+        height: auto;
+        width: 100%;
     }
 }
 @media screen and (min-width:701px) and (max-width:1200px) {
