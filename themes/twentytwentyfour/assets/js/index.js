@@ -115,10 +115,10 @@ $(document).ready(function () {
             observer.observe(item, { attributes: true });
         });
         const productTitle = $('.services-slider').find('.product-title');
-        if (productTitle.length) {
-            productTitle[0].style.bottom = '175px';
-            productTitle[0].style.left = '-205px';
-        }
+        // if (productTitle.length) {
+        //     productTitle[0].style.bottom = '175px';
+        //     productTitle[0].style.left = '-205px';
+        // }
     }
 
     $('.pum-title').css({ 'font-family': 'Commissioner' });

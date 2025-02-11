@@ -3,8 +3,8 @@ $header_text = get_label('ПРОДУКТИ І ПОСЛУГИ', 'PRODUCTS AND SER
 ?>
 <section id=":r5:" class="width-wrapper">
     <div class="bg-grey-blue slider-container">
-        <div class="slider-side-bar bg-midnight-blue">
-            <p class="Sub color-white  bold"><?php echo $header_text ?></p>
+        <div class="slider-side-bar">
+            <p class="Body color-white "><?php echo $header_text ?></p>
         </div>
         <div class="services-title">
             <p class="Body color-white "><?php echo $header_text ?></p>
@@ -31,10 +31,6 @@ $header_text = get_label('ПРОДУКТИ І ПОСЛУГИ', 'PRODUCTS AND SER
                             <div class="product-image" onclick="goto('<?php echo $page_url ?>')">
                                 <img loading="lazy" src="<?php echo $page_image['url'] ?>" alt="<?php echo $page->post_title ?>">
                             </div>
-                            <a class="Body animated-link" style="white-space:nowrap;" data-cursor="active" href="<?php echo $page_url ?>">
-                                <span class="title" style="white-space:nowrap;">
-                                </span>
-                            </a>
                         </div>
                         <div class="product-title">
                             <p class="H2 color-white "><a class="mob-link color-white mob_title" href="<?php echo $page_url ?>"><?php echo $page->post_title ?></a></p>
