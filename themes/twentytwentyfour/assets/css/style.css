@@ -10265,7 +10265,7 @@ form [type="submit"],
 
     .single-page-template .module-container,
     .services-tree .prod_container {
-        display: flex;
+        /* display: flex; */
     }
     .services-tree .prod_container .single {
         width: 50%;
