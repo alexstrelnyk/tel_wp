@@ -10263,7 +10263,7 @@ form [type="submit"],
         width: 640px;
     }
 
-    .single-page-template .module-container,
+    /* .single-page-template .module-container, */
     .services-tree .prod_container {
         display: flex;
     }
