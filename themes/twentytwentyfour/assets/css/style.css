@@ -10263,8 +10263,8 @@ form [type="submit"],
         width: 640px;
     }
 
-    /* .services-tree .prod_container, */
-    .single-page-template .module-container{
+    .single-page-template .module-container,
+    .services-tree .prod_container {
         display: flex;
     }
     .services-tree .prod_container .single {
