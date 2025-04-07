@@ -10267,6 +10267,9 @@ form [type="submit"],
     .services-tree .prod_container {
         display: flex;
     }
+    .services-tree .prod_container.single-page-template {
+        display: block;
+    }
     .services-tree .prod_container .single {
         width: 50%;
     }
