@@ -9659,9 +9659,11 @@ form [type="submit"],
         padding: 0 !important;
     }
     .blog-view .container .blog-content .module-container.type-head,
-    .blog-view .container .blog-content .module-container.type-paragraph,
     .blog-view .container .blog-content .H3 {
         padding: 0 32px;
+    }
+    .blog-view .container .blog-content .module-container.type-paragraph{
+        margin: 0 32px 12px;
     }
     .blog-view .container .blog-content .module-container.type-paragraph {
         margin-bottom: 12px !important;
