@@ -10498,7 +10498,9 @@ form [type="submit"],
 }
 
 .module-container {
-    margin-bottom: 12px
+    margin-bottom: 12px;
+    font-family: 'Commissioner', sans-serif;
+    font-size: 16px;
 }
 
 .module-container.side-pad {
@@ -10507,6 +10509,9 @@ form [type="submit"],
 
 .module-container.padding {
     padding: 60px
+}
+.module-container.type-paragraph.padding {
+    padding: 40px 20px;
 }
 
 .module-container.padding.side-pad {
