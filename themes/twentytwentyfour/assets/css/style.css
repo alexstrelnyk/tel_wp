@@ -10022,7 +10022,9 @@ form [type="submit"],
 .single-page-template .sub_parent_0 {
     margin: 0 auto;
 }
-.module-container.type-paragraph.bg-light-blue {
+.module-container.type-paragraph:nth-child(1),
+.module-container.type-paragraph:nth-child(2),
+.module-container.type-paragraph:nth-child(3) {
     white-space: pre-line;
 }
 
