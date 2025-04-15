@@ -9840,8 +9840,8 @@ form [type="submit"],
         display: block;
     }
     .single-page-template .sub_parent_0 {
-        padding-left: 40px;
-        padding-right: 40px;
+        /* padding-left: 40px;
+        padding-right: 40px; */
     }
 
     .services-tree .shelf-content-mob {
@@ -10021,6 +10021,7 @@ form [type="submit"],
 }
 .single-page-template .sub_parent_0 {
     margin: 0 auto;
+    white-space: pre-line;
 }
 
 @media screen and (min-width:701px) and (max-width:819px) {
