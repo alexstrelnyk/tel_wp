@@ -10022,6 +10022,9 @@ form [type="submit"],
 .single-page-template .sub_parent_0 {
     margin: 0 auto;
 }
+.module-container.type-paragraph.bg-light-blue {
+    white-space: pre-line;
+}
 
 @media screen and (min-width:701px) and (max-width:819px) {
     .single-page-template .sub_parent_0 {
