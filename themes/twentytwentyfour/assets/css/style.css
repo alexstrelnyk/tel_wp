@@ -9925,6 +9925,9 @@ form [type="submit"],
     }
 }
 @media screen and (max-width:768px) {
+    .module-container.type-paragraph.padding {
+        padding: 40px 20px;
+    }
 
     .services-slider .product-card {
         margin: 0 16px;
@@ -10511,9 +10514,6 @@ form [type="submit"],
 
 .module-container.padding {
     padding: 60px
-}
-.module-container.type-paragraph.padding {
-    padding: 40px 20px;
 }
 
 .module-container.padding.side-pad {
