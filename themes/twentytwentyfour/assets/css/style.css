@@ -10508,6 +10508,17 @@ form [type="submit"],
     font-size: 16px;
     color: #0A0D29;
 }
+.blog-side-bar {
+    display: flex;
+    flex-direction: column;
+    height: -webkit-max-content;
+    height: max-content;
+    margin-right: 20px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    width: 280px;
+}
 
 .module-container.side-pad {
     padding-left: 180px !important
