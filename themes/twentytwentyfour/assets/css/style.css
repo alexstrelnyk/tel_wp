@@ -2769,7 +2769,7 @@ a {
     background-color: var(--navy-green)
 }
 .bg-navy-green {
-    margin-bottom: 12px;
+    margin-bottom: 12px !important;
 }
 
 .fill-navy-green,
