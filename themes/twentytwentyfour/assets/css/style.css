@@ -2768,6 +2768,9 @@ a {
 .hover-bg-navy-green:hover {
     background-color: var(--navy-green)
 }
+.bg-navy-green {
+    margin-bottom: 12px;
+}
 
 .fill-navy-green,
 .fill-navy-green * {
@@ -9925,6 +9928,9 @@ form [type="submit"],
     }
 }
 @media screen and (max-width:768px) {
+    .H6 {
+        font-size: 18px;
+    }
     .module-container.type-paragraph.padding {
         padding: 40px 20px;
     }

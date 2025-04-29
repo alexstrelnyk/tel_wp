@@ -64,6 +64,8 @@ $(document).ready(function () {
             $(item).find('.mob-link').remove();
 
         })
+    } else {
+        $('.H3').addClass('H-mob').removeClass('H3');
     }
 
     if (isScale) {
