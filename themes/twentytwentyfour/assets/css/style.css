@@ -10908,6 +10908,9 @@ form [type="submit"],
         line-height: inherit;
         padding: 40px 32px 0;
     }
+    .module-container .Body {
+        padding: 0 32px;
+    }
 
     .blog-view-mob .module-container.padding {
         margin-left: 32px;
