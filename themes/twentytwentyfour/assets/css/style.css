@@ -10911,6 +10911,9 @@ form [type="submit"],
     .module-container .Body {
         padding: 0 32px;
     }
+    .module-container.type-block.padding {
+        padding: 40px 20px;
+    }
 
     .blog-view-mob .module-container.padding {
         margin-left: 32px;
