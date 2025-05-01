@@ -9958,7 +9958,7 @@ form [type="submit"],
         margin-bottom: 12px;
     }
     .blog-view .container .blog-content .module-container.type-paragraph {
-        margin-bottom: 32px;
+        /* margin-bottom: 32px; */
     }
     .blog-view .container .blog-content .H3 {
         font-weight: 400;
@@ -10902,6 +10902,13 @@ form [type="submit"],
 }
 
 @media(max-width:480px) {
+    .blog-view-mob .blog-content .H-mob {
+        font-size: 30px;
+        font-weight: 400;
+        line-height: inherit;
+        padding: 40px 32px 0;
+    }
+
     .blog-view-mob .module-container.padding {
         margin-left: 32px;
         margin-right: 32px
