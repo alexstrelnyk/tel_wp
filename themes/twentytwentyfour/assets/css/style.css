@@ -6816,7 +6816,8 @@ header .root {
 }
 @media screen and (min-width:1536px) {
     .services-slider .product-card .product-desc .product-image {
-        width: 558px
+        width: 558px;
+        height: 612px;
     }
     .services-slider .product-card .product-desc .product-image img {
         height: auto;
