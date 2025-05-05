@@ -26,9 +26,9 @@ $header_text = get_label('ПРОДУКТИ І ПОСЛУГИ', 'PRODUCTS AND SER
                     $page_image = get_field('page_image', $page->ID);
                 ?>
 
-                    <div class="product-card">
+                    <div class="product-card" data-cursor="slider-img" onclick="goto('<?php echo $page_url ?>')">
                         <div class="product-desc">
-                            <div class="product-image" onclick="goto('<?php echo $page_url ?>')">
+                            <div class="product-image">
                                 <img loading="lazy" src="<?php echo $page_image['url'] ?>" alt="<?php echo $page->post_title ?>">
                             </div>
                         </div>
