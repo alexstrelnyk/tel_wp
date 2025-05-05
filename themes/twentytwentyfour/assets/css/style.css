@@ -6756,6 +6756,9 @@ header .root {
 .services-tree .flex-col:first-child #cards-tree {
     text-align: center;
 }
+.slider-container .slider-side-bar .side-text {
+    font-weight: 700;
+}
 
 @media screen and (max-width:1536px)and (min-width:1201px) {
 
@@ -6815,6 +6818,9 @@ header .root {
     }
 }
 @media screen and (min-width:1536px) {
+    .services-slider .product-card .product-title .H2{
+        font-size: 94px !important;
+    }
     .services-slider .product-card .product-desc .product-image {
         width: 558px;
         height: 612px;

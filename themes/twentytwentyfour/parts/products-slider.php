@@ -4,10 +4,10 @@ $header_text = get_label('ПРОДУКТИ І ПОСЛУГИ', 'PRODUCTS AND SER
 <section id=":r5:" class="width-wrapper">
     <div class="bg-grey-blue slider-container">
         <div class="slider-side-bar">
-            <p class="Body color-white "><?php echo $header_text ?></p>
+            <p class="Body color-white side-text"><?php echo $header_text ?></p>
         </div>
         <div class="services-title">
-            <p class="Body color-white "><?php echo $header_text ?></p>
+            <p class="Body color-white side-text"><?php echo $header_text ?></p>
         </div>
         <div class="services-slider">
             <div id="products_swiper">
