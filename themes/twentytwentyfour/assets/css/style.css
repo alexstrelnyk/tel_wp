@@ -10148,7 +10148,7 @@ form [type="submit"],
         margin: 100px 50px 170px 100px;
     }
     .services-slider .product-card:nth-child(2) {
-        margin: 100px 50px 170px 50px;
+        margin: 100px 50px 0px 50px;
     }
     .slider-container .slider-side-bar p {
         font-size: 24px;
