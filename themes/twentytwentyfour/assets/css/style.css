@@ -9629,7 +9629,7 @@ form [type="submit"],
         width: 100%;
     }
     .services-slider .product-card .product-desc .product-image img {
-        height: auto;
+        height: 200px;
         width: 100%;
     }
 
