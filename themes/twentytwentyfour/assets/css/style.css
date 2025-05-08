@@ -6835,22 +6835,35 @@ header .root {
     }
 }
 @media screen and (min-width:1201px) and (max-width:1536px) {
+    .services-slider .product-card .product-desc .product-image img{
+        height: auto;
+        width: 100%;
+    }
     .services-slider .product-card .product-desc .product-image {
         height: 612px;
-        width: 390px
+        /* width: 390px */
     }
 }
 @media screen and (min-width:1536px) {
     .services-slider .product-card .product-title .H2{
         font-size: 94px !important;
     }
+    .services-slider .product-card .product-desc {
+        width: 100%;
+    }
     .services-slider .product-card .product-desc .product-image {
-        width: 558px;
+        /* width: 558px; */
         height: 612px;
     }
     .services-slider .product-card .product-desc .product-image img {
         height: auto;
         width: 100%;
+    }
+    .services-slider .product-card .product-title {
+        left: 140px;
+    }
+    .services-slider .product-card:nth-child(2) .product-title {
+        left: 90px;
     }
 }
 @media screen and (min-width:701px) and (max-width:1200px) {
@@ -9935,6 +9948,13 @@ form [type="submit"],
     .services-tree .prod_container .single:nth-child(2) {
         padding-left: 30px;
     }
+    .services-slider {
+        width: 100%;
+        /* width: calc(100% - 120px); */
+        position: relative;
+        left: 0px;
+        /* left: 120px; */
+    }
 }
 @media screen and (min-width:701px) {
 
@@ -10192,14 +10212,22 @@ form [type="submit"],
 }
 @media screen and (min-width:1201px) {
     .services-slider .product-card {
-        margin: 100px 50px 179px 100px;
+        margin: 100px 0 179px 0;
+        padding-left: 100px;
+        padding-right: 50px;
+        width: 49.8%;
     }
     .services-slider .product-card:nth-child(2) {
-        margin: 100px 50px 0px 50px;
+        margin: 100px 0 0px 0;
+        padding-left: 50px;
+        padding-right: 100px;
     }
     .slider-container .slider-side-bar p {
         font-size: 24px;
         margin: 20px;
+    }
+    .services-slider .product-card .product-desc {
+        width: 100%;
     }
 }
 @media screen and (min-width:769px) {
@@ -10315,6 +10343,10 @@ form [type="submit"],
 
     .services-slider .product-card .product-title {
         bottom: 66px;
+        left: 140px;
+    }
+    .services-slider .product-card:nth-child(2) .product-title {
+        left: 90px;
     }
 }
 @media screen and (min-width:1201px) {
