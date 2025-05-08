@@ -26,13 +26,13 @@ $header_text = get_label('ПРОДУКТИ І ПОСЛУГИ', 'PRODUCTS AND SER
                     $page_image = get_field('page_image', $page->ID);
                 ?>
 
-                    <div class="product-card" data-cursor="slider-img" onclick="goto('<?php echo $page_url ?>')">
+                    <div class="product-card">
                         <div class="product-desc">
-                            <div class="product-image">
+                            <div class="product-image" data-cursor="slider-img" onclick="goto('<?php echo $page_url ?>')">
                                 <img loading="lazy" src="<?php echo $page_image['url'] ?>" alt="<?php echo $page->post_title ?>">
                             </div>
                         </div>
-                        <div class="product-title">
+                        <div class="product-title" data-cursor="slider-img" onclick="goto('<?php echo $page_url ?>')">
                             <p class="H2 color-white "><a class="mob-link color-white mob_title" href="<?php echo $page_url ?>"><?php echo $page->post_title ?></a></p>
                         </div>
                     </div>
