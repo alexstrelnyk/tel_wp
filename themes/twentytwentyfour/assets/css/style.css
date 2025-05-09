@@ -10339,6 +10339,11 @@ form [type="submit"],
     }
 }
 
+@media screen and (min-width:1201px) and (max-width:1391px) {
+    .services-slider .product-card .product-desc .product-image {
+        height: 491px !important;
+    }
+}
 @media screen and (min-width:1201px) and (max-width:1535px) {
 
     .services-slider .product-card .product-title {
