@@ -12647,6 +12647,8 @@ html.pum-open.pum-open-overlay.pum-open-scrollable body>:not([aria-modal=true]) 
 }
 
 @media screen and (max-width:1200px)and (min-width:481px) {
+
+    .pdf-page,
     .pdf-page-mob {
         padding: 40px 64px 20px
     }
@@ -12661,6 +12663,9 @@ html.pum-open.pum-open-overlay.pum-open-scrollable body>:not([aria-modal=true]) 
         padding: 8px 0
     }
 
+    .pdf-page .content .btn-mob .Sub2{
+        font-size: 16px;
+    }
     .pdf-page-mob .content .btn p {
         font-size: 16px;
         line-height: 140%
