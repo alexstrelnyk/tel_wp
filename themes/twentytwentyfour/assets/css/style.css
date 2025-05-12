@@ -12646,6 +12646,12 @@ html.pum-open.pum-open-overlay.pum-open-scrollable body>:not([aria-modal=true]) 
     padding-right: 6px !important;
 }
 
+.pdf-page .btn-wrapper,
+.pdf-page-mob .btn-wrapper-mob .btn-mob,
+.pdf-page-mob .justify-between .btn {
+    display: none;
+}
+
 @media screen and (max-width:1200px)and (min-width:481px) {
 
     .pdf-page,

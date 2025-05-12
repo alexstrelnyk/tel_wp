@@ -9,6 +9,7 @@ var isLargeScreen = false;
 
 // Check mob/large view
 isLargeScreen = $(window).width() > 768 ? true : false;
+isTabletScreen = $(window).width() <= 1200 ? true : false;
 
 $('#root').hide();
 $(document).ready(function () {
@@ -47,6 +48,9 @@ $(document).ready(function () {
     }, previewTimeout);
 
     // Card slider margin
+    if (isTabletScreen) {
+        $('.pdf-page').addClass('pdf-page-mob').removeClass('pdf-page');
+    }
     if (isLargeScreen) {
         const ratio = window.devicePixelRatio === 1.25 ? 1.25 : 1;
         cardSliderMargin = (($(window).width()) / 2 + 100) * ratio;
