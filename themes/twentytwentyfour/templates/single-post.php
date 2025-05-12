@@ -28,7 +28,7 @@ get_header();
                     );
                 }
 
-                echo $post_date;
+                // echo $post_date;
                 ?>
             </p>
         </div>
