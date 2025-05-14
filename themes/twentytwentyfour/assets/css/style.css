@@ -12085,6 +12085,10 @@ form [type="submit"],
     padding: 100px 0 60px
 }
 
+.blog-view .blog-side-bar .Sub2{
+    font-size: 16px;
+    font-weight: 400;
+}
 .blog-view .blog-side-bar {
     display: flex;
     flex-direction: column;
