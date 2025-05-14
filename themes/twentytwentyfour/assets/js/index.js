@@ -1232,7 +1232,7 @@ $(window).on('load', function () {
     initCursor();
     const blogSideBar = $('.blog-side-bar').find('svg');
     if (blogSideBar.length) {
-        // $(blogSideBar).hide();
+        $(blogSideBar).hide();
     }
 
     $(window).on('scroll', setBookmark)
