@@ -9800,17 +9800,19 @@ form [type="submit"],
     display: inline-flex;
 }
 
-.services-tree .prod_container .single .desc .sub_page_title,
-.services-tree .prod_container .single .desc .sub_page_link,
 .services-tree .prod_container .single .desc .simple_link {
+    margin-bottom: 12px;
+}
+.services-tree .prod_container .single .desc .sub_page_title,
+.services-tree .prod_container .single .desc .sub_page_link{
     margin-bottom: 6px;
 }
 .services-tree .prod_container .single .desc .main{
-    font-weight: 600;
+    font-weight: 700;
     font-family: 'Commissioner', sans-serif;
     font-size: 24px;
     line-height: 29.35px;
-    margin-bottom: 12px;
+    margin-bottom: 24px;
     color: var(--just-grey);
 }
 
@@ -10148,7 +10150,6 @@ form [type="submit"],
     .services-tree .prod_container .single .desc .main {
         font-size: 14px;
         line-height: normal;
-        margin-bottom: 6px;
     }
     .services-tree .prod_container .single .desc .sub_page_title {
         line-height: normal;
