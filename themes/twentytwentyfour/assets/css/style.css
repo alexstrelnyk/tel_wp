@@ -12926,6 +12926,7 @@ span.wpcf7-not-valid-tip { display: none; }
     overflow: hidden !important;
 }
 @media screen and (max-width: 1200px) and (min-width: 481px) {
+    .pdf-page-mob .title .H-mob,
     .pdf-page-mob .title .H3 {
         font-size: 24px;
         font-weight: 700;
