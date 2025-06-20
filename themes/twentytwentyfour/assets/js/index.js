@@ -1344,26 +1344,32 @@ function renderPDF(pdfUrl) {
     // pdfWidth = isLargeScreen ? ($(window).width() * ratio) * 0.9 : $(window).width() - 64;
     pdfWidth = $('.pdf').width();
 
-    // Load the PDF document with the reference of its file object URL
-    var loadingTask = pdfjsLib.getDocument(pdfUrl);
+    if (pdfWidth) {
+        // Load the PDF document with the reference of its file object URL
+        var loadingTask = pdfjsLib.getDocument(pdfUrl);
 
-    loadingTask.promise.then(
-        function (pdf) {
-            // Get the total number of pages
-            var numPages = pdf.numPages;
+        loadingTask.promise.then(
+            function (pdf) {
+                // Get the total number of pages
+                var numPages = pdf.numPages;
 
-            // Iterate through all the pages
-            for (var pageNum = 1; pageNum <= numPages; pageNum++) {
-                renderPage(pdf, pageNum, pdfWidth);
+                // Iterate through all the pages
+                for (var pageNum = 1; pageNum <= numPages; pageNum++) {
+                    renderPage(pdf, pageNum, pdfWidth);
+                }
+                if (numPages > 0) {
+                    $('#pdf_loader').remove();
+                }
+            },
+            function (reason) {
+                console.error(reason);
             }
-            if (numPages > 0) {
-                $('#pdf_loader').remove();
-            }
-        },
-        function (reason) {
-            console.error(reason);
-        }
-    );
+        );
+    } else {
+        setTimeout(function () {
+            renderPDF(pdfUrl)
+        }, 500);
+    }
 }
 
 function renderPage(pdf, pageNum, customWidth) {
